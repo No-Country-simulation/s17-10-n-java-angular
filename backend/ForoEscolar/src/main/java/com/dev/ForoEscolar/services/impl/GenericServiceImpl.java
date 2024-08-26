@@ -1,40 +1,45 @@
 package com.dev.ForoEscolar.services.impl;
 
+import com.dev.ForoEscolar.mapper.GenericMapper;
 import com.dev.ForoEscolar.repository.GenericRepository;
 import com.dev.ForoEscolar.services.GenericService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
-public abstract class GenericServiceImpl<T, ID> implements GenericService<T, ID> {
+public abstract class GenericServiceImpl<T, ID , RequestDTO, ResponseDTO> implements GenericService<T, ID, RequestDTO, ResponseDTO> {
 
-    protected final GenericRepository<T, ID> repository;
 
-    @Autowired
-    protected GenericServiceImpl(GenericRepository<T, ID> repository) {
-        this.repository = repository;
+    protected GenericRepository<T, ID> repository;
+
+    protected GenericMapper<T, RequestDTO, ResponseDTO> mapper;
+
+
+    @Override
+    public ResponseDTO save(RequestDTO requestDTO) {
+        T entity = mapper.toEntity(requestDTO);
+        T savedEntity = repository.save(entity);
+        return mapper.toResponseDto(savedEntity);
     }
 
     @Override
-    public T save(T entity) {
-        return repository.save(entity);
+    public Optional<ResponseDTO> findById(ID id) {
+        return repository.findById(id).map(mapper::toResponseDto);
     }
 
     @Override
-    public Optional<T> findById(ID id) {
-        return repository.findById(id);
-    }
-
-    @Override
-    public Iterable<T> findAll() {
-        return repository.findAll();
+    public Iterable<ResponseDTO> findAll() {
+        return repository.findAll().stream()
+                .map(mapper::toResponseDto)
+                .collect(Collectors.toList());
     }
 
     @Override
     public void deleteById(ID id) {
         repository.deleteById(id);
     }
+
 
 }
