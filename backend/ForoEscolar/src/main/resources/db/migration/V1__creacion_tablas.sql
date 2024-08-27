@@ -1,7 +1,7 @@
 CREATE TABLE users (
     id BIGINT PRIMARY KEY,
     dni VARCHAR(50) UNIQUE,
-    tipo_documento ENUM("PASAPORTE, DNI, OTROS")
+    tipo_documento ENUM('PASAPORTE', 'DNI', 'OTROS'),
     activo BIT,
     nombre VARCHAR(100),
     apellido VARCHAR(100),
@@ -49,7 +49,7 @@ CREATE TABLE asistencia (
     estado VARCHAR(50),
     observaciones VARCHAR(255),
     FOREIGN KEY (estudiante_id) REFERENCES estudiantes(id),
-    FOREIGN KEY (profesor_id) REFERENCES profesores(id)
+    FOREIGN KEY (profesor_id) REFERENCES users(id)
 );
 
 CREATE TABLE administrador_escolar (
