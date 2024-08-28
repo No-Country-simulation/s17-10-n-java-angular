@@ -14,10 +14,8 @@ import java.sql.Timestamp;
 public class TareaResponseDto {
 
     Long id;
-
     String descripcion;
     String titulo;
-
     Timestamp fechaEntrega;
     Long profesorId;
     Long estudianteId;
