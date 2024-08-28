@@ -19,4 +19,6 @@ public class ApplicationException extends RuntimeException{
 
     public void setCampo(String campo) {
         this.campo = campo;
-    }}
+    }
+
+}
