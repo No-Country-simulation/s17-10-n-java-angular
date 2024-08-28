@@ -1,4 +1,4 @@
-package com.dev.ForoEscolar.services.Impl;
+package com.dev.ForoEscolar.services.impl;
 
 import com.dev.ForoEscolar.dtos.estudiante.EstudianteRequestDTO;
 import com.dev.ForoEscolar.dtos.estudiante.EstudianteResponseDTO;
