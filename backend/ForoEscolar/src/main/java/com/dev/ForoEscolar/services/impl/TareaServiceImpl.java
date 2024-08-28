@@ -1,10 +1,10 @@
-package com.dev.ForoEscolar.services;
+package com.dev.ForoEscolar.services.impl;
 
-import com.dev.ForoEscolar.dtos.Tarea.TareaRequestDto;
 import com.dev.ForoEscolar.dtos.Tarea.TareaResponseDto;
 import com.dev.ForoEscolar.mapper.tarea.TareaMapper;
 import com.dev.ForoEscolar.model.Tarea;
 import com.dev.ForoEscolar.repository.TareaRepository;
+import com.dev.ForoEscolar.services.TareaService;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;

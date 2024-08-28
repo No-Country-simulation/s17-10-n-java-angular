@@ -70,4 +70,10 @@ public class UserServiceImpl implements UserService {
                 .map(UserMapper.INSTANCE::toResponseDTO)
                 .toList();
     }
+
+    @Override
+    public UserResponseDTO findByEmail(String username){
+       User user= userRepository.findByEmail(username).orElse(null);
+       return  UserMapper.INSTANCE.toResponseDTO(user);
+    }
 }
