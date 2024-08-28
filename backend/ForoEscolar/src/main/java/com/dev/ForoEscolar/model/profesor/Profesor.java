@@ -1,6 +1,7 @@
 package com.dev.ForoEscolar.model.profesor;
 
 import com.dev.ForoEscolar.enums.MateriaEnum;
+import com.dev.ForoEscolar.model.Tarea;
 import com.dev.ForoEscolar.model.User;
 import com.dev.ForoEscolar.model.estudiante.Estudiante;
 import jakarta.persistence.*;
