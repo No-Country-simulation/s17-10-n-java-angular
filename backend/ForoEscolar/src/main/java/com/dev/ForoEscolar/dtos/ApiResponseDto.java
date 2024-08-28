@@ -3,9 +3,10 @@ package com.dev.ForoEscolar.dtos;
 import jakarta.persistence.Entity;
 import lombok.Data;
 import lombok.Getter;
+import org.springframework.http.HttpStatusCode;
 
 
-public class ApiResponseDto<T>{
+public class ApiResponseDto<T>  {
 
     boolean estado;
     String message;

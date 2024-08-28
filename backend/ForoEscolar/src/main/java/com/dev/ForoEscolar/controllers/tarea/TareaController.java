@@ -12,12 +12,11 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
 
-@Controller
+@RestController
 @RequestMapping("/tareas")
 public class TareaController {
 
@@ -36,7 +35,7 @@ public class TareaController {
             String message="Tarea Encontrada";
             return  new ResponseEntity<>(new ApiResponseDto(true,message,getTask), HttpStatus.CREATED);
         }
-    return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    return new ResponseEntity<>(new ApiResponseDto(false,"Tarea no encontrada",null),HttpStatus.NOT_FOUND);
     }
 
     @GetMapping("/getAll")
@@ -65,7 +64,7 @@ public class TareaController {
                             new ApiResponseDto(true,"Tarea Creada con exito",tareaService.save(tarea))
                             , HttpStatus.CREATED);
         }
-        return null;
+        return ResponseEntity.ok(new ApiResponseDto(false, String.valueOf(HttpStatus.BAD_REQUEST),null));
     }
 
     @PutMapping("/{id}")
