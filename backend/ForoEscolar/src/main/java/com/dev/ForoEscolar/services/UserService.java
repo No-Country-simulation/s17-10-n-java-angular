@@ -14,4 +14,5 @@ public interface UserService extends GenericService<User, Long, UserRequestDTO ,
     UserResponseDTO save(UserRequestDTO user);
     void deleteById(Long id);
     Iterable<UserResponseDTO> findAll();
+    UserResponseDTO findByEmail(String email);
 }
