@@ -3,10 +3,13 @@ package com.dev.ForoEscolar.model.estudiante;
 import com.dev.ForoEscolar.enums.AulaEnum;
 import com.dev.ForoEscolar.enums.CursoEnum;
 import com.dev.ForoEscolar.enums.TipoDocumentoEnum;
+import com.dev.ForoEscolar.model.Tarea;
+import com.dev.ForoEscolar.model.User;
 import jakarta.persistence.*;
 import lombok.*;
 
 import java.sql.Date;
+import java.util.List;
 
 @Getter
 @Setter
