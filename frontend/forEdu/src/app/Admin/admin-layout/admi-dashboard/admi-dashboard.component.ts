@@ -5,29 +5,38 @@ import { MenuItem } from 'primeng/api';
 import { ButtonModule } from 'primeng/button';
 import { CalendarModule } from 'primeng/calendar';
 import { SplitButtonModule } from 'primeng/splitbutton';
+import { CommonModule } from '@angular/common';
+
+
 
 
 @Component({
   selector: 'app-admi-dashboard',
   standalone: true,
-  imports: [ CalendarModule, ButtonModule, FormsModule, SplitButtonModule],
+  imports: [ CalendarModule, ButtonModule, FormsModule, SplitButtonModule,CommonModule],
   templateUrl: './admi-dashboard.component.html',
   styleUrl: './admi-dashboard.component.css'
 })
 export class AdmiDashboardComponent {
-  items: MenuItem[];
+
+
+  items: MenuItem[] = [];
+
 
   constructor() {
+
+  }
+  ngOnInit() {
     this.items = [
       { label: 'Option 1', icon: 'pi pi-plus', command: () => this.save('Option 1') },
       { label: 'Option 2', icon: 'pi pi-refresh', command: () => this.save('Option 2') },
       { label: 'Option 3', icon: 'pi pi-times', command: () => this.save('Option 3') }
     ];
-  }
-
-  save(info: string) {
+}
+ save(info: string) {
     console.log(`You clicked on ${info}`);
   }
+
 /*----------------------*/
   date: Date = new Date();
 
