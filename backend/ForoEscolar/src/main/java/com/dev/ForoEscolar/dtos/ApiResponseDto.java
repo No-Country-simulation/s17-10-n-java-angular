@@ -1,5 +1,6 @@
 package com.dev.ForoEscolar.dtos;
 
+import io.swagger.v3.oas.annotations.Operation;
 import jakarta.persistence.Entity;
 import lombok.Data;
 import lombok.Getter;

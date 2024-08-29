@@ -12,6 +12,4 @@ public interface GenericServiceDto<T,ID, EntityDto> {
 
     void deleteById(ID id);
 
-
-
 }
