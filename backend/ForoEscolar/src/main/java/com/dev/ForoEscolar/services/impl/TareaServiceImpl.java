@@ -66,11 +66,4 @@ public class TareaServiceImpl implements TareaService {
 
     }
 
-
-    //Esto es solo para prueba - Cristian
-    @Override
-    public TareaResponseDto update(TareaResponseDto requestDTO) {
-        return null;
-    }
-
 }
