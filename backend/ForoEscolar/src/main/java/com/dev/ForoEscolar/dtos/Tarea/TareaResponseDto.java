@@ -6,17 +6,18 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.sql.Timestamp;
+import java.util.Date;
 
 @Builder
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class TareaResponseDto {
-//hola
+
     Long id;
     String descripcion;
     String titulo;
-    Timestamp fechaEntrega;
+    Date fechaEntrega;
     Long profesorId;
     Long estudianteId;
 }
