@@ -3,7 +3,7 @@ package com.dev.ForoEscolar.services.impl;
 import com.dev.ForoEscolar.dtos.profesor.ProfesorRequestDTO;
 import com.dev.ForoEscolar.dtos.profesor.ProfesorResponseDTO;
 import com.dev.ForoEscolar.mapper.profesor.ProfesorMapper;
-import com.dev.ForoEscolar.model.profesor.Profesor;
+import com.dev.ForoEscolar.model.Profesor;
 import com.dev.ForoEscolar.repository.IProfesorRepository;
 import com.dev.ForoEscolar.services.IProfesorService;
 import jakarta.transaction.Transactional;

@@ -1,10 +1,9 @@
-package com.dev.ForoEscolar.model.estudiante;
+package com.dev.ForoEscolar.model;
 
 import com.dev.ForoEscolar.enums.AulaEnum;
 import com.dev.ForoEscolar.enums.CursoEnum;
+import com.dev.ForoEscolar.enums.RoleEnum;
 import com.dev.ForoEscolar.enums.TipoDocumentoEnum;
-import com.dev.ForoEscolar.model.Tarea;
-import com.dev.ForoEscolar.model.User;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -21,7 +20,14 @@ public class Estudiante {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    private String nombre;
+
+    private String apellido;
+
     private String dni;
+
+    @Enumerated(EnumType.STRING)
+    private RoleEnum rol;
 
     @Column(name = "fecha_nacimiento")
     private Date nacimiento;
@@ -36,20 +42,16 @@ public class Estudiante {
     @Enumerated(EnumType.STRING)
     private TipoDocumentoEnum tipoDocumento;
 
-    @OneToOne
-    @JoinColumn(name = "user_id",nullable = false,foreignKey = @ForeignKey(name="FK_USER_ID"))
-    private User usuario;
-
     @ManyToOne
     @JoinColumn(name = "tutor_legal",nullable = false,foreignKey = @ForeignKey(name="FK_TUTOR_LEGAL"))
     private TutorLegal tutor;
 
-    @OneToMany(mappedBy = "estudiante",cascade = {CascadeType.ALL},orphanRemoval = true,fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "estudiante",cascade = {CascadeType.ALL},orphanRemoval = true,fetch = FetchType.LAZY)
     private List<Boletin> boletin;
 
-    @OneToMany(mappedBy = "estudiante",cascade = {CascadeType.ALL},orphanRemoval = true,fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "estudiante",cascade = {CascadeType.ALL},orphanRemoval = true,fetch = FetchType.LAZY)
     private List<Asistencia> asistencia;
 
-    @OneToMany(mappedBy = "estudiante",cascade = {CascadeType.ALL},orphanRemoval = true,fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "estudiante",cascade = {CascadeType.ALL},orphanRemoval = true,fetch = FetchType.LAZY)
     private List<Tarea> tarea;
 }

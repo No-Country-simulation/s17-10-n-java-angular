@@ -1,9 +1,8 @@
 package com.dev.ForoEscolar.services.impl;
 
-import com.dev.ForoEscolar.dtos.estudiante.EstudianteRequestDTO;
 import com.dev.ForoEscolar.dtos.estudiante.EstudianteResponseDTO;
 import com.dev.ForoEscolar.mapper.estudiante.EstudianteMapper;
-import com.dev.ForoEscolar.model.estudiante.Estudiante;
+import com.dev.ForoEscolar.model.Estudiante;
 import com.dev.ForoEscolar.repository.IEstudianteRepository;
 import com.dev.ForoEscolar.services.IEstudianteService;
 import jakarta.transaction.Transactional;
@@ -13,14 +12,14 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-public class EstudianteServiceImpl extends GenericServiceImpl<Estudiante, Long, EstudianteRequestDTO, EstudianteResponseDTO> implements IEstudianteService {
+public class EstudianteServiceImpl implements IEstudianteService {
 
     @Autowired
     private IEstudianteRepository estudianteRepository;
 
     @Transactional
     @Override
-    public EstudianteResponseDTO save(EstudianteRequestDTO estudianteRequestDTO) {
+    public EstudianteResponseDTO save(EstudianteResponseDTO estudianteRequestDTO) {
         Estudiante estudiante = EstudianteMapper.INSTANCE.toEntity(estudianteRequestDTO);
         estudianteRepository.save(estudiante);
         return EstudianteMapper.INSTANCE.toResponseDTO(estudiante);
@@ -42,7 +41,13 @@ public class EstudianteServiceImpl extends GenericServiceImpl<Estudiante, Long, 
 
     @Transactional
     @Override
-    public EstudianteResponseDTO update(EstudianteRequestDTO estudianteRequestDTO) {
+    public void deleteById(Long id) {
+        Estudiante estudiante = estudianteRepository.findById(id).orElseThrow(() -> new RuntimeException("Estudiante no encontrado"));
+        estudianteRepository.delete(estudiante);
+    }
+
+    @Transactional
+    public EstudianteResponseDTO update(EstudianteResponseDTO estudianteRequestDTO) {
         Estudiante estudiante = EstudianteMapper.INSTANCE.toEntity(estudianteRequestDTO);
         Optional<Estudiante> existingEntity = estudianteRepository.findById(getEntityId(estudiante));
         if (existingEntity.isPresent()) {
@@ -53,15 +58,9 @@ public class EstudianteServiceImpl extends GenericServiceImpl<Estudiante, Long, 
         }
     }
 
-    @Transactional
-    @Override
-    public void deleteById(Long id) {
-        Estudiante estudiante = estudianteRepository.findById(id).orElseThrow(() -> new RuntimeException("Estudiante no encontrado"));
-        estudianteRepository.delete(estudiante);
-    }
-
     //Auxiliar para obtener el ID de la entidad
     protected Long getEntityId(Estudiante estudiante) {
         return estudiante.getId();
     }
+
 }

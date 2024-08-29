@@ -1,11 +1,8 @@
 package com.dev.ForoEscolar.model;
 
-import com.dev.ForoEscolar.model.estudiante.Estudiante;
-import com.dev.ForoEscolar.model.profesor.Profesor;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.sql.Timestamp;
 import java.util.Date;
 
 @Entity

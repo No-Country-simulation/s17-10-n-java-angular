@@ -1,9 +1,6 @@
-package com.dev.ForoEscolar.model.profesor;
+package com.dev.ForoEscolar.model;
 
 import com.dev.ForoEscolar.enums.MateriaEnum;
-import com.dev.ForoEscolar.model.Tarea;
-import com.dev.ForoEscolar.model.User;
-import com.dev.ForoEscolar.model.estudiante.Estudiante;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -15,7 +12,8 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class Profesor {
+public class Profesor extends User {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -23,20 +21,18 @@ public class Profesor {
     @Enumerated(EnumType.STRING)
     private MateriaEnum materia;
 
-    @ManyToOne
-    @JoinColumn(name = "user_id",nullable = false,foreignKey = @ForeignKey(name="FK_USER_ID"))
-    private User usuario;
+//    private Estudiante estudiante;
 
     @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinTable(name="profesor_estudiante", joinColumns = @JoinColumn(name = "profesor_id"), inverseJoinColumns = @JoinColumn(name = "estudante_id"))
     private List<Estudiante> estudiantes;
 
-    @OneToMany(mappedBy = "profesor",cascade = {CascadeType.ALL},orphanRemoval = true,fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "profesor",cascade = {CascadeType.ALL},orphanRemoval = true,fetch = FetchType.LAZY)
     private List<Boletin> boletin;
 
-    @OneToMany(mappedBy = "profesor",cascade = {CascadeType.ALL},orphanRemoval = true,fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "profesor",cascade = {CascadeType.ALL},orphanRemoval = true,fetch = FetchType.LAZY)
     private List<Asistencia> asistencia;
 
-    @OneToMany(mappedBy = "profesor",cascade = {CascadeType.ALL},orphanRemoval = true,fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "profesor",cascade = {CascadeType.ALL},orphanRemoval = true,fetch = FetchType.LAZY)
     private List<Tarea> tarea;
 }
