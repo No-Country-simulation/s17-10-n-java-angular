@@ -3,6 +3,7 @@ package com.dev.ForoEscolar.model;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.sql.Timestamp;
 import java.util.Date;
 
 @Entity

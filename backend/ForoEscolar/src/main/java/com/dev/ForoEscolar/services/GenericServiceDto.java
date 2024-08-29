@@ -12,7 +12,7 @@ public interface GenericServiceDto<T,ID, EntityDto> {
 
     void deleteById(ID id);
 
-    //Esto es solo para prueba - Cristian
+    //Se agrego un update - Cristian
     EntityDto update(EntityDto requestDTO);
 
 }
