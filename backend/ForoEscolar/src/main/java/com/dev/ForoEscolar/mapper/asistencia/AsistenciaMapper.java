@@ -1,5 +1,6 @@
 package com.dev.ForoEscolar.mapper.asistencia;
 
+import com.dev.ForoEscolar.dtos.asistencia.AsistenciaResponseDTO;
 import com.dev.ForoEscolar.model.Asistencia;
 import org.mapstruct.factory.Mappers;
 
