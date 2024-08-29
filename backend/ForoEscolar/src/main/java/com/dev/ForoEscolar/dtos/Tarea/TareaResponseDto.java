@@ -14,10 +14,10 @@ import java.util.Date;
 @NoArgsConstructor
 public class TareaResponseDto {
 
-    Long id;
-    String descripcion;
-    String titulo;
-    Date fechaEntrega;
-    Long profesorId;
-    Long estudianteId;
+    private Long id;
+    private String descripcion;
+    private String titulo;
+    private Date fechaEntrega;
+    private Long profesorId;
+    private Long estudianteId;
 }
