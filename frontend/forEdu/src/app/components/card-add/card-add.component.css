@@ -1,0 +1,30 @@
+.card-add{
+  width: 350px;
+
+  display:flex;
+  flex-direction: column;
+  border: solid 2px #DADCE0;
+  border-radius: 2em;
+  padding: 1.5rem;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon {
+  font-size: 8rem;
+  color: #DADCE0;
+  cursor: pointer;
+  transition: transform  0.4s ease ;
+}
+
+.icon:hover {
+  transform : rotate(90deg);
+}
+
+.grade-title{
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin: 0;
+  margin-top: 0.5rem;
+}
