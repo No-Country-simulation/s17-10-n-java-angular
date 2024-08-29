@@ -67,7 +67,7 @@ public class TareaServiceImpl implements TareaService {
     }
 
 
-    //Esto es solo para prueba - Cristian
+    //Esto es solo para prueba - Cristian Gomez
     @Override
     public TareaResponseDto update(TareaResponseDto requestDTO) {
         return null;

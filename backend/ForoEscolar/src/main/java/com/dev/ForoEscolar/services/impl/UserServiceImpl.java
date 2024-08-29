@@ -71,7 +71,7 @@ public class UserServiceImpl implements UserService {
                 .toList();
     }
 
-    //Esto es solo para prueba - Cristian
+    //Esto es solo para prueba - Cristian Gomez
     @Override
     public UserResponseDTO update(UserRequestDTO userRequestDTO) {
         return null;
