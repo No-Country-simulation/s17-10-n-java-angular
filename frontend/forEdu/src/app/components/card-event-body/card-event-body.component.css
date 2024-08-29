@@ -1,0 +1,21 @@
+.card-body{
+  width: 100%;
+  border: #DADCE0 solid 2px;
+  border-radius: 15px;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+
+}
+.head {
+  display: grid;
+  grid-template-columns: 15% 85%;
+
+}
+.title{
+  padding-left: 2em;
+}
+.card-image{
+  width: 6rem;
+  height: 6rem;
+  border-radius: 50%;
+}

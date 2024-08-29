@@ -1,14 +1,17 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { GradeComponent } from './Admin/admin-grade/grade/grade.component';
-import { CardGradeComponent } from './components/card-grade/card-grade.component';
+import { DetailComponent } from './Admin/admin-grade/detail/detail.component';
+
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [RouterOutlet,
     GradeComponent,
-    CardGradeComponent
+    DetailComponent
+
+
 
 
 
