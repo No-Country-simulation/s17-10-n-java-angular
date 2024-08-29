@@ -1,9 +1,11 @@
 import { Routes } from '@angular/router';
-import { AppComponent } from './app.component';
-import { dashboardGuard } from './guard/dashboard.guard';
+import { ADMIN_ROUTES } from './Admin/admin.routes';
 
 export const routes: Routes = [
 
-
+    {
+        path: '',
+        children: ADMIN_ROUTES
+      } 
 
 ];
