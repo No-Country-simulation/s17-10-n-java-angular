@@ -72,6 +72,11 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public UserResponseDTO update(UserRequestDTO userRequestDTO) {
+        return null;
+    }
+
+    @Override
     public UserResponseDTO findByEmail(String username){
        User user= userRepository.findByEmail(username).orElse(null);
        return  UserMapper.INSTANCE.toResponseDTO(user);
