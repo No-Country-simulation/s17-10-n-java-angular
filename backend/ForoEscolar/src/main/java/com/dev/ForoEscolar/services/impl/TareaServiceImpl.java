@@ -2,19 +2,23 @@ package com.dev.ForoEscolar.services.impl;
 
 import com.dev.ForoEscolar.dtos.Tarea.TareaResponseDto;
 import com.dev.ForoEscolar.mapper.tarea.TareaMapper;
+import com.dev.ForoEscolar.model.Estudiante;
+import com.dev.ForoEscolar.model.Profesor;
 import com.dev.ForoEscolar.model.Tarea;
 import com.dev.ForoEscolar.repository.TareaRepository;
 import com.dev.ForoEscolar.services.TareaService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+@Service
 public class TareaServiceImpl implements TareaService {
 
     @Autowired
-   private TareaRepository tareaRepository;
+    private TareaRepository tareaRepository;
 
     @Override
     public TareaResponseDto save(TareaResponseDto tareaRequestDto) {
@@ -22,16 +26,17 @@ public class TareaServiceImpl implements TareaService {
         if(tareaRequestDto== null){
             throw new RuntimeException("La tarea no puede estar vacia");
         }
-
+        Profesor profesor= new Profesor();
+        profesor.setId(tareaRequestDto.getProfesorId());
         Tarea tarea= new Tarea().builder()
                 .descripcion(tareaRequestDto.getDescripcion())
                 .titulo(tareaRequestDto.getTitulo())
-                .estudiante(tareaRequestDto.getEstudianteId().build())
-                .profesor(tareaRequestDto.getProfesorId().build())
+                .estudiante(Estudiante.builder().id(tareaRequestDto.getEstudianteId()).build())
+                .profesor(profesor)
                 .fechaEntrega(tareaRequestDto.getFechaEntrega())
                 .build();
-                tareaRepository.save(tarea);
-               return TareaMapper.INSTANCE.toResponseDTO(tarea);
+        tareaRepository.save(tarea);
+        return TareaMapper.INSTANCE.toResponseDTO(tarea);
 
     }
 
