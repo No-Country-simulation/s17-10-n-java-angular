@@ -10,12 +10,14 @@ import java.util.List;
 @Getter
 @Setter
 public class ProfesorRequestDTO {
-
-    @NotNull(message = "La materia no puede estar vacía")
-    private MateriaEnum materia;
-
-    @NotNull(message = "El ID del usuario no puede estar vacío")
-    private Long usuarioId;
-
-    private List<Long> estudianteIds; // Lista de IDs de estudiantes
+    @NotNull
+    private Long id; // ID del profesor
+    @NotNull
+    private Long userId; // ID del usuario asociado al profesor
+    @NotNull
+    private MateriaEnum materia; // Materia que enseña el profesor
+    @NotNull
+    private List<Long> estudianteIds; // Lista de IDs de estudiantes asociados
+    @NotNull
+    private List<Long> tareaIds; // Lista de IDs de tareas asociadas
 }

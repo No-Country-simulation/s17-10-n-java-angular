@@ -9,11 +9,13 @@ import java.util.List;
 @Getter
 @Setter
 public class ProfesorResponseDTO {
-    private Long id;
-    private MateriaEnum materia;
-    private String usuarioNombre;
-    private List<String> estudiantesNombres;  // Nombres de los estudiantes
-    private List<String> boletinResumen;  // Resumen o IDs de los boletines
-    private List<String> asistenciaResumen;  // Resumen o IDs de asistencias
-    private List<String> tareaResumen;  // Resumen o IDs de tareas
+    private Long id; // ID del profesor
+    private Long userId; // ID del usuario asociado al profesor
+    private String usuarioNombre; // Nombre del usuario asociado
+    private String materia; // Materia que enseña el profesor
+    private List<String> estudiantesNombres; // Lista de nombres de los estudiantes asociados
+//    private List<String> boletinResumen;  // Resumen o IDs de los boletines
+//    private List<String> asistenciaResumen;  // Resumen o IDs de asistencias
+    private List<String> tareaTitulos; // Lista de títulos de las tareas asociadas
+
 }
