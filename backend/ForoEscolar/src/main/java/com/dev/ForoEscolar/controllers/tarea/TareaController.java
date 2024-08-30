@@ -21,8 +21,11 @@ import java.util.Optional;
 @RequestMapping("/tareas")
 public class TareaController {
 
-    @Autowired
-    private TareaService tareaService;
+    private final TareaService tareaService;
+
+    public TareaController (TareaService tareaService){
+        this.tareaService=tareaService;
+    }
     @Autowired
     private UserService userService;
     @Autowired
