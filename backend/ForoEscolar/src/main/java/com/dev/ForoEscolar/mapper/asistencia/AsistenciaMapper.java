@@ -1,5 +1,6 @@
 package com.dev.ForoEscolar.mapper.asistencia;
 
+import com.dev.ForoEscolar.dtos.asistencia.AsistenciaRequestDTO;
 import com.dev.ForoEscolar.dtos.asistencia.AsistenciaResponseDTO;
 import com.dev.ForoEscolar.model.Asistencia;
 import org.mapstruct.factory.Mappers;
@@ -10,5 +11,5 @@ public interface AsistenciaMapper {
 
     AsistenciaResponseDTO toResponseDTO(Asistencia asistencia);
     Asistencia toEntity(AsistenciaRequestDTO asistenciaRequestDTO);
-    AsistenciaResquestDTO toRequestDTO(Asistencia asistencia);
+    AsistenciaRequestDTO toRequestDTO(Asistencia asistencia);
 }
