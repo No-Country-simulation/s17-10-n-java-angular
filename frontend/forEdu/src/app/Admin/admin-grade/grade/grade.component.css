@@ -1,0 +1,64 @@
+.container{
+ padding: 1.5rem;
+}
+
+
+.turnos {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-bottom: 0.5rem;
+  border-bottom: 3px solid #CECECE;
+  margin-bottom: 2rem;
+
+}
+
+
+
+.turno-list {
+  margin-right: 1.3rem;
+  cursor: pointer;
+  color: #9F9F9F;
+  padding-bottom: 5px;
+
+}
+
+.turno-list.active {
+  color: #3C4437;
+  font-weight: 700;
+  padding-bottom: 0.95rem;
+  border-bottom: 3px solid #3C4437;
+
+}
+
+.icon-nav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.icon {
+  margin-right: 1.5em;
+}
+
+.active-icon {
+  background-color: #DADCE0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  padding: 5px;
+  box-sizing: border-box;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-section{
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  width: 100%;
+
+}
+
