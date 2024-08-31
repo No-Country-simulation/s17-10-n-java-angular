@@ -62,7 +62,7 @@ public class BoletinServiceImp implements BoletinService {
 
     }
 
-    @Override
+
     public BoletinDto update(BoletinDto requestDTO) {
         return null;
     }

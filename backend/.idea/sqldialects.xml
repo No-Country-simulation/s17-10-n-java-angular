@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="SqlDialectMappings">
@@ -6,3 +7,5 @@
     <file url="PROJECT" dialect="MySQL" />
   </component>
 </project>
+=======
+>>>>>>> fda960c62f26c023d40e1ae2212525bf8220e420
