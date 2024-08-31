@@ -3,63 +3,81 @@ package com.dev.ForoEscolar.mapper.profesor;
 import com.dev.ForoEscolar.dtos.profesor.ProfesorRequestDTO;
 import com.dev.ForoEscolar.dtos.profesor.ProfesorResponseDTO;
 import com.dev.ForoEscolar.mapper.GenericMapper;
-import com.dev.ForoEscolar.model.Estudiante;
-import com.dev.ForoEscolar.model.Profesor;
-import com.dev.ForoEscolar.model.Tarea;
-import com.dev.ForoEscolar.model.User;
+import com.dev.ForoEscolar.model.*;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
-import org.mapstruct.Named;
+import org.mapstruct.Mappings;
 import org.mapstruct.factory.Mappers;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
-@Mapper(componentModel = "spring")
-public interface ProfesorMapper {
+@Mapper
+public interface ProfesorMapper extends GenericMapper<Profesor, ProfesorRequestDTO, ProfesorResponseDTO> {
 
     ProfesorMapper INSTANCE = Mappers.getMapper(ProfesorMapper.class);
 
-    @Mapping(source = "id", target = "id")
-    @Mapping(source = "userId", target = "user.id")
-    @Mapping(source = "estudianteIds", target = "estudiantes", qualifiedByName = "estudianteIdsToEstudiantes")
-    @Mapping(source = "tareaIds", target = "tarea", qualifiedByName = "tareaIdsToTareas")
-    Profesor toEntity(ProfesorRequestDTO dto);
+    @Mappings({
+            @Mapping(target = "id", ignore = true),
+            @Mapping(source = "materia", target = "materia"),
+            @Mapping(source = "userId", target = "user.id"),
+            @Mapping(source = "estudianteIds", target = "estudiantes"),
+            @Mapping(source = "boletinIds", target = "boletin"),
+            @Mapping(source = "tareaIds", target = "tarea")
+    })
+    @Override
+    Profesor toEntity(ProfesorRequestDTO requestDTO);
 
-    @Mapping(source = "id", target = "id")
-    @Mapping(source = "user.id", target = "userId")
-    @Mapping(source = "user.nombre", target = "usuarioNombre")
-    @Mapping(source = "estudiantes", target = "estudiantesNombres", qualifiedByName = "estudiantesToEstudianteNombres")
-    @Mapping(source = "tarea", target = "tareaTitulos", qualifiedByName = "tareasToTareaTitulos")
-    ProfesorResponseDTO toResponseDTO(Profesor entity);
+    @Mappings({
+            @Mapping(source = "materia", target = "materia"),
+            @Mapping(source = "user.id", target = "userId"),
+//            @Mapping(source = "user.nombre", target = "userName"),
+            @Mapping(source = "estudiantes", target = "estudianteIds"),
+            @Mapping(source = "boletin", target = "boletinIds"),
+            @Mapping(source = "tarea", target = "tareaIds")
+    })
+    @Override
+    ProfesorResponseDTO toResponseDto(Profesor entity);
 
-    //Metodos auxiliares para el Mapeo:
-
-    @Named("estudianteIdsToEstudiantes")
-    default List<Estudiante> estudianteIdsToEstudiantes(List<Long> ids) {
-        return ids.stream().map(id -> {
-            Estudiante estudiante = new Estudiante();
-            estudiante.setId(id);
-            return estudiante;
-        }).collect(Collectors.toList());
+    // Convert list of IDs to list of Estudiante
+    default List<Estudiante> mapEstudiantes(List<Long> ids) {
+        return ids.stream()
+                .map(id -> new Estudiante(id)) // Ajusta esto según tu implementación de Estudiante
+                .collect(Collectors.toList());
     }
 
-    @Named("tareaIdsToTareas")
-    default List<Tarea> tareaIdsToTareas(List<Long> ids) {
-        return ids.stream().map(id -> {
-            Tarea tarea = new Tarea();
-            tarea.setId(id);
-            return tarea;
-        }).collect(Collectors.toList());
+    // Convert list of Estudiante to list of IDs
+    default List<Long> mapEstudianteIds(List<Estudiante> estudiantes) {
+        return estudiantes.stream()
+                .map(Estudiante::getId)
+                .collect(Collectors.toList());
     }
 
-    @Named("estudiantesToEstudianteNombres")
-    default List<String> estudiantesToEstudianteNombres(List<Estudiante> estudiantes) {
-        return estudiantes.stream().map(Estudiante::getNombre).collect(Collectors.toList());
+    // Convert list of IDs to list of Boletin
+    default List<Boletin> mapBoletines(List<Long> ids) {
+        return ids.stream()
+                .map(id -> new Boletin(id)) // Ajusta esto según tu implementación de Boletin
+                .collect(Collectors.toList());
     }
 
-    @Named("tareasToTareaTitulos")
-    default List<String> tareasToTareaTitulos(List<Tarea> tareas) {
-        return tareas.stream().map(Tarea::getTitulo).collect(Collectors.toList());
+    // Convert list of Boletin to list of IDs
+    default List<Long> mapBoletinIds(List<Boletin> boletines) {
+        return boletines.stream()
+                .map(Boletin::getId)
+                .collect(Collectors.toList());
+    }
+
+    // Convert list of IDs to list of Tarea
+    default List<Tarea> mapTareas(List<Long> ids) {
+        return ids.stream()
+                .map(id -> new Tarea(id)) // Ajusta esto según tu implementación de Tarea
+                .collect(Collectors.toList());
+    }
+
+    // Convert list of Tarea to list of IDs
+    default List<Long> mapTareaIds(List<Tarea> tareas) {
+        return tareas.stream()
+                .map(Tarea::getId)
+                .collect(Collectors.toList());
     }
 }

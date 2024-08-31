@@ -21,8 +21,6 @@ public class Profesor {
     @Enumerated(EnumType.STRING)
     private MateriaEnum materia;
 
-//    private Estudiante estudiante;
-
     @OneToOne
     @JoinColumn(name = "user_id",nullable = false,foreignKey = @ForeignKey(name = "FK_PROFILES_USER"))
     private User user;
@@ -31,8 +29,9 @@ public class Profesor {
     @JoinTable(name="profesor_estudiante", joinColumns = @JoinColumn(name = "profesor_id"), inverseJoinColumns = @JoinColumn(name = "estudante_id"))
     private List<Estudiante> estudiantes;
 
-//    @OneToMany(mappedBy = "profesor",cascade = {CascadeType.ALL},orphanRemoval = true,fetch = FetchType.LAZY)
-//    private List<Boletin> boletin;
+    @OneToMany(mappedBy = "profesor",cascade = {CascadeType.ALL},orphanRemoval = true,fetch = FetchType.LAZY)
+    private List<Boletin> boletin;
+
 //
 //    @OneToMany(mappedBy = "profesor",cascade = {CascadeType.ALL},orphanRemoval = true,fetch = FetchType.LAZY)
 //    private List<Asistencia> asistencia;

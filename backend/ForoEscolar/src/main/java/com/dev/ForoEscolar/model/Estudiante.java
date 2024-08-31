@@ -12,9 +12,11 @@ import java.util.List;
 
 @Getter
 @Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 @Entity
 public class Estudiante {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -45,8 +47,10 @@ public class Estudiante {
 //    @JoinColumn(name = "tutor_legal",nullable = false,foreignKey = @ForeignKey(name="FK_TUTOR_LEGAL"))
 //    private TutorLegal tutor;
 //
-//    @OneToMany(mappedBy = "estudiante",cascade = {CascadeType.ALL},orphanRemoval = true,fetch = FetchType.LAZY)
-//    private List<Boletin> boletin;
+
+    @OneToMany(mappedBy = "estudiante",cascade = {CascadeType.ALL},orphanRemoval = true,fetch = FetchType.LAZY)
+    private List<Boletin> boletin;
+
 //
 //    @OneToMany(mappedBy = "estudiante",cascade = {CascadeType.ALL},orphanRemoval = true,fetch = FetchType.LAZY)
 //    private List<Asistencia> asistencia;
@@ -54,4 +58,8 @@ public class Estudiante {
     @OneToMany(mappedBy = "estudiante",cascade = {CascadeType.ALL},orphanRemoval = true,fetch = FetchType.LAZY)
     private List<Tarea> tarea;
 
+
+    public Estudiante(Long id) {
+        this.id = id;
+    }
 }

@@ -3,7 +3,6 @@ package com.dev.ForoEscolar.model;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.sql.Timestamp;
 import java.util.Date;
 
 @Entity
@@ -34,4 +33,7 @@ public class Tarea {
     private Profesor profesor;
 
 
+    public Tarea(Long id) {
+        this.id = id;
+    }
 }

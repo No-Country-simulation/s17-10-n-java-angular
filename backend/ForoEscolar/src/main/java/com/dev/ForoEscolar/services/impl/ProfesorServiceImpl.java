@@ -25,20 +25,20 @@ public class ProfesorServiceImpl extends GenericServiceImpl<Profesor, Long, Prof
     public ProfesorResponseDTO save(ProfesorRequestDTO profesorRequestDTO) {
         Profesor profesor = ProfesorMapper.INSTANCE.toEntity(profesorRequestDTO);
         profesorRepository.save(profesor);
-        return ProfesorMapper.INSTANCE.toResponseDTO(profesor);
+        return ProfesorMapper.INSTANCE.toResponseDto(profesor);
     }
 
     @Override
     public Optional<ProfesorResponseDTO> findById(Long id) {
         Optional<Profesor> profesor = profesorRepository.findById(id);
-        return profesor.map(ProfesorMapper.INSTANCE::toResponseDTO);
+        return profesor.map(ProfesorMapper.INSTANCE::toResponseDto);
     }
 
     @Override
     public List<ProfesorResponseDTO> findAll() {
         List<Profesor> profesores = profesorRepository.findAll();
         return profesores.stream()
-                .map(ProfesorMapper.INSTANCE::toResponseDTO)
+                .map(ProfesorMapper.INSTANCE::toResponseDto)
                 .collect(Collectors.toList());
     }
 
@@ -49,7 +49,7 @@ public class ProfesorServiceImpl extends GenericServiceImpl<Profesor, Long, Prof
         Optional<Profesor> existingEntity = profesorRepository.findById(getEntityId(profesor));
         if (existingEntity.isPresent()) {
             Profesor updatedEntity = profesorRepository.save(profesor);
-            return ProfesorMapper.INSTANCE.toResponseDTO(updatedEntity);
+            return ProfesorMapper.INSTANCE.toResponseDto(updatedEntity);
         } else {
             throw new RuntimeException("La entidad con ese ID no fue encontrado");
         }
