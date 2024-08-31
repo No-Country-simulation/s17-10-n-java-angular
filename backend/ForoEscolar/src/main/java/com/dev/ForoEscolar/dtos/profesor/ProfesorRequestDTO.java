@@ -8,5 +8,6 @@ public record ProfesorRequestDTO(
         Long userId,
         List<Long> estudianteIds,
         List<Long> boletinIds,
+        List<Long> asistenciaIds,
         List<Long> tareaIds
 ) {}

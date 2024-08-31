@@ -31,11 +31,14 @@ public class Boletin {
     @OneToMany(mappedBy = "boletin", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     private List<Calificacion> calificaciones;
 
-
     @ManyToOne
     @JoinColumn(name = "estudiante_id")
     private Estudiante estudiante;
 
+    //Agregado Por Cristian
+    @ManyToOne
+    @JoinColumn(name = "profesor_id")
+    private Profesor profesor;
 
     public Boletin(Long id) {
         this.id = id;

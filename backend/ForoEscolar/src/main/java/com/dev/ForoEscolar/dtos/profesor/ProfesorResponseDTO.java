@@ -10,5 +10,6 @@ public record ProfesorResponseDTO(
         //String userName, Añadir nombre del usuario
         List<Long> estudianteIds,
         List<Long> boletinIds,
+        List<Long> asistenciaIds,
         List<Long> tareaIds
 ) {}

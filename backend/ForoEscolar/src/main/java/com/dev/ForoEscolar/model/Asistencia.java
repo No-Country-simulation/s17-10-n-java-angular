@@ -39,4 +39,7 @@ public class Asistencia {
     @JoinColumn(name = "estudiante_id")
     private Estudiante estudianteId;
 
+    public Asistencia(Long id) {
+        this.Id = id;
+    }
 }
