@@ -1,0 +1,157 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #e0e0e0; /* Gris claro para el fondo */
+}
+
+.login-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.logo img {
+    max-width: 100px;
+    margin-bottom: 20px;
+    filter: grayscale(100%); /* Aplicando escala de grises al logo */
+}
+
+.login-form h2 {
+    margin-bottom: 20px;
+    color: #333; /* Gris oscuro */
+}
+
+.input-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #555; /* Gris medio */
+    font-weight: bold; /* Labels en negrita */
+}
+
+.input-group input[type="email"],
+.input-group input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc; /* Gris claro */
+    border-radius: 5px;
+    background-color: #f9f9f9; /* Fondo ligeramente gris */
+}
+
+.remember-me {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    margin-bottom: 15px;
+}
+
+/* Estilos para el interruptor (toggle switch) */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 20px;
+    margin-right: 10px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc; /* Color gris para el fondo del interruptor */
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    left: 2px;
+    bottom: 2px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #666; /* Gris oscuro cuando está activo */
+}
+
+input:checked + .slider:before {
+    transform: translateX(20px);
+}
+
+.btn {
+    background-color: #666; /* Gris medio */
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.btn:hover {
+    background-color: #555; /* Gris ligeramente más oscuro en hover */
+}
+
+.links {
+    margin-top: 15px;
+}
+
+.links a {
+    display: inline-block;
+    color: #666; /* Gris medio */
+    text-decoration: none;
+    margin-bottom: 10px;
+}
+
+.links a:hover {
+    text-decoration: underline;
+    color: #333; /* Gris oscuro en hover */
+}
+
+.inline-text {
+    display: inline;
+    color: #666; /* Gris medio */
+    margin-top: 10px;
+}
+
+.inline-text a {
+    display: inline; /* Asegura que el enlace "Regístrate" esté en línea con el texto */
+    margin-left: 5px; /* Espacio entre "¿No tienes cuenta?" y "Regístrate" */
+}
+
+@media (max-width: 400px) {
+    .login-container {
+        padding: 15px;
+    }
+}

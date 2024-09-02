@@ -1,0 +1,95 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #ffffff; /* Fondo blanco */
+    color: #000000; /* Texto en negro */
+    padding: .625rem;
+}
+
+.form-container {
+    padding: 1.25rem;
+    margin: 10px auto; /* Centra el formulario horizontalmente */
+    border-radius: .625rem;
+    width: 100%;
+    max-width: 31.25rem;
+}
+
+h2 {
+    margin-bottom: 1.25rem;
+    color: #000; /* Texto en negro */
+    text-align: left; /* Alinear el título a la izquierda */
+}
+
+.form-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.25rem;
+    flex-wrap: wrap; /* Permite que los elementos se envuelvan en pantallas pequeñas */
+}
+
+.form-group label {
+    font-weight: bold;
+    flex-basis: 6.25rem; /* Tamaño fijo para los labels */
+    margin:.625rem; 
+    
+    color: #000; /* Texto en negro */
+    margin-bottom: .3125rem; /* Espacio inferior cuando los elementos se envuelven */
+}
+
+.form-group select {
+    flex-grow: 1; /* Permite que el select crezca para llenar el espacio disponible */
+    padding: .625rem;
+    border: 1px solid #000; /* Borde negro */
+    background-color: #f9f9f9; /* Fondo claro */
+}
+
+.button-container {
+    display: flex;
+    justify-content: flex-end; /* Alinear el botón a la derecha */
+}
+
+button {
+    width: auto;
+    padding: .625rem 1.25rem;
+    border: 1px solid #000; /* Borde negro */
+    border-radius: 5px;
+    background-color: #000; /* Fondo negro */
+    color: white; /* Texto blanco */
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #333; /* Color de fondo más claro al hacer hover */
+}
+
+/* Media Query para pantallas pequeñas */
+@media (max-width: 600px) {
+    .form-group {
+        flex-direction: column; /* Los elementos se apilan verticalmente en pantallas pequeñas */
+        align-items: flex-start; /* Alinear los elementos al inicio */
+    }
+
+    .form-group label, 
+    .form-group select {
+        width: 100%; /* Los labels y selects ocupan el 100% del ancho */
+        flex-basis: auto; /* Quitar tamaño fijo en pantallas pequeñas */
+        margin-right: 0; /* Eliminar margen derecho */
+    }
+
+    .button-container {
+        justify-content: center; /* Centrar el botón en pantallas pequeñas */
+        width: 100%; /* Asegura que el contenedor ocupe el ancho completo */
+    }
+
+    button {
+        width: 100%; /* El botón ocupa el 100% del ancho en pantallas pequeñas */
+    }
+}
