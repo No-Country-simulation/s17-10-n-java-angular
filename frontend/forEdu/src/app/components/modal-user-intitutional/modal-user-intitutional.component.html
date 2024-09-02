@@ -1,0 +1,44 @@
+<p-dialog
+  header="Usuarios de la plataforma"
+  [(visible)]="displayModal"
+  [modal]="true"
+  [closable]="true"
+  [draggable]="false"
+  (onHide)="hideModal()"
+> 
+@if(user){
+    <div class="user-info">
+        <div class="info-row">
+          <label>Nombre:</label>
+          <span>{{ user.nombre }}</span>
+        </div>
+        <div class="info-row">
+          <label>Apellido:</label>
+          <span>{{ user.legajo }}</span>
+        </div>
+        <div class="info-row">
+          <label>Fecha de Nacimiento:</label>
+          <span>{{ user.fechaNacimiento }}</span>
+        </div>
+        <div class="info-row">
+          <label>Documento (DNI):</label>
+          <span>{{ user.legajo }}</span>
+        </div>
+        <div class="info-row">
+          <label>Sexo:</label>
+          <span>{{ user.sexo }}</span>
+        </div>
+        <div class="info-row">
+          <label>Grado:</label>
+          <span>{{ user.turno }}</span>
+        </div>
+        <div class="info-row">
+          <label>Sección:</label>
+          <span>{{ user.tutores}}</span>
+        </div>
+      </div>
+}
+  
+</p-dialog>
+
+

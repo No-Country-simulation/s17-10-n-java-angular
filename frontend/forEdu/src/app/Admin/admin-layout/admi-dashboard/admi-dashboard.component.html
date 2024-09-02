@@ -6,9 +6,7 @@
             <li><a href="#" aria-label="Notificaciones"><i class="pi pi-bell"></i></a></li>
             <li><a href="#" aria-label="Perfil"><i class="pi pi-user"></i></a></li>
             <li>
-                <p-splitButton
-                label="Secondary"
-
+            <p-splitButton
                 [model]="items"
                 text
                 severity="primary">
@@ -94,14 +92,12 @@
             <div class="panel-right">
                 <div class="calendar">
                     <p-calendar
-                        class="max-w-full"
+                        class="calendar-componentl"
                         [(ngModel)]="date"
                         [inline]="true"
                         [showWeek]="true">
                     </p-calendar>
-                </div>
-
-
+            </div>
                 <div class="teacher">
                     <div class="teacher-header">
                         <h4>Listado de Maestros</h4>
@@ -129,7 +125,5 @@
         </div>
     </main>
 </div>
-
-
 
 

@@ -28,9 +28,9 @@ export class AdmiDashboardComponent {
   }
   ngOnInit() {
     this.items = [
-      { label: 'Option 1', icon: 'pi pi-plus', command: () => this.save('Option 1') },
-      { label: 'Option 2', icon: 'pi pi-refresh', command: () => this.save('Option 2') },
-      { label: 'Option 3', icon: 'pi pi-times', command: () => this.save('Option 3') }
+      { label: 'Option 1', command: () => this.save('Option 1') },
+      { label: 'Option 2', command: () => this.save('Option 2') },
+      { label: 'Option 3', command: () => this.save('Option 3') }
     ];
 }
  save(info: string) {

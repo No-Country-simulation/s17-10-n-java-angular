@@ -1,0 +1,43 @@
+<div class="institutional-tables">
+    <div class="table-wrapper">
+        <table>
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Legajo</th>
+                    <th>Fecha de Nacimiento</th>
+                    <th>Grado</th>
+                    <th>Seccion</th>
+                    <th>Turno</th>
+                    <th></th>
+                </tr>
+            </thead>
+        </table>
+        <div class="table-body">
+            <table>
+                <tbody>
+                    @for (person of persons; track person.id) {
+                        <tr>
+                            <td>
+                                <div class="picture-table">
+                                    <img src="#" alt="Profile Picture"/>
+                                    <p>{{ person.nombre }}</p>
+                                </div>
+                            </td>
+                            <td>{{ person.legajo }}</td>
+                            <td>{{ person.fechaNacimiento }}</td>
+                            <td>{{ person.grado }}</td>
+                            <td>{{ person.turno }}</td>
+                            <td>{{ person.tutores }}</td>
+                            <td><button type="button" class="btn-cta" (click)="openModal(person)">CTA</button></td>
+
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+  

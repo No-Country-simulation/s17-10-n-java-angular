@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import {AdmiDashboardComponent} from './Admin/admin-layout/admi-dashboard/admi-dashboard.component'
+import { ModalUserIntitutionalComponent } from './components/modal-user-intitutional/modal-user-intitutional.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet,AdmiDashboardComponent],
+  imports: [RouterOutlet,AdmiDashboardComponent, ModalUserIntitutionalComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
