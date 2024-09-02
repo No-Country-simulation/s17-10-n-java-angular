@@ -1,18 +1,16 @@
 package com.dev.ForoEscolar.dtos.tarea;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.sql.Timestamp;
 
 @Builder
-@Data
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 public class TareaResponseDto {
-//hola
+
     Long id;
     String descripcion;
     String titulo;
