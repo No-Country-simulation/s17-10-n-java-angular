@@ -1,18 +1,12 @@
 @import "primeicons/primeicons.css";
 
-
-.left-aligned-menu {
-  position: absolute;
-  left: 0;
+.custom-panel-menu {
+  position: fixed;
   top: 0;
+  left: 0;
+  width: 250px;
   height: 100%;
-  overflow: visible; /* Ensure overflow is handled */
-}
-
-.p-panelmenu .p-panelmenu-content {
-  display: block; /* Ensure submenu items are displayed */
-}
-
-.p-panelmenu .p-panelmenu-content .p-menuitem-link {
-  display: flex; /* Ensure submenu items are displayed correctly */
+  color: #fff;
+  overflow-y: auto;
+  z-index: 1000;
 }

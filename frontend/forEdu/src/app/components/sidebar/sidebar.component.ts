@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { MenuItem } from 'primeng/api';
 import { PanelMenuModule } from 'primeng/panelmenu';
-import {MenuItem} from "primeng/api";
+import { StyleClassModule } from 'primeng/styleclass';
 
 @Component({
   selector: 'app-sidebar',
@@ -11,10 +12,10 @@ import {MenuItem} from "primeng/api";
 })
 
 
-export class SidebarComponent {
-  items: MenuItem[];
+export class SidebarComponent implements OnInit {
+  items: MenuItem[] = [];
 
-  constructor() {
+  ngOnInit() {
     this.items = [
       {
         label: 'Inicio',
@@ -56,6 +57,6 @@ export class SidebarComponent {
           }
         ]
       }
-    ];
+    ]
   }
 }
