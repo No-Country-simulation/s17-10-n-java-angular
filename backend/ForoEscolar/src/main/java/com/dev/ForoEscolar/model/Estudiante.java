@@ -8,8 +8,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.sql.Date;
-import java.util.List;
-import java.util.Set;
+
 
 @Builder
 @Getter
@@ -17,6 +16,7 @@ import java.util.Set;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@Table(name = "estudiantes")
 public class Estudiante {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,11 +28,13 @@ public class Estudiante {
 
     private String dni;
 
+    private Boolean activo;
+
     @Enumerated(EnumType.STRING)
     private RoleEnum rol;
 
     @Column(name = "fecha_nacimiento")
-    private Date nacimiento;
+    private Date fechaNacimiento;
 
     @Enumerated(EnumType.STRING)
     private CursoEnum curso;
@@ -44,19 +46,19 @@ public class Estudiante {
     @Enumerated(EnumType.STRING)
     private TipoDocumentoEnum tipoDocumento;
 
-//    @ManyToOne
-//    @JoinColumn(name = "tutor_legal",nullable = false,foreignKey = @ForeignKey(name="FK_TUTOR_LEGAL"))
-//    private TutorLegal tutor;
-//
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "tutor_legal_id", nullable = false, foreignKey = @ForeignKey(name="FK_TUTOR_LEGAL"))
+    private TutorLegal tutor;
+
 //    @OneToMany(mappedBy = "estudiante",cascade = {CascadeType.ALL},orphanRemoval = true,fetch = FetchType.LAZY)
 //    private List<Boletin> boletin;
 //
 //    @OneToMany(mappedBy = "estudiante",cascade = {CascadeType.ALL},orphanRemoval = true,fetch = FetchType.LAZY)
 //    private List<Asistencia> asistencia;
-
-    @OneToMany(mappedBy = "estudiante",cascade = {CascadeType.ALL},orphanRemoval = true,fetch = FetchType.LAZY)
-    private List<Tarea> tarea;
-
-    @OneToMany(mappedBy = "estudiante")
-    private Set<Calificaciones> calificaciones;
+//
+//    @OneToMany(mappedBy = "estudiante",cascade = {CascadeType.ALL},orphanRemoval = true,fetch = FetchType.LAZY)
+//    private List<Tarea> tarea;
+//
+//    @OneToMany(mappedBy = "estudiante", cascade = {CascadeType.ALL}, orphanRemoval = true, fetch = FetchType.LAZY)
+//    private List<Calificacion> calificaciones;
 }

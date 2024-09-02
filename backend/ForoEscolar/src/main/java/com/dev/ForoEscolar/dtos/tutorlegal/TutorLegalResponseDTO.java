@@ -1,8 +1,9 @@
-package com.dev.ForoEscolar.dtos.user;
+package com.dev.ForoEscolar.dtos.tutorlegal;
 
 import java.io.Serializable;
+import java.util.List;
 
-public record UserResponseDTO(
+public record TutorLegalResponseDTO(
         Long id,
         String email,
         String nombre,
@@ -12,6 +13,7 @@ public record UserResponseDTO(
         String telefono,
         String institucion,
         String rol,
-        boolean activo
+        boolean activo,
+        List<Long> estudianteIds
 ) implements Serializable {
 }

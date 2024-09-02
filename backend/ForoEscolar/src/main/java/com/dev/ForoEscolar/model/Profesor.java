@@ -8,35 +8,29 @@ import java.util.List;
 import java.util.Set;
 
 
-@Getter
-@Setter
-@AllArgsConstructor
-@NoArgsConstructor
 @Entity
+@Table(name = "profesores")
+@PrimaryKeyJoinColumn(name = "user_id")
+@DiscriminatorValue("PROFESOR")
+@Getter @Setter @NoArgsConstructor @AllArgsConstructor
 public class Profesor extends User {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
 
     @Enumerated(EnumType.STRING)
     private MateriaEnum materia;
 
-//    private Estudiante estudiante;
-
     @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinTable(name="profesor_estudiante", joinColumns = @JoinColumn(name = "profesor_id"), inverseJoinColumns = @JoinColumn(name = "estudante_id"))
+    @JoinTable(name="profesor_estudiante", joinColumns = @JoinColumn(name = "profesor_id"), inverseJoinColumns = @JoinColumn(name = "estudiante_id"))
     private List<Estudiante> estudiantes;
 
-//    @OneToMany(mappedBy = "profesor",cascade = {CascadeType.ALL},orphanRemoval = true,fetch = FetchType.LAZY)
-//    private List<Boletin> boletin;
-//
-//    @OneToMany(mappedBy = "profesor",cascade = {CascadeType.ALL},orphanRemoval = true,fetch = FetchType.LAZY)
-//    private List<Asistencia> asistencia;
+    @OneToMany(mappedBy = "profesor",cascade = {CascadeType.ALL},orphanRemoval = true,fetch = FetchType.LAZY)
+    private List<Boletin> boletin;
 
     @OneToMany(mappedBy = "profesor",cascade = {CascadeType.ALL},orphanRemoval = true,fetch = FetchType.LAZY)
+    private List<Asistencia> asistencia;
+
+    @OneToMany(mappedBy = "profesor")
     private List<Tarea> tarea;
 
     @OneToMany(mappedBy = "profesor")
-    private Set<Calificaciones> calificaciones;
+    private List<Calificacion> calificaciones;
 }

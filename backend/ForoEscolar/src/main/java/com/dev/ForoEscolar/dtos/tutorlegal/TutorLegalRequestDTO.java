@@ -1,10 +1,12 @@
-package com.dev.ForoEscolar.dtos.profesor;
+package com.dev.ForoEscolar.dtos.tutorlegal;
 
 import jakarta.validation.constraints.NotNull;
+
+import java.io.Serializable;
 import java.util.List;
 
 
-public record ProfesorRequestDTO (
+public record TutorLegalRequestDTO(
         @NotNull(message = "El email no puede estar vacío")
         String email,
         String nombre,
@@ -14,10 +16,6 @@ public record ProfesorRequestDTO (
         String telefono,
         String contrasena,
         String institucion,
-        @NotNull(message = "La materia no puede estar vacía")
-        String materia,
         List<Long> estudianteIds
-
-){
-
+) implements Serializable {
 }

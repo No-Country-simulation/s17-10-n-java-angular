@@ -14,8 +14,8 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "calificaciones")
-@Entity(name = "calificaciones")
-public class Calificaciones {
+@Entity(name = "Calificacion")
+public class Calificacion {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -31,6 +31,10 @@ public class Calificaciones {
     @ManyToOne
     @JoinColumn(name = "profesor_id", nullable = false)
     private Profesor profesor;
+
+    @ManyToOne
+    @JoinColumn(name = "boletin_id")
+    private Boletin boletin;
 
 
 
