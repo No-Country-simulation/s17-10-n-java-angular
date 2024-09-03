@@ -1,9 +1,6 @@
 package com.dev.ForoEscolar.dtos.user;
 
-import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
-
+import java.io.Serializable;
 
 public record UserResponseDTO(
         Long id,
@@ -16,5 +13,5 @@ public record UserResponseDTO(
         String institucion,
         String rol,
         boolean activo
-) {
+) implements Serializable {
 }

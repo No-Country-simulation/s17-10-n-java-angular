@@ -21,12 +21,12 @@ public class BoletinDto {
     private Long id;
     private Double promedio;
     private String comentarios;
-    private String pedido;
-
+    private String periodo;
+    private LocalDate fechaEmision;
     @Enumerated(EnumType.STRING)
     private CursoEnum curso;
-    List<Calificacion> calificacions;
+    private List<Long> calificaciones;
     private Long estudianteId;
-    private LocalDate fechaEmision;
+    private Long profesorId;
 
 }

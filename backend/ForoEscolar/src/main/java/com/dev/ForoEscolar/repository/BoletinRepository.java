@@ -1,7 +1,8 @@
 package com.dev.ForoEscolar.repository;
 
 import com.dev.ForoEscolar.model.Boletin;
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-public interface BoletinRepository extends JpaRepository<Boletin, Long> {
+@Repository
+public interface BoletinRepository extends GenericRepository<Boletin, Long> {
 }

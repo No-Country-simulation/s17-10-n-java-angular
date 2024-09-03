@@ -1,96 +1,96 @@
 package com.dev.ForoEscolar.mapper.estudiante;
 
+
 import com.dev.ForoEscolar.dtos.estudiante.EstudianteResponseDTO;
-import com.dev.ForoEscolar.mapper.GenericMapperDTO;
-import com.dev.ForoEscolar.model.Asistencia;
-import com.dev.ForoEscolar.model.Boletin;
-import com.dev.ForoEscolar.model.Estudiante;
-import com.dev.ForoEscolar.model.Tarea;
+import com.dev.ForoEscolar.model.*;
+import com.dev.ForoEscolar.repository.*;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
-import org.mapstruct.Mappings;
-import org.mapstruct.factory.Mappers;
+import org.mapstruct.Named;
+import org.springframework.beans.factory.annotation.Autowired;
 
-import java.util.List;
-import java.util.stream.Collectors;
 
-@Mapper
-public interface EstudianteMapper extends GenericMapperDTO<Estudiante, EstudianteResponseDTO> {
 
-    EstudianteMapper INSTANCE = Mappers.getMapper(EstudianteMapper.class);
+//@Mapper(componentModel = "spring", uses = {TutorLegalRepository.class, BoletinRepository.class, AsistenciaRepository.class, TareaRepository.class, CalificacionRepository.class})
+@Mapper(componentModel = "spring", uses = {TutorLegalRepository.class})
 
-    @Mappings({
-            @Mapping(target = "id", ignore = true),
-            @Mapping(source = "nombre", target = "nombre"),
-            @Mapping(source = "apellido", target = "apellido"),
-            @Mapping(source = "dni", target = "dni"),
-            @Mapping(source = "rol", target = "rol"),
-            @Mapping(source = "nacimiento", target = "nacimiento"),
-            @Mapping(source = "curso", target = "curso"),
-            @Mapping(source = "aula", target = "aula"),
-            @Mapping(source = "tipoDocumento", target = "tipoDocumento"),
-            @Mapping(source = "boletinIds", target = "boletin"),
-            @Mapping(source = "tareaIds", target = "tarea")
-    })
-    @Override
-    Estudiante toEntity(EstudianteResponseDTO requestDTO);
+public abstract class EstudianteMapper {
 
-    @Mappings({
-            @Mapping(source = "id", target = "id"),
-            @Mapping(source = "nombre", target = "nombre"),
-            @Mapping(source = "apellido", target = "apellido"),
-            @Mapping(source = "dni", target = "dni"),
-            @Mapping(source = "rol", target = "rol"),
-            @Mapping(source = "nacimiento", target = "nacimiento"),
-            @Mapping(source = "curso", target = "curso"),
-            @Mapping(source = "aula", target = "aula"),
-            @Mapping(source = "tipoDocumento", target = "tipoDocumento"),
-            @Mapping(source = "boletin", target = "boletinIds"),
-            @Mapping(source = "asistencia", target = "asistenciaIds"),
-            @Mapping(source = "tarea", target = "tareaIds")
-    })
-    @Override
-    EstudianteResponseDTO toResponseDTO(Estudiante entity);
+    //public static final EstudianteMapper INSTANCE = Mappers.getMapper(EstudianteMapper.class);
 
-    // Convierte una lista de Ids a una lista de Boletin
-    default List<Boletin> mapBoletines(List<Long> ids) {
-        return ids.stream()
-                .map(id -> new Boletin(id)) // Ajusta esto según tu implementación de Boletin
-                .collect(Collectors.toList());
+    @Autowired
+    private TutorLegalRepository tutorLegalRepository;
+//    @Autowired
+//    private BoletinRepository boletinRepository;
+//    @Autowired
+//    private AsistenciaRepository asistenciaRepository;
+//    @Autowired
+//    private TareaRepository tareaRepository;
+//    @Autowired
+//    private CalificacionRepository calificacionRepository;
+
+    @Mapping(source = "tutor", target = "tutorId", qualifiedByName = "tutorToLong")
+//    @Mapping(source = "boletin", target = "boletinIds", qualifiedByName = "boletinesToLongList")
+//    @Mapping(source = "asistencia", target = "asistenciaIds", qualifiedByName = "asistenciasToLongList")
+//    @Mapping(source = "tarea", target = "tareaIds", qualifiedByName = "tareasToLongList")
+//    @Mapping(source = "calificaciones", target = "calificacionesIds", qualifiedByName = "calificacionesToLongList")
+    public abstract EstudianteResponseDTO toResponseDTO(Estudiante estudiante);
+
+
+    @Mapping(source = "tutorId", target = "tutor", qualifiedByName = "longToTutor")
+//    @Mapping(source = "boletinIds", target = "boletin", qualifiedByName = "longListToBoletines")
+//    @Mapping(source = "asistenciaIds", target = "asistencia", qualifiedByName = "longListToAsistencias")
+//    @Mapping(source = "tareaIds", target = "tarea", qualifiedByName = "longListToTareas")
+//    @Mapping(source = "calificacionesIds", target = "calificaciones", qualifiedByName = "longListToCalificaciones")
+    public abstract Estudiante toEntity(EstudianteResponseDTO estudianteResponseDTO);
+
+    @Named("tutorToLong")
+    protected Long tutorToLong(TutorLegal tutor) {
+        return tutor != null ? tutor.getId() : null;
     }
 
-    // Convierte una lista de Boletin a una lista de Ids
-    default List<Long> mapBoletinIds(List<Boletin> boletines) {
-        return boletines.stream()
-                .map(Boletin::getId)
-                .collect(Collectors.toList());
+    @Named("longToTutor")
+    protected TutorLegal longToTutor(Long id) {
+        return id != null ? tutorLegalRepository.findById(id).orElse(null) : null;
     }
 
-    // Convierte una lista de Ids a una lista de Tarea
-    default List<Tarea> mapTareas(List<Long> ids) {
-        return ids.stream()
-                .map(id -> new Tarea(id)) // Ajusta esto según tu implementación de Tarea
-                .collect(Collectors.toList());
-    }
-
-    // Convierte una lista de Tarea a una lista de Ids
-    default List<Long> mapTareaIds(List<Tarea> tareas) {
-        return tareas.stream()
-                .map(Tarea::getId)
-                .collect(Collectors.toList());
-    }
-
-    // Convierte una lista de Ids a una lista de Asistencia
-    default List<Asistencia> mapAsistencias(List<Long> ids) {
-        return ids.stream()
-                .map(id -> new Asistencia(id))
-                .collect(Collectors.toList());
-    }
-
-    // Convierte una lista de Asistencia a una lista de Ids
-    default List<Long> mapAsistenciaIds(List<Asistencia> asistencias) {
-        return asistencias.stream()
-                .map(Asistencia::getId)
-                .collect(Collectors.toList());
-    }
+//    @Named("boletinesToLongList")
+//    protected List<Long> boletinesToLongList(List<Boletin> boletines) {
+//        return boletines != null ? boletines.stream().map(Boletin::getId).collect(Collectors.toList()) : null;
+//    }
+//
+//    @Named("longListToBoletines")
+//    protected List<Boletin> longListToBoletines(List<Long> ids) {
+//        return ids != null ? ids.stream().map(id -> boletinRepository.findById(id).orElse(null)).collect(Collectors.toList()) : null;
+//    }
+//
+//    @Named("asistenciasToLongList")
+//    protected List<Long> asistenciasToLongList(List<Asistencia> asistencias) {
+//        return asistencias != null ? asistencias.stream().map(Asistencia::getId).collect(Collectors.toList()) : null;
+//    }
+//
+//    @Named("longListToAsistencias")
+//    protected List<Asistencia> longListToAsistencias(List<Long> ids) {
+//        return ids != null ? ids.stream().map(id -> asistenciaRepository.findById(id).orElse(null)).collect(Collectors.toList()) : null;
+//    }
+//
+//    @Named("tareasToLongList")
+//    protected List<Long> tareasToLongList(List<Tarea> tareas) {
+//        return tareas != null ? tareas.stream().map(Tarea::getId).collect(Collectors.toList()) : null;
+//    }
+//
+//    @Named("longListToTareas")
+//    protected List<Tarea> longListToTareas(List<Long> ids) {
+//        return ids != null ? ids.stream().map(id -> tareaRepository.findById(id).orElse(null)).collect(Collectors.toList()) : null;
+//    }
+//
+//    @Named("calificacionesToLongList")
+//    protected List<Long> calificacionesToLongList(List<Calificacion> calificaciones) {
+//        return calificaciones != null ? calificaciones.stream().map(Calificacion::getId).collect(Collectors.toList()) : null;
+//    }
+//
+//    @Named("longListToCalificaciones")
+//    protected List<Calificacion> longListToCalificaciones(List<Long> ids) {
+//        return ids != null ? ids.stream().map(id -> calificacionRepository.findById(id).orElse(null)).collect(Collectors.toList()) : null;
+//    }
 }

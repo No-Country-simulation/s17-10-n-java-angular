@@ -1,9 +1,10 @@
 package com.dev.ForoEscolar.controllers.profesor;
 
+
 import com.dev.ForoEscolar.dtos.profesor.ProfesorRequestDTO;
 import com.dev.ForoEscolar.dtos.profesor.ProfesorResponseDTO;
 import com.dev.ForoEscolar.exceptions.d.ApplicationException;
-import com.dev.ForoEscolar.services.IProfesorService;
+import com.dev.ForoEscolar.services.ProfesorService;
 import io.swagger.v3.oas.annotations.Operation;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,11 +15,16 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/profesor")
+@RequestMapping("api/profesor")
 public class ProfesorController {
 
+
+    private final ProfesorService profesorService;
+
     @Autowired
-    private IProfesorService profesorService;
+    public ProfesorController(ProfesorService profesorService) {
+        this.profesorService = profesorService;
+    }
 
     @GetMapping("/getAll")
     @Operation(summary = "Obtiene todos los profesores")
@@ -35,18 +41,14 @@ public class ProfesorController {
     @Operation(summary = "Obtiene un profesor en particular")
     public ResponseEntity<ProfesorResponseDTO> findById(@PathVariable("id") Long id) {
         Optional<ProfesorResponseDTO> profesor = profesorService.findById(id);
-        if (profesor.isPresent()) {
-            return new ResponseEntity<>(profesor.get(), HttpStatus.OK);
-        } else {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
+        return profesor.map(profesorResponseDTO -> new ResponseEntity<>(profesorResponseDTO, HttpStatus.OK)).orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
-    @PostMapping("/add")
+    @PostMapping("/register")
     @Operation(summary = "Se agrega un profesor")
-    public ResponseEntity<Void> save(@RequestBody @Valid ProfesorRequestDTO dto) {
+    public ResponseEntity<ProfesorResponseDTO> save(@RequestBody @Valid ProfesorRequestDTO dto) {
         ProfesorResponseDTO profesor = profesorService.save(dto);
-        return new ResponseEntity<>(HttpStatus.CREATED);
+        return new ResponseEntity<>(profesor, HttpStatus.CREATED);
     }
 
     @PutMapping("/update")

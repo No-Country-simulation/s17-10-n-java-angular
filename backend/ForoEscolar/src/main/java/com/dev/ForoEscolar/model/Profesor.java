@@ -5,37 +5,32 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.List;
+import java.util.Set;
 
 
-@Getter
-@Setter
-@AllArgsConstructor
-@NoArgsConstructor
 @Entity
 @Table(name = "profesores")
-public class Profesor {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+@PrimaryKeyJoinColumn(name = "user_id")
+@DiscriminatorValue("PROFESOR")
+@Getter @Setter @NoArgsConstructor @AllArgsConstructor
+public class Profesor extends User {
 
     @Enumerated(EnumType.STRING)
     private MateriaEnum materia;
 
-    @OneToOne
-    @JoinColumn(name = "user_id",nullable = false,foreignKey = @ForeignKey(name = "FK_PROFILES_USER"))
-    private User user;
-
-    @ManyToMany(fetch = FetchType.LAZY)
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinTable(name="profesor_estudiante", joinColumns = @JoinColumn(name = "profesor_id"), inverseJoinColumns = @JoinColumn(name = "estudiante_id"))
     private List<Estudiante> estudiantes;
 
-    @OneToMany(mappedBy = "profesor",orphanRemoval = true,fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "profesor",cascade = {CascadeType.ALL},orphanRemoval = true,fetch = FetchType.LAZY)
     private List<Boletin> boletin;
 
-    @OneToMany(mappedBy = "profesorId",orphanRemoval = true,fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "profesor",cascade = {CascadeType.ALL},orphanRemoval = true,fetch = FetchType.LAZY)
     private List<Asistencia> asistencia;
 
-    @OneToMany(mappedBy = "profesor", orphanRemoval = true,fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "profesor")
     private List<Tarea> tarea;
+
+    @OneToMany(mappedBy = "profesor")
+    private List<Calificacion> calificaciones;
 }

@@ -2,15 +2,17 @@ package com.dev.ForoEscolar.model;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.util.Date;
 
 @AllArgsConstructor
 @NoArgsConstructor
-@Data
 @Entity
+@Getter
+@Setter
 @Table(name = "asistencia")
 public class Asistencia {
 
@@ -33,13 +35,10 @@ public class Asistencia {
 
     @ManyToOne
     @JoinColumn(name = "profesor_id")
-    private Profesor profesorId;
+    private Profesor profesor;
 
     @ManyToOne
     @JoinColumn(name = "estudiante_id")
-    private Estudiante estudianteId;
+    private Estudiante estudiante;
 
-    public Asistencia(Long id) {
-        this.Id = id;
-    }
 }

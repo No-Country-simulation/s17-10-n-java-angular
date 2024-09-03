@@ -31,8 +31,8 @@ public class BoletinServiceImp implements BoletinService {
                 .comentarios(boletinDto.getComentarios())
                 .curso(boletinDto.getCurso())
                 .calificaciones(boletinDto.getCalificacions())
-                .pedido(boletinDto.getPedido())
-                .fechaEmision(LocalDate.now())
+                .periodo(boletinDto.getPedido())
+                .fecha(LocalDate.now())
                 .estudiante(Estudiante.builder().id(boletinDto.getEstudianteId()).build())
                 .build();
         boletinRepository.save(boletin);

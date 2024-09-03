@@ -1,6 +1,6 @@
 package com.dev.ForoEscolar.services.impl;
 
-import com.dev.ForoEscolar.dtos.Tarea.TareaResponseDto;
+import com.dev.ForoEscolar.dtos.tarea.TareaResponseDto;
 import com.dev.ForoEscolar.mapper.tarea.TareaMapper;
 import com.dev.ForoEscolar.model.Estudiante;
 import com.dev.ForoEscolar.model.Profesor;

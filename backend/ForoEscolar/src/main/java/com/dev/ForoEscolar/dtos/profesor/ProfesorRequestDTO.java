@@ -1,21 +1,26 @@
 package com.dev.ForoEscolar.dtos.profesor;
 
-import com.dev.ForoEscolar.enums.MateriaEnum;
 import jakarta.validation.constraints.NotNull;
-
 import java.util.List;
 
-public record ProfesorRequestDTO(
-        @NotNull
-        MateriaEnum materia,
-        @NotNull
-        Long userId,
-        @NotNull
+
+public record ProfesorRequestDTO (
+        @NotNull(message = "El email no puede estar vacío")
+        String email,
+        String nombre,
+        String apellido,
+        String dni,
+        String tipoDocumento,
+        String telefono,
+        String contrasena,
+        String institucion,
+        @NotNull(message = "La materia no puede estar vacía")
+        String materia,
         List<Long> estudianteIds,
-        @NotNull
         List<Long> boletinIds,
-        @NotNull
         List<Long> asistenciaIds,
-        @NotNull
-        List<Long> tareaIds
-) {}
+        List<Long> tareaIds,
+        List<Long> calificacionIds
+){
+
+}
