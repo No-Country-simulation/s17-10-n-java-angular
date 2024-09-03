@@ -3,6 +3,7 @@ package com.dev.ForoEscolar.services.impl;
 import com.dev.ForoEscolar.dtos.user.UserRequestDTO;
 import com.dev.ForoEscolar.dtos.user.UserResponseDTO;
 import com.dev.ForoEscolar.enums.RoleEnum;
+import com.dev.ForoEscolar.exceptions.ApplicationException;
 import com.dev.ForoEscolar.mapper.user.UserMapper;
 import com.dev.ForoEscolar.model.User;
 import com.dev.ForoEscolar.repository.UserRepository;
@@ -13,6 +14,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 
@@ -28,7 +30,6 @@ public class UserServiceImpl implements UserService {
         this.passwordEncoder = (BCryptPasswordEncoder) passwordEncoder;
     }
 
-
     @Override
     public Optional<UserResponseDTO> findById(Long id) {
         Optional<User> user = userRepository.findById(id);
@@ -42,15 +43,19 @@ public class UserServiceImpl implements UserService {
     @Override
     @Transactional
     public UserResponseDTO save(UserRequestDTO user) {
-        if(userRepository.existsByEmail(user.email())) {
-            throw new RuntimeException("Usuario con email ya existente: " + user.email());
-        }else{
+        try {
+            if(userRepository.existsByEmail(user.email())) {
+                throw new ApplicationException("Usuario con email ya existente: " + user.email());
+            }
             User newUser = UserMapper.INSTANCE.toEntity(user);
             newUser.setContrasena(passwordEncoder.encode(user.contrasena()));
             newUser.setRol(RoleEnum.valueOf("ADMINISTRADOR"));
             newUser.setActivo(true);
             newUser = userRepository.save(newUser);
             return UserMapper.INSTANCE.toResponseDTO(newUser);
+        } catch (ApplicationException e) {
+            // Log the exception
+            throw new ApplicationException("Error al guardar el usuario: " + e.getMessage());
         }
     }
 
@@ -65,8 +70,8 @@ public class UserServiceImpl implements UserService {
     }
     @Override
     public Iterable<UserResponseDTO> findAll() {
-        return userRepository.findAll()
-                .stream()
+        List<User> users = userRepository.findAll();
+        return users.stream()
                 .map(UserMapper.INSTANCE::toResponseDTO)
                 .toList();
     }

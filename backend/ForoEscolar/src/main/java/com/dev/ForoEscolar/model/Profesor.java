@@ -7,22 +7,18 @@ import lombok.*;
 import java.util.List;
 
 
-@Getter
-@Setter
-@AllArgsConstructor
-@NoArgsConstructor
 @Entity
+@Table(name = "profesores")
+@PrimaryKeyJoinColumn(name = "user_id")
+@DiscriminatorValue("PROFESOR")
+@Getter @Setter @NoArgsConstructor @AllArgsConstructor
 public class Profesor extends User {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
 
     @Enumerated(EnumType.STRING)
     private MateriaEnum materia;
 
     @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinTable(name="profesor_estudiante", joinColumns = @JoinColumn(name = "profesor_id"), inverseJoinColumns = @JoinColumn(name = "estudante_id"))
+    @JoinTable(name="profesor_estudiante", joinColumns = @JoinColumn(name = "profesor_id"), inverseJoinColumns = @JoinColumn(name = "estudiante_id"))
     private List<Estudiante> estudiantes;
 
     //@OneToMany(mappedBy = "profesor",cascade = {CascadeType.ALL},orphanRemoval = true,fetch = FetchType.LAZY)
@@ -31,6 +27,9 @@ public class Profesor extends User {
 //    @OneToMany(mappedBy = "profesor",cascade = {CascadeType.ALL},orphanRemoval = true,fetch = FetchType.LAZY)
 //    private List<Asistencia> asistencia;
 
-    @OneToMany(mappedBy = "profesor",cascade = {CascadeType.ALL},orphanRemoval = true,fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "profesor")
     private List<Tarea> tarea;
+
+    @OneToMany(mappedBy = "profesor")
+    private List<Calificacion> calificaciones;
 }

@@ -1,6 +1,6 @@
 package com.dev.ForoEscolar.services.impl;
 
-import com.dev.ForoEscolar.dtos.Tarea.TareaResponseDto;
+import com.dev.ForoEscolar.dtos.tarea.TareaResponseDto;
 import com.dev.ForoEscolar.mapper.tarea.TareaMapper;
 import com.dev.ForoEscolar.model.Estudiante;
 import com.dev.ForoEscolar.model.Profesor;
@@ -17,8 +17,11 @@ import java.util.stream.Collectors;
 @Service
 public class TareaServiceImpl implements TareaService {
 
+    private final TareaRepository tareaRepository;
     @Autowired
-   private TareaRepository tareaRepository;
+    public TareaServiceImpl(TareaRepository tareaRepository) {
+        this.tareaRepository = tareaRepository;
+    }
 
     @Override
     public TareaResponseDto save(TareaResponseDto tareaRequestDto) {
@@ -28,15 +31,16 @@ public class TareaServiceImpl implements TareaService {
         }
         Profesor profesor= new Profesor();
         profesor.setId(tareaRequestDto.getProfesorId());
-        Tarea tarea= new Tarea().builder()
+        new Tarea();
+        Tarea tarea= Tarea.builder()
                 .descripcion(tareaRequestDto.getDescripcion())
                 .titulo(tareaRequestDto.getTitulo())
                 .estudiante(Estudiante.builder().id(tareaRequestDto.getEstudianteId()).build())
                 .profesor(profesor)
                 .fechaEntrega(tareaRequestDto.getFechaEntrega())
                 .build();
-                tareaRepository.save(tarea);
-               return TareaMapper.INSTANCE.toResponseDTO(tarea);
+        tareaRepository.save(tarea);
+        return TareaMapper.INSTANCE.toResponseDTO(tarea);
 
     }
 
@@ -69,13 +73,6 @@ public class TareaServiceImpl implements TareaService {
             throw new RuntimeException("Tarea no encontrada");
         }
 
-    }
-
-
-    //Esto es solo para prueba - Cristian
-    @Override
-    public TareaResponseDto update(TareaResponseDto requestDTO) {
-        return null;
     }
 
 }

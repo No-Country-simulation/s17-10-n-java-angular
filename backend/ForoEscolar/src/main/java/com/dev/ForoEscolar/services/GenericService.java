@@ -10,8 +10,5 @@ public interface GenericService<T, ID, RequestDTO, ResponseDTO> {
 
     Iterable<ResponseDTO> findAll();
 
-    //Se agrego un update - Cristian
-    ResponseDTO update(RequestDTO requestDTO);
-
     void deleteById(ID id);
 }

@@ -10,12 +10,14 @@ import lombok.*;
 import java.sql.Date;
 import java.util.List;
 
+
+@Builder
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Builder
+@Table(name = "estudiantes")
 public class Estudiante {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,11 +29,13 @@ public class Estudiante {
 
     private String dni;
 
+    private Boolean activo;
+
     @Enumerated(EnumType.STRING)
     private RoleEnum rol;
 
     @Column(name = "fecha_nacimiento")
-    private Date nacimiento;
+    private Date fechaNacimiento;
 
     @Enumerated(EnumType.STRING)
     private CursoEnum curso;
@@ -43,16 +47,19 @@ public class Estudiante {
     @Enumerated(EnumType.STRING)
     private TipoDocumentoEnum tipoDocumento;
 
-//    @ManyToOne
-//    @JoinColumn(name = "tutor_legal",nullable = false,foreignKey = @ForeignKey(name="FK_TUTOR_LEGAL"))
-//    private TutorLegal tutor;
-
-    @OneToMany(mappedBy = "estudiante",cascade = {CascadeType.ALL},orphanRemoval = true,fetch = FetchType.LAZY)
-    private List<Boletin> boletin;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "tutor_legal_id", nullable = false, foreignKey = @ForeignKey(name="FK_TUTOR_LEGAL"))
+    private TutorLegal tutor;
 
 //    @OneToMany(mappedBy = "estudiante",cascade = {CascadeType.ALL},orphanRemoval = true,fetch = FetchType.LAZY)
-//    private List<Asistencia> asistencia;
-
+//    private List<Boletin> boletin;
+//
     @OneToMany(mappedBy = "estudiante",cascade = {CascadeType.ALL},orphanRemoval = true,fetch = FetchType.LAZY)
-    private List<Tarea> tarea;
+    private List<Asistencia> asistencia;
+//
+//    @OneToMany(mappedBy = "estudiante",cascade = {CascadeType.ALL},orphanRemoval = true,fetch = FetchType.LAZY)
+//    private List<Tarea> tarea;
+//
+//    @OneToMany(mappedBy = "estudiante", cascade = {CascadeType.ALL}, orphanRemoval = true, fetch = FetchType.LAZY)
+//    private List<Calificacion> calificaciones;
 }

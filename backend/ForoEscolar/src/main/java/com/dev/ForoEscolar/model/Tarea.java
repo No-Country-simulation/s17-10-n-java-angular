@@ -20,8 +20,6 @@ public class Tarea {
 
     private String descripcion;
     private String titulo;
-
-
     private Date fechaEntrega;
     private boolean activo;
 
@@ -31,6 +29,5 @@ public class Tarea {
     @ManyToOne
     @JoinColumn(name = "profesores_id")
     private Profesor profesor;
-
 
 }

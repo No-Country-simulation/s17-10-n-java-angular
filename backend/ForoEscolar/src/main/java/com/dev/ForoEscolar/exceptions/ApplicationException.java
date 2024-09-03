@@ -1,4 +1,4 @@
-package com.dev.ForoEscolar.exceptions.d;
+package com.dev.ForoEscolar.exceptions;
 
 public class ApplicationException extends RuntimeException{
 
