@@ -42,7 +42,7 @@ CREATE TABLE profesores (
 );
 
 CREATE TABLE profesor_estudiante (
-                                     id BIGINT PRIMARY KEY,
+                                     id BIGINT AUTO_INCREMENT PRIMARY KEY,
                                      profesor_id BIGINT,
                                      estudiante_id BIGINT,
                                      materia ENUM('MATEMATICAS', 'CIENCIAS', 'LENGUAJE', 'HISTORIA'),

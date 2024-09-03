@@ -12,6 +12,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@Table(name = "profesores")
 public class Profesor {
 
     @Id
@@ -25,16 +26,16 @@ public class Profesor {
     @JoinColumn(name = "user_id",nullable = false,foreignKey = @ForeignKey(name = "FK_PROFILES_USER"))
     private User user;
 
-    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinTable(name="profesor_estudiante", joinColumns = @JoinColumn(name = "profesor_id"), inverseJoinColumns = @JoinColumn(name = "estudante_id"))
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(name="profesor_estudiante", joinColumns = @JoinColumn(name = "profesor_id"), inverseJoinColumns = @JoinColumn(name = "estudiante_id"))
     private List<Estudiante> estudiantes;
 
-    @OneToMany(mappedBy = "profesor",cascade = {CascadeType.ALL},orphanRemoval = true,fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "profesor",orphanRemoval = true,fetch = FetchType.LAZY)
     private List<Boletin> boletin;
 
-    @OneToMany(mappedBy = "profesorId",cascade = {CascadeType.ALL},orphanRemoval = true,fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "profesorId",orphanRemoval = true,fetch = FetchType.LAZY)
     private List<Asistencia> asistencia;
 
-    @OneToMany(mappedBy = "profesor",cascade = {CascadeType.ALL},orphanRemoval = true,fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "profesor", orphanRemoval = true,fetch = FetchType.LAZY)
     private List<Tarea> tarea;
 }

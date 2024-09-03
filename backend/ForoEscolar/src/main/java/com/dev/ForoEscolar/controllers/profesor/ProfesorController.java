@@ -1,8 +1,5 @@
 package com.dev.ForoEscolar.controllers.profesor;
 
-
-import com.dev.ForoEscolar.dtos.ApiResponseDto;
-import com.dev.ForoEscolar.dtos.estudiante.EstudianteResponseDTO;
 import com.dev.ForoEscolar.dtos.profesor.ProfesorRequestDTO;
 import com.dev.ForoEscolar.dtos.profesor.ProfesorResponseDTO;
 import com.dev.ForoEscolar.exceptions.d.ApplicationException;
@@ -13,9 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import java.net.URI;
 import java.util.Optional;
 
 @RestController

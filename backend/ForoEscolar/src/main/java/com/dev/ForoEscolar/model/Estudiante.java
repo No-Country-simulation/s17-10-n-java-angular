@@ -48,16 +48,14 @@ public class Estudiante {
 //    private TutorLegal tutor;
 //
 
-    @OneToMany(mappedBy = "estudiante",cascade = {CascadeType.ALL},orphanRemoval = true,fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "estudiante",orphanRemoval = true,fetch = FetchType.LAZY)
     private List<Boletin> boletin;
 
-//
-//    @OneToMany(mappedBy = "estudiante",cascade = {CascadeType.ALL},orphanRemoval = true,fetch = FetchType.LAZY)
-//    private List<Asistencia> asistencia;
+    @OneToMany(mappedBy = "estudianteId",orphanRemoval = true,fetch = FetchType.LAZY)
+    private List<Asistencia> asistencia;
 
-    @OneToMany(mappedBy = "estudiante",cascade = {CascadeType.ALL},orphanRemoval = true,fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "estudiante",orphanRemoval = true,fetch = FetchType.LAZY)
     private List<Tarea> tarea;
-
 
     public Estudiante(Long id) {
         this.id = id;
