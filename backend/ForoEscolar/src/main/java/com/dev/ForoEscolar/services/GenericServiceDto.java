@@ -2,14 +2,14 @@ package com.dev.ForoEscolar.services;
 
 import java.util.Optional;
 
-public interface GenericServiceDto<ID, EntityDto> {
+public interface GenericServiceDto<T, EntityDto> {
 
     EntityDto save(EntityDto requestDTO);
 
-    Optional<EntityDto> findById(ID id);
+    Optional<EntityDto> findById(Long id);
 
     Iterable<EntityDto> findAll();
 
-    void deleteById(ID id);
+    void deleteById(Long id);
 
 }
