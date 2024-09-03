@@ -71,10 +71,10 @@ public class UserServiceImpl implements UserService {
                 .toList();
     }
 
-    @Override
+    /*@Override
     public UserResponseDTO update(UserRequestDTO userRequestDTO) {
         return null;
-    }
+    }*/
 
     @Override
     public UserResponseDTO findByEmail(String username){

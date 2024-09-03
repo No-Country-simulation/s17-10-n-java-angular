@@ -62,10 +62,10 @@ public class BoletinServiceImp implements BoletinService {
 
     }
 
-    @Override
+   /* @Override
     public BoletinDto update(BoletinDto requestDTO) {
         return null;
-    }
+    }*/
 
     public Double promediarnotas(List<Calificacion> calificacions, Long idBoletin){
         Boletin boletin= boletinRepository.findById(idBoletin).orElse(null);
