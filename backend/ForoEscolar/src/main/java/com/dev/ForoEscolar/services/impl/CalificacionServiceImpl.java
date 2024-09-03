@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 import java.util.Collections;
 import java.util.Optional;
 @Service
-public class CalificacionServiceImpl implements CalificacionService, GenericServiceDto<Calificacion, Long, CalificacionDTO> {
+public class CalificacionServiceImpl implements CalificacionService, GenericServiceDto<Long, CalificacionDTO> {
 
     private final CalificacionRepository calificacionRepository;
 

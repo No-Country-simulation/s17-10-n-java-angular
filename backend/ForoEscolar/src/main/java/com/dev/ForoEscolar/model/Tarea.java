@@ -3,7 +3,6 @@ package com.dev.ForoEscolar.model;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.sql.Timestamp;
 import java.util.Date;
 
 @Entity
@@ -21,8 +20,6 @@ public class Tarea {
 
     private String descripcion;
     private String titulo;
-
-
     private Date fechaEntrega;
     private boolean activo;
 
@@ -32,6 +29,5 @@ public class Tarea {
     @ManyToOne
     @JoinColumn(name = "profesores_id")
     private Profesor profesor;
-
 
 }

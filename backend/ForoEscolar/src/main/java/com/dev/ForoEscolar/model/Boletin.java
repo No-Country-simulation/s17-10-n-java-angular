@@ -6,7 +6,6 @@ import lombok.*;
 
 import java.time.LocalDate;
 import java.util.List;
-import java.util.Set;
 
 @Entity
 @Getter
@@ -28,7 +27,7 @@ public class Boletin {
     private CursoEnum curso;
 
     @OneToMany(mappedBy = "boletin", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
-    private Set<Calificacion> calificaciones;
+    private List<Calificacion> calificaciones;
 
     @ManyToOne
     @JoinColumn(name = "estudiante_id")

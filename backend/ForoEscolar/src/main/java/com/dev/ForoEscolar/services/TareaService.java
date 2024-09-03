@@ -5,7 +5,7 @@ import com.dev.ForoEscolar.model.Tarea;
 import org.springframework.stereotype.Service;
 
 @Service
-public interface TareaService extends GenericServiceDto<Tarea, Long, TareaResponseDto> {
+public interface TareaService extends GenericServiceDto<Long, TareaResponseDto> {
 
 
 

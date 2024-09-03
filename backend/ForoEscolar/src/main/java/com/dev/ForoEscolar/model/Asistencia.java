@@ -3,6 +3,7 @@ package com.dev.ForoEscolar.model;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 @AllArgsConstructor
@@ -24,7 +25,7 @@ public class Asistencia {
     private double diasAnioEscolar;
 
     @Column(name = "fecha")
-    private Date fecha;
+    private LocalDate fecha;
 
     private String estado;
 

@@ -5,8 +5,6 @@ import com.dev.ForoEscolar.dtos.user.DatosAutenticacionUsuario;
 import com.dev.ForoEscolar.model.User;
 import com.dev.ForoEscolar.services.AutenticacionService;
 import com.dev.ForoEscolar.services.TokenService;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;

@@ -2,7 +2,7 @@ package com.dev.ForoEscolar.services;
 
 import java.util.Optional;
 
-public interface GenericServiceDto<T,ID, EntityDto> {
+public interface GenericServiceDto<ID, EntityDto> {
 
     EntityDto save(EntityDto requestDTO);
 

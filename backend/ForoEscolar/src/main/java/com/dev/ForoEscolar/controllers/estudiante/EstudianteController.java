@@ -2,7 +2,7 @@ package com.dev.ForoEscolar.controllers.estudiante;
 
 import com.dev.ForoEscolar.dtos.ApiResponseDto;
 import com.dev.ForoEscolar.dtos.estudiante.EstudianteResponseDTO;
-import com.dev.ForoEscolar.exceptions.d.ApplicationException;
+import com.dev.ForoEscolar.exceptions.ApplicationException;
 import com.dev.ForoEscolar.services.EstudianteService;
 import io.swagger.v3.oas.annotations.Operation;
 import jakarta.validation.Valid;

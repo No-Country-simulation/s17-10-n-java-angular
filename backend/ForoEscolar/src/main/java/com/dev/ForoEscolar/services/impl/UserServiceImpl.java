@@ -3,7 +3,7 @@ package com.dev.ForoEscolar.services.impl;
 import com.dev.ForoEscolar.dtos.user.UserRequestDTO;
 import com.dev.ForoEscolar.dtos.user.UserResponseDTO;
 import com.dev.ForoEscolar.enums.RoleEnum;
-import com.dev.ForoEscolar.exceptions.d.ApplicationException;
+import com.dev.ForoEscolar.exceptions.ApplicationException;
 import com.dev.ForoEscolar.mapper.user.UserMapper;
 import com.dev.ForoEscolar.model.User;
 import com.dev.ForoEscolar.repository.UserRepository;
