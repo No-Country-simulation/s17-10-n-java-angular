@@ -18,7 +18,7 @@ import java.util.stream.Collectors;
 public class TareaServiceImpl implements TareaService {
 
     @Autowired
-   private TareaRepository tareaRepository;
+    private TareaRepository tareaRepository;
 
     @Override
     public TareaResponseDto save(TareaResponseDto tareaRequestDto) {
@@ -35,8 +35,8 @@ public class TareaServiceImpl implements TareaService {
                 .profesor(profesor)
                 .fechaEntrega(tareaRequestDto.getFechaEntrega())
                 .build();
-                tareaRepository.save(tarea);
-               return TareaMapper.INSTANCE.toResponseDTO(tarea);
+        tareaRepository.save(tarea);
+        return TareaMapper.INSTANCE.toResponseDTO(tarea);
 
     }
 
