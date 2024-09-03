@@ -5,7 +5,7 @@ import com.dev.ForoEscolar.model.Boletin;
 import org.springframework.stereotype.Service;
 
 @Service
-public interface BoletinService extends GenericServiceDto<Boletin, Long, BoletinDto> {
+public interface BoletinService extends GenericServiceDto<Boletin, BoletinDto> {
 
 
 

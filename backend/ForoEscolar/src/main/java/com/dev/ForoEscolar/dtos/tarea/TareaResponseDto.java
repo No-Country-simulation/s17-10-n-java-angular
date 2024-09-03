@@ -1,4 +1,4 @@
-package com.dev.ForoEscolar.dtos.Tarea;
+package com.dev.ForoEscolar.dtos.tarea;
 
 import lombok.*;
 
