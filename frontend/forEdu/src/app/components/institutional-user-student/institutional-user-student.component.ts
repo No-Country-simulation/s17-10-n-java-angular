@@ -16,15 +16,7 @@ export class InstitutionalUserStudentComponent {
     this.modalUserInstitutionalService.showModal(user);
   }
 
-  isModalVisible = false;
 
-  opeenModal() {
-    this.isModalVisible = true;
-  }
-
-  closeModal() {
-    this.isModalVisible = false;
-  }
   
   persons = [
     {

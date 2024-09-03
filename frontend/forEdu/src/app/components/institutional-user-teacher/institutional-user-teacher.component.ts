@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ModalUserInstitutionalService } from '../../service/modal/modal-user-institutional.service';
 
 @Component({
   selector: 'app-institutional-user-teacher',
@@ -8,6 +9,14 @@ import { Component } from '@angular/core';
   styleUrl: './institutional-user-teacher.component.css'
 })
 export class InstitutionalUserTeacherComponent {
+
+  constructor(private modalUserInstitutionalService: ModalUserInstitutionalService) {}
+
+  openModal(user: any) {
+    this.modalUserInstitutionalService.showModal(user);
+  }
+
+  
   persons = [
     {
       id: 1,

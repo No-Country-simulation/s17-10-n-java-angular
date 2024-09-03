@@ -13,14 +13,20 @@
   </div>
   
   @if(tablaActual === 'alumnos') {
-    <div class="tabla-alumnos">
+    <div class="tabla">
         <app-institutional-user-student></app-institutional-user-student>
     </div>
   }
 
   @if(tablaActual === 'profesores') {
-    <div class="tabla-alumnos">
+    <div class="tabla">
         <app-institutional-user-teacher></app-institutional-user-teacher>
+    </div>
+  }
+
+  @if(tablaActual === 'administradores') {
+    <div class="tabla">
+        <app-institutional-user-admin></app-institutional-user-admin>
     </div>
   }
 

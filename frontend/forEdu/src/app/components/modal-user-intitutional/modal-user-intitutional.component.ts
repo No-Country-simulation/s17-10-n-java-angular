@@ -27,10 +27,5 @@ export class ModalUserIntitutionalComponent implements OnInit {
       }
     );
   }
-
-  hideModal() {
-    this.modalUserInstitutionalService.hideModal();
-  }
-
   
 }

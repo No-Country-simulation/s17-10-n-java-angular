@@ -15,8 +15,4 @@ export class ModalUserInstitutionalService {
     this.selectedUser.next(user);
     this.modalUserVisibility.next(true);
   }
-
-  hideModal() {
-    this.modalUserVisibility.next(false);
-  }
 }

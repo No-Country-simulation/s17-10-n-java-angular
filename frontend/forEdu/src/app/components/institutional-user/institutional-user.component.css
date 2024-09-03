@@ -1,41 +1,18 @@
-/*estilos de estaditicas*/
+/*CONTENEDOR PRINCIPAL DEL USER*/
 .container-institutional {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 1.3rem;
     width: 100%;
     max-width: 1200px;
     height: 92vh;
     align-items: center;
     justify-content: center;
-    padding: 1.9rem;
+    padding: 0rem;
     box-sizing: border-box;
 }
 
-.institutional-statistics {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1rem;
-    justify-content: space-between;
-    width: 100%;
-    align-items: center;
-}
 
-.institutional-statistics-items {
-    background-color: #EEEEEE;
-    padding: 1rem;
-    border-radius: 10px;
-    text-align: start;
-}
-
-.institutional-statistics-items .details {
-    font-size: 0.5rem;
-}
-
-.quantities {
-    margin-bottom: 0.7rem;
-    margin-top: 0.2rem;
-}
 
 
 
