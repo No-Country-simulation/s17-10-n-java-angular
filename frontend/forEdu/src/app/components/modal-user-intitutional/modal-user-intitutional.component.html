@@ -20,22 +20,32 @@
           <label>Fecha de Nacimiento:</label>
           <span>{{ user.fechaNacimiento }}</span>
         </div>
-        <div class="info-row">
-          <label>Documento (DNI):</label>
+        <div class="info-row info-row-double">
+         <div class="info-row-items">
+           <label>Documento:</label>
+           <span>{{ user.legajo }}</span>
+         </div>
+         <div class="info-row-items">
+          <label>N°:</label>
           <span>{{ user.legajo }}</span>
+        </div>
         </div>
         <div class="info-row">
           <label>Sexo:</label>
           <span>{{ user.sexo }}</span>
         </div>
         <div class="info-row">
-          <label>Grado:</label>
-          <span>{{ user.turno }}</span>
+          <div class="info-row-items">
+            <label>Grado:</label>
+            <span>{{ user.turno }}</span>
+          </div>
+          <div class="info-row-items">
+            <label>Sección:</label>
+            <span>{{ user.tutores}}</span>
+          </div>
         </div>
-        <div class="info-row">
-          <label>Sección:</label>
-          <span>{{ user.tutores}}</span>
-        </div>
+         
+      
       </div>
 }
   

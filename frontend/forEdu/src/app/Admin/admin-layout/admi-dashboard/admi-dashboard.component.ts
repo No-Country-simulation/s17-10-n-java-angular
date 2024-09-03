@@ -28,9 +28,10 @@ export class AdmiDashboardComponent {
   }
   ngOnInit() {
     this.items = [
-      { label: 'Option 1', command: () => this.save('Option 1') },
-      { label: 'Option 2', command: () => this.save('Option 2') },
-      { label: 'Option 3', command: () => this.save('Option 3') }
+      { label: 'Ver perfil', command: () => this.save('Option 1') },
+      { label: 'Configuración', command: () => this.save('Option 2') },
+      { label: 'Ayuda y Soporte', command: () => this.save('Option 3') },
+      { label: 'Cerrar Sesión', command: () => this.save('Option 3') }
     ];
 }
  save(info: string) {
