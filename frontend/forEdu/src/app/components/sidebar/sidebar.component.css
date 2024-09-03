@@ -1,12 +1,20 @@
 @import "primeicons/primeicons.css";
 
+.p-menuitem-text {
+  color:red
+}
+.p-panelmenu-header-action {
+  background-color: aqua;
+}
+
 .custom-panel-menu {
   position: fixed;
+  color: magenta;
   top: 0;
   left: 0;
   width: 250px;
   height: 100%;
-  color: #fff;
   overflow-y: auto;
+  font-size: 16px;
   z-index: 1000;
 }
