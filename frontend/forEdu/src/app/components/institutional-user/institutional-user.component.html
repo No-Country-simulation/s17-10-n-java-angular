@@ -24,43 +24,12 @@
     </div>
 
     <!-- Parte inferior -->
-    <div class="institutional-tables">
-        <div class=".table-wrapper">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Nombre</th>
-                        <th>Legajo</th>
-                        <th>Fecha de Nacimiento</th>
-                        <th>Grado</th>
-                        <th>Turno</th>
-                        <th>Tutores</th>
-                        <th>Acción</th>
-                    </tr>
-                </thead>
-            </table>
-            <div class="table-body">
-                <table>
-                    <tbody>
-                        @for (person of persons; track person.id) {
-                            <tr>
-                                <td>{{ person.nombre }}</td>
-                                <td>{{ person.legajo }}</td>
-                                <td>{{ person.fechaNacimiento }}</td>
-                                <td>{{ person.grado }}</td>
-                                <td>{{ person.turno }}</td>
-                                <td>{{ person.tutores }}</td>
-                                <td>{{ person.accion }}</td>
-                            </tr>
-                        }
-
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
+     <!-- Barra de navegación -->
+      <app-navbar-institutional></app-navbar-institutional>
+   <!--Bonton agregar-->
     <div class="container-btn">
         <button class="btn-add" type="button"><i class="pi pi-plus"></i></button>
         <div>Añadir</div>
     </div>
 </div>
+

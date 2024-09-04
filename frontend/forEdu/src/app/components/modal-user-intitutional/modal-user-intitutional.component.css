@@ -1,0 +1,31 @@
+.user-info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-family: Arial, sans-serif;
+    color: #333;
+  }
+  
+  .info-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 0;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .info-row:last-child {
+    border-bottom: none;
+  }
+  
+  label {
+    font-weight: bold;
+    margin-right: 10px;
+  }
+  
+  span {
+    flex-grow: 1;
+    text-align: right;
+    color: #555;
+  }
+  

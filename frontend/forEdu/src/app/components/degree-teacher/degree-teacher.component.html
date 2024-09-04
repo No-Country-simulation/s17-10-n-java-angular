@@ -1,0 +1,37 @@
+<div class="institutional-tables">
+    <div class="institutional-header">
+        <h4>Profesores</h4>
+        <i class="pi pi-user-plus"></i>
+    </div>
+    <div class="table-wrapper">
+        <table>
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Departamento</th>
+                    <th>Contacto</th>
+                    <th></th>
+                </tr>
+            </thead>
+        </table>
+        <div class="table-body">
+            <table>
+                <tbody>
+                    @for (person of persons; track person.id) {
+                        <tr>
+                            <td>
+                                <div class="picture-table">
+                                    <img src="#" alt="Profile Picture"/>
+                                    <p>{{ person.nombre }}</p>
+                                </div>
+                            </td>
+                            <td>{{ person.deparatamento }}</td>
+                            <td>{{ person.contacto }}</td>
+                            <td><button class="btn-cta">CTA</button></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

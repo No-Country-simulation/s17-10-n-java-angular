@@ -203,19 +203,20 @@ main{
 
 /*Estilos del lado derecho*/
 /*Calendario*/
-.calendar{
-    height: 30vh;
-    background-color: #F9F9F9;
+.calendar {
+    height: 60%;
     width: 100%;
     border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-.p-calendar{
-    width: 100%;
-}
+
+
 
 /*seccion de priofesores*/
 .teacher{
-    height: 56vh;
+    height: 48vh;
     background-color: #F9F9F9;
     border-radius: 10px;
     display: flex;
