@@ -16,6 +16,12 @@
     position: relative;
     background-color: transparent;
   }
+  .opciones-izquierda button:hover {
+    color: rgb(67, 67, 67);
+  }
+  .opciones-izquierda button:focus {
+    color: rgb(67, 67, 67);
+  }
   
   .opciones-izquierda button.active {
     position: relative;
