@@ -1,17 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { DialogModule } from 'primeng/dialog';
 import { ModalUserInstitutionalService } from '../../service/modal/modal-user-institutional.service';
+import { Person } from '../../models/person';
 
 @Component({
   selector: 'app-modal-user-intitutional',
   standalone: true,
   imports: [DialogModule],
-  templateUrl: './modal-user-intitutional.component.html',
-  styleUrls: ['./modal-user-intitutional.component.css'],
+  templateUrl: './modal-user-institutional.component.html',
+  styleUrls: ['./modal-user-institutional.component.css'],
 })
 export class ModalUserIntitutionalComponent implements OnInit {
   displayModal: boolean = false;
-  user: any = null;
+  selectedUser: Person | null = null;
 
   constructor(private modalUserInstitutionalService: ModalUserInstitutionalService) {}
 
@@ -22,9 +23,7 @@ export class ModalUserIntitutionalComponent implements OnInit {
       }
     );
     this.modalUserInstitutionalService.selectedUser$.subscribe(
-      (user) => {
-        this.user = user;
-      }
+      user => this.selectedUser = user
     );
   }
   

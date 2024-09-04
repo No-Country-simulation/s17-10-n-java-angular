@@ -8,7 +8,8 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 0rem;
-    width: 1200PX;
+    max-width: 100%;
+    width: 1200px;
 }
 
 .institutional-statistics-items {
