@@ -1,0 +1,44 @@
+<div class="container-institutional">
+
+  <!-- Parte inferior -->
+  <div class="institutional-tables">
+      <div class=".table-wrapper">
+          <table>
+              <thead>
+                  <tr>
+                      <th>Nombre <i class = "arrow pi pi-arrow-down"></i></th>
+                      <th>Legajo</th>
+                      <th>Turno </th>
+                      <th>Fecha</th>
+                      <th>Cargado</th>
+                      <th>Boletines</th>
+
+                  </tr>
+              </thead>
+          </table>
+          <div class="table-body">
+              <table>
+                  <tbody>
+                      @for (person of persons; track person.id) {
+                          <tr>
+                              <td>{{ person.nombre }}</td>
+                              <td>{{ person.legajo }}</td>
+                              <td>{{ person.turno }}</td>
+                              <td>{{ person.fecha }}</td>
+                              <td>{{ person.cargado }}</td>
+                              <td>{{ person.tutores }}</td>
+
+                          </tr>
+                      }
+
+                  </tbody>
+              </table>
+          </div>
+      </div>
+  </div>
+  <div class="container-btn">
+      <button class="btn-add" type="button"><i class="pi pi-plus"></i></button>
+      <div>Añadir</div>
+  </div>
+</div>
+

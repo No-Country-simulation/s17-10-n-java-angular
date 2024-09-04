@@ -1,0 +1,138 @@
+.container-institutional {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  max-width: 1200px;
+  height: 92vh;
+  align-items: center;
+  justify-content: center;
+  padding: 1.9rem;
+  box-sizing: border-box;
+}
+
+.institutional-statistics {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+}
+
+.institutional-statistics-items {
+  background-color: #EEEEEE;
+  padding: 1rem;
+  border-radius: 10px;
+  text-align: start;
+}
+
+.institutional-statistics-items .details {
+  font-size: 0.5rem;
+}
+
+.quantities {
+  margin-bottom: 0.7rem;
+  margin-top: 0.2rem;
+}
+
+/*Estilos de la tabla*/
+.institutional-tables {
+  height: 50vh;
+  width: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+  box-sizing: border-box;
+  border: 2px solid #EEEEEE;
+}
+
+.table-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 10px;
+  border: none;
+  table-layout: fixed;
+}
+
+thead {
+  background-color: #EEEEEE;
+  border-bottom: 2px solid #EEEEEE;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.table-body {
+  height: calc(52vh - 40px);
+  overflow-y: auto;
+}
+.table-body::-webkit-scrollbar {
+  width: 0;
+}
+td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid #dddddd;
+  font-size: 0.75rem;
+
+}
+
+th {
+  background-color: #f0efef;
+  font-weight: 600;
+  letter-spacing: 0.05rem;
+  padding: 0.5rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid #dddddd;
+}
+
+tr:nth-child(odd) {
+  background-color: #FFFFFF;
+}
+
+tr:nth-child(even) {
+  background-color: #F7F7F7;
+}
+
+tr:hover {
+  background-color: #f1f1f1;
+}
+
+
+
+.table-body::-webkit-scrollbar-thumb {
+  background: #CCCCCC;
+  border-radius: 4px;
+}
+
+/*botyon*/
+.container-btn {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+  align-items: center;
+}
+
+.btn-add {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  background-color: #EEEEEE;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.arrow{
+  font-size: 0.7em;
+}
