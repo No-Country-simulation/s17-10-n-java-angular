@@ -17,8 +17,8 @@ public record EstudianteResponseDTO(
         TipoDocumentoEnum tipoDocumento,
         Boolean activo,
         Long tutor,
-        List<Long> asistencia
-//        List<Long> boletin,
+        List<Long> asistencia,
+        List<Long> boletin
 //        List<Long> tarea,
 //        List<Long> calificaciones
 ) implements Serializable {

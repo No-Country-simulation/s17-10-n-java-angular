@@ -13,7 +13,7 @@ import java.util.stream.Collectors;
 
 
 //@Mapper(componentModel = "spring", uses = {TutorLegalRepository.class, BoletinRepository.class, AsistenciaRepository.class, TareaRepository.class, CalificacionRepository.class})
-@Mapper(componentModel = "spring", uses = {TutorLegalRepository.class, AsistenciaRepository.class})
+@Mapper(componentModel = "spring", uses = {TutorLegalRepository.class, AsistenciaRepository.class, BoletinRepository.class})
 
 public abstract class EstudianteMapper {
 
@@ -21,8 +21,8 @@ public abstract class EstudianteMapper {
 
     @Autowired
     private TutorLegalRepository tutorLegalRepository;
-//    @Autowired
-//    private BoletinRepository boletinRepository;
+    @Autowired
+    private BoletinRepository boletinRepository;
     @Autowired
     private AsistenciaRepository asistenciaRepository;
 //    @Autowired
@@ -31,14 +31,14 @@ public abstract class EstudianteMapper {
 //    private CalificacionRepository calificacionRepository;
 
     @Mapping(source = "tutor", target = "tutor", qualifiedByName = "tutorToLong")
-//    @Mapping(source = "boletin", target = "boletin", qualifiedByName = "boletinesToLongList")
+    @Mapping(source = "boletin", target = "boletin", qualifiedByName = "boletinesToLongList")
     @Mapping(source = "asistencia", target = "asistencia", qualifiedByName = "asistenciasToLongList")
 //    @Mapping(source = "tarea", target = "tarea", qualifiedByName = "tareasToLongList")
 //    @Mapping(source = "calificaciones", target = "calificaciones", qualifiedByName = "calificacionesToLongList")
     public abstract EstudianteResponseDTO toResponseDTO(Estudiante estudiante);
 
     @Mapping(source = "tutor", target = "tutor", qualifiedByName = "longToTutor")
-//    @Mapping(source = "boletin", target = "boletin", qualifiedByName = "longListToBoletines")
+    @Mapping(source = "boletin", target = "boletin", qualifiedByName = "longListToBoletines")
     @Mapping(source = "asistencia", target = "asistencia", qualifiedByName = "longListToAsistencias")
 //    @Mapping(source = "tarea", target = "tarea", qualifiedByName = "longListToTareas")
 //    @Mapping(source = "calificaciones", target = "calificaciones", qualifiedByName = "longListToCalificaciones")
@@ -55,16 +55,16 @@ public abstract class EstudianteMapper {
         return id != null ? tutorLegalRepository.findById(id).orElse(null) : null;
     }
 
-//    @Named("boletinesToLongList")
-//    protected List<Long> boletinesToLongList(List<Boletin> boletines) {
-//        return boletines != null ? boletines.stream().map(Boletin::getId).collect(Collectors.toList()) : null;
-//    }
-//
-//    @Named("longListToBoletines")
-//    protected List<Boletin> longListToBoletines(List<Long> ids) {
-//        return ids != null ? ids.stream().map(id -> boletinRepository.findById(id).orElse(null)).collect(Collectors.toList()) : null;
-//    }
-//
+    @Named("boletinesToLongList")
+    protected List<Long> boletinesToLongList(List<Boletin> boletines) {
+        return boletines != null ? boletines.stream().map(Boletin::getId).collect(Collectors.toList()) : null;
+    }
+
+    @Named("longListToBoletines")
+    protected List<Boletin> longListToBoletines(List<Long> ids) {
+        return ids != null ? ids.stream().map(id -> boletinRepository.findById(id).orElse(null)).collect(Collectors.toList()) : null;
+    }
+
     @Named("asistenciasToLongList")
     protected List<Long> asistenciasToLongList(List<Asistencia> asistencias) {
         return asistencias != null ? asistencias.stream().map(Asistencia::getId).collect(Collectors.toList()) : null;
