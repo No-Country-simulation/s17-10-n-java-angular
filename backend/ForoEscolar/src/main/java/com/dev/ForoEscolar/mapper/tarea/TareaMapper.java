@@ -1,18 +1,25 @@
 package com.dev.ForoEscolar.mapper.tarea;
 
 import com.dev.ForoEscolar.dtos.tarea.TareaResponseDto;
+import com.dev.ForoEscolar.model.Profesor;
 import com.dev.ForoEscolar.model.Tarea;
 import org.mapstruct.Mapper;
-import org.mapstruct.factory.Mappers;
+import org.mapstruct.Mapping;
+import org.mapstruct.Named;
 
-@Mapper
+
+@Mapper(componentModel = "spring")
 public interface TareaMapper {
 
-    TareaMapper INSTANCE= Mappers.getMapper(TareaMapper.class);
 
+    @Mapping(source = "profesor.id", target = "profesorId")
+    @Mapping(source = "estudiante.id", target = "estudianteId")
     TareaResponseDto toResponseDTO(Tarea tarea);
+
+    @Mapping(source = "profesorId", target = "profesor.id")
+    @Mapping(source = "estudianteId", target = "estudiante.id")
     Tarea toEntity(TareaResponseDto tareaRequestDTO);
-    //TareaRequestDto toRequestDTO(Tarea tarea);
+
 
 
 

@@ -27,7 +27,7 @@ public class Tarea {
     @JoinColumn(name = "estudiante_id")
     private Estudiante estudiante;
     @ManyToOne
-    @JoinColumn(name = "profesores_id")
+    @JoinColumn(name = "profesor_id")
     private Profesor profesor;
 
 }

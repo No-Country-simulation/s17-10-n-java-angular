@@ -3,6 +3,7 @@ package com.dev.ForoEscolar.services.impl;
 import com.dev.ForoEscolar.dtos.user.UserRequestDTO;
 import com.dev.ForoEscolar.dtos.user.UserResponseDTO;
 import com.dev.ForoEscolar.enums.RoleEnum;
+import com.dev.ForoEscolar.enums.TipoDocumentoEnum;
 import com.dev.ForoEscolar.exceptions.ApplicationException;
 import com.dev.ForoEscolar.mapper.user.UserMapper;
 import com.dev.ForoEscolar.model.User;
@@ -51,6 +52,7 @@ public class UserServiceImpl implements UserService {
             newUser.setContrasena(passwordEncoder.encode(user.contrasena()));
             newUser.setRol(RoleEnum.valueOf("ADMINISTRADOR"));
             newUser.setActivo(true);
+            newUser.setTipoDocumento(TipoDocumentoEnum.valueOf(user.tipoDocumento()));
             newUser = userRepository.save(newUser);
             return UserMapper.INSTANCE.toResponseDTO(newUser);
         } catch (ApplicationException e) {

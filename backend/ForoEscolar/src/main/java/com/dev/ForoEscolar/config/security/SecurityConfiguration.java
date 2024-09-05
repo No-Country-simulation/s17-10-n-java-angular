@@ -33,10 +33,10 @@ public class SecurityConfiguration {
                 .csrf(csrf -> csrf.disable())
                 .sessionManagement(sess -> sess.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers(HttpMethod.POST, "/api/login", "/api/user/register",
+                        .requestMatchers(HttpMethod.POST, "/api/**","/api/login", "/api/user/register",
                                 "/api/profesor/register", "/api/estudiante/register", "/api/tutorlegal/register",
                                 "/api/asistencia/register").permitAll()
-                        .requestMatchers(HttpMethod.GET, "/api/user/getAll", "/api/user/{id}").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/api/**","/api/user/getAll", "/api/user/{id}").permitAll()
                         .requestMatchers("/swagger-ui.html", "/v3/api-docs/**", "/swagger-ui/**").permitAll()
                         .anyRequest().authenticated())
                 .addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class)

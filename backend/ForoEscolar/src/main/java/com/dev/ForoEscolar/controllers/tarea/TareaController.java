@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/tareas")
+@RequestMapping("api/tarea")
 public class TareaController {
 
     private final TareaService tareaService;

@@ -2,8 +2,10 @@ package com.dev.ForoEscolar.mapper.calificacion;
 
 import com.dev.ForoEscolar.dtos.calificacion.CalificacionDTO;
 import com.dev.ForoEscolar.model.Calificacion;
+import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
+@Mapper
 public interface CalificacionMapper {
 
     CalificacionMapper INSTANCE = Mappers.getMapper(CalificacionMapper.class);
