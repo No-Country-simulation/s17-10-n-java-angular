@@ -5,8 +5,9 @@ import { GradeComponent } from './admin-grade/grade/grade.component';
 
 export const ADMIN_ROUTES: Routes = [
     {
-        path: '', component: AdmiDashboardComponent, children: [
-            { path: '', component: AdmiDashboardComponent },
+        path: 'admin',
+        component: AdmiDashboardComponent,
+        children: [
             { path: 'calendar', component: CalendarComponent },
             { path: 'grade', component: GradeComponent },
         ]

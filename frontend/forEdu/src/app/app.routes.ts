@@ -6,29 +6,56 @@ import { NavbarInstitutionalComponent } from './components/navbar-institutional/
 import { InstitutionalUserStudentComponent } from './components/institutional-user-student/institutional-user-student.component';
 import { DegreeTeacherComponent } from './components/degree-teacher/degree-teacher.component';
 import { DegreeStudentComponent } from './components/degree-student/degree-student.component';
-import { ModalUserInstitutionalService } from './service/modal/modal-user-institutional.service';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { GradeComponent } from './Admin/admin-grade/grade/grade.component';
+import { AsistenciaComponent } from './Admin/admin-grade/asistencia/asistencia.component';
+import { AdmiDashboardComponent } from './Admin/admin-layout/admi-dashboard/admi-dashboard.component';
+
 export const routes: Routes = [
-
-    {
-        path: '',
-        children: ADMIN_ROUTES
+  {
+    path: '',
+    component: AdmiDashboardComponent,
+  },
+  {
+    path: 'admin',
+    children: [
+      ...ADMIN_ROUTES,
+      {
+        path: 'grade',
+        component: GradeComponent,
       },
       {
-        path: 'table', component: InstitutionalUserComponent
+        path: 'table',
+        component: InstitutionalUserComponent,
       },
       {
-        path: 'tablestudent', component: InstitutionalUserStudentComponent
-      },
-
-      {
-        path: 'tableteacher', component: InstitutionalUserTeacherComponent
+        path: 'tablestudent',
+        component: InstitutionalUserStudentComponent,
       },
       {
-        path: 'navbarinsti', component: NavbarInstitutionalComponent
+        path: 'tableteacher',
+        component: InstitutionalUserTeacherComponent,
       },
       {
-        path: 'degreeteacher', component: DegreeStudentComponent
-      }
-      
-
+        path: 'navbarinsti',
+        component: NavbarInstitutionalComponent,
+      },
+      {
+        path: 'degreeteacher',
+        component: DegreeTeacherComponent,
+      },
+      {
+        path: 'degreestudent',
+        component: DegreeStudentComponent,
+      },
+      {
+        path: 'asistencia',
+        component: AsistenciaComponent,
+      },
+      {
+        path: 'sidebar',
+        component: SidebarComponent,
+      },
+    ],
+  },
 ];

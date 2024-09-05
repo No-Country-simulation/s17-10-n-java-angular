@@ -1,0 +1,77 @@
+<div class="container-institutional">
+  <div class="barra-navegacion">
+    <div class="opciones-izquierda">
+      <button [class.active]="tablaActual === 'alumnos'" (click)="mostrarTabla('alumnos')">Novedades</button>
+      <button [class.active]="tablaActual === 'profesores'" (click)="mostrarTabla('profesores')">Calendario</button>
+      <button [class.active]="tablaActual === 'administradores'" (click)="mostrarTabla('administradores')">Lista</button>
+      <button [class.active]="tablaActual === 'administradores'" (click)="mostrarTabla('administradores')">Asistencia</button>
+      <button [class.active]="tablaActual === 'administradores'" (click)="mostrarTabla('administradores')">Boletines</button>
+    </div>
+    <div class="iconos-derecha">
+      Profesora: Maria Vergara
+    </div>
+  </div>
+  <!-- Parte inferior -->
+   <div class="asistencia">
+     <h2>Asistencia</h2>
+
+     <p-tieredMenu [model]="items" [popup]="true" #menu></p-tieredMenu>
+     <button type="button" (click)="menu.toggle($event)">Abrir Menú</button>
+   </div>
+  <!-- Parte inferior -->
+  <div class="institutional-tables">
+      <div class=".table-wrapper">
+          <table>
+              <thead>
+                  <tr>
+                      <th>Nombre <i class = "arrow pi pi-arrow-down"></i></th>
+                      <th>Asistencia</th>
+                      <th>Justificativo </th>
+                      <th>Lunes</th>
+                      <th>Martes</th>
+                      <th>Miercoles</th>
+                      <th>Jueves</th>
+                      <th>Viernes</th>
+
+                  </tr>
+              </thead>
+          </table>
+          <div class="table-body">
+              <table>
+                  <tbody>
+                      @for (person of persons; track person.id) {
+                          <tr>
+                              <td>{{ person.nombre }}</td>
+                              <td>{{ person.Asistencia }}</td>
+                              <td>{{ person.Justificativo }}</td>
+                              <td>
+                                <input type="checkbox" [(ngModel)]="person.Lunes" />
+                              </td>
+                              <td>
+                                <input type="checkbox" [(ngModel)]="person.Martes" />
+                              </td>
+                              <td>
+                                <input type="checkbox" [(ngModel)]="person.Miercoles" />
+                              </td>
+                              <td>
+                                <input type="checkbox" [(ngModel)]="person.Jueves" />
+                              </td>
+                              <td>
+                                <input type="checkbox" [(ngModel)]="person.Viernes" />
+                              </td>
+
+
+                          </tr>
+                      }
+
+                  </tbody>
+              </table>
+          </div>
+      </div>
+  </div>
+  <div class="container-btn">
+      <button class="btn-add" type="button"><i class="pi pi-plus"></i></button>
+      <div>Añadir</div>
+  </div>
+</div>
+
