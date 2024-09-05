@@ -22,11 +22,11 @@ public class BoletinDto {
     private Double promedio;
     private String observaciones;
     private String periodo;
-
     @Enumerated(EnumType.STRING)
     private CursoEnum curso;
     List<Calificacion> calificacions;
     private Long estudianteId;
     private LocalDate fecha;
+    //private Long profesorId;
 
 }

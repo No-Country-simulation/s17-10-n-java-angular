@@ -14,7 +14,6 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 import java.util.Optional;
 
 
@@ -70,8 +69,8 @@ public class UserServiceImpl implements UserService {
     }
     @Override
     public Iterable<UserResponseDTO> findAll() {
-        List<User> users = userRepository.findAll();
-        return users.stream()
+        return userRepository.findAll()
+                .stream()
                 .map(UserMapper.INSTANCE::toResponseDTO)
                 .toList();
     }

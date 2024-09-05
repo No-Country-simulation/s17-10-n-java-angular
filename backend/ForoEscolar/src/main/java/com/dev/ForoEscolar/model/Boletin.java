@@ -36,5 +36,4 @@ public class Boletin {
     @ManyToOne
     @JoinColumn(name = "profesor_id")
     private Profesor profesor;
-
 }

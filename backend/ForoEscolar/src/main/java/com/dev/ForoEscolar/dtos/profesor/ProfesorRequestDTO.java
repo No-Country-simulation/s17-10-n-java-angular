@@ -1,5 +1,6 @@
 package com.dev.ForoEscolar.dtos.profesor;
 
+import com.dev.ForoEscolar.enums.MateriaEnum;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
@@ -8,6 +9,7 @@ import java.util.List;
 
 
 public record ProfesorRequestDTO (
+        Long id, // Obligatario solo para el update
         @NotNull(message = "El email no puede estar vacío")
         @Email(message = "El email debe ser válido")
         String email,
@@ -27,9 +29,12 @@ public record ProfesorRequestDTO (
         @NotNull(message = "El institucion no puede estar vacío")
         String institucion,
         @NotNull(message = "La materia no puede estar vacía")
-        String materia,
-        List<Long> estudianteIds
-
+        MateriaEnum materia,
+        List<Long> estudianteIds,
+//        List<Long> boletinIds,
+        List<Long> asistenciaIds
+//        List<Long> tareaIds,
+//        List<Long> calificacionIds
 ){
 
 }

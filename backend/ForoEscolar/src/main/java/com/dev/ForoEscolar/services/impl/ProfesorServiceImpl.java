@@ -4,6 +4,7 @@ import com.dev.ForoEscolar.dtos.profesor.ProfesorRequestDTO;
 import com.dev.ForoEscolar.dtos.profesor.ProfesorResponseDTO;
 import com.dev.ForoEscolar.enums.RoleEnum;
 import com.dev.ForoEscolar.exceptions.ApplicationException;
+import com.dev.ForoEscolar.mapper.estudiante.EstudianteMapper;
 import com.dev.ForoEscolar.mapper.profesor.ProfesorMapper;
 import com.dev.ForoEscolar.model.Profesor;
 import com.dev.ForoEscolar.repository.ProfesorRepository;
@@ -24,11 +25,13 @@ public class ProfesorServiceImpl extends GenericServiceImpl<Profesor, Long, Prof
 
     private final ProfesorRepository profesorRepository;
     private final BCryptPasswordEncoder passwordEncoder;
+    private final ProfesorMapper profesorMapper;
 
     @Autowired
-    public ProfesorServiceImpl(ProfesorRepository profesorRepository, PasswordEncoder passwordEncoder) {
+    public ProfesorServiceImpl(ProfesorRepository profesorRepository, PasswordEncoder passwordEncoder, ProfesorMapper profesorMapper) {
         this.profesorRepository = profesorRepository;
         this.passwordEncoder = (BCryptPasswordEncoder) passwordEncoder;
+        this.profesorMapper = profesorMapper;
     }
 
     @Transactional
@@ -38,12 +41,12 @@ public class ProfesorServiceImpl extends GenericServiceImpl<Profesor, Long, Prof
             if(profesorRepository.findByEmail(profesorRequestDTO.email()).isPresent()){
                 throw new ApplicationException("Profesor con email ya existente: " + profesorRequestDTO.email());
             }
-            Profesor newProfesor = ProfesorMapper.INSTANCE.toEntity(profesorRequestDTO);
+            Profesor newProfesor = profesorMapper.toEntity(profesorRequestDTO);
             newProfesor.setContrasena(passwordEncoder.encode(profesorRequestDTO.contrasena()));
             newProfesor.setRol(RoleEnum.valueOf("PROFESOR"));
             newProfesor.setActivo(true);
             newProfesor = profesorRepository.save(newProfesor);
-            return ProfesorMapper.INSTANCE.toResponseDTO(newProfesor);
+            return profesorMapper.toResponseDTO(newProfesor);
         }catch (ApplicationException e){
             throw new ApplicationException("Error al guardar el usuario: " + e.getMessage());
 
@@ -54,25 +57,25 @@ public class ProfesorServiceImpl extends GenericServiceImpl<Profesor, Long, Prof
     @Override
     public Optional<ProfesorResponseDTO> findById(Long id) {
         Optional<Profesor> profesor = profesorRepository.findById(id);
-        return profesor.map(ProfesorMapper.INSTANCE::toResponseDTO);
+        return profesor.map(profesorMapper::toResponseDTO);
     }
 
     @Override
     public List<ProfesorResponseDTO> findAll() {
         List<Profesor> profesores = profesorRepository.findAll();
         return profesores.stream()
-                .map(ProfesorMapper.INSTANCE::toResponseDTO)
+                .map(profesorMapper::toResponseDTO)
                 .collect(Collectors.toList());
     }
 
     @Transactional
     @Override
     public ProfesorResponseDTO update(ProfesorRequestDTO profesorRequestDTO) {
-        Profesor profesor = ProfesorMapper.INSTANCE.toEntity(profesorRequestDTO);
+        Profesor profesor = profesorMapper.toEntity(profesorRequestDTO);
         Optional<Profesor> existingEntity = profesorRepository.findById(getEntityId(profesor));
         if (existingEntity.isPresent()) {
             Profesor updatedEntity = profesorRepository.save(profesor);
-            return ProfesorMapper.INSTANCE.toResponseDTO(updatedEntity);
+            return profesorMapper.toResponseDTO(updatedEntity);
         } else {
             throw new RuntimeException("La entidad con ese ID no fue encontrado");
         }

@@ -14,21 +14,20 @@ import java.util.stream.Collectors;
 
 //@Mapper(componentModel = "spring", uses = {TutorLegalRepository.class, BoletinRepository.class, AsistenciaRepository.class, TareaRepository.class, CalificacionRepository.class})
 @Mapper(componentModel = "spring", uses = {TutorLegalRepository.class, AsistenciaRepository.class})
-
 public abstract class EstudianteMapper {
 
-
+    //public static final EstudianteMapper INSTANCE = Mappers.getMapper(EstudianteMapper.class);
 
     @Autowired
     private TutorLegalRepository tutorLegalRepository;
-//    @Autowired
-//    private BoletinRepository boletinRepository;
+    @Autowired
+    private BoletinRepository boletinRepository;
     @Autowired
     private AsistenciaRepository asistenciaRepository;
-//    @Autowired
-//    private TareaRepository tareaRepository;
-//    @Autowired
-//    private CalificacionRepository calificacionRepository;
+    @Autowired
+    private TareaRepository tareaRepository;
+    @Autowired
+    private CalificacionRepository calificacionRepository;
 
     @Mapping(source = "tutor", target = "tutor", qualifiedByName = "tutorToLong")
 //    @Mapping(source = "boletin", target = "boletin", qualifiedByName = "boletinesToLongList")
@@ -37,6 +36,7 @@ public abstract class EstudianteMapper {
 //    @Mapping(source = "calificaciones", target = "calificaciones", qualifiedByName = "calificacionesToLongList")
     public abstract EstudianteResponseDTO toResponseDTO(Estudiante estudiante);
 
+    @Mapping(target = "id", source = "id")
     @Mapping(source = "tutor", target = "tutor", qualifiedByName = "longToTutor")
 //    @Mapping(source = "boletin", target = "boletin", qualifiedByName = "longListToBoletines")
     @Mapping(source = "asistencia", target = "asistencia", qualifiedByName = "longListToAsistencias")
@@ -64,7 +64,7 @@ public abstract class EstudianteMapper {
 //    protected List<Boletin> longListToBoletines(List<Long> ids) {
 //        return ids != null ? ids.stream().map(id -> boletinRepository.findById(id).orElse(null)).collect(Collectors.toList()) : null;
 //    }
-//
+
     @Named("asistenciasToLongList")
     protected List<Long> asistenciasToLongList(List<Asistencia> asistencias) {
         return asistencias != null ? asistencias.stream().map(Asistencia::getId).collect(Collectors.toList()) : null;
@@ -74,7 +74,7 @@ public abstract class EstudianteMapper {
     protected List<Asistencia> longListToAsistencias(List<Long> ids) {
         return ids != null ? ids.stream().map(id -> asistenciaRepository.findById(id).orElse(null)).collect(Collectors.toList()) : null;
     }
-//
+
 //    @Named("tareasToLongList")
 //    protected List<Long> tareasToLongList(List<Tarea> tareas) {
 //        return tareas != null ? tareas.stream().map(Tarea::getId).collect(Collectors.toList()) : null;

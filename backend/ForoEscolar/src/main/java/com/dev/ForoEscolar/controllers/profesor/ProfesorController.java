@@ -1,6 +1,7 @@
 package com.dev.ForoEscolar.controllers.profesor;
 
 
+import com.dev.ForoEscolar.dtos.ApiResponseDto;
 import com.dev.ForoEscolar.dtos.profesor.ProfesorRequestDTO;
 import com.dev.ForoEscolar.dtos.profesor.ProfesorResponseDTO;
 import com.dev.ForoEscolar.exceptions.ApplicationException;
@@ -18,7 +19,6 @@ import java.util.Optional;
 @RequestMapping("api/profesor")
 public class ProfesorController {
 
-
     private final ProfesorService profesorService;
 
     @Autowired
@@ -28,10 +28,10 @@ public class ProfesorController {
 
     @GetMapping("/getAll")
     @Operation(summary = "Obtiene todos los profesores")
-    public ResponseEntity<Iterable<ProfesorResponseDTO>> findAll() {
+    public ResponseEntity<ApiResponseDto<ProfesorResponseDTO>> findAll() {
         try {
             Iterable<ProfesorResponseDTO> list = profesorService.findAll();
-            return new ResponseEntity<>(list, HttpStatus.OK);
+            return new ResponseEntity<>( new ApiResponseDto<>(true,"Exito",list), HttpStatus.CREATED);
         } catch (ApplicationException e){
             throw new ApplicationException(" Ha ocurrido un error "+ e.getMessage());
         }
@@ -39,23 +39,31 @@ public class ProfesorController {
 
     @GetMapping("/{id}")
     @Operation(summary = "Obtiene un profesor en particular")
-    public ResponseEntity<ProfesorResponseDTO> findById(@PathVariable("id") Long id) {
+    public ResponseEntity<ApiResponseDto<ProfesorResponseDTO>> findById(@PathVariable("id") Long id) {
         Optional<ProfesorResponseDTO> profesor = profesorService.findById(id);
-        return profesor.map(profesorResponseDTO -> new ResponseEntity<>(profesorResponseDTO, HttpStatus.OK)).orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
+        if (profesor.isPresent()) {
+            ProfesorResponseDTO profesorResponseDTO = profesor.get();
+            String message="Estudiante encontrado";
+            return new ResponseEntity<>(new ApiResponseDto<>(true, message, profesorResponseDTO), HttpStatus.CREATED);
+        } else {
+            return new ResponseEntity<>(new ApiResponseDto<>(false, "Profesor no encontrado", null),HttpStatus.NOT_FOUND);
+        }
     }
 
     @PostMapping("/register")
     @Operation(summary = "Se agrega un profesor")
-    public ResponseEntity<Void> save(@RequestBody @Valid ProfesorRequestDTO dto) {
-        profesorService.save(dto);
-        return new ResponseEntity<>(HttpStatus.CREATED);
+    public ResponseEntity<ApiResponseDto<ProfesorResponseDTO>> save(@RequestBody @Valid ProfesorRequestDTO dto) {
+        ProfesorResponseDTO profesor = profesorService.save(dto);
+        String message = "Profesor Registrado";
+        return new ResponseEntity<>(new ApiResponseDto<>(true, message, profesor), HttpStatus.CREATED);
     }
 
     @PutMapping("/update")
     @Operation(summary = "Se actualiza un profesor en particular")
-    public ResponseEntity<ProfesorResponseDTO> update(@RequestBody @Valid ProfesorRequestDTO dto) {
+    public ResponseEntity<ApiResponseDto<ProfesorResponseDTO>> update(@RequestBody @Valid ProfesorRequestDTO dto) {
         ProfesorResponseDTO profesor = profesorService.update(dto);
-        return new ResponseEntity<>(profesor, HttpStatus.OK);
+        String message = "Estudiante Actualizado";
+        return new ResponseEntity<>(new ApiResponseDto<>(true, message, profesor), HttpStatus.CREATED);
     }
 
     @DeleteMapping("/{id}")

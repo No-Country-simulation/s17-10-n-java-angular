@@ -29,14 +29,12 @@ public class UserController {
 
     @PostMapping(value = "/register", produces = MediaType.APPLICATION_JSON_VALUE)
     @Operation(summary = "Registra un nuevo usuario")
-    public ResponseEntity<ApiResponseDto<UserResponseDTO>> registerUser(@RequestBody @Valid UserRequestDTO userRegisterDataDTO) {
+    public ResponseEntity<UserResponseDTO> registerUser(@RequestBody @Valid UserRequestDTO userRegisterDataDTO) {
         UserResponseDTO user = userService.save(userRegisterDataDTO);
         if (user == null) {
-            return ResponseEntity.badRequest()
-                    .body(new ApiResponseDto<>(false, "Usuario no registrado", null));
+            throw new RuntimeException("Hubo un error al guardar la Entidad");
         }
-        return ResponseEntity.status(HttpStatus.CREATED)
-                .body(new ApiResponseDto<>(true, "Usuario registrado", user));
+        return new ResponseEntity<>(user, HttpStatus.CREATED);
     }
 
     @GetMapping("/getAll")

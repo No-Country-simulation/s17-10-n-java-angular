@@ -62,7 +62,6 @@ public class BoletinServiceImp implements BoletinService {
 
     }
 
-
     public Double promediarnotas(List<Calificacion> calificacions, Long idBoletin){
         Boletin boletin= boletinRepository.findById(idBoletin).orElse(null);
         Double promedio= 0.0;

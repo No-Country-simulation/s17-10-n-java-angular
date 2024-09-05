@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="de51bfec-9e2d-4107-aa3f-e33d4b5be93f" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/fd9715e1-4821-4a17-87ca-4ed9c5c0277f.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/fd9715e1-4821-4a17-87ca-4ed9c5c0277f/storage_v2/_src_/schema/foroescolar.PQbN-A.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ForoEscolar/src/main/java/com/dev/ForoEscolar/controllers/asistencia/AsistenciaController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ForoEscolar/src/main/java/com/dev/ForoEscolar/dtos/asistencia/AsistenciaRequestDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ForoEscolar/src/main/java/com/dev/ForoEscolar/dtos/asistencia/AsistenciaResponseDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ForoEscolar/src/main/java/com/dev/ForoEscolar/mapper/asistencia/AsistenciaMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ForoEscolar/src/main/java/com/dev/ForoEscolar/model/Asistencia.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ForoEscolar/src/main/java/com/dev/ForoEscolar/model/Calificaciones.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ForoEscolar/src/main/java/com/dev/ForoEscolar/repository/IAsistenciaRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ForoEscolar/src/main/java/com/dev/ForoEscolar/services/AsistenciaService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ForoEscolar/src/main/java/com/dev/ForoEscolar/services/impl/AsistenciaServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ForoEscolar/src/main/java/com/dev/ForoEscolar/utils/springdoc/SpringDocConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ForoEscolar/src/main/resources/db/migration/V2__creacion_tabla_calificaciones.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ForoEscolar/src/main/java/com/dev/ForoEscolar/services/impl/TareaServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/ForoEscolar/src/main/java/com/dev/ForoEscolar/services/impl/TareaServiceImpl.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Record" />
+        <option value="Interface" />
+        <option value="Enum" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="KubernetesApiPersistence">{}</component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
+  <component name="ProjectId" id="2lAG9krvDvpKh8OSjRPMbaRv0tn" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.ForoEscolarApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Maven.ForoEscolar [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.ForoEscolar [package].executor&quot;: &quot;Run&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Spring Boot.ForoEscolarApplication.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;gonzalo&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/NoCountry/s17-10-n-java-angular/backend&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.projectsettings.compiler.annotationProcessors&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
+    ]
+  }
+}</component>
+  <component name="RunManager" selected="Application.ForoEscolarApplication">
+    <configuration name="ForoEscolarApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <envs>
+        <env name="API_SECRET" value="s17-10-n-java-angular&amp;s17-10-n-java-angular" />
+        <env name="DB_PASSWORD" value="root123" />
+        <env name="DB_USERNAME" value="root" />
+        <env name="DB_URL" value="jdbc:mysql://localhost:3306/foroescolar?createDatabaseIfNotExist=true" />
+      </envs>
+      <option name="MAIN_CLASS_NAME" value="com.dev.ForoEscolar.ForoEscolarApplication" />
+      <module name="ForoEscolar" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.dev.ForoEscolar.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ForoEscolarApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <envs>
+        <env name="API_SECRET" value="s17-10-n-java-angular&amp;s17-10-n-java-angular" />
+        <env name="DB_URL" value="jdbc:mysql://localhost:3306/foroescolar?createDatabaseIfNotExist=true" />
+        <env name="DB_USERNAME" value="root" />
+        <env name="DB_PASSWORD" value="root123" />
+      </envs>
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <module name="ForoEscolar" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.dev.ForoEscolar.ForoEscolarApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.ForoEscolarApplication" />
+      <item itemvalue="Spring Boot.ForoEscolarApplication" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.ForoEscolarApplication" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.19072.14" />
+        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-IU-241.19072.14" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="de51bfec-9e2d-4107-aa3f-e33d4b5be93f" name="Changes" comment="" />
+      <created>1724615317613</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1724615317613</updated>
+      <workItem from="1724615318716" duration="21607000" />
+      <workItem from="1724642441580" duration="1402000" />
+      <workItem from="1724671623506" duration="10743000" />
+      <workItem from="1724685991853" duration="7123000" />
+      <workItem from="1724705554572" duration="7225000" />
+      <workItem from="1724808271084" duration="142000" />
+      <workItem from="1724875598632" duration="1302000" />
+      <workItem from="1724878528410" duration="3384000" />
+      <workItem from="1724954617142" duration="6513000" />
+      <workItem from="1724964823228" duration="85000" />
+      <workItem from="1724964938446" duration="15000" />
+      <workItem from="1724964967812" duration="11063000" />
+      <workItem from="1725026036092" duration="6760000" />
+      <workItem from="1725069287873" duration="492000" />
+      <workItem from="1725078238410" duration="1023000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

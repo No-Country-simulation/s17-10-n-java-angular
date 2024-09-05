@@ -15,6 +15,10 @@ public record ProfesorResponseDTO(
         String rol,
         boolean activo,
         String materia,
-        List<Long> estudianteIds
+        List<Long> estudianteIds,
+        List<Long> boletinIds,
+        List<Long> asistenciaIds,
+        List<Long> tareaIds,
+        List<Long> calificacionIds
 ) implements Serializable {
 }

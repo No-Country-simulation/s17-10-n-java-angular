@@ -4,6 +4,7 @@ import com.dev.ForoEscolar.dtos.ApiResponseDto;
 
 import com.dev.ForoEscolar.dtos.boletin.BoletinDto;
 import com.dev.ForoEscolar.dtos.user.UserResponseDTO;
+
 import com.dev.ForoEscolar.exceptions.ApplicationException;
 
 import com.dev.ForoEscolar.services.BoletinService;

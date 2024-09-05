@@ -52,7 +52,7 @@ public class EstudianteController {
     @Operation(summary = "Se agrega un estudiante")
     public ResponseEntity<ApiResponseDto<EstudianteResponseDTO>> save(@RequestBody @Valid EstudianteResponseDTO dto) {
         EstudianteResponseDTO estudiante = estudianteService.save(dto);
-        String message = "Estudiante Guardado";
+        String message = "Estudiante Registrado";
         return new ResponseEntity<>(new ApiResponseDto<>(true, message, estudiante), HttpStatus.CREATED);
     }
 
