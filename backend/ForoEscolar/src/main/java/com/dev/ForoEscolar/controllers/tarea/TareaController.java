@@ -63,7 +63,7 @@ public class TareaController {
         UserResponseDTO user= userService.findByEmail(userDetails.getUsername());
         if(user.rol().equals("PROFESOR")){
 
-            tarea.setProfesorId(user.id());
+            tarea.setProfesor(user.id());
             return
                     new ResponseEntity<>(
                             new ApiResponseDto<>(true, "Tarea Creada con exito", tareaService.save(tarea))
@@ -81,7 +81,7 @@ public class TareaController {
             Optional<TareaResponseDto> responseDto= tareaService.findById(idTarea);
                 if(responseDto.isPresent()){
                     tarea.setId(idTarea);
-                    tarea.setProfesorId(user.id());
+                    tarea.setProfesor(user.id());
                     tareaService.save(tarea);
                     ApiResponseDto<TareaResponseDto> responseSalida= new ApiResponseDto<>(true,"Tarea actualizada",tarea);
                     return new ResponseEntity<>(responseSalida, HttpStatus.CREATED);

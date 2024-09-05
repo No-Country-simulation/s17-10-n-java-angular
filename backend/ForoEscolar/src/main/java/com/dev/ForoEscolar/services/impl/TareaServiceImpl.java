@@ -18,9 +18,11 @@ import java.util.stream.Collectors;
 public class TareaServiceImpl implements TareaService {
 
     private final TareaRepository tareaRepository;
+    private final TareaMapper tareaMapper;
     @Autowired
-    public TareaServiceImpl(TareaRepository tareaRepository) {
+    public TareaServiceImpl(TareaRepository tareaRepository, TareaMapper tareaMapper) {
         this.tareaRepository = tareaRepository;
+        this.tareaMapper = tareaMapper;
     }
 
     @Override
@@ -30,17 +32,17 @@ public class TareaServiceImpl implements TareaService {
             throw new RuntimeException("La tarea no puede estar vacia");
         }
         Profesor profesor= new Profesor();
-        profesor.setId(tareaRequestDto.getProfesorId());
+        profesor.setId(tareaRequestDto.getProfesor());
         new Tarea();
         Tarea tarea= Tarea.builder()
                 .descripcion(tareaRequestDto.getDescripcion())
                 .titulo(tareaRequestDto.getTitulo())
-                .estudiante(Estudiante.builder().id(tareaRequestDto.getEstudianteId()).build())
+                .estudiante(Estudiante.builder().id(tareaRequestDto.getEstudiante()).build())
                 .profesor(profesor)
                 .fechaEntrega(tareaRequestDto.getFechaEntrega())
                 .build();
         tareaRepository.save(tarea);
-        return TareaMapper.INSTANCE.toResponseDTO(tarea);
+        return tareaMapper.toResponseDTO(tarea);
 
     }
 
@@ -49,7 +51,7 @@ public class TareaServiceImpl implements TareaService {
         Optional<Tarea> response= tareaRepository.findById(idTarea);
         if(response.isPresent()){
             Tarea tarea= response.get();
-            return Optional.ofNullable(TareaMapper.INSTANCE.toResponseDTO(tarea));
+            return Optional.ofNullable(tareaMapper.toResponseDTO(tarea));
         } else{
             throw  new RuntimeException(" La tarea no ha podido ser encontrada");
 
@@ -59,7 +61,7 @@ public class TareaServiceImpl implements TareaService {
     @Override
     public Iterable<TareaResponseDto> findAll() {
         List<Tarea> listar= tareaRepository.findAll();
-        return listar.stream().map(TareaMapper.INSTANCE::toResponseDTO).collect(Collectors.toList());
+        return listar.stream().map(tareaMapper::toResponseDTO).collect(Collectors.toList());
     }
 
     @Override

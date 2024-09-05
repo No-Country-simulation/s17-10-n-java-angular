@@ -7,7 +7,9 @@ public record CalificacionDTO(
         Double promedio,
         String comentario,
         String fecha,
-        Long estudianteId,
-        Long profesorId
+        String periodo,
+        Long estudiante,
+        Long profesor,
+        Long boletin
 ) {
 }

@@ -4,6 +4,7 @@ CREATE TABLE calificaciones (
                                 profesor_id BIGINT,
                                 materia ENUM('MATEMATICAS', 'CIENCIAS', 'LENGUAJE', 'HISTORIA') NOT NULL,
                                 nota DOUBLE NOT NULL,
+                                promedio DOUBLE,
                                 comentario VARCHAR(255),
                                 fecha DATETIME,
                                 periodo VARCHAR(50),

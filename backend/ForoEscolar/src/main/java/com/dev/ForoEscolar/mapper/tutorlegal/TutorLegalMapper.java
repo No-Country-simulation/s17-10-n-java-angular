@@ -4,17 +4,19 @@ import com.dev.ForoEscolar.dtos.tutorlegal.TutorLegalRequestDTO;
 import com.dev.ForoEscolar.dtos.tutorlegal.TutorLegalResponseDTO;
 import com.dev.ForoEscolar.model.TutorLegal;
 import org.mapstruct.Mapper;
-import org.mapstruct.factory.Mappers;
-import org.springframework.stereotype.Component;
+import org.mapstruct.Mapping;
 
 @Mapper(componentModel = "spring")
-@Component
 public interface TutorLegalMapper {
 
-    TutorLegalMapper INSTANCE = Mappers.getMapper(TutorLegalMapper.class);
+    @Mapping(target = "id", ignore = true)
+    @Mapping(target = "rol", ignore = true)
+    @Mapping(target = "activo", ignore = true)
+    @Mapping(target = "estudiantes", ignore = true)
+    @Mapping(target = "authorities", ignore = true)
+    TutorLegal toEntity(TutorLegalRequestDTO tutorLegalRequestDTO);
 
     TutorLegalResponseDTO toResponseDTO(TutorLegal tutorLegal);
-    TutorLegal toEntity(TutorLegalRequestDTO tutorLegalRequestDTO);
-    TutorLegalRequestDTO toRequestDTO(TutorLegal tutorLegal);
 
+    TutorLegalRequestDTO toRequestDTO(TutorLegal tutorLegal);
 }

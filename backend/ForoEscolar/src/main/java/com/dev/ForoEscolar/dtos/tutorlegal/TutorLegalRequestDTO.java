@@ -26,6 +26,6 @@ public record TutorLegalRequestDTO(
         String contrasena,
         @NotNull(message = "La institucion no puede estar vacío")
         String institucion,
-        List<Long> estudianteIds
+        List<Long> estudiante
 ) implements Serializable {
 }

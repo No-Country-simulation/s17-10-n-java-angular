@@ -37,7 +37,7 @@ public class TutorLegalServiceImpl implements TutorLegalService {
             if(tutorLegalRepository.findByEmail(tutorLegalRequestDTO.email()).isPresent()){
                 throw new ApplicationException("Tutor legal con email ya existente: " + tutorLegalRequestDTO.email());
             }
-            TutorLegal newTutorLegal = TutorLegalMapper.INSTANCE.toEntity(tutorLegalRequestDTO);
+            TutorLegal newTutorLegal = tutorLegalMapper.toEntity(tutorLegalRequestDTO);
             newTutorLegal.setContrasena(passwordEncoder.encode(tutorLegalRequestDTO.contrasena()));
             newTutorLegal.setRol(RoleEnum.valueOf("TUTOR"));
             newTutorLegal.setActivo(true);

@@ -16,6 +16,6 @@ public class TareaResponseDto {
     private String descripcion;
     private String titulo;
     private Date fechaEntrega;
-    private Long profesorId;
-    private Long estudianteId;
+    private Long profesor;
+    private Long estudiante;
 }

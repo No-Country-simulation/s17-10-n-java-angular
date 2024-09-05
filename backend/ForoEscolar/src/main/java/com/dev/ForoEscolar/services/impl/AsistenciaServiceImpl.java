@@ -68,4 +68,10 @@ public class AsistenciaServiceImpl implements AsistenciaService {
     public void deleteById(Long aLong) {
 
     }
+
+//    private double calcularPorcentajeAsistencia() {
+//        long totalAsistencias = asistenciaRepository.countByAsistio(true);
+//        long totalRegistros = asistenciaRepository.count();
+//        return totalRegistros > 0 ? (double) totalAsistencias / totalRegistros * 100 : 0;
+//    }
 }

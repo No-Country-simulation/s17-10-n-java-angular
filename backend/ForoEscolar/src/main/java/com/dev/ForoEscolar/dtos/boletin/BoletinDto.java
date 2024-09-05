@@ -26,7 +26,7 @@ public class BoletinDto {
     @Enumerated(EnumType.STRING)
     private CursoEnum curso;
     List<Calificacion> calificacions;
-    private Long estudianteId;
+    private Long estudiante;
     private LocalDate fecha;
 
 }

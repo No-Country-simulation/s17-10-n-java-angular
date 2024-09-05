@@ -21,6 +21,9 @@ public class BoletinServiceImp implements BoletinService {
     @Autowired
     private BoletinRepository boletinRepository;
 
+    @Autowired
+    private BoletinMapper boletinMapper;
+
     @Override
     public BoletinDto save(BoletinDto boletinDto) {
         if(boletinDto==null){
@@ -33,10 +36,10 @@ public class BoletinServiceImp implements BoletinService {
                 .calificaciones(boletinDto.getCalificacions())
                 .periodo(boletinDto.getPeriodo())
                 .fecha(LocalDate.now())
-                .estudiante(Estudiante.builder().id(boletinDto.getEstudianteId()).build())
+                .estudiante(Estudiante.builder().id(boletinDto.getEstudiante()).build())
                 .build();
         boletinRepository.save(boletin);
-        return BoletinMapper.INSTANCE.toResponseDto(boletin);
+        return boletinMapper.toResponseDto(boletin);
     }
 
     @Override
@@ -44,7 +47,7 @@ public class BoletinServiceImp implements BoletinService {
       Optional<Boletin> response= boletinRepository.findById(idBoletin);
       if(response.isPresent()){
           Boletin boletin= response.get();
-          return Optional.ofNullable(BoletinMapper.INSTANCE.toResponseDto(boletin));
+          return Optional.ofNullable(boletinMapper.toResponseDto(boletin));
       }else{
           throw  new RuntimeException("El boletin no puede ser encontrado");
       }
@@ -53,7 +56,7 @@ public class BoletinServiceImp implements BoletinService {
     @Override
     public Iterable<BoletinDto> findAll() {
        List<Boletin> boletines= boletinRepository.findAll();
-       return boletines.stream().map(BoletinMapper.INSTANCE::toResponseDto).collect(Collectors.toList());
+       return boletines.stream().map(boletinMapper::toResponseDto).collect(Collectors.toList());
     }
 
     @Override
