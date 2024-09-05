@@ -4,7 +4,6 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDate;
-import java.util.Date;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -18,16 +17,14 @@ public class Asistencia {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long Id;
 
-    @Column(name = "contador_asistencias")
-    private int contadorAsistencia;
+    @Column(name = "asistio")
+    private boolean asistio;
 
     @Column(name = "dias_anio_escolar")
     private double diasAnioEscolar;
 
     @Column(name = "fecha")
     private LocalDate fecha;
-
-    private String estado;
 
     private String observaciones;
 
