@@ -1,14 +1,70 @@
 import { Component } from '@angular/core';
 import { ModalUserInstitutionalService } from '../../../service/modal/modal-user-institutional.service';
+import { FormsModule } from '@angular/forms';
+import { MenubarModule } from 'primeng/menubar';
+import { SplitButtonModule } from 'primeng/splitbutton';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-asistencia',
   standalone: true,
-  imports: [],
+  imports: [
+    FormsModule,
+    MenubarModule,
+    SplitButtonModule,
+    CommonModule
+  ],
   templateUrl: './asistencia.component.html',
   styleUrl: './asistencia.component.css'
 })
 export class AsistenciaComponent {
+  items!: any[];
+
+
+  ngOnInit() {
+
+    this.items = [
+      {
+        label: 'Lunes',
+        icon: 'pi pi-calendar',
+        command: () => {
+          this.mostrarFechas('Lunes');
+        }
+      },
+      {
+        label: 'Martes',
+        icon: 'pi pi-calendar',
+        command: () => {
+          this.mostrarFechas('Martes');
+        }
+      },
+      {
+        label: 'Miércoles',
+        icon: 'pi pi-calendar',
+        command: () => {
+          this.mostrarFechas('Miercoles');
+        }
+      },
+      {
+        label: 'Jueves',
+        icon: 'pi pi-calendar',
+        command: () => {
+          this.mostrarFechas('Jueves');
+        }
+      },
+      {
+        label: 'Viernes',
+        icon: 'pi pi-calendar',
+        command: () => {
+          this.mostrarFechas('Viernes');
+        }
+      }
+    ];
+  }
+  mostrarFechas(dia: string) {
+    // Lógica para mostrar las fechas o hacer alguna acción cuando se selecciona un día
+    console.log('Fecha seleccionada: ', dia);
+  }
 
   constructor(private modalUserInstitutionalService: ModalUserInstitutionalService) {}
 
@@ -33,124 +89,138 @@ export class AsistenciaComponent {
 
   persons = [
     {
-        id: 1,
-        nombre: "Juan Pérez",
-        legajo: "12345",
-        turno: "Mañana",
-        fecha: "2024-09-04",
-        cargado: "✔",
-        tutores: "María López",
-        accion: ""
+      id: 1,
+      nombre: "Juan Pérez",
+      Asistencia: "70%",
+      Justificativo: "Cargado",
+      Lunes: false,
+      Martes: false,
+      Miercoles: true,
+      Jueves: true,
+      Viernes: true
     },
     {
-        id: 2,
-        nombre: "Ana Martínez",
-        legajo: "67890",
-        turno: "Tarde",
-        fecha: "2024-09-04",
-        cargado: "✔",
-        tutores: "Carlos Martínez",
-        accion: ""
+      id: 2,
+      nombre: "Ana García",
+      Asistencia: "80%",
+      Justificativo: "Cargado",
+      Lunes: true,
+      Martes: false,
+      Miercoles: true,
+      Jueves: false,
+      Viernes: true
     },
     {
-        id: 3,
-        nombre: "Luis Gómez",
-        legajo: "11223",
-        turno: "Mañana",
-        fecha: "2024-09-04",
-        cargado: "✔",
-        tutores: "Laura Gómez",
-        accion: ""
+      id: 3,
+      nombre: "Carlos López",
+      Asistencia: "65%",
+      Justificativo: "Cargado",
+      Lunes: false,
+      Martes: true,
+      Miercoles: true,
+      Jueves: false,
+      Viernes: true
     },
     {
-        id: 4,
-        nombre: "Sofía Herrera",
-        legajo: "44556",
-        turno: "Tarde",
-        fecha: "2024-09-04",
-        cargado: "✔",
-        tutores: "Pedro Herrera",
-        accion: ""
+      id: 4,
+      nombre: "María Fernández",
+      Asistencia: "90%",
+      Justificativo: "Cargado",
+      Lunes: true,
+      Martes: true,
+      Miercoles: true,
+      Jueves: true,
+      Viernes: true
     },
     {
-        id: 5,
-        nombre: "Carlos Díaz",
-        legajo: "77889",
-        turno: "Mañana",
-        fecha: "2024-09-04",
-        cargado: "✔",
-        tutores: "Mónica Díaz",
-        accion: ""
+      id: 5,
+      nombre: "Pedro Sánchez",
+      Asistencia: "75%",
+      Justificativo: "No Cargado",
+      Lunes: true,
+      Martes: false,
+      Miercoles: false,
+      Jueves: true,
+      Viernes: true
     },
     {
-        id: 6,
-        nombre: "Lucía Fernández",
-        legajo: "99112",
-        turno: "Tarde",
-        fecha: "2024-09-04",
-        cargado: "✔",
-        tutores: "Miguel Fernández",
-        accion: ""
+      id: 6,
+      nombre: "Lucía González",
+      Asistencia: "85%",
+      Justificativo: "Cargado",
+      Lunes: true,
+      Martes: true,
+      Miercoles: true,
+      Jueves: false,
+      Viernes: true
     },
     {
-        id: 7,
-        nombre: "Miguel Torres",
-        legajo: "33445",
-        turno: "Mañana",
-        fecha: "2024-09-04",
-        cargado: "✔",
-        tutores: "Sandra Torres",
-        accion: ""
+      id: 7,
+      nombre: "Miguel Torres",
+      Asistencia: "60%",
+      Justificativo: "No Cargado",
+      Lunes: false,
+      Martes: false,
+      Miercoles: true,
+      Jueves: true,
+      Viernes: false
     },
     {
-        id: 8,
-        nombre: "Valentina Sánchez",
-        legajo: "55667",
-        turno: "Tarde",
-        fecha: "2024-09-04",
-        cargado: "✔",
-        tutores: "Jorge Sánchez",
-        accion: ""
+      id: 8,
+      nombre: "Elena Ruiz",
+      Asistencia: "95%",
+      Justificativo: "Cargado",
+      Lunes: true,
+      Martes: true,
+      Miercoles: true,
+      Jueves: true,
+      Viernes: true
     },
     {
-        id: 9,
-        nombre: "Andrés Castillo",
-        legajo: "88990",
-        turno: "Mañana",
-        fecha: "2024-09-04",
-        cargado: "✔",
-        tutores: "Carmen Castillo",
-        accion: ""
+      id: 9,
+      nombre: "Fernando Ramírez",
+      Asistencia: "50%",
+      Justificativo: "No Cargado",
+      Lunes: false,
+      Martes: true,
+      Miercoles: false,
+      Jueves: false,
+      Viernes: true
     },
     {
-        id: 10,
-        nombre: "Camila Romero",
-        legajo: "22334",
-        turno: "Tarde",
-        fecha: "2024-09-04",
-        cargado: "✔",
-        tutores: "Alberto Romero",
-        accion: ""
+      id: 10,
+      nombre: "Laura Morales",
+      Asistencia: "85%",
+      Justificativo: "Cargado",
+      Lunes: true,
+      Martes: true,
+      Miercoles: true,
+      Jueves: true,
+      Viernes: false
     },
     {
-        id: 11,
-        nombre: "Javier López",
-        legajo: "66778",
-        turno: "Mañana",
-        fecha: "2024-09-04",
-        cargado: "✔",
-        tutores: "Paula López",
-        accion: ""
+      id: 11,
+      nombre: "Javier Ortega",
+      Asistencia: "70%",
+      Justificativo: "No Cargado",
+      Lunes: false,
+      Martes: true,
+      Miercoles: true,
+      Jueves: false,
+      Viernes: false
     },
     {
-        id: 12,
-        nombre: "Martina Ruiz",
-        legajo: "99001",
-        turno: "Tarde",
-        fecha: "2024-09-04",
-        cargado: "✔",
-        tutores: "Enrique Ruiz",
-        accion: ""
+      id: 12,
+      nombre: "Sofía Castillo",
+      Asistencia: "90%",
+      Justificativo: "Cargado",
+      Lunes: true,
+      Martes: true,
+      Miercoles: true,
+      Jueves: true,
+      Viernes: true
     }
+
+
 ];
 }
