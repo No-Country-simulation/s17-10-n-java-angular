@@ -5,6 +5,7 @@ public record UserRequestDTO (
         String nombre,
         String apellido,
         String dni,
+
         String tipoDocumento,
         String telefono,
         String contrasena,
