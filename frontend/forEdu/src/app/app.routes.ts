@@ -56,6 +56,11 @@ export const routes: Routes = [
         path: 'sidebar',
         component: SidebarComponent,
       },
+
+      /*RUTAS DE USUARIO*/
+      {path: 'users',
+        component: InstitutionalUserComponent
+      }
     ],
   },
 ];

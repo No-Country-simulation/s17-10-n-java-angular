@@ -1,5 +1,14 @@
+/*ESTO AGREGUE(Mario) para posicionar bien el componente*/
+.container-position{
+  float: right;
+}
+
+
 .container{
- padding: 1.5rem;
+ padding: 0.7rem 1.5rem;
+/*Agregue estas 2*/
+ max-width: 1250px;
+ margin-top: 9vh;
 }
 
 

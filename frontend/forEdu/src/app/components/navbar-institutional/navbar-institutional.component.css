@@ -3,7 +3,7 @@
     justify-content: space-between;
     align-items: center;
     border-bottom: 2px solid rgb(193, 193, 193);
-    width: 1200px;
+    max-width: 1250px;
     margin-bottom: 1rem;
   }
   

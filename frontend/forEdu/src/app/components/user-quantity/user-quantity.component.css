@@ -1,15 +1,17 @@
 
 /*estilos de estaditicas*/
-.institutional-statistics-items h6 {
-    margin: 0;
-    font-weight: 400;
-}
+
 .institutional-statistics {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 0rem;
-    max-width: 100%;
-    width: 1200px;
+    width: 1250px;
+    padding: 0rem 1.5rem;
+}
+.institutional-statistics-items h6 {
+    margin: 0;
+    font-weight: 400;
+    padding: 0;
 }
 
 .institutional-statistics-items {

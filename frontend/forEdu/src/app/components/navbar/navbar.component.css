@@ -5,8 +5,13 @@
     justify-content: space-between;
     align-items: center;
     color: #787878;
-    width: 1200px;
+    width: 1250px;
     height: 9vh;
+    position: static;
+    background-color: #ffffff;
+    position: fixed; /* Navbar fijo */
+    top: 0;
+    padding-left: 1.5rem;
     
 }
 .navbar .title-main {

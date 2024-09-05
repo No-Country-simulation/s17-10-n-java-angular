@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { ButtonModule } from 'primeng/button';
 import { CommonModule } from '@angular/common';
 import { NavbarComponent } from "../../../components/navbar/navbar.component";
+import { SidebarComponent } from "../../../components/sidebar/sidebar.component";
 
 
 
@@ -11,7 +12,7 @@ import { NavbarComponent } from "../../../components/navbar/navbar.component";
 @Component({
   selector: 'app-admi-dashboard',
   standalone: true,
-  imports: [ButtonModule, FormsModule, CommonModule, NavbarComponent],
+  imports: [ButtonModule, FormsModule, CommonModule, NavbarComponent, SidebarComponent],
   templateUrl: './admi-dashboard.component.html',
   styleUrl: './admi-dashboard.component.css'
 })
