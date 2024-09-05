@@ -1,5 +1,5 @@
 .institutional-tables {
-    height: 50vh;
+    height: 45vh;
     width: 100%;
     border-radius: 10px;
     overflow: hidden;
@@ -38,7 +38,7 @@ thead {
     width: 0;
 }
 td {
-    padding: 0.8rem 1rem;
+    padding: 0.4rem 1rem;
     text-align: left;
     border-bottom: 1px solid #dddddd;
     font-size: 0.75rem;
@@ -81,8 +81,8 @@ tr:hover {
 .picture-table img{
     border-radius: 50%;
     background-color: #adaaaa;
-    width: 2rem;
-    height: 2rem;
+    width: 1.7rem;
+    height: 1.7rem;
 }
 .btn-cta{
     width: 3.5rem;
@@ -96,53 +96,3 @@ tr:hover {
     font-size: 0.7rem;
     background-color: transparent;
 }
-
-
-.modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 1000;
-  }
-  
-  .modal-content {
-    background: white;
-    border-radius: 8px;
-    width: 80%;
-    max-width: 500px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    position: relative;
-  }
-  
-  .modal-header {
-    padding: 16px;
-    border-bottom: 1px solid #ddd;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .modal-body {
-    padding: 16px;
-  }
-  
-  .modal-footer {
-    padding: 16px;
-    border-top: 1px solid #ddd;
-    display: flex;
-    justify-content: flex-end;
-  }
-  
-  .close-btn {
-    background: none;
-    border: none;
-    font-size: 24px;
-    cursor: pointer;
-  }
-  

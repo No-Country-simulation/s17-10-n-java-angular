@@ -1,7 +1,5 @@
-
-/*Estilos de la tabla*/
 .institutional-tables {
-    height: 50vh;
+    height: 45vh;
     width: 100%;
     border-radius: 10px;
     overflow: hidden;
@@ -40,7 +38,7 @@ thead {
     width: 0;
 }
 td {
-    padding: 0.8rem 1rem;
+    padding: 0.4rem 1rem;
     text-align: left;
     border-bottom: 1px solid #dddddd;
     font-size: 0.75rem;
@@ -83,8 +81,8 @@ tr:hover {
 .picture-table img{
     border-radius: 50%;
     background-color: #adaaaa;
-    width: 2rem;
-    height: 2rem;
+    width: 1.7rem;
+    height: 1.7rem;
 }
 .btn-cta{
     width: 3.5rem;
