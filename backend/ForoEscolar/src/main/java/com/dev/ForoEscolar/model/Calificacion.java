@@ -36,6 +36,4 @@ public class Calificacion {
     @JoinColumn(name = "boletin_id")
     private Boletin boletin;
 
-
-
 }

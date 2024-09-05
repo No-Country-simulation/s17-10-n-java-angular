@@ -4,8 +4,8 @@ import com.dev.ForoEscolar.dtos.ApiResponseDto;
 
 import com.dev.ForoEscolar.dtos.boletin.BoletinDto;
 import com.dev.ForoEscolar.dtos.user.UserResponseDTO;
-import com.dev.ForoEscolar.exceptions.d.ApplicationException;
 
+import com.dev.ForoEscolar.exceptions.ApplicationException;
 import com.dev.ForoEscolar.services.BoletinService;
 import com.dev.ForoEscolar.services.UserService;
 import io.swagger.v3.oas.annotations.Operation;

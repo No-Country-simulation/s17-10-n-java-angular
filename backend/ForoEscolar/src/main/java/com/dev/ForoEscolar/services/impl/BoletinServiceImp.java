@@ -28,10 +28,10 @@ public class BoletinServiceImp implements BoletinService {
         }
 
         Boletin boletin= new Boletin().builder()
-                .comentarios(boletinDto.getComentarios())
+                .observaciones(boletinDto.getObservaciones())
                 .curso(boletinDto.getCurso())
                 .calificaciones(boletinDto.getCalificacions())
-                .periodo(boletinDto.getPedido())
+                .periodo(boletinDto.getPeriodo())
                 .fecha(LocalDate.now())
                 .estudiante(Estudiante.builder().id(boletinDto.getEstudianteId()).build())
                 .build();

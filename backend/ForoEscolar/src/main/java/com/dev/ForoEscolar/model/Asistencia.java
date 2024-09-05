@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 @AllArgsConstructor
@@ -27,7 +28,7 @@ public class Asistencia {
     private double diasAnioEscolar;
 
     @Column(name = "fecha")
-    private Date fecha;
+    private LocalDate fecha;
 
     private String estado;
 

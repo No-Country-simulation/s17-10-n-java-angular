@@ -17,8 +17,11 @@ import java.util.stream.Collectors;
 @Service
 public class TareaServiceImpl implements TareaService {
 
+    private final TareaRepository tareaRepository;
     @Autowired
-    private TareaRepository tareaRepository;
+    public TareaServiceImpl(TareaRepository tareaRepository) {
+        this.tareaRepository = tareaRepository;
+    }
 
     @Override
     public TareaResponseDto save(TareaResponseDto tareaRequestDto) {
@@ -28,7 +31,8 @@ public class TareaServiceImpl implements TareaService {
         }
         Profesor profesor= new Profesor();
         profesor.setId(tareaRequestDto.getProfesorId());
-        Tarea tarea= new Tarea().builder()
+        new Tarea();
+        Tarea tarea= Tarea.builder()
                 .descripcion(tareaRequestDto.getDescripcion())
                 .titulo(tareaRequestDto.getTitulo())
                 .estudiante(Estudiante.builder().id(tareaRequestDto.getEstudianteId()).build())

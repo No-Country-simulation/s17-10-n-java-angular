@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.sql.Date;
+import java.util.List;
 
 
 @Builder
@@ -25,6 +26,7 @@ public class Estudiante {
 
     private String dni;
 
+    @Enumerated(EnumType.STRING)
     private GeneroEnum genero;
 
     private Boolean activo;
@@ -45,19 +47,32 @@ public class Estudiante {
     @Enumerated(EnumType.STRING)
     private TipoDocumentoEnum tipoDocumento;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY, cascade ={CascadeType.MERGE,CascadeType.REFRESH,CascadeType.PERSIST})
     @JoinColumn(name = "tutor_legal_id", nullable = false, foreignKey = @ForeignKey(name="FK_TUTOR_LEGAL"))
     private TutorLegal tutor;
+
+    @ManyToMany(mappedBy = "estudiantes",cascade ={CascadeType.MERGE,CascadeType.REFRESH,CascadeType.PERSIST}, fetch = FetchType.LAZY)
+    private List<Profesor> profesores;
 
 //    @OneToMany(mappedBy = "estudiante",cascade = {CascadeType.ALL},orphanRemoval = true,fetch = FetchType.LAZY)
 //    private List<Boletin> boletin;
 //
-//    @OneToMany(mappedBy = "estudiante",cascade = {CascadeType.ALL},orphanRemoval = true,fetch = FetchType.LAZY)
-//    private List<Asistencia> asistencia;
+    @OneToMany(mappedBy = "estudiante",cascade = CascadeType.ALL, orphanRemoval = true,fetch = FetchType.LAZY)
+    private List<Asistencia> asistencia;
 //
-//    @OneToMany(mappedBy = "estudiante",cascade = {CascadeType.ALL},orphanRemoval = true,fetch = FetchType.LAZY)
+//    @OneToMany(mappedBy = "estudiante",orphanRemoval = true,fetch = FetchType.LAZY)
 //    private List<Tarea> tarea;
 //
-//    @OneToMany(mappedBy = "estudiante", cascade = {CascadeType.ALL}, orphanRemoval = true, fetch = FetchType.LAZY)
+//    @OneToMany(mappedBy = "estudiante", orphanRemoval = true, fetch = FetchType.LAZY)
 //    private List<Calificacion> calificaciones;
+
+
+    //Necesario para desvincular la tabla Estudiantes de Profesor y evitar borrar todas las tablas relacionales
+    @PreRemove
+    public void preRemove() {
+        //Se Remueve de Estudiante el Profesor, y se despega de la tabla profesor_estudiante antes de ejecutar el DELETE
+        if (this.profesores != null) {
+            this.profesores.forEach(profesor -> profesor.getEstudiantes().remove(this));
+        }
+    }
 }

@@ -1,8 +1,8 @@
 package com.dev.ForoEscolar.controllers.notificacion;
 import com.dev.ForoEscolar.dtos.ApiResponseDto;
 import com.dev.ForoEscolar.dtos.notificacion.NotificacionResponseDTO;
-import com.dev.ForoEscolar.exceptions.d.ApplicationException;
-import com.dev.ForoEscolar.services.INotificacionService;
+import com.dev.ForoEscolar.exceptions.ApplicationException;
+import com.dev.ForoEscolar.services.NotificacionService;
 import io.swagger.v3.oas.annotations.Operation;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +17,7 @@ import java.util.Optional;
 public class NotificacionController {
 
     @Autowired
-    private INotificacionService notificacionService;
+    private NotificacionService notificacionService;
 
     @GetMapping("/getAll")
     @Operation(summary = "Obtiene todos los notificacions")

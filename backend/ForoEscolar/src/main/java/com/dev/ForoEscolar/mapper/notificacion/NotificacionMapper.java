@@ -1,13 +1,12 @@
 package com.dev.ForoEscolar.mapper.notificacion;
 
 import com.dev.ForoEscolar.dtos.notificacion.NotificacionResponseDTO;
-import com.dev.ForoEscolar.mapper.GenericMapperDTO;
 import com.dev.ForoEscolar.model.Notificacion;
 import org.mapstruct.Mapping;
 import org.mapstruct.Mappings;
 import org.mapstruct.factory.Mappers;
 
-public interface NotificacionMapper extends GenericMapperDTO<Notificacion, NotificacionResponseDTO> {
+public interface NotificacionMapper {
 
     NotificacionMapper INSTANCE = Mappers.getMapper(NotificacionMapper.class);
 

@@ -5,7 +5,6 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.List;
-import java.util.Set;
 
 
 @Entity
@@ -18,19 +17,19 @@ public class Profesor extends User {
     @Enumerated(EnumType.STRING)
     private MateriaEnum materia;
 
-    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinTable(name="profesor_estudiante", joinColumns = @JoinColumn(name = "profesor_id"), inverseJoinColumns = @JoinColumn(name = "estudiante_id"))
+    @ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST,CascadeType.REFRESH, CascadeType.MERGE})
+    @JoinTable(name = "profesor_estudiante",joinColumns = @JoinColumn(name = "profesor_id"), inverseJoinColumns = @JoinColumn(name = "estudiante_id"))
     private List<Estudiante> estudiantes;
 
-    @OneToMany(mappedBy = "profesor",cascade = {CascadeType.ALL},orphanRemoval = true,fetch = FetchType.LAZY)
-    private List<Boletin> boletin;
+//    @OneToMany(mappedBy = "profesor",orphanRemoval = true,fetch = FetchType.LAZY)
+//    private List<Boletin> boletin;
 
-    @OneToMany(mappedBy = "profesor",cascade = {CascadeType.ALL},orphanRemoval = true,fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "profesor",cascade = CascadeType.ALL, orphanRemoval = true,fetch = FetchType.LAZY)
     private List<Asistencia> asistencia;
 
-    @OneToMany(mappedBy = "profesor")
-    private List<Tarea> tarea;
-
-    @OneToMany(mappedBy = "profesor")
-    private List<Calificacion> calificaciones;
+//    @OneToMany(mappedBy = "profesor")
+//    private List<Tarea> tarea;
+//
+//    @OneToMany(mappedBy = "profesor")
+//    private List<Calificacion> calificaciones;
 }

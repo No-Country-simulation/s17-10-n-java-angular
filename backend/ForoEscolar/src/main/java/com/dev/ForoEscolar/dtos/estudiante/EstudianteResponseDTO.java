@@ -1,11 +1,12 @@
 package com.dev.ForoEscolar.dtos.estudiante;
 
+import com.dev.ForoEscolar.enums.AulaEnum;
+import com.dev.ForoEscolar.enums.CursoEnum;
 import com.dev.ForoEscolar.enums.GeneroEnum;
-import com.dev.ForoEscolar.enums.RoleEnum;
 import com.dev.ForoEscolar.enums.TipoDocumentoEnum;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 public record EstudianteResponseDTO(
@@ -14,16 +15,16 @@ public record EstudianteResponseDTO(
         String apellido,
         String dni,
         GeneroEnum genero,
-        Date fechaNacimiento,
-        String curso,
-        String aula,
+        LocalDate fechaNacimiento,
+        CursoEnum curso,
+        AulaEnum aula,
         TipoDocumentoEnum tipoDocumento,
         Boolean activo,
-        Long tutorId
-//        List<Long> boletinIds,
-//        List<Long> asistenciaIds,
-//        List<Long> tareaIds,
-//        List<Long> calificacionesIds
+        Long tutor,
+//        List<Long> boletin,
+        List<Long> asistencia
+//        List<Long> tarea,
+//        List<Long> calificaciones
 
 ) implements Serializable {
 

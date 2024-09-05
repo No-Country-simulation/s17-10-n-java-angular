@@ -1,11 +1,8 @@
 package com.dev.ForoEscolar.services;
 
-import com.dev.ForoEscolar.dtos.asistencia.AsistenciaRequestDTO;
-import com.dev.ForoEscolar.dtos.asistencia.AsistenciaResponseDTO;
-import com.dev.ForoEscolar.model.Asistencia;
+import com.dev.ForoEscolar.dtos.asistencia.AsistenciaDTO;
 
-public interface AsistenciaService extends GenericService<Asistencia, Long, AsistenciaRequestDTO, AsistenciaResponseDTO> {
+public interface AsistenciaService extends GenericServiceDto<Long, AsistenciaDTO>{
 
-    AsistenciaResponseDTO update(AsistenciaRequestDTO asistenciaRequestDTO);
-
+    AsistenciaDTO update(AsistenciaDTO asistenciaDTO);
 }

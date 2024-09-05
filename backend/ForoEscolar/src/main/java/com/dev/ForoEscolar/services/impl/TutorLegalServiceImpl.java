@@ -3,7 +3,7 @@ package com.dev.ForoEscolar.services.impl;
 import com.dev.ForoEscolar.dtos.tutorlegal.TutorLegalRequestDTO;
 import com.dev.ForoEscolar.dtos.tutorlegal.TutorLegalResponseDTO;
 import com.dev.ForoEscolar.enums.RoleEnum;
-import com.dev.ForoEscolar.exceptions.d.ApplicationException;
+import com.dev.ForoEscolar.exceptions.ApplicationException;
 import com.dev.ForoEscolar.mapper.tutorlegal.TutorLegalMapper;
 import com.dev.ForoEscolar.model.TutorLegal;
 import com.dev.ForoEscolar.repository.TutorLegalRepository;

@@ -6,7 +6,6 @@ import lombok.*;
 
 import java.time.LocalDate;
 import java.util.List;
-import java.util.Set;
 
 @Entity
 @Getter
@@ -20,7 +19,6 @@ public class Boletin {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private Double promedio;
-    private String comentarios;
     private String observaciones;
     private String periodo;
     @Column(name = "fecha")
@@ -38,5 +36,4 @@ public class Boletin {
     @ManyToOne
     @JoinColumn(name = "profesor_id")
     private Profesor profesor;
-
 }

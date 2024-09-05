@@ -4,7 +4,7 @@ import com.dev.ForoEscolar.dtos.notificacion.NotificacionResponseDTO;
 import com.dev.ForoEscolar.mapper.notificacion.NotificacionMapper;
 import com.dev.ForoEscolar.model.Notificacion;
 import com.dev.ForoEscolar.repository.INotificacionRepository;
-import com.dev.ForoEscolar.services.INotificacionService;
+import com.dev.ForoEscolar.services.NotificacionService;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,7 +14,7 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
-public class NotificacionServiceImpl implements INotificacionService {
+public class NotificacionServiceImpl implements NotificacionService {
 
     @Autowired
     private INotificacionRepository notificacionRepository;
