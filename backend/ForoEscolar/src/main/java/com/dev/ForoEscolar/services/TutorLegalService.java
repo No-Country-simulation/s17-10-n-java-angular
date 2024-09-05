@@ -6,5 +6,5 @@ import com.dev.ForoEscolar.model.TutorLegal;
 
 public interface TutorLegalService extends GenericService<TutorLegal, Long, TutorLegalRequestDTO,TutorLegalResponseDTO>{
 
-    TutorLegalResponseDTO update(TutorLegalResponseDTO tutorLegalRequestDTO);
+    TutorLegalResponseDTO update(TutorLegalRequestDTO tutorLegalRequestDTO);
 }
