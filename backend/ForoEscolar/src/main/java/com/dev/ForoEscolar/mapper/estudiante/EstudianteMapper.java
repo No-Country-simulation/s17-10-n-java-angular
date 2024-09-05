@@ -8,7 +8,9 @@ import org.mapstruct.Mapping;
 import org.mapstruct.Named;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.Collections;
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 
@@ -58,7 +60,18 @@ public abstract class EstudianteMapper {
 
     @Named("boletinesToLongList")
     protected List<Long> boletinesToLongList(List<Boletin> boletines) {
-        return boletines != null ? boletines.stream().map(Boletin::getId).collect(Collectors.toList()) : null;
+        if (boletines == null) {
+            return Collections.emptyList();
+        }
+        return boletines.stream()
+                .map(boletin -> {
+                    if (boletin == null) {
+                        return null;
+                    }
+                    return boletin.getId();
+                })
+                .filter(Objects::nonNull)
+                .collect(Collectors.toList());
     }
 
     @Named("longListToBoletines")
@@ -68,7 +81,18 @@ public abstract class EstudianteMapper {
 
     @Named("asistenciasToLongList")
     protected List<Long> asistenciasToLongList(List<Asistencia> asistencias) {
-        return asistencias != null ? asistencias.stream().map(Asistencia::getId).collect(Collectors.toList()) : null;
+        if (asistencias == null) {
+            return Collections.emptyList();
+        }
+        return asistencias.stream()
+                .map(asistencia -> {
+                    if (asistencia == null) {
+                        return null;
+                    }
+                    return asistencia.getId();
+                })
+                .filter(Objects::nonNull)
+                .collect(Collectors.toList());
     }
 
     @Named("longListToAsistencias")
@@ -78,7 +102,18 @@ public abstract class EstudianteMapper {
 
     @Named("tareasToLongList")
     protected List<Long> tareasToLongList(List<Tarea> tareas) {
-        return tareas != null ? tareas.stream().map(Tarea::getId).collect(Collectors.toList()) : null;
+        if (tareas == null) {
+            return Collections.emptyList();
+        }
+        return tareas.stream()
+                .map(tarea -> {
+                    if (tarea == null) {
+                        return null;
+                    }
+                    return tarea.getId();
+                })
+                .filter(Objects::nonNull)
+                .collect(Collectors.toList());
     }
 
     @Named("longListToTareas")
@@ -88,8 +123,18 @@ public abstract class EstudianteMapper {
 
     @Named("calificacionesToLongList")
     protected List<Long> calificacionesToLongList(List<Calificacion> calificaciones) {
-        return calificaciones != null ? calificaciones.stream().map(Calificacion::getId).collect(Collectors.toList()) : null;
-    }
+        if (calificaciones == null) {
+            return Collections.emptyList();
+        }
+        return calificaciones.stream()
+                .map(calificacion -> {
+                    if (calificacion == null) {
+                        return null;
+                    }
+                    return calificacion.getId();
+                })
+                .filter(Objects::nonNull)
+                .collect(Collectors.toList());    }
 
     @Named("longListToCalificaciones")
     protected List<Calificacion> longListToCalificaciones(List<Long> ids) {

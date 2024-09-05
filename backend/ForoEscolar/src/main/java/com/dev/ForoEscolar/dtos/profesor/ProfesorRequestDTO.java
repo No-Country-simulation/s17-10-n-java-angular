@@ -8,6 +8,7 @@ import java.util.List;
 
 
 public record ProfesorRequestDTO (
+        Long id,
         @NotNull(message = "El email no puede estar vacío")
         @Email(message = "El email debe ser válido")
         String email,
@@ -28,7 +29,7 @@ public record ProfesorRequestDTO (
         String institucion,
         @NotNull(message = "La materia no puede estar vacía")
         String materia,
-        List<Long> estudianteIds
+        List<Long> estudiante
 
 ){
 

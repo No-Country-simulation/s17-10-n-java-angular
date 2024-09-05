@@ -1,5 +1,6 @@
 package com.dev.ForoEscolar.dtos.estudiante;
 
+import com.dev.ForoEscolar.enums.GeneroEnum;
 import com.dev.ForoEscolar.enums.TipoDocumentoEnum;
 
 import java.io.Serializable;
@@ -11,6 +12,7 @@ public record EstudianteResponseDTO(
         String nombre,
         String apellido,
         String dni,
+        GeneroEnum genero,
         LocalDate fechaNacimiento,
         String curso,
         String aula,

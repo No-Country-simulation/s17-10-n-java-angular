@@ -39,6 +39,7 @@ CREATE TABLE estudiantes (
                              nombre VARCHAR(100),
                              apellido VARCHAR(100),
                              dni VARCHAR(50) UNIQUE,
+                             genero ENUM('MASCULINO', 'FEMENINO'),
                              rol ENUM('ADMINISTRADOR', 'PROFESOR', 'TUTOR', 'ESTUDIANTE'),
                              fecha_nacimiento DATE,
                              activo TINYINT(1),

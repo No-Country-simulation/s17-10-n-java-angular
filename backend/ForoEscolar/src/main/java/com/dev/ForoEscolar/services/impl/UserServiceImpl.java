@@ -36,7 +36,7 @@ public class UserServiceImpl implements UserService {
         if(user.isPresent()){
             return Optional.ofNullable(UserMapper.INSTANCE.toResponseDTO(user.get()));
         }else{
-            throw new RuntimeException("Usuario no encontrado");
+            throw new ApplicationException("Usuario no encontrado");
         }
     }
 
@@ -54,7 +54,6 @@ public class UserServiceImpl implements UserService {
             newUser = userRepository.save(newUser);
             return UserMapper.INSTANCE.toResponseDTO(newUser);
         } catch (ApplicationException e) {
-            // Log the exception
             throw new ApplicationException("Error al guardar el usuario: " + e.getMessage());
         }
     }
@@ -65,7 +64,7 @@ public class UserServiceImpl implements UserService {
         if (user.isPresent()) {
             user.get().setActivo(false);
         }else{
-            throw new RuntimeException("Usuario no encontrado");
+            throw new ApplicationException("Usuario no encontrado");
         }
     }
     @Override

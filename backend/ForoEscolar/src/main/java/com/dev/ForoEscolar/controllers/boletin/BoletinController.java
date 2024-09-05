@@ -29,7 +29,7 @@ public class BoletinController {
 
     @GetMapping("/{id}")
     @Operation(summary = "Busca un boletin por el id")
-    public ResponseEntity<ApiResponseDto> getBoletin(@PathVariable("id") Long id){
+    public ResponseEntity<ApiResponseDto<BoletinDto>> getBoletin(@PathVariable("id") Long id){
 
         Optional<BoletinDto> response= boletinService.findById(id);
         if(response.isPresent()){
@@ -41,11 +41,11 @@ public class BoletinController {
 
     @GetMapping("/getAll")
     @Operation(summary = "Lista todos los boletines")
-    public ResponseEntity<ApiResponseDto> boletinesList(){
+    public ResponseEntity<ApiResponseDto<BoletinDto>> boletinesList(){
 
         try {
-            Iterable listarBoletines = boletinService.findAll();
-            return new ResponseEntity<>(new ApiResponseDto(true, "Exito", listarBoletines), HttpStatus.CREATED);
+            Iterable<BoletinDto> listarBoletines = boletinService.findAll();
+            return new ResponseEntity<>(new ApiResponseDto<>(true, "Exito", listarBoletines), HttpStatus.CREATED);
         } catch (ApplicationException e) {
             throw new ApplicationException(" Ha ocurrido un error " + e.getMessage());
         }
@@ -53,7 +53,7 @@ public class BoletinController {
 
     @PostMapping("/add")
     @Operation(summary = "Agrega un Boletin")
-    public ResponseEntity<ApiResponseDto> addBoletin(@RequestBody BoletinDto boletinDto) {
+    public ResponseEntity<ApiResponseDto<BoletinDto>> addBoletin(@RequestBody BoletinDto boletinDto) {
 
         UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         UserResponseDTO user = userService.findByEmail(userDetails.getUsername());
@@ -61,15 +61,15 @@ public class BoletinController {
         if (user.rol().equals("ADMINISTRADOR")) {
             return
                     new ResponseEntity<>(
-                            new ApiResponseDto(true, "Boletin creado con exito", boletinService.save(boletinDto))
+                            new ApiResponseDto<>(true, "Boletin creado con exito", boletinService.save(boletinDto))
                             , HttpStatus.CREATED);
         }
-        return ResponseEntity.ok(new ApiResponseDto(false, String.valueOf(HttpStatus.BAD_REQUEST), null));
+        return ResponseEntity.ok(new ApiResponseDto<>(false, String.valueOf(HttpStatus.BAD_REQUEST), null));
     }
 
     @PutMapping("/{id}")
     @Operation(summary = "Actualiza un boletin")
-    public ResponseEntity<ApiResponseDto> updateBoletin(@PathVariable("id") Long idBoletin, @RequestBody BoletinDto boletinDto) {
+    public ResponseEntity<ApiResponseDto<BoletinDto>> updateBoletin(@PathVariable("id") Long idBoletin, @RequestBody BoletinDto boletinDto) {
         UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         UserResponseDTO user = userService.findByEmail(userDetails.getUsername());
         if (user.rol().equals("ADMINISTRADOR")) {
@@ -77,7 +77,7 @@ public class BoletinController {
             if (responseDto.isPresent()) {
                 boletinDto.setId(idBoletin);
                 boletinService.save(boletinDto);
-                ApiResponseDto responseSalida = new ApiResponseDto<>(true, "Boletin actualizado", boletinDto);
+                ApiResponseDto<BoletinDto> responseSalida = new ApiResponseDto<>(true, "Boletin actualizado", boletinDto);
                 return new ResponseEntity<>(responseSalida, HttpStatus.CREATED);
             }
         }

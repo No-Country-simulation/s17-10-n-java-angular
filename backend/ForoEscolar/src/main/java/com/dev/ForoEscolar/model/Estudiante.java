@@ -1,13 +1,11 @@
 package com.dev.ForoEscolar.model;
 
-import com.dev.ForoEscolar.enums.AulaEnum;
-import com.dev.ForoEscolar.enums.CursoEnum;
-import com.dev.ForoEscolar.enums.RoleEnum;
-import com.dev.ForoEscolar.enums.TipoDocumentoEnum;
+import com.dev.ForoEscolar.enums.*;
 import jakarta.persistence.*;
 import lombok.*;
 
 import java.sql.Date;
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -28,6 +26,9 @@ public class Estudiante {
     private String apellido;
 
     private String dni;
+
+    @Enumerated(EnumType.STRING)
+    private GeneroEnum genero;
 
     private Boolean activo;
 
@@ -52,14 +53,14 @@ public class Estudiante {
     private TutorLegal tutor;
 
     @OneToMany(mappedBy = "estudiante",cascade = {CascadeType.ALL},orphanRemoval = true,fetch = FetchType.LAZY)
-    private List<Boletin> boletin;
+    private List<Boletin> boletin  = new ArrayList<>();
 
     @OneToMany(mappedBy = "estudiante",cascade = {CascadeType.ALL},orphanRemoval = true,fetch = FetchType.LAZY)
-    private List<Asistencia> asistencia;
+    private List<Asistencia> asistencia  = new ArrayList<>();
 
     @OneToMany(mappedBy = "estudiante",cascade = {CascadeType.ALL},orphanRemoval = true,fetch = FetchType.LAZY)
-    private List<Tarea> tarea;
+    private List<Tarea> tarea  = new ArrayList<>();
 
     @OneToMany(mappedBy = "estudiante", cascade = {CascadeType.ALL}, orphanRemoval = true, fetch = FetchType.LAZY)
-    private List<Calificacion> calificaciones;
+    private List<Calificacion> calificaciones  = new ArrayList<>();
 }
