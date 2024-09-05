@@ -21,7 +21,7 @@ public class Profesor extends User {
     @JoinTable(name = "profesor_estudiante",joinColumns = @JoinColumn(name = "profesor_id"), inverseJoinColumns = @JoinColumn(name = "estudiante_id"))
     private List<Estudiante> estudiantes;
 
-//    @OneToMany(mappedBy = "profesor",orphanRemoval = true,fetch = FetchType.LAZY)
+//    @OneToMany(mappedBy = "profesor",cascade = CascadeType.ALL, orphanRemoval = true,fetch = FetchType.LAZY)
 //    private List<Boletin> boletin;
 
     @OneToMany(mappedBy = "profesor",cascade = CascadeType.ALL, orphanRemoval = true,fetch = FetchType.LAZY)
@@ -32,4 +32,5 @@ public class Profesor extends User {
 //
 //    @OneToMany(mappedBy = "profesor")
 //    private List<Calificacion> calificaciones;
+  
 }

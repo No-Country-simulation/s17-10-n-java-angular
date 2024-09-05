@@ -75,6 +75,7 @@ public class UserServiceImpl implements UserService {
                 .toList();
     }
 
+
     @Override
     public UserResponseDTO findByEmail(String username){
        User user= userRepository.findByEmail(username).orElse(null);
