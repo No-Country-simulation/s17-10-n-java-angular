@@ -41,7 +41,26 @@
 
   .iconos-derecha {
     display: flex;
-    gap: 15px;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
   }
   
+  .btn-pluss {
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+    outline: none;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .btn-pluss i {
+    font-size: 1.2rem;
+    color: inherit;
+  }
   

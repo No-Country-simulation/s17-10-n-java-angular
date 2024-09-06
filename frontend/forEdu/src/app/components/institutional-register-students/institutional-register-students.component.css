@@ -1,0 +1,109 @@
+
+.container-position {
+    float: right;
+    width: 83vw;
+    box-sizing: border-box;
+}
+
+.formulario-container {
+    max-width: 83vw;
+    width: 100%;
+    height: 90vh;
+    display: flex;
+    padding: 0.7rem 2rem;
+    column-gap: 2rem;
+    margin-top: 9vh;
+    flex-direction: column;
+}
+
+.formulario-parte-superior,
+.formulario-parte-inferior {
+    background-color: #F9F9F9;
+    padding: 1rem;
+    margin-bottom: 1rem; /* Aumenta el espacio entre las partes */
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.container-date-parents{
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 2rem;
+}
+
+h2 {
+    margin: 0;
+    margin-bottom: 1.5rem;
+    color: #8b8b8b;
+    font-weight: 500;
+}
+.container-date-parents h2{
+    margin-bottom: 0rem;
+}
+
+.fila {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.campo {
+    width: 48%;
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.campo label {
+    margin-right: 1rem;
+    color: #052051;
+    min-width: 8rem;
+}
+
+.campo input,
+.campo select {
+    flex: 1;
+    padding: 0.7rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.campoo input{
+    flex: 1;
+    padding: 0.7rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    width: 50%;
+    margin-left: 1rem;
+}
+
+
+.sexo {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.sexo label {
+    display: flex;
+    align-items: center;
+}
+
+.btn-ver-registro {
+    background-color: #b1b1b1;
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-ver-registro:hover {
+    background-color: #c9cacc;
+}

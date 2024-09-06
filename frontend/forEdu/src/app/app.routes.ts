@@ -10,6 +10,9 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { GradeComponent } from './Admin/admin-grade/grade/grade.component';
 import { AsistenciaComponent } from './Admin/admin-grade/asistencia/asistencia.component';
 import { AdmiDashboardComponent } from './Admin/admin-layout/admi-dashboard/admi-dashboard.component';
+import { InstitutionalRegisterParentsComponent } from './components/institutional-register-parents/institutional-register-parents.component';
+import { InstitutionalRegisterTeacherComponent } from './components/institutional-register-teacher/institutional-register-teacher.component';
+import { InstitutionalRegisterStudentsComponent } from './components/institutional-register-students/institutional-register-students.component';
 
 export const routes: Routes = [
   {
@@ -60,6 +63,15 @@ export const routes: Routes = [
       /*RUTAS PARA EL APARTADO USUARIOS*/
       {path: 'users',
         component: InstitutionalUserComponent
+      },
+      {path: 'registereParents',
+        component: InstitutionalRegisterParentsComponent
+      },
+      {path: 'registereTeachers',
+        component: InstitutionalRegisterTeacherComponent
+      },
+      {path: 'registereStudents',
+        component: InstitutionalRegisterStudentsComponent
       }
     ],
   },
