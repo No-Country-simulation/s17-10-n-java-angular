@@ -1,11 +1,9 @@
 
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { MenuItem } from 'primeng/api';
 import { ButtonModule } from 'primeng/button';
-import { CalendarModule } from 'primeng/calendar';
-import { SplitButtonModule } from 'primeng/splitbutton';
 import { CommonModule } from '@angular/common';
+import { NavbarComponent } from "../../../components/navbar/navbar.component";
 
 
 
@@ -13,29 +11,12 @@ import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-admi-dashboard',
   standalone: true,
-  imports: [ CalendarModule, ButtonModule, FormsModule, SplitButtonModule,CommonModule],
+  imports: [ButtonModule, FormsModule, CommonModule, NavbarComponent],
   templateUrl: './admi-dashboard.component.html',
   styleUrl: './admi-dashboard.component.css'
 })
 export class AdmiDashboardComponent {
 
-
-  items: MenuItem[] = [];
-
-
-  constructor() {
-
-  }
-  ngOnInit() {
-    this.items = [
-      { label: 'Option 1', command: () => this.save('Option 1') },
-      { label: 'Option 2', command: () => this.save('Option 2') },
-      { label: 'Option 3', command: () => this.save('Option 3') }
-    ];
-}
- save(info: string) {
-    console.log(`You clicked on ${info}`);
-  }
 
 /*----------------------*/
   date: Date = new Date();

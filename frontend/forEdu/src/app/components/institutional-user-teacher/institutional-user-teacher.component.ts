@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { ModalUserInstitutionalService } from '../../service/modal/modal-user-institutional.service';
+import { Person } from '../../models/person';
 
 @Component({
   selector: 'app-institutional-user-teacher',
@@ -8,62 +10,82 @@ import { Component } from '@angular/core';
   styleUrl: './institutional-user-teacher.component.css'
 })
 export class InstitutionalUserTeacherComponent {
-  persons = [
+  selectedUser: Person | null = null;
+
+  constructor(private modalUserInstitutionalService: ModalUserInstitutionalService) {}
+
+  openModal(user: Person) {
+    this.modalUserInstitutionalService.showModal(user);
+    this.modalUserInstitutionalService.selectedUser$.subscribe(user => this.selectedUser = user);
+  }
+
+
+  persons: Person[] = [
+    // Datos de prueba
     {
+      
       id: 1,
-      nombre: "Juan Pérez",
-      grado: "12345",
-      seccion: "2005-04-12",
-      deparatamento: "5to",
-      categoria: "principal"
+      nombre: "Jaime Luis",
+      apellido: "Guerra",
+      fechaNacimiento: "2005-04-12",
+      documento: "cedula",
+      n: "987654",
+      sexo: "M",
+      grado: "5to",
+      seccion: "A",
+      turno: "Tarde",
+      
+      tipo: "profesor",
+      asignatura: "Fisica",
     },
     {
+      
       id: 2,
-      nombre: "Juan Pérez",
-      grado: "12345",
-      seccion: "2005-04-12",
-      deparatamento: "5to",
-      categoria: "secundario"
+      nombre: "Ana Mina",
+      apellido: "Medranda",
+      fechaNacimiento: "2005-04-12",
+      documento: "cedula",
+      n: "987654",
+      sexo: "M",
+      grado: "5to",
+      seccion: "A",
+      turno: "Tarde",
+      
+      tipo: "profesor",
+      asignatura: "Ciencias",
     },
     {
-      id: 3,
-      nombre: "Juan Pérez",
-      grado: "12345",
-      seccion: "2005-04-12",
-      deparatamento: "5to",
-      categoria: "principal"
+      
+      id:3,
+      nombre: "Ruby Rulexy",
+      apellido: "Quevedo",
+      fechaNacimiento: "2005-04-12",
+      documento: "cedula",
+      n: "987654",
+      sexo: "M",
+      grado: "5to",
+      seccion: "A",
+      turno: "Tarde",
+      
+      tipo: "profesor",
+      asignatura: "Computacion",
     },
     {
-      id: 4,
-      nombre: "Juan Pérez",
-      grado: "12345",
-      seccion: "2005-04-12",
-      deparatamento: "5to",
-      categoria: "secundario"
-    },
-    {
-      id: 5,
-      nombre: "Juan Pérez",
-      grado: "12345",
-      seccion: "2005-04-12",
-      deparatamento: "5to",
-      categoria: "secundario"
-    },
-    {
-      id: 6,
-      nombre: "Juan Pérez",
-      grado: "12345",
-      seccion: "2005-04-12",
-      deparatamento: "5to",
-      categoria: "secundario"
-    },
-    {
-      id: 7,
-      nombre: "Juan Pérez",
-      grado: "12345",
-      seccion: "2005-04-12",
-      deparatamento: "5to",
-      categoria: "secundario"
-    },
+      
+      id:3,
+      nombre: "Bryan Byron",
+      apellido: "Alcivar",
+      fechaNacimiento: "2005-04-12",
+      documento: "cedula",
+      n: "987654",
+      sexo: "M",
+      grado: "5to",
+      seccion: "A",
+      turno: "Tarde",
+      
+      tipo: "profesor",
+      asignatura: "Economia",
+    }
   ];
+  
 }

@@ -4,51 +4,6 @@ main{
     justify-content: end;
     background-color: #FFFFFF;
 }
-/*Estilos del nav*/
-.navbar {
-    padding: 0.7rem 1.9rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: #787878;
-    max-width: 1200px;
-    background-color: rgb(103, 97, 105);
-    height: 10vh;
-    margin-left: 349px;
-}
-.navbar .title-main {
-    font-size: 1.2rem;
-    color: #bababa;
-    margin: 0;
-    padding: 0;
-}
-.navbar ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: end;
-    gap: 2rem;
-}
-
-.navbar li {
-    display: inline;
-}
-
-.navbar a {
-    color: #bababa;
-    text-decoration: none;
-    font-size: 1.5rem;
-    display: flex;
-    align-items: center;
-    border-radius: 50%;
-    border: solid 1px #bababa;
-    padding: 0.5rem;
-}
-.pi{
-    color:#F9F9F9;;
-}
-
 
 
 /*Estilos del panel*/
@@ -210,6 +165,7 @@ main{
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: #F9F9F9;
 }
 
 
@@ -274,3 +230,9 @@ main{
 .pi.pi-envelope{
    color:  #79747E
 }
+
+.p-tieredmenu .p-menuitem > .p-menuitem-content .p-menuitem-link .p-menuitem-text {
+    color:red
+}
+
+

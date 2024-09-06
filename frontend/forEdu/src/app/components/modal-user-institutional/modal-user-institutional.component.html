@@ -1,0 +1,76 @@
+<p-dialog
+  header="Datos del alumno"
+  [(visible)]="displayModal"
+  [modal]="true"
+  [closable]="true"
+  [draggable]="false"
+> 
+@if(selectedUser){
+
+  <div class="user-info">
+    <div class="info-row">
+      <label>Nombre:</label>
+      <span>{{ selectedUser.nombre }}</span>
+    </div>
+    <div class="info-row">
+      <label>Apellido:</label>
+      <span>{{ selectedUser.apellido }}</span>
+    </div>
+    <div class="info-row">
+      <label>Fecha de Nacimiento:</label>
+      <span>{{ selectedUser.fechaNacimiento }}</span>
+    </div>
+    <div class="info-row info-row-double">
+     <div class="info-row-items">
+       <label>Documento:</label>
+       <span>{{ selectedUser.documento }}</span>
+     </div>
+     <div class="info-row-items">
+      <label>N°:</label>
+      <span>{{ selectedUser.grado }}</span>
+    </div>
+    </div>
+    <div class="info-row">
+      <label>Sexo:</label>
+      <span>{{ selectedUser.sexo }}</span>
+    </div>
+    <div class="info-row">
+      <div class="info-row-items">
+        <label>Grado:</label>
+        <span>{{ selectedUser.grado }}</span>
+      </div>
+      <div class="info-row-items">
+        <label>Sección:</label>
+        <span>{{ selectedUser.seccion}}</span>
+      </div>
+    </div>
+    
+  @switch(selectedUser.tipo){
+    @case ('estudiante') {
+        <div class="info-row">
+          <label>Codigo del alumno:</label>
+          <span>{{ selectedUser.legajo }}</span>
+        </div>
+        <div class="info-row info-additional">
+          <p>Datos del padre</p>
+          <button>Ver</button>
+        </div>
+    }
+      @case ('profesor') {
+          <div class="info-row">
+            <label>Asiganatura:</label>
+            <span>{{ selectedUser.asignatura }}</span>
+          </div>
+          <div class="info-row info-additional">
+            <p>Datos de contratacion</p>
+            <button>Ver</button>
+          </div>
+      }
+  }
+  </div>
+}
+
+
+</p-dialog>
+
+

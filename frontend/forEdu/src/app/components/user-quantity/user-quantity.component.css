@@ -1,0 +1,33 @@
+
+/*estilos de estaditicas*/
+.institutional-statistics-items h6 {
+    margin: 0;
+    font-weight: 400;
+}
+.institutional-statistics {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0rem;
+    max-width: 100%;
+    width: 1200px;
+}
+
+.institutional-statistics-items {
+    background-color: #EEEEEE;
+    padding: 0.8rem;
+    border-radius: 10px;
+    max-width: 17rem;
+    height: 100%;
+}
+.institutional-statistics-items h6{
+    margin-bottom: 0.5rem;
+    margin-top: 0.3rem;
+}
+
+.institutional-statistics-items .details {
+    font-size: 0.5rem;
+}
+
+.quantities {
+   margin-top: 0px;
+}

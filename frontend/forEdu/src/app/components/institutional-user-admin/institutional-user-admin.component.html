@@ -4,11 +4,6 @@
             <thead>
                 <tr>
                     <th>Nombre</th>
-                    <th>Grado</th>
-                    <th>Seccion</th>
-                    <th>Asignatura</th>
-                    <th>Turno</th>
-                    <th></th>
                 </tr>
             </thead>
         </table>
@@ -23,11 +18,8 @@
                                     <p>{{ person.nombre }}</p>
                                 </div>
                             </td>
-                            <td>{{ person.grado }}</td>
-                            <td>{{ person.seccion }}</td>
-                            <td>{{ person.asignatura }}</td>
-                            <td>{{person.turno}}</td>
                             <td><button type="button" class="btn-cta" (click)="openModal(person)">CTA</button></td>
+
                         </tr>
                     }
                 </tbody>
@@ -35,3 +27,6 @@
         </div>
     </div>
 </div>
+
+
+  
