@@ -1,0 +1,10 @@
+.layout{
+  display: grid;
+  width: 100vw;
+  height: 100vh;
+  grid-template-columns: 15% 85%;
+}
+
+.container{
+  padding: 1em;
+}

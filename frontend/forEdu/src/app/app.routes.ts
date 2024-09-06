@@ -10,11 +10,22 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { GradeComponent } from './Admin/admin-grade/grade/grade.component';
 import { AsistenciaComponent } from './Admin/admin-grade/asistencia/asistencia.component';
 import { AdmiDashboardComponent } from './Admin/admin-layout/admi-dashboard/admi-dashboard.component';
+import { LayoutAdminComponent } from './layouts/layout-admin/layout-admin.component';
 
 export const routes: Routes = [
   {
     path: '',
-    component: AdmiDashboardComponent,
+    component: LayoutAdminComponent,
+    children: [
+      {
+        path: 'dashboard',
+        component: AdmiDashboardComponent,
+      },
+      {
+        path: '',
+        component: AsistenciaComponent,
+      }
+    ]
   },
   {
     path: 'admin',
