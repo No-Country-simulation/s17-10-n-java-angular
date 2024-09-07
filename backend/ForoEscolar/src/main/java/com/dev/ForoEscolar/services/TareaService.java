@@ -7,6 +7,8 @@ import org.springframework.stereotype.Service;
 @Service
 public interface TareaService extends GenericServiceDto<Long, TareaResponseDto> {
 
+    public TareaResponseDto updateTarea(TareaResponseDto tareaResponseDto);
+
 
 
 

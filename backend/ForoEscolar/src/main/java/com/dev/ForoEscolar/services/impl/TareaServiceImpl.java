@@ -47,6 +47,15 @@ public class TareaServiceImpl implements TareaService {
         return tareaMapper.toResponseDTO(tarea);
     }
 
+    public TareaResponseDto updateTarea(TareaResponseDto tareaResponseDto){
+
+        Optional<TareaResponseDto> response= findById(tareaResponseDto.getId());
+if(response.isPresent()){
+    tareaRepository.save(tareaMapper.toEntity(tareaResponseDto));
+}
+     return null;
+    }
+
     @Override
     public Optional<TareaResponseDto> findById(Long idTarea) {
         Optional<Tarea> response= tareaRepository.findById(idTarea);
@@ -74,33 +83,4 @@ public class TareaServiceImpl implements TareaService {
             throw new ApplicationException("Tarea no encontrada");
         }
     }
-//
-//    @Override
-//    public TareaResponseDto save(TareaResponseDto tareaRequestDto) {
-//
-//        if(tareaRequestDto== null){
-//            throw new RuntimeException("La tarea no puede estar vacia");
-//        }
-//        Profesor profesor= new Profesor();
-//        profesor.setId(tareaRequestDto.getProfesorId());
-//        new Tarea();
-//        Tarea tarea= Tarea.builder()
-//                .descripcion(tareaRequestDto.getDescripcion())
-//                .titulo(tareaRequestDto.getTitulo())
-//                .estudiante(Estudiante.builder().id(tareaRequestDto.getEstudianteId()).build())
-//                .profesor(profesor)
-//                .fechaEntrega(tareaRequestDto.getFechaEntrega())
-//                .build();
-//        tareaRepository.save(tarea);
-//        return TareaMapper.INSTANCE.toResponseDTO(tarea);
-//
-//    }
-//
-//    @Override
-//    public Iterable<TareaResponseDto> findAll() {
-//        List<Tarea> listar= tareaRepository.findAll();
-//        return listar.stream().map(TareaMapper.INSTANCE::toResponseDTO).collect(Collectors.toList());
-//    }
-
-
 }

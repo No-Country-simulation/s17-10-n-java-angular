@@ -82,7 +82,7 @@ public class TareaController {
                 if(responseDto.isPresent()){
                     tarea.setId(idTarea);
                     tarea.setProfesorId(user.id());
-                    tareaService.save(tarea);
+                    tareaService.updateTarea(tarea);
                     ApiResponseDto<TareaResponseDto> responseSalida= new ApiResponseDto<>(true,"Tarea actualizada",tarea);
                     return new ResponseEntity<>(responseSalida, HttpStatus.CREATED);
                 }
