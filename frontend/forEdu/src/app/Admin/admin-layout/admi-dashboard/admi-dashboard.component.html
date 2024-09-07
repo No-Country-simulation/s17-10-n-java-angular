@@ -1,1 +1,135 @@
-<p>admi-dashboard works!</p>
+<div class="">
+    <nav class="navbar">
+        <h4 class="title-main">Panel de Administrador</h4>
+        <ul>
+            <li><a href="#" aria-label="Buscar"><i class="pi pi-search"></i></a></li>
+            <li><a href="#" aria-label="Notificaciones"><i class="pi pi-bell"></i></a></li>
+            <li><a href="#" aria-label="Perfil"><i class="pi pi-user"></i></a></li>
+            <li>
+                <p-splitButton
+                label="Secondary"
+
+                [model]="items"
+                text
+                severity="primary">
+            </p-splitButton>
+
+            </li>
+        </ul>
+    </nav>
+
+    <main>
+        <div class="panel">
+            <div class="panel-left">
+                <section class="admin">
+                    <div class="admin-info">
+                        <div class="admin-detail">
+                            <h4>¡Hola Administrador!</h4>
+                            <p>Hola administrador biennvenido a la plataforma ForEdu, una plataforma para maneternos conectados</p>
+                        </div>
+                        <div class="admin-picture">
+                            <img src="#" alt="Picture of admin">
+                        </div>
+                    </div>
+                </section>
+                <section class="school-management">
+                    <h4>Gestion Escolar</h4>
+                    <div class="school-management-option">
+                        <article class="school-management-item">
+                            <div class="school-management-item-icon">
+                                <p-button icon="pi pi-plus" [rounded]="true" severity="secondary" />
+                            </div>
+                           <div class="school-management-item-text">
+                                <p>Crear Nuevo Evento</p>
+                           </div>
+                        </article>
+
+                        <article class="school-management-item">
+                            <div class="school-management-item-icon">
+                                <p-button icon="pi pi-plus" [rounded]="true" severity="secondary" />
+                            </div>
+                           <div class="school-management-item-text">
+                                <p>Crear Nuevo Curso</p>
+                           </div>
+                        </article>
+
+
+                        <article class="school-management-item">
+                            <div class="school-management-item-icon">
+                                <p-button icon="pi pi-plus" [rounded]="true" severity="secondary" />
+                            </div>
+                           <div class="school-management-item-text">
+                                <p>Cargar Nuevo Alumno</p>
+                           </div>
+                        </article>
+
+                        <article class="school-management-item">
+                            <div class="school-management-item-icon">
+                                <p-button icon="pi pi-users" [rounded]="true" severity="secondary" />
+                            </div>
+                           <div class="school-management-item-text">
+                                <p>Calificaciones Alumnos</p>
+                           </div>
+                        </article>
+                    </div>
+                </section>
+
+                <section class="activities">
+                    <h4>Actividades</h4>
+                    <div class="activities-container">
+                        @for (activity of activities; track activity.id) {
+                            <article class="activity-item">
+                                <h5>{{ activity.name }}</h5>
+                                <div class="activity-item-content">
+                                  <p class="text">{{ activity.detail }}</p>
+                                  <button class="btn-activities">Ver más</button>
+                                </div>
+                            </article>
+                        }
+                    </div>
+                </section>
+            </div>
+
+
+            <div class="panel-right">
+                <div class="calendar">
+                    <p-calendar
+                        class="max-w-full"
+                        [(ngModel)]="date"
+                        [inline]="true"
+                        [showWeek]="true">
+                    </p-calendar>
+                </div>
+
+
+                <div class="teacher">
+                    <div class="teacher-header">
+                        <h4>Listado de Maestros</h4>
+                        <p>6</p>
+                    </div>
+                    <div class="teacher-container">
+                        @for (teacher of teachers; track teacher.id) {
+                            <div class="teacher-container-items">
+                                <div class="teacher-picture">
+                                    <i class="pi pi-user"></i>
+                                </div>
+
+                                <div class="teacher-details">
+                                    <h5>{{teacher.name}} <em>{{teacher.parallel}}</em></h5>
+                                    <p>{{teacher.asignature}}</p>
+                                </div>
+                                <div class="teacher-message">
+                                   <i class="pi pi-envelope"></i>
+                                </div>
+                              </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+
+
+
+

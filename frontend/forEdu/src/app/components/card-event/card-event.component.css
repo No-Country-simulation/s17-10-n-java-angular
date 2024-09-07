@@ -1,0 +1,23 @@
+.card {
+  background-color: #F9F9F9;
+  display: grid;
+  grid-template-columns: 30% 70%;
+  padding: 1em;
+  border-radius: 15px;
+  margin-bottom: 0.5em;
+
+}
+
+.card-image {
+  height: 4rem;
+  width: 4rem;
+  border-radius: 50%;
+}
+
+.card-title{
+  margin: 0;
+  padding: 0;
+}
+.time {
+  color: #807D84;
+}
