@@ -1,12 +1,12 @@
 package com.dev.ForoEscolar.dtos.tarea;
 
-import com.dev.ForoEscolar.model.Estudiante;
-import com.dev.ForoEscolar.model.Profesor;
-import com.dev.ForoEscolar.model.Tarea;
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.dev.ForoEscolar.enums.EstadoEntregaEnum;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import lombok.*;
 
-import java.sql.Timestamp;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Builder
@@ -21,6 +21,9 @@ public class TareaResponseDto {
     private String titulo;
     private Date fechaEntrega;
     private boolean activo;
+
+//    @Enumerated(EnumType.STRING)
+//    private EstadoEntregaEnum estadoDeEntrega;
 
 
     private Long profesorId;
