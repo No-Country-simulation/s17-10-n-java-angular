@@ -1,5 +1,6 @@
 package com.dev.ForoEscolar.model;
 
+import com.dev.ForoEscolar.enums.EstadoEntregaEnum;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -22,6 +23,8 @@ public class Tarea {
     private String titulo;
     private Date fechaEntrega;
     private boolean activo;
+    @Enumerated(EnumType.STRING)
+    private EstadoEntregaEnum estadoDeEntrega;
 
     @ManyToOne
     @JoinColumn(name = "estudiante_id")

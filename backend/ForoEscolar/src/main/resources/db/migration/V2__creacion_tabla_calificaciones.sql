@@ -27,13 +27,3 @@ CREATE TABLE calificaciones (
                                 FOREIGN KEY (boletin_id) REFERENCES boletin(id)
 );
 
--- Tabla para registrar las entregas de tareas por estudiantes
-CREATE TABLE entrega_tarea (
-                               id BIGINT PRIMARY KEY AUTO_INCREMENT,
-                               tarea_id BIGINT,
-                               estudiante_id BIGINT,
-                               fecha_entrega DATETIME,
-                               estado ENUM('ENTREGADA', 'PENDIENTE', 'ATRASADA'),
-                               FOREIGN KEY (tarea_id) REFERENCES tarea(id),
-                               FOREIGN KEY (estudiante_id) REFERENCES estudiantes(id)
-);

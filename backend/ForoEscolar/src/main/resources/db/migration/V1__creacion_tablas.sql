@@ -90,6 +90,7 @@ CREATE TABLE tarea (
                        estudiante_id BIGINT,
                        titulo VARCHAR(100),
                        descripcion VARCHAR(255),
+                       estado_de_entrega ENUM('PENDIENTE', 'APROBADO', 'COMPLETADA'),
                        fecha_entrega DATETIME,
                        activo TINYINT(1),
                        FOREIGN KEY (profesor_id) REFERENCES profesores(user_id),
