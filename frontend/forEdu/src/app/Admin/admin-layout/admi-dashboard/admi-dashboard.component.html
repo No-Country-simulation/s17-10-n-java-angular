@@ -1,22 +1,6 @@
 <div class="">
-    <nav class="navbar">
-        <h4 class="title-main">Panel de Administrador</h4>
-        <ul>
-            <li><a href="#" aria-label="Buscar"><i class="pi pi-search"></i></a></li>
-            <li><a href="#" aria-label="Notificaciones"><i class="pi pi-bell"></i></a></li>
-            <li><a href="#" aria-label="Perfil"><i class="pi pi-user"></i></a></li>
-            <li>
-                <p-splitButton
-                label="Secondary"
-
-                [model]="items"
-                text
-                severity="primary">
-            </p-splitButton>
-
-            </li>
-        </ul>
-    </nav>
+<!--AQUI EL NAVBAR*/-->
+<app-navbar></app-navbar>
 
     <main>
         <div class="panel">
@@ -93,15 +77,7 @@
 
             <div class="panel-right">
                 <div class="calendar">
-                    <p-calendar
-                        class="max-w-full"
-                        [(ngModel)]="date"
-                        [inline]="true"
-                        [showWeek]="true">
-                    </p-calendar>
                 </div>
-
-
                 <div class="teacher">
                     <div class="teacher-header">
                         <h4>Listado de Maestros</h4>
@@ -129,7 +105,5 @@
         </div>
     </main>
 </div>
-
-
 
 

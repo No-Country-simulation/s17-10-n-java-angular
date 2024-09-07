@@ -1,1 +1,16 @@
-<p>navbar works!</p>
+<nav class="navbar">
+    <h4 class="title-main">Panel de Administrador</h4>
+    <ul>
+        <li><a href="#" aria-label="Buscar"><i class="pi pi-search"></i></a></li>
+        <li><a href="#" aria-label="Notificaciones"><i class="pi pi-bell"></i></a></li>
+        <li class="perfil"><a href="#" aria-label="Perfil"><i class="pi pi-user"></i></a></li>
+        <li class="option">
+            <p-splitButton 
+            label="Nombre"
+            [model]="items"
+            text
+            severity="primary">
+        </p-splitButton>
+        </li>
+    </ul>
+</nav>

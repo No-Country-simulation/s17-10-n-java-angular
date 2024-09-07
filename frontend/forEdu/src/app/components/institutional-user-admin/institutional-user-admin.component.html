@@ -1,0 +1,32 @@
+<div class="institutional-tables">
+    <div class="table-wrapper">
+        <table>
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                </tr>
+            </thead>
+        </table>
+        <div class="table-body">
+            <table>
+                <tbody>
+                    @for (person of persons; track person.id) {
+                        <tr>
+                            <td>
+                                <div class="picture-table">
+                                    <img src="#" alt="Profile Picture"/>
+                                    <p>{{ person.nombre }}</p>
+                                </div>
+                            </td>
+                            <td><button type="button" class="btn-cta" (click)="openModal(person)">CTA</button></td>
+
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+  

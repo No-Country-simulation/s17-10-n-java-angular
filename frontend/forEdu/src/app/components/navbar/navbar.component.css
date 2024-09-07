@@ -1,0 +1,54 @@
+/*Estilos del nav*/
+.navbar {
+    padding: 0.7rem 0rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #787878;
+    width: 1200px;
+    height: 9vh;
+    
+}
+.navbar .title-main {
+    font-size: 1.2rem;
+    color: #bababa;
+    margin: 0;
+    padding: 0;
+}
+.navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.navbar li {
+    display: inline;
+}
+
+.navbar a {
+    color: #bababa;
+    text-decoration: none;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    border-radius: 50%;
+    border: solid 1px #bababa;
+    padding: 0.5rem;
+}
+.pi{
+    color:#cdcdcd;;
+}
+.navbar .perfil{
+    display: flex;
+    gap: 0.5rem;
+    height: 2.1rem;
+    width: 2.5rem;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+}
+
