@@ -3,6 +3,8 @@ import { CardModule } from 'primeng/card';
 import { ButtonModule } from 'primeng/button';
 import { CardGradeComponent } from '../../../components/card-grade/card-grade.component';
 import { CardAddComponent } from '../../../components/card-add/card-add.component';
+import { NavbarComponent } from "../../../components/navbar/navbar.component";
+import { SidebarComponent } from "../../../components/sidebar/sidebar.component";
 
 @Component({
   selector: 'app-grade',
@@ -11,8 +13,10 @@ import { CardAddComponent } from '../../../components/card-add/card-add.componen
     CardModule,
     ButtonModule,
     CardGradeComponent,
-    CardAddComponent
-  ],
+    CardAddComponent,
+    NavbarComponent,
+    SidebarComponent
+],
   templateUrl: './grade.component.html',
   styleUrl: './grade.component.css'
 })

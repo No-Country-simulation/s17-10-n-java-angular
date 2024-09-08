@@ -1,24 +1,31 @@
 
 /*estilos de estaditicas*/
-.institutional-statistics-items h6 {
-    margin: 0;
-    font-weight: 400;
-}
 .institutional-statistics {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 0rem;
-    max-width: 100%;
-    width: 1200px;
+    display: flex;
+    justify-content: start;
+    width: 100%;
+    gap: 0.5rem;
 }
 
 .institutional-statistics-items {
-    background-color: #EEEEEE;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 0rem;
     padding: 0.8rem;
     border-radius: 10px;
-    max-width: 17rem;
-    height: 100%;
+    width: 290px;
+    max-width: 100%; /* Asegura que no exceda el contenedor */
+    background-color: #EEEEEE;
+    box-sizing: border-box;
+    margin: 0;
 }
+
+.institutional-statistics-items h6 {
+    font-weight: 400;
+    padding: 0;
+}
+
 .institutional-statistics-items h6{
     margin-bottom: 0.5rem;
     margin-top: 0.3rem;

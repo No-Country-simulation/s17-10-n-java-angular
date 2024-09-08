@@ -4,29 +4,30 @@
       <button [class.active]="tablaActual === 'profesores'" (click)="mostrarTabla('profesores')">Profesores</button>
       <button [class.active]="tablaActual === 'administradores'" (click)="mostrarTabla('administradores')">Administradores</button>
     </div>
+
     <div class="iconos-derecha">
-      <i class="pi pi-user-plus"></i>
+      <button class="btn-pluss" (click)="irAlFormulario()">
+        <i class="pi pi-user-plus"></i>
+      </button>
       <i class="pi pi-search"></i>
       <i class="pi pi-sliders-h"></i>
       <i class="pi pi-ellipsis-v"></i>
     </div>
   </div>
-  
+
+  <!--/*PARA LAS TABLAS*/-->
   @if(tablaActual === 'alumnos') {
     <div class="tabla">
         <app-institutional-user-student></app-institutional-user-student>
     </div>
   }
-
   @if(tablaActual === 'profesores') {
     <div class="tabla">
         <app-institutional-user-teacher></app-institutional-user-teacher>
     </div>
   }
-
   @if(tablaActual === 'administradores') {
     <div class="tabla">
         <app-institutional-user-admin></app-institutional-user-admin>
     </div>
   }
-
