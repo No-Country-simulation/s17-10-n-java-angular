@@ -52,7 +52,7 @@ public class ProfesorController {
         }
     }
 
-    @PostMapping("/register")
+    @PostMapping("/add")
     @Operation(summary = "Se agrega un profesor")
     public ResponseEntity<ApiResponseDto<ProfesorResponseDTO>> save(@RequestBody @Valid ProfesorRequestDTO dto) {
         ProfesorResponseDTO profesor = profesorService.save(dto);

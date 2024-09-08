@@ -54,7 +54,7 @@ public class EstudianteController {
         }
     }
 
-    @PostMapping("/register")
+    @PostMapping("/add")
     @Operation(summary = "Se agrega un estudiante")
     public ResponseEntity<ApiResponseDto<EstudianteResponseDTO>> save(@RequestBody @Valid EstudianteResponseDTO dto) {
         EstudianteResponseDTO estudiante = estudianteService.save(dto);

@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/boletin")
+@RequestMapping("api/boletin")
 public class BoletinController {
 
     @Autowired

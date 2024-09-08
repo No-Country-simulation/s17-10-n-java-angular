@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/asistencia")
+@RequestMapping("api/asistencia")
 public class AsistenciaController {
 
 
@@ -31,7 +31,7 @@ public class AsistenciaController {
         this.userService = userService;
     }
 
-    @PostMapping("/register")
+    @PostMapping("/add")
     @Operation(summary = "Register a new asistencia")
     public ResponseEntity<ApiResponseDto<AsistenciaDTO>> registerAsistencia(@RequestBody @Valid AsistenciaDTO asistenciaDTO) {
         UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();

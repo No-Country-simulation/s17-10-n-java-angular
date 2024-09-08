@@ -27,7 +27,7 @@ public class UserController {
         this.userService = userService;
     }
 
-    @PostMapping(value = "/register", produces = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(value = "/add", produces = MediaType.APPLICATION_JSON_VALUE)
     @Operation(summary = "Registra un nuevo usuario")
     public ResponseEntity<ApiResponseDto<UserResponseDTO>> registerUser(@RequestBody @Valid UserRequestDTO userRegisterDataDTO) {
         UserResponseDTO user = userService.save(userRegisterDataDTO);

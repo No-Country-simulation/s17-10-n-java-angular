@@ -45,7 +45,7 @@ public class TutorLegalController {
                 .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
-    @PostMapping(value = "/register", produces = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(value = "/add", produces = MediaType.APPLICATION_JSON_VALUE)
     @Operation(summary = "Registra un nuevo tutor legal")
     public ResponseEntity<ApiResponseDto<TutorLegalResponseDTO>> registerTutorLegal(@RequestBody @Valid TutorLegalRequestDTO tutorLegalRequestDTO) {
         TutorLegalResponseDTO tutorLegal = tutorLegalService.save(tutorLegalRequestDTO);
