@@ -4,7 +4,6 @@ import com.dev.ForoEscolar.dtos.ApiResponseDto;
 import com.dev.ForoEscolar.dtos.user.UserRequestDTO;
 import com.dev.ForoEscolar.dtos.user.UserResponseDTO;
 import com.dev.ForoEscolar.exceptions.ApplicationException;
-import com.dev.ForoEscolar.model.User;
 import com.dev.ForoEscolar.services.UserService;
 import io.swagger.v3.oas.annotations.Operation;
 import jakarta.validation.Valid;
@@ -45,8 +44,6 @@ public class UserController {
     public ResponseEntity<ApiResponseDto<UserResponseDTO>> getAllUsers() {
         try {
             Iterable<UserResponseDTO> users = userService.findAll();
-
-         //return ResponseEntity.ok(new ApiResponseDto(true,"hola",users));
             return new ResponseEntity<>(new ApiResponseDto<>(true, "Usuarios encontrados", users), HttpStatus.CREATED);
         }catch (ApplicationException e){
             throw new ApplicationException("Ha ocurrido un error "+ e.getMessage());
