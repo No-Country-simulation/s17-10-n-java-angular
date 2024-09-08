@@ -26,5 +26,9 @@ export class ModalUserIntitutionalComponent implements OnInit {
       user => this.selectedUser = user
     );
   }
+
+  loadParentData(){
+    
+  }
   
 }
