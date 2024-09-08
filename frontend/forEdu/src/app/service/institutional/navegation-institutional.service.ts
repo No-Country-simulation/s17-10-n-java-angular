@@ -19,13 +19,13 @@ export class NavegationInstitutionalService {
     return this.tablaActual;
   }
 
-  
+
   irAlFormulario() {
     if (this.tablaActual === 'alumnos') {
       // Redirigir al formulario de estudiantes
-      this.router.navigate(['/admin/registereParents']);
+      this.router.navigate(['/users/registereParents']);
     } else if(this.tablaActual === 'profesores'){
-      this.router.navigate(['/admin/registereTeachers']);
+      this.router.navigate(['/users/registereTeachers']);
     } else if (this.tablaActual === 'administradores') {
       // Redirigir al formulario de administradores
       this.router.navigate(['/formulario-administradores']);

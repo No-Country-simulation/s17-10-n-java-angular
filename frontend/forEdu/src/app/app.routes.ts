@@ -40,47 +40,10 @@ export const routes: Routes = [
     ]
   },
   {
-    path: 'admin',
+    path: 'users',
     children: [
       ...ADMIN_ROUTES,
-      {
-        path: 'grade',
-        component: GradeComponent,
-      },
-      {
-        path: 'table',
-        component: InstitutionalUserComponent,
-      },
-      {
-        path: 'tablestudent',
-        component: InstitutionalUserStudentComponent,
-      },
-      {
-        path: 'tableteacher',
-        component: InstitutionalUserTeacherComponent,
-      },
-      {
-        path: 'navbarinsti',
-        component: NavbarInstitutionalComponent,
-      },
-      {
-        path: 'degreeteacher',
-        component: DegreeTeacherComponent,
-      },
-      {
-        path: 'degreestudent',
-        component: DegreeStudentComponent,
-      },
-      {
-        path: 'asistencia',
-        component: AsistenciaComponent,
-      },
-      {
-        path: 'sidebar',
-        component: SidebarComponent,
-      },
 
-      /*RUTAS PARA EL APARTADO USUARIOS*/
       {path: 'users',
         component: InstitutionalUserComponent
       },
