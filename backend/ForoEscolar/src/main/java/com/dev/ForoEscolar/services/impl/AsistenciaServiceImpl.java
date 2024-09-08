@@ -37,8 +37,8 @@ public class AsistenciaServiceImpl implements AsistenciaService {
         newAsistencia.setDiasAnioEscolar(anioEscolar);
         asistenciaRepository.save(newAsistencia);
 
-        double porcentajeAsistencia= calcularPorcentajeAsistencia(anioEscolar);
-
+        //double porcentajeAsistencia= calcularPorcentajeAsistencia(anioEscolar);
+        double porcentajeAsistencia= calcularPorcentajeAsistenciaTrimestral(anioEscolar);
 
         AsistenciaDTO responseDTO = asistenciaMapper.toResponseDto(newAsistencia);
         responseDTO = new AsistenciaDTO(
@@ -77,5 +77,10 @@ public class AsistenciaServiceImpl implements AsistenciaService {
     private double calcularPorcentajeAsistencia(double diasAnio) {
         long totalAsistencias = asistenciaRepository.countByAsistio(true);
         return  (totalAsistencias*100) / diasAnio;
+    }
+    private double calcularPorcentajeAsistenciaTrimestral(double diasAnio) {
+        double var= diasAnio/3;
+        long totalAsistencias = asistenciaRepository.countByAsistio(true);
+        return  (totalAsistencias*100) / var;
     }
 }
