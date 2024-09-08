@@ -7,7 +7,7 @@ export interface Person {
     documento: string;
     n: string;
     sexo: string;
-    tipo: 'estudiante' | 'profesor' | 'administrador';
+    tipo: 'estudiante' | 'profesor' | 'administrador' | 'padres';
     grado?: string;
     seccion?: string;
     turno?: string;

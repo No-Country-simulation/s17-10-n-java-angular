@@ -13,6 +13,7 @@ import { AdmiDashboardComponent } from './Admin/admin-layout/admi-dashboard/admi
 import { InstitutionalRegisterParentsComponent } from './components/institutional-register-parents/institutional-register-parents.component';
 import { InstitutionalRegisterTeacherComponent } from './components/institutional-register-teacher/institutional-register-teacher.component';
 import { InstitutionalRegisterStudentsComponent } from './components/institutional-register-students/institutional-register-students.component';
+import { ModalUserIntitutionalComponent } from './components/modal-user-institutional/modal-user-institutional.component';
 
 export const routes: Routes = [
   {

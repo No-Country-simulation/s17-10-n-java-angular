@@ -1,5 +1,5 @@
 <p-dialog
-  header="Datos del alumno"
+  header="Datos del usuario"
   [(visible)]="displayModal"
   [modal]="true"
   [closable]="true"
@@ -53,9 +53,12 @@
         </div>
         <div class="info-row info-additional">
           <p>Datos del padre</p>
-          <button>Ver</button>
+          <button (click)="loadParentData()">Ver</button>
+
+         
         </div>
     }
+  
       @case ('profesor') {
           <div class="info-row">
             <label>Asiganatura:</label>
@@ -67,10 +70,47 @@
           </div>
       }
   }
+  @if(selectedUser.tipo == "padres"){
+    <div class="info-row">
+      <label>Nombre:</label>
+      <span>{{ selectedUser.nombre }}</span>
+    </div>
+    <div class="info-row">
+      <label>Apellido:</label>
+      <span>{{ selectedUser.apellido }}</span>
+    </div>
+    <div class="info-row">
+      <label>Fecha de Nacimiento:</label>
+      <span>{{ selectedUser.fechaNacimiento }}</span>
+    </div>
+    <div class="info-row info-row-double">
+     <div class="info-row-items">
+       <label>Documento:</label>
+       <span>{{ selectedUser.documento }}</span>
+     </div>
+     <div class="info-row-items">
+      <label>N°:</label>
+      <span>{{ selectedUser.grado }}</span>
+    </div>
+    </div>
+    <div class="info-row">
+      <label>Sexo:</label>
+      <span>{{ selectedUser.sexo }}</span>
+    </div>
+    <div class="info-row">
+      <div class="info-row-items">
+        <label>Grado:</label>
+        <span>{{ selectedUser.grado }}</span>
+      </div>
+      <div class="info-row-items">
+        <label>Sección:</label>
+        <span>{{ selectedUser.seccion}}</span>
+      </div>
+    </div>
+  }
   </div>
 }
-
-
+ 
 </p-dialog>
 
 
