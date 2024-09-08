@@ -26,25 +26,25 @@ public class AsistenciaServiceImpl implements AsistenciaService {
 
     @Override
     public AsistenciaDTO update(AsistenciaDTO asistenciaDTO) {
-       return null;
+        return null;
     }
 
     @Override
     @Transactional
     public AsistenciaDTO save(AsistenciaDTO requestDTO) {
+        double anioEscolar= 198.0;
         Asistencia newAsistencia = asistenciaMapper.toEntity(requestDTO);
+        newAsistencia.setDiasAnioEscolar(anioEscolar);
         asistenciaRepository.save(newAsistencia);
 
-        long totalAsistencias = asistenciaRepository.countByAsistio(true);
-        long totalRegistros = asistenciaRepository.count();
-        double porcentajeAsistencia = totalRegistros > 0
-                ? (double) totalAsistencias / totalRegistros * 100
-                : 0;
+        //double porcentajeAsistencia= calcularPorcentajeAsistencia(anioEscolar);
+        double porcentajeAsistencia= calcularPorcentajeAsistenciaTrimestral(anioEscolar);
+
         AsistenciaDTO responseDTO = asistenciaMapper.toResponseDto(newAsistencia);
         responseDTO = new AsistenciaDTO(
                 responseDTO.id(),
                 responseDTO.asistio(),
-                responseDTO.diasAnioEscolar(),
+                anioEscolar,
                 responseDTO.fecha(),
                 responseDTO.observaciones(),
                 porcentajeAsistencia,
@@ -69,9 +69,18 @@ public class AsistenciaServiceImpl implements AsistenciaService {
 
     }
 
-//    private double calcularPorcentajeAsistencia() {
+    //    private double calcularPorcentajeAsistencia() {
 //        long totalAsistencias = asistenciaRepository.countByAsistio(true);
 //        long totalRegistros = asistenciaRepository.count();
 //        return totalRegistros > 0 ? (double) totalAsistencias / totalRegistros * 100 : 0;
 //    }
+    private double calcularPorcentajeAsistencia(double diasAnio) {
+        long totalAsistencias = asistenciaRepository.countByAsistio(true);
+        return  (totalAsistencias*100) / diasAnio;
+    }
+    private double calcularPorcentajeAsistenciaTrimestral(double diasAnio) {
+        double var= diasAnio/3;
+        long totalAsistencias = asistenciaRepository.countByAsistio(true);
+        return  (totalAsistencias*100) / var;
+    }
 }

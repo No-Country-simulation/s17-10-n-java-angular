@@ -1,6 +1,8 @@
 package com.dev.ForoEscolar.services.impl;
 
 import com.dev.ForoEscolar.dtos.estudiante.EstudianteResponseDTO;
+import com.dev.ForoEscolar.enums.AulaEnum;
+import com.dev.ForoEscolar.enums.CursoEnum;
 import com.dev.ForoEscolar.enums.RoleEnum;
 import com.dev.ForoEscolar.exceptions.ApplicationException;
 import com.dev.ForoEscolar.mapper.estudiante.EstudianteMapper;
@@ -70,6 +72,26 @@ public class EstudianteServiceImpl implements EstudianteService {
             throw new ApplicationException("La entidad con ese ID no fue encontrado");
         }
     }
+
+    @Override
+
+    public List<EstudianteResponseDTO> findByAula(AulaEnum aulaEnum) {
+        List<Estudiante> estudiantes = estudianteRepository.findByAula(aulaEnum);
+        return estudiantes.stream().map(estudianteMapper::toResponseDTO).collect(Collectors.toList());
+    }
+
+    @Override
+    public List<EstudianteResponseDTO> findByCurso(CursoEnum cursoEnum) {
+        List<Estudiante> estudiantes= estudianteRepository.findByCurso(cursoEnum);
+        return estudiantes.stream().map(estudianteMapper::toResponseDTO).collect(Collectors.toList());
+    }
+
+    @Override
+    public List<EstudianteResponseDTO> findByCursoAndAula(CursoEnum curso, AulaEnum aula) {
+        List<Estudiante> estudiantes= estudianteRepository.findByCursoAndAula(curso,aula);
+        return estudiantes.stream().map(estudianteMapper::toResponseDTO).collect(Collectors.toList());
+    }
+
 
     //Auxiliar para obtener el ID de la entidad
     protected Long getEntityId(Estudiante estudiante) {

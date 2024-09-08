@@ -2,6 +2,7 @@ package com.dev.ForoEscolar.services.impl;
 
 import com.dev.ForoEscolar.dtos.profesor.ProfesorRequestDTO;
 import com.dev.ForoEscolar.dtos.profesor.ProfesorResponseDTO;
+import com.dev.ForoEscolar.enums.MateriaEnum;
 import com.dev.ForoEscolar.enums.RoleEnum;
 import com.dev.ForoEscolar.exceptions.ApplicationException;
 import com.dev.ForoEscolar.mapper.profesor.ProfesorMapper;
@@ -80,12 +81,21 @@ public class ProfesorServiceImpl extends GenericServiceImpl<Profesor, Long, Prof
         }
     }
 
+    @Override
+    public List<ProfesorResponseDTO> findByMateria(MateriaEnum materia) {
+        List<Profesor> profesores = profesorRepository.findByMateria(materia);
+        return profesores.stream()
+                .map(profesorMapper::toResponseDTO)
+                .collect(Collectors.toList());
+    }
+
     @Transactional
     @Override
     public void deleteById(Long id) {
         Profesor profesor = profesorRepository.findById(id).orElseThrow(() -> new ApplicationException("Profesor no encontrado"));
         profesorRepository.delete(profesor);
     }
+
 
     //Auxiliar para obtener el ID de la entidad
     protected Long getEntityId(Profesor profesor) {
