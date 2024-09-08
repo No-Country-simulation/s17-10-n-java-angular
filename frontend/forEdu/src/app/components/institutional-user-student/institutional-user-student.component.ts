@@ -1,6 +1,7 @@
 import { Component} from '@angular/core';
 import { ModalUserInstitutionalService } from '../../service/modal/modal-user-institutional.service';
 import { Person } from '../../models/person';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-institutional-user-student',

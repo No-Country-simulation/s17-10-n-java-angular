@@ -3,6 +3,7 @@ import { NavbarInstitutionalComponent } from "../navbar-institutional/navbar-ins
 import { UserQuantityComponent } from '../user-quantity/user-quantity.component';
 import { NavbarComponent } from "../navbar/navbar.component";
 import { SidebarComponent } from '../sidebar/sidebar.component';
+import { NavegationInstitutionalService } from '../../service/institutional/navegation-institutional.service';
 
 @Component({
   selector: 'app-institutional-user',
@@ -12,4 +13,10 @@ import { SidebarComponent } from '../sidebar/sidebar.component';
   styleUrl: './institutional-user.component.css'
 })
 export class InstitutionalUserComponent {
+
+  constructor(private navegationInstitutionalService : NavegationInstitutionalService) {}
+  
+  reDirigir(){
+    this.navegationInstitutionalService.irAlFormulario();
+  }
 }
