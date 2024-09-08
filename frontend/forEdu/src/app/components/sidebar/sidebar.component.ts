@@ -47,6 +47,7 @@ export class SidebarComponent implements OnInit {
       {
         label: 'Boletines',
         icon: 'pi pi-fw pi-graduation-cap',
+        command: () => this.router.navigate(['/newsletter']) // Navega al componente BOLETINES
       },
       {
         label: 'Herramientas',

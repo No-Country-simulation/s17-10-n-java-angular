@@ -1,6 +1,9 @@
 @import "primeicons/primeicons.css";
-/*
-.p-tieredmenu .p-menuitem > .p-menuitem-content .p-menuitem-link .p-menuitem-text {
-    color:red
+
+
+.p-panelmenu .p-panelmenu-header .p-panelmenu-header-content {
+    border: none;
+} 
+.p-panelmenu .p-panelmenu-header .p-panelmenu-header-content .p-panelmenu-header-action {
+    background-color: #fff;
 }
-*/

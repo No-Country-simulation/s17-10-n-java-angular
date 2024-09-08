@@ -6,13 +6,12 @@
 
 /*Estilos del panel*/
 .panel{
-    max-width: 83vw;
     width: 100%;
     height: 90vh;
     display: flex;
     padding: 0.5rem 1.5rem;
     column-gap: 2rem;
-    margin-top: 9vh;
+    margin-top: 8vh;
 }
 
 .panel-left{

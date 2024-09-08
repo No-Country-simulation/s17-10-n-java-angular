@@ -1,11 +1,36 @@
-@import "primeicons/primeicons.css";
 
 .custom-panel-menu {
-padding-top: 3em;
+  border-right: 1px solid #DADCE0;
+  height: 100vh;
   left: 0;
   width: 15vw;
   height: 100%;
   color: #fff;
   overflow-y: auto;
   z-index: 1000;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.logo{
+  padding-left: 0.8rem;
+  color: rgb(165, 165, 165);
+}
+.menu{
+  height:80vh ;
+}
+.btn-signout{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  gap: 0.5rem;
+  border: none;
+  border-top: 1px solid #DADCE0;
+  color: rgb(165, 165, 165);
+  height: 8vh;
+  cursor: pointer;
+  background-color: #fff;
 }

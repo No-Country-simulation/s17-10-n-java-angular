@@ -1,0 +1,50 @@
+<div class="barra-navegacion">
+    <div class="opciones-izquierda">
+      <button [class.active]="gradoActual === 'primero'" (click)="irAgrado('primero')">1er grado</button>
+      <button [class.active]="gradoActual === 'segundo'" (click)="irAgrado('segundo')">2do grado</button>
+      <button [class.active]="gradoActual === 'tercero'" (click)="irAgrado('tercero')">3er grado</button>
+      <button [class.active]="gradoActual === 'cuarto'" (click)="irAgrado('cuarto')">4to grado</button>
+      <button [class.active]="gradoActual === 'quinto'" (click)="irAgrado('quinto')">5to grado</button>
+      <button [class.active]="gradoActual === 'sexto'" (click)="irAgrado('sexto')">6to grado</button>
+    </div>
+
+    <div class="filtro-derecha">
+        <p>Ciclo 2023-2024</p>
+        <i class="pi pi-angle-down"></i>
+    </div>
+</div>
+
+<app-details-newsletters></app-details-newsletters>
+  <!--/*PARA LOS GRADOS*  -->
+  @if(gradoActual === 'primero') {
+    <div class="tabla">
+        <app-table-degree></app-table-degree>
+    </div>
+ 
+  }
+  @if(gradoActual === 'segundo') {
+    <div class="tabla">
+        <app-table-degree></app-table-degree>
+    </div>
+  }
+  @if(gradoActual === 'tercero') {
+    <div class="tabla">
+        <app-table-degree></app-table-degree>
+    </div>
+  }
+  @if(gradoActual === 'cuarto') {
+    <div class="tabla">
+        <app-table-degree></app-table-degree>
+    </div>
+ 
+  }
+  @if(gradoActual === 'quinto') {
+    <div class="tabla">
+        <app-table-degree></app-table-degree>
+    </div>
+  }
+  @if(gradoActual === 'sexto') {
+    <div class="tabla">
+        <app-table-degree></app-table-degree>
+    </div>
+  }

@@ -1,0 +1,39 @@
+<div class="degree-tables">
+    <div class="table-wrapper">
+        <table>
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Fecha</th>
+                    <th>Cargado</th>
+                    <th>Promedio</th>
+                    <th></th>
+                </tr>
+            </thead>
+        </table>
+        <div class="table-body">
+            <table>
+                <tbody>
+                    @for (degree of degrees; track degree.id) {
+                        <tr>
+                            <td>
+                                <div class="picture-table">
+                                    <img src="#" alt="Profile Picture"/>
+                                    <p>{{ degree.nombre }}</p>
+                                </div>
+                            </td>
+                            <td>{{ degree.fecha }}</td>
+                            <td>{{ degree.cargado }}</td>
+                            <td>{{ degree.promedio }}</td>
+                            <td><button type="button" class="btn-cta">Ver</button></td>
+
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+  

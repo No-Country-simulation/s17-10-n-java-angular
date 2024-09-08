@@ -1,0 +1,86 @@
+
+<div class="container-position">
+    
+    <app-navbar></app-navbar>
+
+    <div class="formulario-container">
+        <form action="URL_DE_TU_API" method="POST">
+          <!-- Parte superior del formulario -->
+          <div class="formulario-parte-superior">
+            <h2>Datos del representante legal</h2>
+            
+            <div class="fila">
+              <div class="campo">
+                <label for="nombres">Nombres</label>
+                <input type="text" id="nombres" name="nombres" placeholder="Ingrese nombres" required />
+              </div>
+              <div class="campo">
+                <label for="apellidos">Apellidos</label>
+                <input type="text" id="apellidos" name="apellidos" placeholder="Ingrese apellidos" required />
+              </div>
+            </div>
+      
+            <div class="fila">
+              <div class="campo">
+                <label for="tipo-documento">Tipo de documento</label>
+                <select id="tipo-documento" name="tipo-documento" required>
+                  <option value="dni">DNI</option>
+                  <option value="pasaporte">Pasaporte</option>
+                  <!-- Más opciones -->
+                </select>
+              </div>
+              <div class="campo">
+                <label for="numero-documento">N° </label>
+                <input type="text" id="numero-documento" name="numero-documento" placeholder="Ingrese documento" required />
+              </div>
+            </div>
+          </div>
+      
+          <!-- Parte inferior del formulario -->
+          <div class="formulario-parte-inferior">
+            <div class="fila">
+              <div class="campo">
+                <label for="correo">Correo</label>
+                <input type="email" id="correo" name="correo" placeholder="Ingrese correo" required />
+              </div>
+              <div class="campo">
+                <label for="telefono">Teléfono</label>
+                <input type="tel" id="telefono" name="telefono" placeholder="Ingrese teléfono" required />
+              </div>
+            </div>
+      
+            <div class="fila">
+              <div class="campo">
+                <label for="contrasena">Contraseña</label>
+                <input type="password" id="contrasena" name="contrasena" placeholder="Ingrese contraseña" required />
+              </div>
+              <div class="campo">
+                <label for="institucion">Institución</label>
+                <input type="text" id="institucion" name="institucion" placeholder="Ingrese institución" />
+              </div>
+            </div>
+      
+            <div class="fila">
+              <div class="campo">
+                <label for="codigo-estudiante">Código del estudiante</label>
+                <input type="text" id="codigo-estudiante" name="codigo-estudiante" placeholder="Ingrese código" />
+              </div>
+              <div class="campo">
+                <a href="#" class="generar-codigo">Generar código</a>
+              </div>
+            </div>
+      
+            <div class="fila">
+              <button type="submit" class="btn-guardar" (click)="redirectRegisterStudent()">GUARDAR</button>
+            </div>
+          </div>
+        </form>
+      
+        <!-- Botones fuera del formulario -->
+        <div class="botones-externos">
+          <button class="btn-cancelar" type="button">Cancelar</button>
+          <button class="btn-agregar-alumno" type="button">Agregar Alumno</button>
+        </div>
+    </div>
+      
+</div>

@@ -1,0 +1,53 @@
+.container{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    margin-top: 1.5rem;
+}
+p{
+    margin: 0;
+}
+.newsletter{
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+    align-items: center;
+}
+.entragados{
+    background-color: #e0e0e0;
+    padding: 0.5rem;
+    border-radius: 5px;
+}
+
+.buttons-plus{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+}
+
+.container-btn {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    align-items: center;
+    width: 100%;
+    background-color: #efefef;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+}
+
+.btn-add {
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    background-color: #f6f6f6;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.pi-plus{
+    font-size: 0.8rem;
+}

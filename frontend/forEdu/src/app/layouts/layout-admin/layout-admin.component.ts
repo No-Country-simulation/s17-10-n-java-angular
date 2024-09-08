@@ -6,7 +6,7 @@ import { DividerModule } from 'primeng/divider';
 @Component({
   selector: 'app-layout-admin',
   standalone: true,
-  imports: [SidebarComponent,RouterModule,DividerModule  ],
+  imports: [SidebarComponent,RouterModule,DividerModule ],
   templateUrl: './layout-admin.component.html',
   styleUrl: './layout-admin.component.css'
 })
