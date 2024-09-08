@@ -14,6 +14,7 @@ import { InstitutionalRegisterParentsComponent } from './components/institutiona
 import { InstitutionalRegisterTeacherComponent } from './components/institutional-register-teacher/institutional-register-teacher.component';
 import { InstitutionalRegisterStudentsComponent } from './components/institutional-register-students/institutional-register-students.component';
 import { LayoutAdminComponent } from './layouts/layout-admin/layout-admin.component';
+import { InstitutionalUserAdminComponent } from './components/institutional-user-admin/institutional-user-admin.component';
 
 export const routes: Routes = [
   {
@@ -21,13 +22,21 @@ export const routes: Routes = [
     component: LayoutAdminComponent,
     children: [
       {
-        path: 'dashboard',
+        path: '',
         component: AdmiDashboardComponent,
       },
       {
-        path: '',
+        path: 'asistencia',
         component: AsistenciaComponent,
-      }
+      },
+      {
+        path: 'grade',
+        component: GradeComponent,
+      },
+      {
+        path: 'users',
+        component: InstitutionalUserComponent,
+      },
     ]
   },
   {

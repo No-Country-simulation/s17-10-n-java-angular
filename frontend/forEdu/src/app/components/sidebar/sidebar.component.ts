@@ -27,7 +27,7 @@ export class SidebarComponent implements OnInit {
       {
         label: 'Grados',
         icon: 'pi pi-fw pi-book',
-        command: () => this.router.navigate(['/admin/grade']) // Navega al componente GRADO
+        command: () => this.router.navigate(['/grade']) // Navega al componente GRADO
       },
       {
         label: 'Calendarios',
@@ -41,7 +41,7 @@ export class SidebarComponent implements OnInit {
       {
         label: 'Usuarios',
         icon: 'pi pi-fw pi-users',
-        command: () => this.router.navigate(['/admin/users']) // Navega al componente USUARIOS
+        command: () => this.router.navigate(['/users']) // Navega al componente USUARIOS
       }
       ,
       {
