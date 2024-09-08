@@ -4,8 +4,6 @@ import com.dev.ForoEscolar.enums.EstadoEntregaEnum;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.Date;
 
 @Entity
@@ -25,8 +23,8 @@ public class Tarea {
     private String titulo;
     private Date fechaEntrega;
     private boolean activo;
-//    @Enumerated(EnumType.STRING)
-//    private EstadoEntregaEnum estadoDeEntrega;
+    @Enumerated(EnumType.STRING)
+    private EstadoEntregaEnum estadoDeEntrega;
 
     @ManyToOne
     @JoinColumn(name = "estudiante_id")

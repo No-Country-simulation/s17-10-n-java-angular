@@ -5,8 +5,7 @@ import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import lombok.*;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
+import java.sql.Timestamp;
 import java.util.Date;
 
 @Builder
@@ -21,13 +20,8 @@ public class TareaResponseDto {
     private String titulo;
     private Date fechaEntrega;
     private boolean activo;
-
-//    @Enumerated(EnumType.STRING)
-//    private EstadoEntregaEnum estadoDeEntrega;
-
-
-    private Long profesorId;
-    private Long estudianteId;
-
-
+    @Enumerated(EnumType.STRING)
+    private EstadoEntregaEnum estadoDeEntrega;
+    private Long profesor;
+    private Long estudiante;
 }

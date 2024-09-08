@@ -35,22 +35,22 @@ public class TareaServiceImpl implements TareaService {
             throw new ApplicationException("La tarea no puede estar vacia");
         }
         Profesor profesor = new Profesor();
-        profesor.setId(tareaRequestDto.getProfesorId());
+        profesor.setId(tareaRequestDto.getProfesor());
         new Tarea();
         Tarea tarea = Tarea.builder()
                 .descripcion(tareaRequestDto.getDescripcion())
                 .titulo(tareaRequestDto.getTitulo())
-                .estudiante(Estudiante.builder().id(tareaRequestDto.getEstudianteId()).build())
+                .estudiante(Estudiante.builder().id(tareaRequestDto.getEstudiante()).build())
                 .profesor(profesor)
                 .fechaEntrega(tareaRequestDto.getFechaEntrega())
                 .activo(true)
-                //.estadoDeEntrega(EstadoEntregaEnum.PENDIENTE)
+                .estadoDeEntrega(EstadoEntregaEnum.PENDIENTE)
                 .build();
         tareaRepository.save(tarea);
         return tareaMapper.toResponseDTO(tarea);
     }
 
-    public TareaResponseDto updateTarea(TareaResponseDto tareaResponseDto) {
+    public void updateTarea(TareaResponseDto tareaResponseDto) {
 
         if(tareaResponseDto == null) {
             throw new ApplicationException("La tarea debe contener todos los campos");
@@ -62,7 +62,6 @@ public class TareaServiceImpl implements TareaService {
             throw new ApplicationException("Tarea no existente");
         }
         tareaRepository.save(tareaMapper.toEntity(tareaResponseDto));
-        return tareaResponseDto;
     }
 
     @Override
@@ -94,13 +93,13 @@ public class TareaServiceImpl implements TareaService {
     }
 
     public String validarTarea(Long idTarea, EstadoEntregaEnum estadoEntrega) {
-       Optional<Tarea> response= tareaRepository.findById(idTarea);
+        Optional<Tarea> response= tareaRepository.findById(idTarea);
 
         if (response.isEmpty()) {
-        throw new ApplicationException("tarea no encontrada");
+            throw new ApplicationException("tarea no encontrada");
         }
         Tarea tarea= response.get();
-       // tarea.setEstadoDeEntrega(estadoEntrega);
+        tarea.setEstadoDeEntrega(estadoEntrega);
         tarea.setActivo(false);
         tareaRepository.save(tarea);
         return "Tarea evaluada con exito. Resultado: " + estadoEntrega;

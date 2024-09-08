@@ -14,6 +14,6 @@ public record TutorLegalResponseDTO(
         String institucion,
         String rol,
         boolean activo,
-        List<Long> estudianteIds
+        List<Long> estudiante
 ) implements Serializable {
 }

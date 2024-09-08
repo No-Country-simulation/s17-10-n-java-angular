@@ -15,19 +15,24 @@ import java.util.Optional;
 @Service
 public class CalificacionServiceImpl implements CalificacionService, GenericServiceDto<Long, CalificacionDTO> {
 
+
+
     private final CalificacionRepository calificacionRepository;
 
+    private final CalificacionMapper calificacionMapper;
+
     @Autowired
-    public CalificacionServiceImpl(CalificacionRepository calificacionRepository) {
+    public CalificacionServiceImpl(CalificacionRepository calificacionRepository, CalificacionMapper calificacionMapper) {
         this.calificacionRepository = calificacionRepository;
+        this.calificacionMapper = calificacionMapper;
     }
 
     @Transactional
     @Override
     public CalificacionDTO save(CalificacionDTO requestDTO) {
-        Calificacion newCalificacion = CalificacionMapper.INSTANCE.toEntity(requestDTO);
+        Calificacion newCalificacion = calificacionMapper.toEntity(requestDTO);
         calificacionRepository.save(newCalificacion);
-        return CalificacionMapper.INSTANCE.toResponseDto(newCalificacion);
+        return calificacionMapper.toResponseDto(newCalificacion);
     }
 
     @Override
@@ -36,14 +41,14 @@ public class CalificacionServiceImpl implements CalificacionService, GenericServ
         if(calificacion.isEmpty()){
             throw new RuntimeException("Calificacion no encontrada");
         }else{
-            return Optional.ofNullable(CalificacionMapper.INSTANCE.toResponseDto(calificacion.get()));
+            return Optional.ofNullable(calificacionMapper.toResponseDto(calificacion.get()));
         }
     }
 
     @Override
     public Iterable<CalificacionDTO> findAll() {
         Iterable<Calificacion> calificaciones = calificacionRepository.findAll();
-        return Collections.singleton(CalificacionMapper.INSTANCE.toResponseDto((Calificacion) calificaciones));
+        return Collections.singleton(calificacionMapper.toResponseDto((Calificacion) calificaciones));
     }
 
     @Override
@@ -55,11 +60,11 @@ public class CalificacionServiceImpl implements CalificacionService, GenericServ
     @Override
     @Transactional
     public CalificacionDTO update(CalificacionDTO calificacionDTO) {
-        Calificacion calificacion = CalificacionMapper.INSTANCE.toEntity(calificacionDTO);
+        Calificacion calificacion = calificacionMapper.toEntity(calificacionDTO);
         Optional<Calificacion> existingEntity = calificacionRepository.findById(calificacion.getId());
         if (existingEntity.isPresent()) {
             Calificacion updatedEntity = calificacionRepository.save(calificacion);
-            return CalificacionMapper.INSTANCE.toResponseDto(updatedEntity);
+            return calificacionMapper.toResponseDto(updatedEntity);
         } else {
             throw new RuntimeException("La calificacion con ese ID no fue encontrado");
         }

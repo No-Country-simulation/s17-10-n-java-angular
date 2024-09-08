@@ -5,4 +5,8 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface AsistenciaRepository extends GenericRepository<Asistencia, Long> {
+
+    long countByAsistio(boolean asistio);
+
+    long count();
 }

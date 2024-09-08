@@ -14,7 +14,9 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class TutorLegalServiceImpl implements TutorLegalService {
@@ -37,7 +39,7 @@ public class TutorLegalServiceImpl implements TutorLegalService {
             if(tutorLegalRepository.findByEmail(tutorLegalRequestDTO.email()).isPresent()){
                 throw new ApplicationException("Tutor legal con email ya existente: " + tutorLegalRequestDTO.email());
             }
-            TutorLegal newTutorLegal = TutorLegalMapper.INSTANCE.toEntity(tutorLegalRequestDTO);
+            TutorLegal newTutorLegal = tutorLegalMapper.toEntity(tutorLegalRequestDTO);
             newTutorLegal.setContrasena(passwordEncoder.encode(tutorLegalRequestDTO.contrasena()));
             newTutorLegal.setRol(RoleEnum.valueOf("TUTOR"));
             newTutorLegal.setActivo(true);
@@ -49,26 +51,34 @@ public class TutorLegalServiceImpl implements TutorLegalService {
     }
 
     @Override
-    public Optional<TutorLegalResponseDTO> findById(Long aLong) {
-        return Optional.empty();
+    public Optional<TutorLegalResponseDTO> findById(Long id) {
+        Optional<TutorLegal> tutorLegal = tutorLegalRepository.findById(id);
+        return tutorLegal.map(tutorLegalMapper::toResponseDTO);
     }
 
     @Override
-    public TutorLegalResponseDTO update(TutorLegalResponseDTO tutorLegalRequestDTO) {
-        return null;
+    public TutorLegalResponseDTO update(TutorLegalRequestDTO tutorLegalRequestDTO) {
+        TutorLegal tutorLegal = tutorLegalMapper.toEntity(tutorLegalRequestDTO);
+        Optional<TutorLegal> existEntity = tutorLegalRepository.findById(tutorLegal.getId());
+        if(existEntity.isPresent()){
+            TutorLegal updateTutorLegal = tutorLegalRepository.save(tutorLegal);
+            return tutorLegalMapper.toResponseDTO(updateTutorLegal);
+        }else{
+            throw new RuntimeException("Tutor legal no encontrado");
+        }
     }
-
-
-
-
 
     @Override
     public Iterable<TutorLegalResponseDTO> findAll() {
-        return null;
+        List<TutorLegal> tutorLegal = tutorLegalRepository.findAll();
+        return tutorLegal.stream().map(tutorLegalMapper::toResponseDTO)
+                .collect(Collectors.toList());
     }
 
     @Override
     public void deleteById(Long aLong) {
-
+        TutorLegal tutorLegal = tutorLegalRepository.findById(aLong)
+                .orElseThrow(()-> new ApplicationException("Tutor legal no encontrado"));
+        tutorLegalRepository.delete(tutorLegal);
     }
 }

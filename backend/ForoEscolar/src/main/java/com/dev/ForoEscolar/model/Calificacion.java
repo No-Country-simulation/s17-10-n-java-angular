@@ -25,6 +25,7 @@ public class Calificacion {
     private Double promedio;
     private String comentario;
     private LocalDate fecha;
+    private String periodo;
     @ManyToOne
     @JoinColumn(name = "estudiante_id", nullable = false)
     private Estudiante estudiante;

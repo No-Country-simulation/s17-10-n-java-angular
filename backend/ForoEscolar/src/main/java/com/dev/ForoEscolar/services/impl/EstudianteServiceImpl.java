@@ -2,6 +2,7 @@ package com.dev.ForoEscolar.services.impl;
 
 import com.dev.ForoEscolar.dtos.estudiante.EstudianteResponseDTO;
 import com.dev.ForoEscolar.enums.RoleEnum;
+import com.dev.ForoEscolar.exceptions.ApplicationException;
 import com.dev.ForoEscolar.mapper.estudiante.EstudianteMapper;
 import com.dev.ForoEscolar.model.Estudiante;
 import com.dev.ForoEscolar.repository.EstudianteRepository;
@@ -54,7 +55,7 @@ public class EstudianteServiceImpl implements EstudianteService {
     @Transactional
     @Override
     public void deleteById(Long id) {
-        Estudiante estudiante = estudianteRepository.findById(id).orElseThrow(() -> new RuntimeException("Estudiante no encontrado"));
+        Estudiante estudiante = estudianteRepository.findById(id).orElseThrow(() -> new ApplicationException("Estudiante no encontrado"));
         estudianteRepository.delete(estudiante);
     }
 
@@ -66,7 +67,7 @@ public class EstudianteServiceImpl implements EstudianteService {
             Estudiante updatedEntity = estudianteRepository.save(estudiante);
             return estudianteMapper.toResponseDTO(updatedEntity);
         } else {
-            throw new RuntimeException("La entidad con ese ID no fue encontrado");
+            throw new ApplicationException("La entidad con ese ID no fue encontrado");
         }
     }
 

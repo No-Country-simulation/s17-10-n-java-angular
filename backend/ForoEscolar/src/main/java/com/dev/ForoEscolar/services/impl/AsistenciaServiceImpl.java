@@ -34,7 +34,24 @@ public class AsistenciaServiceImpl implements AsistenciaService {
     public AsistenciaDTO save(AsistenciaDTO requestDTO) {
         Asistencia newAsistencia = asistenciaMapper.toEntity(requestDTO);
         asistenciaRepository.save(newAsistencia);
-        return asistenciaMapper.toResponseDto(newAsistencia);
+
+        long totalAsistencias = asistenciaRepository.countByAsistio(true);
+        long totalRegistros = asistenciaRepository.count();
+        double porcentajeAsistencia = totalRegistros > 0
+                ? (double) totalAsistencias / totalRegistros * 100
+                : 0;
+        AsistenciaDTO responseDTO = asistenciaMapper.toResponseDto(newAsistencia);
+        responseDTO = new AsistenciaDTO(
+                responseDTO.id(),
+                responseDTO.asistio(),
+                responseDTO.diasAnioEscolar(),
+                responseDTO.fecha(),
+                responseDTO.observaciones(),
+                porcentajeAsistencia,
+                responseDTO.profesor(),
+                responseDTO.estudiante()
+        );
+        return responseDTO;
     }
 
     @Override
@@ -51,4 +68,10 @@ public class AsistenciaServiceImpl implements AsistenciaService {
     public void deleteById(Long aLong) {
 
     }
+
+//    private double calcularPorcentajeAsistencia() {
+//        long totalAsistencias = asistenciaRepository.countByAsistio(true);
+//        long totalRegistros = asistenciaRepository.count();
+//        return totalRegistros > 0 ? (double) totalAsistencias / totalRegistros * 100 : 0;
+//    }
 }

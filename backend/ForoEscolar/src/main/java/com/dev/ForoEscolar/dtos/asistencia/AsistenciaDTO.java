@@ -5,11 +5,11 @@ import java.time.LocalDate;
 
 public record AsistenciaDTO(
         Long id,
-        int contadorAsistencia,
+        boolean asistio,
         double diasAnioEscolar,
         LocalDate fecha,
-        String estado,
         String observaciones,
+        double porcentajeAsistencia,
         Long profesor,
         Long estudiante
 ) implements Serializable {
