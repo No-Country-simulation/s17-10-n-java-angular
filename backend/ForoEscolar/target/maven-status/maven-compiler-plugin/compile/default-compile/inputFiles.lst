@@ -13,6 +13,7 @@ C:\NoCountry\s17-10-n-java-angular\backend\ForoEscolar\src\main\java\com\dev\For
 C:\NoCountry\s17-10-n-java-angular\backend\ForoEscolar\src\main\java\com\dev\ForoEscolar\dtos\asistencia\AsistenciaDTO.java
 C:\NoCountry\s17-10-n-java-angular\backend\ForoEscolar\src\main\java\com\dev\ForoEscolar\enums\RoleEnum.java
 C:\NoCountry\s17-10-n-java-angular\backend\ForoEscolar\src\main\java\com\dev\ForoEscolar\controllers\user\UserController.java
+C:\NoCountry\s17-10-n-java-angular\backend\ForoEscolar\src\main\java\com\dev\ForoEscolar\config\cors\CorsConfig.java
 C:\NoCountry\s17-10-n-java-angular\backend\ForoEscolar\src\main\java\com\dev\ForoEscolar\services\impl\BoletinServiceImp.java
 C:\NoCountry\s17-10-n-java-angular\backend\ForoEscolar\src\main\java\com\dev\ForoEscolar\exceptions\ApplicationException.java
 C:\NoCountry\s17-10-n-java-angular\backend\ForoEscolar\src\main\java\com\dev\ForoEscolar\services\TutorLegalService.java
