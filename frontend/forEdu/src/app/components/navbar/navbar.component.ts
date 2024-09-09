@@ -1,6 +1,10 @@
 import { Component } from '@angular/core';
 import { MenuItem } from 'primeng/api';
 import { SplitButtonModule } from 'primeng/splitbutton';
+import { jwtDecode } from "jwt-decode";
+import { JwtPayload } from '../../interfaces/jwt-payload';
+
+
 
 @Component({
   selector: 'app-navbar',
@@ -9,16 +13,23 @@ import { SplitButtonModule } from 'primeng/splitbutton';
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css'
 })
+
+
+
+
 export class NavbarComponent {
 
-  
-  items: MenuItem[] = [];
+token : string = localStorage.getItem('token') || "";
+decoded:JwtPayload = jwtDecode(this.token);
+username :string =this.decoded.nombre || "Invitado";
 
+   items: MenuItem[] = [];
 
-  constructor() {
+   title:string = "Panel administrativo"
 
-  }
+  constructor() {}
   ngOnInit() {
+
     this.items = [
       { label: 'Ver perfil', command: () => this.save('Option 1') },
       { label: 'Configuración', command: () => this.save('Option 2') },
@@ -29,4 +40,5 @@ export class NavbarComponent {
  save(info: string) {
     console.log(`You clicked on ${info}`);
   }
+
 }

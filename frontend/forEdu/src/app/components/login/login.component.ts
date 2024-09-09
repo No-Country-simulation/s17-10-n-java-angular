@@ -19,6 +19,7 @@ import { CommonModule } from '@angular/common';
 })
 export class LoginComponent {
 
+   private user:string = "Zail Vegas"
    private loginService = inject(AuthService);
    private router = inject(Router);
    private formBuild = inject(FormBuilder)
@@ -40,7 +41,9 @@ export class LoginComponent {
             next:(data)=>{
                console.log(data);
                if (data.jwtToken) {
-                  localStorage.setItem("token",data.jwtToken)
+                  localStorage.setItem("token",data.jwtToken);
+                  localStorage.setItem("user", this.user);
+
                   this.router.navigate([""])
                } else {
                   this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Credenciales incorrectas' });

@@ -1,14 +1,19 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { NavbarComponent } from "../../../components/navbar/navbar.component";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [],
+  imports: [NavbarComponent],
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
 export class GradeRegisterComponent {
+
+
+
   gradeForm: FormGroup;
 
   grados = [1, 2, 3, 4, 5, 6, 7];
@@ -17,7 +22,7 @@ export class GradeRegisterComponent {
   asignaturas = ['Matemáticas', 'Español', 'Ciencias', 'Historia', 'Arte'];
   profesores = ['Juan Pérez', 'María García', 'Luis Hernández', 'Ana López', 'Carlos Rodríguez'];
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder,private router: Router) {
     // Inicialización del formulario con formBuilder
     this.gradeForm = this.fb.group({
       grado: [null, Validators.required],
@@ -27,6 +32,11 @@ export class GradeRegisterComponent {
       profesor: [null, Validators.required]
     });
   }
+
+  navigateToGrade() {
+   this.router.navigate(['/grade']);
+ }
+
 
   onSubmit() {
     // Verifica si el formulario es válido

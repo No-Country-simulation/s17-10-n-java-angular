@@ -1,7 +1,9 @@
-<body>
+<div class="container">
+
     <div class="form-container">
-        <h2>Nombre del Grado</h2>
-        <form id="grade-form">
+        <h2 class="title"><i class="pi pi-arrow-left
+         back" (click)="navigateToGrade()"> </i> Nombre del grado</h2>
+        <form id="grade-form" class="">
             <!-- Línea para Grado y Sección -->
             <div class="form-group">
                 <label for="grado">Grado:</label>
@@ -28,7 +30,7 @@
 
             <!-- Línea para Turno y Asignatura -->
             <div class="form-group">
-                <label for="turno">Turno:</label>
+                <label for="turno"><i class="pi pi-calendar-clock turno"> </i> Turno:</label>
                 <select id="turno" name="turno">
                     <option value="mañana">Mañana</option>
                     <option value="tarde">Tarde</option>
@@ -63,4 +65,4 @@
             </div>
         </form>
     </div>
-</body>
+</div>

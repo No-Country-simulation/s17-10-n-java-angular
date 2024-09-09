@@ -7,6 +7,8 @@ import { RegisterSuccess } from '../interfaces/register-success';
 import { Login } from '../interfaces/login';
 import { LoginSuccess } from '../interfaces/login-success';
 
+
+
 @Injectable({
   providedIn: 'root'
 })
@@ -14,6 +16,16 @@ export class AuthService {
    private http = inject(HttpClient);
    private url :string = apiSetting.apiUrl;
   constructor() { }
+
+
+/* --------------------------------------------------- */
+
+/* --------------------------------------------------- */
+
+
+
+
+
 
    register (objeto:Register): Observable <RegisterSuccess>{
 

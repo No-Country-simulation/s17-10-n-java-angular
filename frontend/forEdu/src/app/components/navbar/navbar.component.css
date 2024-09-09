@@ -1,14 +1,14 @@
 .navbar {
-    padding: 0.7rem 1.5rem;
+    padding: 0 1.5rem;
+    margin-top: 0.5rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
     color: #787878;
-    max-width: 82vw;
     width: 100%;
     height: 9vh;
-    position: fixed;
-    top: 0;
+
+
     background-color: #ffffff;
     z-index: 1000;
 }

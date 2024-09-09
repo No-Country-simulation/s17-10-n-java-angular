@@ -41,7 +41,7 @@ export const routes: Routes = [
         canActivate: [authGuard]
       },
       {
-        path: 'grade/register',
+        path: 'grade-register',
         component: GradeRegisterComponent,
       },
       {

@@ -1,28 +1,25 @@
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-}
 
-body {
-    background-color: #ffffff; /* Fondo blanco */
-    color: #000000; /* Texto en negro */
-    padding: .625rem;
-}
 
 .form-container {
-    padding: 1.25rem;
+    padding: 3rem;
     margin: 10px auto; /* Centra el formulario horizontalmente */
     border-radius: .625rem;
     width: 100%;
-    max-width: 31.25rem;
 }
 
-h2 {
-    margin-bottom: 1.25rem;
-    color: #000; /* Texto en negro */
-    text-align: left; /* Alinear el título a la izquierda */
+.turno{
+   font-size: 1.2rem;
+   color: #9F9F9F;
+}
+.back {
+   cursor: pointer;
+}
+
+
+.title {
+    margin-bottom: 2rem;
+    color: #000;
+    font-weight: 600;
 }
 
 .form-group {
@@ -30,14 +27,14 @@ h2 {
     justify-content: space-between;
     align-items: center;
     margin-bottom: 1.25rem;
-    flex-wrap: wrap; /* Permite que los elementos se envuelvan en pantallas pequeñas */
+    flex-wrap: wrap;
 }
 
 .form-group label {
     font-weight: bold;
     flex-basis: 6.25rem; /* Tamaño fijo para los labels */
-    margin:.625rem; 
-    
+    margin:.625rem;
+
     color: #000; /* Texto en negro */
     margin-bottom: .3125rem; /* Espacio inferior cuando los elementos se envuelven */
 }
@@ -77,7 +74,7 @@ button:hover {
         align-items: flex-start; /* Alinear los elementos al inicio */
     }
 
-    .form-group label, 
+    .form-group label,
     .form-group select {
         width: 100%; /* Los labels y selects ocupan el 100% del ancho */
         flex-basis: auto; /* Quitar tamaño fijo en pantallas pequeñas */
