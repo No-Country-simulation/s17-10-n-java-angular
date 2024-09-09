@@ -15,6 +15,7 @@ import { InstitutionalRegisterTeacherComponent } from './components/institutiona
 import { InstitutionalRegisterStudentsComponent } from './components/institutional-register-students/institutional-register-students.component';
 import { LayoutAdminComponent } from './layouts/layout-admin/layout-admin.component';
 import { InstitutionalUserAdminComponent } from './components/institutional-user-admin/institutional-user-admin.component';
+import { LoginComponent } from './components/login/login.component';
 
 export const routes: Routes = [
   {
@@ -36,6 +37,10 @@ export const routes: Routes = [
       {
         path: 'users',
         component: InstitutionalUserComponent,
+      },
+      {
+        path: 'login',
+        component: LoginComponent,
       },
     ]
   },
