@@ -12,7 +12,8 @@ import { AsistenciaComponent } from './Admin/admin-grade/asistencia/asistencia.c
 import { AdmiDashboardComponent } from './Admin/admin-layout/admi-dashboard/admi-dashboard.component';
 import { LayoutAdminComponent } from './layouts/layout-admin/layout-admin.component';
 import {LoginComponent} from "./components/login/login.component";
-
+import { RegisterComponent } from './components/register/register.component';
+import { InicioComponent } from './components/inicio/inicio.component';
 export const routes: Routes = [
   {
     path: '',
@@ -32,6 +33,15 @@ export const routes: Routes = [
     path: 'login',
     component: LoginComponent,
   },
+ 
+  {
+  path: 'register',
+  component: RegisterComponent,
+},
+{
+  path: 'inicio',
+  component: InicioComponent,
+},
   {
     path: 'admin',
     children: [
@@ -72,6 +82,7 @@ export const routes: Routes = [
         path: 'sidebar',
         component: SidebarComponent,
       },
+      
     ],
   },
 ];
