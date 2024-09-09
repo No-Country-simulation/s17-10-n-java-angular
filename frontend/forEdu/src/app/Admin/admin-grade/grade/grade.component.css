@@ -1,13 +1,6 @@
-/*ESTO AGREGUE(Mario) para posicionar bien el componente*/
-.container-position{
-  float: right;
-}
-
 
 .container{
  padding: 0.7rem 1.5rem;
-/*Agregue estas 3*/
-
  width: 100%;
  margin-top: 9vh;
 }

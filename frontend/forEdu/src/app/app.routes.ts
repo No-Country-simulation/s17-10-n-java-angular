@@ -16,23 +16,33 @@ import { InstitutionalRegisterStudentsComponent } from './components/institution
 import { LayoutAdminComponent } from './layouts/layout-admin/layout-admin.component';
 import { InstitutionalUserAdminComponent } from './components/institutional-user-admin/institutional-user-admin.component';
 import { LoginComponent } from './components/login/login.component';
+import { GradeRegisterComponent } from './Admin/admin-grade/register-grade/register.component';
+import { authGuard } from './guard/auth.guard';
 
 export const routes: Routes = [
   {
     path: '',
     component: LayoutAdminComponent,
+
     children: [
       {
         path: '',
         component: AdmiDashboardComponent,
+        canActivate: [authGuard]
       },
       {
         path: 'asistencia',
         component: AsistenciaComponent,
+        canActivate: [authGuard]
       },
       {
         path: 'grade',
         component: GradeComponent,
+        canActivate: [authGuard]
+      },
+      {
+        path: 'grade/register',
+        component: GradeRegisterComponent,
       },
       {
         path: 'users',

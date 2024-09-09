@@ -1,10 +1,11 @@
 .card {
-  width: 350px;
+  width: 18rem;
   display:flex;
   flex-direction: column;
   border: solid 2px #DADCE0;
   border-radius: 2em;
   padding: 1.5rem;
+
 }
 
 .icon.pi-cog {
@@ -15,20 +16,21 @@
   transition: transform 0.3s ease;
 }
 .icon.pi-cog:hover {
-  transform: rotate(90deg); /* Rotación completa cuando el cursor está sobre el ícono */
+  transform: rotate(90deg);
 }
 .card-header{
   display: flex;
   justify-content: center;
   align-items: center;
-
+   cursor: pointer;
   flex-direction: column;
 }
 .card-image{
   margin-top: 1rem;
   max-width: 50%;
-  width: 150px;
-  height: 150px;
+  max-height: 50%;
+  width: 7rem;
+  height: 7rem;
   border-radius: 50%;
   margin-bottom: 1rem;
 

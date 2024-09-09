@@ -8,7 +8,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
-export class RegisterComponent {
+export class GradeRegisterComponent {
   gradeForm: FormGroup;
 
   grados = [1, 2, 3, 4, 5, 6, 7];
