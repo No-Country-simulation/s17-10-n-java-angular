@@ -32,4 +32,7 @@ public class Profesor extends User {
 
     @OneToMany(mappedBy = "profesor")
     private List<Calificacion> calificaciones;
+
+    @OneToMany(mappedBy = "profesor", cascade = {CascadeType.ALL},orphanRemoval = true,fetch = FetchType.LAZY)
+    private List<Grado> grado;
 }

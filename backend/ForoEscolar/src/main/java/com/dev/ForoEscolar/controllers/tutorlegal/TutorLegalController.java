@@ -57,7 +57,7 @@ public class TutorLegalController {
                 .body(new ApiResponseDto<>(true, "Tutor legal registrado", tutorLegal));
     }
 
-    @PostMapping("/update")
+    @PutMapping("/update")
     @Operation(summary = "actualiza un tutor legal específico")
     public ResponseEntity<TutorLegalResponseDTO> update(TutorLegalRequestDTO tutorLegalRequestDTO) {
         TutorLegalResponseDTO Tutor = tutorLegalService.update(tutorLegalRequestDTO);
