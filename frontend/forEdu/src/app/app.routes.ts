@@ -17,6 +17,7 @@ import { GradeRegisterComponent } from './Admin/admin-grade/register-grade/regis
 import { authGuard } from './guard/auth.guard';
 import { LoginComponent } from './components/login/login.component';
 import { NewsGradeComponent } from './Admin/admin-grade/news-grade/news-grade.component';
+import { DetailComponent } from './Admin/admin-grade/detail/detail.component';
 
 export const routes: Routes = [
   {
@@ -48,10 +49,16 @@ export const routes: Routes = [
         data: { title: 'Crear Grados' },
       },
       {
+        path: 'detailsgrade',
+        component: DetailComponent,
+        data: { title: 'Detalles' },
+      },
+      
+      {
         path: 'news',
         component: NewsGradeComponent,
        
-        data: { title: 'Novedades' },
+        data: { title: 'Comunicaciones' },
       },
       {
         path: 'users',

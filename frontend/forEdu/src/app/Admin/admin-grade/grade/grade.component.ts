@@ -5,6 +5,7 @@ import { CardGradeComponent } from '../../../components/card-grade/card-grade.co
 import { CardAddComponent } from '../../../components/card-add/card-add.component';
 import { NavbarComponent } from "../../../components/navbar/navbar.component";
 import { SidebarComponent } from "../../../components/sidebar/sidebar.component";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-grade',
@@ -21,5 +22,9 @@ import { SidebarComponent } from "../../../components/sidebar/sidebar.component"
   styleUrl: './grade.component.css'
 })
 export class GradeComponent {
+constructor(private router: Router){}
 
+  irAdetail(){
+    this.router.navigate(['/detailsgrade']);
+  }
 }

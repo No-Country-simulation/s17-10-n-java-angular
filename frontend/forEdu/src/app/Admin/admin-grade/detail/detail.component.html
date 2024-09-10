@@ -1,40 +1,37 @@
 <div class="container">
-  <nav class="turnos">
-    <div class="detail-turno">
-      <a class="detail-list active">Novedades</a>
-      <a class="detail-list">Calendario</a>
-      <a class="detail-list">Lista</a>
-      <a class="detail-list">Asistencia</a>
-      <a class="detail-list">Boletines</a>
-      <a class="detail-list">Mensajes</a>
+  <div class="barra-navegacion">
+    <div class="opciones-izquierda">
+      <button [class.active]="tablaActual === 'comunicaciones'" (click)="mostrarTabla('comunicaciones')">Comunicaciones</button>
+      <button [class.active]="tablaActual === 'calendario'" (click)="mostrarTabla('calendario')">Calendario</button>
+      <button [class.active]="tablaActual === 'alumnos'" (click)="mostrarTabla('alumnos')">Alumnos</button>
+      <button [class.active]="tablaActual === 'asistencia'" (click)="mostrarTabla('asistencia')">Asistencia</button>
+      <button [class.active]="tablaActual === 'boletines'" (click)="mostrarTabla('boletines')">Boletines</button>
     </div>
-    <div class="icon-nav">
-
-        <span class="icon active-icon pi pi-list" aria-hidden="true"></span>
-
-        <span class="icon pi pi-th-large" aria-hidden="true"></span>
-
+    <div class="iconos-derecha">
+      Profesora: Maria Vergara
     </div>
-  </nav>
+  </div>
 
   <section class="main-section">
     <main class="body">
-
-      <app-card-event-body>  </app-card-event-body>
-      <app-card-event-body>  </app-card-event-body>
-      <app-card-event-body>  </app-card-event-body>
+      @if (tablaActual === 'comunicaciones') {
+        <div class="container-comunicaciones">
+          <app-news-grade></app-news-grade>
+          <aside class="aside-event">
+            <h2>Próximos eventos</h2>
+              <app-card-event>  </app-card-event>
+              <app-card-event>  </app-card-event>
+              <app-card-event>  </app-card-event>
+              <h4>Ver Todos</h4>
+          </aside>
+        </div>
+      }
+      @if (tablaActual === 'asistencia') {
+        <app-asistencia></app-asistencia>
+      }
+      
     </main>
-    <aside class="aside-event">
-      <h2>Próximos eventos</h2>
-        <app-card-event>  </app-card-event>
-        <app-card-event>  </app-card-event>
-        <app-card-event>  </app-card-event>
-
-        <h4>Ver</h4>
-
-
-    </aside>
-
+   
 
   </section>
   </div>
