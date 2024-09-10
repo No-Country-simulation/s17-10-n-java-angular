@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.management.ServiceNotFoundException;
+
 @RestController
 @RequestMapping("/notification")
 public class NotificacionController {
@@ -20,7 +22,7 @@ public class NotificacionController {
     NotificacionesService notificacionesService;
 
     @PutMapping( consumes = "ApplicationJSON")
-    public ResponseEntity<?> sendEmail(  @RequestBody @Valid NotificacionDTO notificacionDTO){
+    public ResponseEntity<?> sendEmail(  @RequestBody @Valid NotificacionDTO notificacionDTO) throws ServiceNotFoundException {
 
 
         return ResponseEntity.status(HttpStatus.CREATED).body(notificacionesService.sendEmial(notificacionDTO));

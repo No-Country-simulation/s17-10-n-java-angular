@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 
 import java.io.Serializable;
 //Esto esta todo roto!!!!. Ojo arreglar
-/*
+
 public class ApiResponseDto<T> {
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class ApiResponseDto<T>  implements Serializable {
@@ -34,4 +34,3 @@ public class ApiResponseDto<T>  implements Serializable {
     }
 
 }
-*/

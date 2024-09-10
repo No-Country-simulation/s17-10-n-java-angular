@@ -12,7 +12,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.management.ServiceNotFoundException;
-import java.math.BigInteger;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -58,7 +57,7 @@ public class NotificacionesServiceImpl implements NotificacionesService {
     }
 
     @Override
-    public NotificacionDTO sendEmial(NotificacionDTO notificacionDTO) throws ServiceNotFoundException {
+    public Notificaciones sendEmial(NotificacionDTO notificacionDTO) throws ServiceNotFoundException {
 
 
 
@@ -70,11 +69,18 @@ public class NotificacionesServiceImpl implements NotificacionesService {
                     new EntityNotFoundException("Usuario no encontrado")
             );
 
+        var notfication = Notificaciones.builder().administrador_escolar_id(userId)
+                .tutor_legal_id(user)
+                .fecha_envio(new Date())
+                .mensaje(notificacionDTO.mensaje())
+                .tipo_notificacion(notificacionDTO.tipo_notificacion())
+                .titulo(notificacionDTO.titulo())
+                .build();
 
 
 
 
-        return null;
+        return notificacionesRepository.save(notfication);
     }catch (Exception e){
             throw new ServiceNotFoundException("Hubo un problema" + e.getMessage());
         }
