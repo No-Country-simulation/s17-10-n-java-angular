@@ -3,23 +3,20 @@ package com.dev.ForoEscolar.model;
 import com.dev.ForoEscolar.enums.RoleEnum;
 import com.dev.ForoEscolar.enums.TipoDocumentoEnum;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.Set;
 
-//@Getter
-//@Setter
+@Entity
 @Table(name = "users")
-@Entity(name = "User")
-@NoArgsConstructor
-@AllArgsConstructor
+@Inheritance(strategy = InheritanceType.JOINED)
+@DiscriminatorColumn(name = "user_type")
+@Getter @Setter @NoArgsConstructor @AllArgsConstructor
 public class User implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -39,93 +36,13 @@ public class User implements UserDetails {
     private String institucion;
     private boolean activo;
 
-    public Long getId() {
-        return id;
-    }
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "administrador_escolar_id", cascade = CascadeType.ALL)
+    private Set<Notificaciones> notificaciones_administrador_escolar;
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "tutor_legal_id", cascade = CascadeType.ALL)
+    private Set<Notificaciones> notificaciones_tutor_legal;
 
-    public String getNombre() {
-        return nombre;
-    }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public String getApellido() {
-        return apellido;
-    }
-
-    public void setApellido(String apellido) {
-        this.apellido = apellido;
-    }
-
-    public String getDni() {
-        return dni;
-    }
-
-    public void setDni(String dni) {
-        this.dni = dni;
-    }
-
-    public TipoDocumentoEnum getTipoDocumento() {
-        return tipoDocumento;
-    }
-
-    public void setTipoDocumento(TipoDocumentoEnum tipoDocumento) {
-        this.tipoDocumento = tipoDocumento;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getTelefono() {
-        return telefono;
-    }
-
-    public void setTelefono(String telefono) {
-        this.telefono = telefono;
-    }
-
-    public String getContrasena() {
-        return contrasena;
-    }
-
-    public void setContrasena(String contrasena) {
-        this.contrasena = contrasena;
-    }
-
-    public RoleEnum getRol() {
-        return rol;
-    }
-
-    public void setRol(RoleEnum rol) {
-        this.rol = rol;
-    }
-
-    public String getInstitucion() {
-        return institucion;
-    }
-
-    public void setInstitucion(String institucion) {
-        this.institucion = institucion;
-    }
-
-    public boolean isActivo() {
-        return activo;
-    }
-
-    public void setActivo(boolean activo) {
-        this.activo = activo;
-    }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

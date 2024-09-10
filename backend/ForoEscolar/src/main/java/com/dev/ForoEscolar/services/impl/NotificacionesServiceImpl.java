@@ -7,9 +7,11 @@ import com.dev.ForoEscolar.model.User;
 import com.dev.ForoEscolar.repository.NotificacionesRepository;
 import com.dev.ForoEscolar.repository.UserRepository;
 import com.dev.ForoEscolar.services.NotificacionesService;
+import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.management.ServiceNotFoundException;
 import java.math.BigInteger;
 import java.util.*;
 import java.util.stream.Collectors;
@@ -17,7 +19,7 @@ import java.util.stream.Collectors;
 @Service
 public class NotificacionesServiceImpl implements NotificacionesService {
 
-    private   Map<String, String>  emailSender = new LinkedHashMap<>();
+    private Notificaciones notificaciones;
 
     @Autowired
     private NotificacionesRepository notificacionesRepository;
@@ -33,7 +35,7 @@ public class NotificacionesServiceImpl implements NotificacionesService {
     }
 
     @Override
-    public Optional<NotificacionDTO> findById(BigInteger id) {
+    public Optional<NotificacionDTO> findById(Long id) {
        Optional<Notificaciones> notificacion = notificacionesRepository.findById(id);
 
         return notificacion.map(NotifiacacionesMapper.INSTANCE::toResponseNotificacion);
@@ -48,38 +50,41 @@ public class NotificacionesServiceImpl implements NotificacionesService {
     }
 
     @Override
-    public void deleteById(BigInteger id) {
+    public void deleteById(Long id) {
        Notificaciones notificaciones = notificacionesRepository.findById(id).orElseThrow(
                ()-> new RuntimeException("La notificacion solicitada no existe o fue eliminada anterirmente")
        );
        notificacionesRepository.deleteById(id);
     }
 
-
     @Override
-    public void sendEmial(String email, String notification) {
-       Optional<User> user = userRepository.findByEmail(email);
-        Notificaciones notificaciones = new Notificaciones(notification);
+    public NotificacionDTO sendEmial(NotificacionDTO notificacionDTO) throws ServiceNotFoundException {
 
 
-        if(email.equalsIgnoreCase(user.get().getEmail())){
-            emailSender.put(user.get().getEmail(), notificaciones.getMensaje());
+
+        try{
+        User user = this.userRepository.findByEmail(notificacionDTO.email()).orElseThrow( () ->
+                new EntityNotFoundException("Usuario no encontrado")
+                );
+        User userId = this.userRepository.findById(notificacionDTO.idUser()).orElseThrow( () ->
+                    new EntityNotFoundException("Usuario no encontrado")
+            );
+
+
+
+
+
+        return null;
+    }catch (Exception e){
+            throw new ServiceNotFoundException("Hubo un problema" + e.getMessage());
         }
+    }
+
+//titulo mensaje y tipo
 
     }
 
-    @Override
-    public String getNotificacion(String key){
-
-        if(emailSender.containsKey(key)){
-            return emailSender.get(key);
-        }else{
-            throw new NullPointerException("Email no encontrado");
-        }
-
-
-    }
 
 
 
-}
+

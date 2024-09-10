@@ -3,7 +3,7 @@ package com.dev.ForoEscolar.controllers.estudiante;
 import com.dev.ForoEscolar.dtos.ApiResponseDto;
 import com.dev.ForoEscolar.dtos.estudiante.EstudianteResponseDTO;
 import com.dev.ForoEscolar.exceptions.d.ApplicationException;
-import com.dev.ForoEscolar.services.IEstudianteService;
+import com.dev.ForoEscolar.services.EstudianteService;
 import io.swagger.v3.oas.annotations.Operation;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,18 +14,22 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/estudiante")
+@RequestMapping("api/estudiante")
 public class EstudianteController {
 
+    private final EstudianteService estudianteService;
+
     @Autowired
-    private IEstudianteService estudianteService;
+    public EstudianteController(EstudianteService estudianteService) {
+        this.estudianteService = estudianteService;
+    }
 
     @GetMapping("/getAll")
     @Operation(summary = "Obtiene todos los estudiantes")
-    public ResponseEntity<ApiResponseDto> findAll() {
+    public ResponseEntity<ApiResponseDto<EstudianteResponseDTO>> findAll() {
         try {
             Iterable<EstudianteResponseDTO> list = estudianteService.findAll();
-            return new ResponseEntity<>( new ApiResponseDto(true,"Exito",list), HttpStatus.CREATED);
+            return new ResponseEntity<>( new ApiResponseDto<>(true,"Exito",list), HttpStatus.CREATED);
         } catch (ApplicationException e){
             throw new ApplicationException(" Ha ocurrido un error "+ e.getMessage());
         }
@@ -33,30 +37,31 @@ public class EstudianteController {
 
     @GetMapping("/{id}")
     @Operation(summary = "Obtiene un estudiante en particular")
-    public ResponseEntity<ApiResponseDto> findById(@PathVariable("id") Long id) {
+    public ResponseEntity<ApiResponseDto<EstudianteResponseDTO>> findById(@PathVariable("id") Long id) {
         Optional<EstudianteResponseDTO> estudiante = estudianteService.findById(id);
         if (estudiante.isPresent()) {
+            EstudianteResponseDTO estudianteResponseDTO = estudiante.get();
             String message="Estudiante encontrado";
-            return new ResponseEntity<>(new ApiResponseDto(true, message, estudiante), HttpStatus.CREATED);
+            return new ResponseEntity<>(new ApiResponseDto<>(true, message, estudianteResponseDTO), HttpStatus.CREATED);
         } else {
-            return new ResponseEntity<>(new ApiResponseDto(false, "Estudiante no encontrado", null),HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>(new ApiResponseDto<>(false, "Estudiante no encontrado", null),HttpStatus.NOT_FOUND);
         }
     }
 
-    @PostMapping("/add")
+    @PostMapping("/register")
     @Operation(summary = "Se agrega un estudiante")
-    public ResponseEntity<ApiResponseDto> save(@RequestBody @Valid EstudianteResponseDTO dto) {
+    public ResponseEntity<ApiResponseDto<EstudianteResponseDTO>> save(@RequestBody @Valid EstudianteResponseDTO dto) {
         EstudianteResponseDTO estudiante = estudianteService.save(dto);
         String message = "Estudiante Guardado";
-        return new ResponseEntity<>(new ApiResponseDto(true, message, estudiante), HttpStatus.CREATED);
+        return new ResponseEntity<>(new ApiResponseDto<>(true, message, estudiante), HttpStatus.CREATED);
     }
 
     @PutMapping("/update")
     @Operation(summary = "Se actualiza un estudiante en particular")
-    public ResponseEntity<ApiResponseDto> update(@RequestBody @Valid EstudianteResponseDTO dto) {
+    public ResponseEntity<ApiResponseDto<EstudianteResponseDTO>> update(@RequestBody @Valid EstudianteResponseDTO dto) {
         EstudianteResponseDTO estudiante = estudianteService.update(dto);
         String message = "Estudiante Actualizado";
-        return new ResponseEntity<>(new ApiResponseDto(true, message, estudiante), HttpStatus.CREATED);
+        return new ResponseEntity<>(new ApiResponseDto<>(true, message, estudiante), HttpStatus.CREATED);
     }
 
     @DeleteMapping("/{id}")

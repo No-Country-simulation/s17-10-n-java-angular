@@ -1,6 +1,6 @@
 package com.dev.ForoEscolar.mapper.tarea;
 
-import com.dev.ForoEscolar.dtos.Tarea.TareaResponseDto;
+import com.dev.ForoEscolar.dtos.tarea.TareaResponseDto;
 import com.dev.ForoEscolar.model.Tarea;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
