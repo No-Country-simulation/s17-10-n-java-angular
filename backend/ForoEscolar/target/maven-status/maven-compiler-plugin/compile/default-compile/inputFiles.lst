@@ -4,6 +4,7 @@ C:\NoCountry\s17-10-n-java-angular\backend\ForoEscolar\src\main\java\com\dev\For
 C:\NoCountry\s17-10-n-java-angular\backend\ForoEscolar\src\main\java\com\dev\ForoEscolar\enums\TipoDocumentoEnum.java
 C:\NoCountry\s17-10-n-java-angular\backend\ForoEscolar\src\main\java\com\dev\ForoEscolar\services\UserService.java
 C:\NoCountry\s17-10-n-java-angular\backend\ForoEscolar\src\main\java\com\dev\ForoEscolar\mapper\estudiante\EstudianteMapper.java
+C:\NoCountry\s17-10-n-java-angular\backend\ForoEscolar\src\main\java\com\dev\ForoEscolar\services\impl\GradoServiceImp.java
 C:\NoCountry\s17-10-n-java-angular\backend\ForoEscolar\src\main\java\com\dev\ForoEscolar\controllers\boletin\BoletinController.java
 C:\NoCountry\s17-10-n-java-angular\backend\ForoEscolar\src\main\java\com\dev\ForoEscolar\services\AsistenciaService.java
 C:\NoCountry\s17-10-n-java-angular\backend\ForoEscolar\src\main\java\com\dev\ForoEscolar\dtos\user\UserRequestDTO.java
@@ -19,6 +20,7 @@ C:\NoCountry\s17-10-n-java-angular\backend\ForoEscolar\src\main\java\com\dev\For
 C:\NoCountry\s17-10-n-java-angular\backend\ForoEscolar\src\main\java\com\dev\ForoEscolar\services\TutorLegalService.java
 C:\NoCountry\s17-10-n-java-angular\backend\ForoEscolar\src\main\java\com\dev\ForoEscolar\services\impl\AsistenciaServiceImpl.java
 C:\NoCountry\s17-10-n-java-angular\backend\ForoEscolar\src\main\java\com\dev\ForoEscolar\controllers\estudiante\EstudianteController.java
+C:\NoCountry\s17-10-n-java-angular\backend\ForoEscolar\src\main\java\com\dev\ForoEscolar\services\GradoService.java
 C:\NoCountry\s17-10-n-java-angular\backend\ForoEscolar\src\main\java\com\dev\ForoEscolar\services\TokenService.java
 C:\NoCountry\s17-10-n-java-angular\backend\ForoEscolar\src\main\java\com\dev\ForoEscolar\dtos\boletin\BoletinDto.java
 C:\NoCountry\s17-10-n-java-angular\backend\ForoEscolar\src\main\java\com\dev\ForoEscolar\mapper\tarea\TareaMapper.java
@@ -40,12 +42,14 @@ C:\NoCountry\s17-10-n-java-angular\backend\ForoEscolar\src\main\java\com\dev\For
 C:\NoCountry\s17-10-n-java-angular\backend\ForoEscolar\src\main\java\com\dev\ForoEscolar\mapper\user\UserMapper.java
 C:\NoCountry\s17-10-n-java-angular\backend\ForoEscolar\src\main\java\com\dev\ForoEscolar\mapper\asistencia\AsistenciaMapper.java
 C:\NoCountry\s17-10-n-java-angular\backend\ForoEscolar\src\main\java\com\dev\ForoEscolar\repository\AsistenciaRepository.java
+C:\NoCountry\s17-10-n-java-angular\backend\ForoEscolar\src\main\java\com\dev\ForoEscolar\enums\TurnoEnum.java
 C:\NoCountry\s17-10-n-java-angular\backend\ForoEscolar\src\main\java\com\dev\ForoEscolar\repository\ProfesorRepository.java
 C:\NoCountry\s17-10-n-java-angular\backend\ForoEscolar\src\main\java\com\dev\ForoEscolar\services\impl\TareaServiceImpl.java
 C:\NoCountry\s17-10-n-java-angular\backend\ForoEscolar\src\main\java\com\dev\ForoEscolar\dtos\profesor\ProfesorRequestDTO.java
 C:\NoCountry\s17-10-n-java-angular\backend\ForoEscolar\src\main\java\com\dev\ForoEscolar\repository\TareaRepository.java
 C:\NoCountry\s17-10-n-java-angular\backend\ForoEscolar\src\main\java\com\dev\ForoEscolar\controllers\calificacion\CalificacionController.java
 C:\NoCountry\s17-10-n-java-angular\backend\ForoEscolar\src\main\java\com\dev\ForoEscolar\services\BoletinService.java
+C:\NoCountry\s17-10-n-java-angular\backend\ForoEscolar\src\main\java\com\dev\ForoEscolar\controllers\grado\GradoController.java
 C:\NoCountry\s17-10-n-java-angular\backend\ForoEscolar\src\main\java\com\dev\ForoEscolar\config\security\SecurityConfiguration.java
 C:\NoCountry\s17-10-n-java-angular\backend\ForoEscolar\src\main\java\com\dev\ForoEscolar\controllers\asistencia\AsistenciaController.java
 C:\NoCountry\s17-10-n-java-angular\backend\ForoEscolar\src\main\java\com\dev\ForoEscolar\services\TareaService.java
@@ -58,6 +62,7 @@ C:\NoCountry\s17-10-n-java-angular\backend\ForoEscolar\src\main\java\com\dev\For
 C:\NoCountry\s17-10-n-java-angular\backend\ForoEscolar\src\main\java\com\dev\ForoEscolar\dtos\ApiResponseDto.java
 C:\NoCountry\s17-10-n-java-angular\backend\ForoEscolar\src\main\java\com\dev\ForoEscolar\repository\TutorLegalRepository.java
 C:\NoCountry\s17-10-n-java-angular\backend\ForoEscolar\src\main\java\com\dev\ForoEscolar\dtos\user\UserResponseDTO.java
+C:\NoCountry\s17-10-n-java-angular\backend\ForoEscolar\src\main\java\com\dev\ForoEscolar\mapper\grado\GradoMapper.java
 C:\NoCountry\s17-10-n-java-angular\backend\ForoEscolar\src\main\java\com\dev\ForoEscolar\services\impl\UserDetailsServiceImpl.java
 C:\NoCountry\s17-10-n-java-angular\backend\ForoEscolar\src\main\java\com\dev\ForoEscolar\dtos\profesor\ProfesorResponseDTO.java
 C:\NoCountry\s17-10-n-java-angular\backend\ForoEscolar\src\main\java\com\dev\ForoEscolar\utils\springdoc\SpringDocConfiguration.java
@@ -71,6 +76,8 @@ C:\NoCountry\s17-10-n-java-angular\backend\ForoEscolar\src\main\java\com\dev\For
 C:\NoCountry\s17-10-n-java-angular\backend\ForoEscolar\src\main\java\com\dev\ForoEscolar\controllers\tarea\TareaController.java
 C:\NoCountry\s17-10-n-java-angular\backend\ForoEscolar\src\main\java\com\dev\ForoEscolar\services\ProfesorService.java
 C:\NoCountry\s17-10-n-java-angular\backend\ForoEscolar\src\main\java\com\dev\ForoEscolar\dtos\tutorlegal\TutorLegalResponseDTO.java
+C:\NoCountry\s17-10-n-java-angular\backend\ForoEscolar\src\main\java\com\dev\ForoEscolar\dtos\grado\GradoDto.java
+C:\NoCountry\s17-10-n-java-angular\backend\ForoEscolar\src\main\java\com\dev\ForoEscolar\repository\GradoRepository.java
 C:\NoCountry\s17-10-n-java-angular\backend\ForoEscolar\src\main\java\com\dev\ForoEscolar\repository\BoletinRepository.java
 C:\NoCountry\s17-10-n-java-angular\backend\ForoEscolar\src\main\java\com\dev\ForoEscolar\model\Asistencia.java
 C:\NoCountry\s17-10-n-java-angular\backend\ForoEscolar\src\main\java\com\dev\ForoEscolar\enums\MateriaEnum.java
@@ -79,6 +86,7 @@ C:\NoCountry\s17-10-n-java-angular\backend\ForoEscolar\src\main\java\com\dev\For
 C:\NoCountry\s17-10-n-java-angular\backend\ForoEscolar\src\main\java\com\dev\ForoEscolar\repository\GenericRepository.java
 C:\NoCountry\s17-10-n-java-angular\backend\ForoEscolar\src\main\java\com\dev\ForoEscolar\services\CalificacionService.java
 C:\NoCountry\s17-10-n-java-angular\backend\ForoEscolar\src\main\java\com\dev\ForoEscolar\services\EstudianteService.java
+C:\NoCountry\s17-10-n-java-angular\backend\ForoEscolar\src\main\java\com\dev\ForoEscolar\model\Grado.java
 C:\NoCountry\s17-10-n-java-angular\backend\ForoEscolar\src\main\java\com\dev\ForoEscolar\enums\GeneroEnum.java
 C:\NoCountry\s17-10-n-java-angular\backend\ForoEscolar\src\main\java\com\dev\ForoEscolar\model\Boletin.java
 C:\NoCountry\s17-10-n-java-angular\backend\ForoEscolar\src\main\java\com\dev\ForoEscolar\dtos\tarea\TareaResponseDto.java

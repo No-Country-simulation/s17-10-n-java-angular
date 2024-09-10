@@ -11,11 +11,11 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2024-09-09T16:47:46-0500",
+    date = "2024-09-10T11:56:15-0500",
     comments = "version: 1.5.5.Final, compiler: javac, environment: Java 21.0.2 (Oracle Corporation)"
 )
 @Component
-public class ProfesorMapperImpl implements ProfesorMapper {
+public class ProfesorMapperImpl extends ProfesorMapper {
 
     @Override
     public ProfesorResponseDTO toResponseDTO(Profesor profesor) {
@@ -23,6 +23,12 @@ public class ProfesorMapperImpl implements ProfesorMapper {
             return null;
         }
 
+        List<Long> estudianteIds = null;
+        List<Long> boletinIds = null;
+        List<Long> asistenciaIds = null;
+        List<Long> tareaIds = null;
+        List<Long> calificacionIds = null;
+        List<Long> gradoIds = null;
         Long id = null;
         String email = null;
         String nombre = null;
@@ -35,6 +41,12 @@ public class ProfesorMapperImpl implements ProfesorMapper {
         boolean activo = false;
         String materia = null;
 
+        estudianteIds = estudiantesToLongList( profesor.getEstudiantes() );
+        boletinIds = boletinesToLongList( profesor.getBoletin() );
+        asistenciaIds = asistenciasToLongList( profesor.getAsistencia() );
+        tareaIds = tareasToLongList( profesor.getTarea() );
+        calificacionIds = calificacionesToLongList( profesor.getCalificaciones() );
+        gradoIds = gradosToLongList( profesor.getGrado() );
         id = profesor.getId();
         email = profesor.getEmail();
         nombre = profesor.getNombre();
@@ -53,9 +65,7 @@ public class ProfesorMapperImpl implements ProfesorMapper {
             materia = profesor.getMateria().name();
         }
 
-        List<Long> estudiante = null;
-
-        ProfesorResponseDTO profesorResponseDTO = new ProfesorResponseDTO( id, email, nombre, tipoDocumento, dni, apellido, telefono, institucion, rol, activo, materia, estudiante );
+        ProfesorResponseDTO profesorResponseDTO = new ProfesorResponseDTO( id, email, nombre, tipoDocumento, dni, apellido, telefono, institucion, rol, activo, materia, estudianteIds, boletinIds, asistenciaIds, tareaIds, calificacionIds, gradoIds );
 
         return profesorResponseDTO;
     }
@@ -68,6 +78,13 @@ public class ProfesorMapperImpl implements ProfesorMapper {
 
         Profesor profesor = new Profesor();
 
+        profesor.setId( profesorRequestDTO.id() );
+        profesor.setEstudiantes( longListToEstudiantes( profesorRequestDTO.estudianteIds() ) );
+        profesor.setBoletin( longListToBoletines( profesorRequestDTO.boletinIds() ) );
+        profesor.setAsistencia( longListToAsistencias( profesorRequestDTO.asistenciaIds() ) );
+        profesor.setTarea( longListToTareas( profesorRequestDTO.tareaIds() ) );
+        profesor.setCalificaciones( longListToCalificaciones( profesorRequestDTO.calificacionIds() ) );
+        profesor.setGrado( longListToGrados( profesorRequestDTO.gradoIds() ) );
         profesor.setNombre( profesorRequestDTO.nombre() );
         profesor.setApellido( profesorRequestDTO.apellido() );
         profesor.setDni( profesorRequestDTO.dni() );
@@ -83,44 +100,5 @@ public class ProfesorMapperImpl implements ProfesorMapper {
         }
 
         return profesor;
-    }
-
-    @Override
-    public ProfesorRequestDTO toRequestDTO(Profesor profesor) {
-        if ( profesor == null ) {
-            return null;
-        }
-
-        Long id = null;
-        String email = null;
-        String nombre = null;
-        String apellido = null;
-        String dni = null;
-        String tipoDocumento = null;
-        String telefono = null;
-        String contrasena = null;
-        String institucion = null;
-        String materia = null;
-
-        id = profesor.getId();
-        email = profesor.getEmail();
-        nombre = profesor.getNombre();
-        apellido = profesor.getApellido();
-        dni = profesor.getDni();
-        if ( profesor.getTipoDocumento() != null ) {
-            tipoDocumento = profesor.getTipoDocumento().name();
-        }
-        telefono = profesor.getTelefono();
-        contrasena = profesor.getContrasena();
-        institucion = profesor.getInstitucion();
-        if ( profesor.getMateria() != null ) {
-            materia = profesor.getMateria().name();
-        }
-
-        List<Long> estudiante = null;
-
-        ProfesorRequestDTO profesorRequestDTO = new ProfesorRequestDTO( id, email, nombre, apellido, dni, tipoDocumento, telefono, contrasena, institucion, materia, estudiante );
-
-        return profesorRequestDTO;
     }
 }
