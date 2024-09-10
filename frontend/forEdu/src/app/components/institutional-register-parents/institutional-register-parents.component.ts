@@ -11,10 +11,10 @@ import { Router } from '@angular/router';
   styleUrl: './institutional-register-parents.component.css'
 })
 export class InstitutionalRegisterParentsComponent {
-  
+
   constructor(private router: Router){}
 
   redirectRegisterStudent(){
-    this.router.navigate(['/admin/registereStudents']);
+    this.router.navigate(['/registereStudents']);
   }
 }

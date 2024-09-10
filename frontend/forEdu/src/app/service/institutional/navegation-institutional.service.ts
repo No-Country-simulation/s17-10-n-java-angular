@@ -23,9 +23,9 @@ export class NavegationInstitutionalService {
   irAlFormulario() {
     if (this.tablaActual === 'alumnos') {
       // Redirigir al formulario de estudiantes
-      this.router.navigate(['/users/registereParents']);
+      this.router.navigate(['/registereParents']);
     } else if(this.tablaActual === 'profesores'){
-      this.router.navigate(['/users/registereTeachers']);
+      this.router.navigate(['/registereTeachers']);
     } else if (this.tablaActual === 'administradores') {
       // Redirigir al formulario de administradores
       this.router.navigate(['/formulario-administradores']);

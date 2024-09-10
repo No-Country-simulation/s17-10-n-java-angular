@@ -59,6 +59,19 @@ export const routes: Routes = [
         path: 'login',
         component: LoginComponent,
       },
+      {path: 'registereParents',
+         component: InstitutionalRegisterParentsComponent,
+         canActivate: [authGuard],
+         data: { title: 'Registar Tutor legal' },
+       },
+       {path: 'registereTeachers',
+         component: InstitutionalRegisterTeacherComponent,
+         canActivate: [authGuard],
+         data: { title: 'Registar Profesor' },
+       },
+       {path: 'registereStudents',
+         component: InstitutionalRegisterStudentsComponent
+       }
     ]
   },
   {
@@ -69,15 +82,7 @@ export const routes: Routes = [
       {path: 'users',
         component: InstitutionalUserComponent
       },
-      {path: 'registereParents',
-        component: InstitutionalRegisterParentsComponent
-      },
-      {path: 'registereTeachers',
-        component: InstitutionalRegisterTeacherComponent
-      },
-      {path: 'registereStudents',
-        component: InstitutionalRegisterStudentsComponent
-      }
+
     ],
   },
 ];
