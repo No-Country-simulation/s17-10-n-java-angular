@@ -16,6 +16,7 @@ import { LayoutAdminComponent } from './layouts/layout-admin/layout-admin.compon
 import { GradeRegisterComponent } from './Admin/admin-grade/register-grade/register.component';
 import { authGuard } from './guard/auth.guard';
 import { LoginComponent } from './components/login/login.component';
+import { NewsGradeComponent } from './Admin/admin-grade/news-grade/news-grade.component';
 
 export const routes: Routes = [
   {
@@ -32,20 +33,25 @@ export const routes: Routes = [
       {
         path: 'asistencia',
         component: AsistenciaComponent,
-        canActivate: [authGuard],
+        
         data: { title: '1-C' }
       },
       {
         path: 'grade',
         component: GradeComponent,
-        canActivate: [authGuard],
         data: { title: 'Grados' }
       },
       {
         path: 'grade-register',
         component: GradeRegisterComponent,
-        canActivate: [authGuard],
+       
         data: { title: 'Crear Grados' },
+      },
+      {
+        path: 'news',
+        component: NewsGradeComponent,
+       
+        data: { title: 'Novedades' },
       },
       {
         path: 'users',
