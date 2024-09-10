@@ -1,0 +1,116 @@
+
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: start;
+    margin-top: 8vh;
+    width: 100%;
+    row-gap: 1rem;
+    padding: 0.7rem 1.5rem;
+}
+
+.model-container{
+    margin-bottom: 1.5rem;
+}
+
+h3 {
+    text-align: start;
+    margin: 0;
+    margin-bottom: 0.5rem;
+    color: #8b8b8b;
+    font-weight: 500;
+}
+
+.model-boletin{
+    display: flex;
+    gap: 1rem;
+}
+.model-boletin-items{
+    border-radius: 10px;
+    background-color: #fff;
+    width: 100%;
+    border: 1px solid #a2a2a2;
+    height: 10rem;
+
+}
+.model-boletin-header{
+    background-color: none;
+}
+.model-boletin-header h4{
+    text-align: start;
+    margin: 0;
+    color: #535353;
+    font-weight: 500;
+    margin-top: 0.5rem;
+}
+.model-boletin-header p{
+    text-align: start;
+    margin: 0;
+    color: #8b8b8b;
+}
+.model-boletin-header-detail {
+    border-bottom: 1px solid #a2a2a2;;
+    padding: 1rem;
+    padding-bottom: 2rem;
+    position: relative;
+}
+
+.model-boletin-header-detail article {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 1rem;
+}
+
+
+.model-boletin-body{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+    padding: 1rem;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+.moldel-grade{
+    border-radius: 15px;
+    background-color: #fff;
+    border: 1px solid #a2a2a2;;
+    padding: 0.5rem 1rem;
+    color: #535353;
+}
+.moldel-grade p{
+    margin: 0;
+}
+
+
+/*boton nuevo boltin*/
+.container-btn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+    align-items: center;
+    width: 100%;
+    height: 10rem;
+    border-radius: 10px;
+    border: 2px dashed #a2a2a2;;
+    padding: 1rem;
+}
+.container-btn div{
+    width: 7rem;
+}
+.btn-add {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    background-color: #f6f6f6;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: 1px solid #EEEEEE;
+}

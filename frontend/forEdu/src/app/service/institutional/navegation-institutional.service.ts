@@ -28,8 +28,7 @@ export class NavegationInstitutionalService {
       this.router.navigate(['/registereTeachers']);
     } else if (this.tablaActual === 'administradores') {
       // Redirigir al formulario de administradores
-      this.router.navigate(['/formulario-administradores']);
+      this.router.navigate(['/users/registereAdministradores']);
     }
   }
-
-}
+  }

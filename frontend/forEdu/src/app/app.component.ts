@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import {AdmiDashboardComponent} from './Admin/admin-layout/admi-dashboard/admi-dashboard.component'
-import { ModalUserIntitutionalComponent } from './components/modal-user-institutional/modal-user-institutional.component';
+import { ModalUserIntitutionalComponent } from './Admin/admin-user/modal-user-institutional/modal-user-institutional.component';
 
 @Component({
   selector: 'app-root',
