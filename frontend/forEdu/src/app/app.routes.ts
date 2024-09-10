@@ -28,25 +28,32 @@ export const routes: Routes = [
       {
         path: '',
         component: AdmiDashboardComponent,
-        canActivate: [authGuard]
+        canActivate: [authGuard],
+        data: { title: 'Inicio' }
       },
       {
         path: 'asistencia',
         component: AsistenciaComponent,
-        canActivate: [authGuard]
+        canActivate: [authGuard],
+        data: { title: '1-C' }
       },
       {
         path: 'grade',
         component: GradeComponent,
-        canActivate: [authGuard]
+        canActivate: [authGuard],
+        data: { title: 'Grados' }
       },
       {
         path: 'grade-register',
         component: GradeRegisterComponent,
+        canActivate: [authGuard],
+        data: { title: 'Crear Grados' },
       },
       {
         path: 'users',
         component: InstitutionalUserComponent,
+        canActivate: [authGuard],
+        data: { title: 'Usuarios institucionales' },
       },
       {
         path: 'login',

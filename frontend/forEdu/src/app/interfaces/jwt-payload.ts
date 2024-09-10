@@ -1,7 +1,7 @@
 export interface JwtPayload {
 
-      sub: string;
-      nombre?: string;  // Propiedad opcional
+      sub?: string;
+      nombre?: string;
       role?: string;
       exp?: number;
       id?: number;
