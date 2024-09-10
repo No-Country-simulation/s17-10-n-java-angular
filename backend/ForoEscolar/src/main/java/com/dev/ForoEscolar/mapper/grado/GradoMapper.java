@@ -7,7 +7,7 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.Named;
 
-@Mapper
+@Mapper(componentModel = "spring")
 public abstract class GradoMapper {
 
     @Mapping(source = "profesor", target = "profesor", qualifiedByName = "profesorToLong")

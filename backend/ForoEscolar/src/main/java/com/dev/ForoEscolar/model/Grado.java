@@ -18,7 +18,7 @@ import lombok.NoArgsConstructor;
 public class Grado {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Enumerated(value = EnumType.STRING)

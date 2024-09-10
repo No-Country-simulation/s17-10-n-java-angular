@@ -52,6 +52,9 @@ public class Estudiante {
     @JoinColumn(name = "tutor_legal_id", nullable = false, foreignKey = @ForeignKey(name="FK_TUTOR_LEGAL"))
     private TutorLegal tutor;
 
+    @ManyToMany(mappedBy = "estudiantes",cascade ={CascadeType.MERGE,CascadeType.REFRESH,CascadeType.PERSIST}, fetch = FetchType.LAZY)
+    private List<Profesor> profesores;
+
     @OneToMany(mappedBy = "estudiante",cascade = {CascadeType.ALL},orphanRemoval = true,fetch = FetchType.LAZY)
     private List<Boletin> boletin  = new ArrayList<>();
 
@@ -63,4 +66,13 @@ public class Estudiante {
 
     @OneToMany(mappedBy = "estudiante", cascade = {CascadeType.ALL}, orphanRemoval = true, fetch = FetchType.LAZY)
     private List<Calificacion> calificaciones  = new ArrayList<>();
+
+    //Necesario para desvincular la tabla Estudiantes de Profesor y evitar borrar todas las tablas relacionales
+    @PreRemove
+    public void preRemove() {
+        //Se Remueve de Estudiante el Profesor, y se despega de la tabla profesor_estudiante antes de ejecutar el DELETE
+        if (this.profesores != null) {
+            this.profesores.forEach(profesor -> profesor.getEstudiantes().remove(this));
+        }
+    }
 }

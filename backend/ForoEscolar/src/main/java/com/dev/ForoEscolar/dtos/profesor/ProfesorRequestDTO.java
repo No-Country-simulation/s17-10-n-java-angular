@@ -29,7 +29,12 @@ public record ProfesorRequestDTO (
         String institucion,
         @NotNull(message = "La materia no puede estar vacía")
         String materia,
-        List<Long> estudiante
+        List<Long> estudianteIds,
+        List<Long> boletinIds,
+        List<Long> asistenciaIds,
+        List<Long> tareaIds,
+        List<Long> calificacionIds,
+        List<Long> gradoIds
 
 ){
 
