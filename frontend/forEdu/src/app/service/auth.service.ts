@@ -18,15 +18,6 @@ export class AuthService {
   constructor() { }
 
 
-/* --------------------------------------------------- */
-
-/* --------------------------------------------------- */
-
-
-
-
-
-
    register (objeto:Register): Observable <RegisterSuccess>{
 
     return  this.http.post<RegisterSuccess>(`${this.url}/user/add`,objeto

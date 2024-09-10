@@ -6,7 +6,6 @@ import { JwtPayload } from '../../interfaces/jwt-payload';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { filter } from 'rxjs/operators';
 
-
 @Component({
   selector: 'app-navbar',
   standalone: true,
@@ -17,73 +16,63 @@ import { filter } from 'rxjs/operators';
 
 export class NavbarComponent {
 
-token : string = localStorage.getItem('token') || "";
+  token: string = localStorage.getItem('token') || "";
+  decoded: JwtPayload | null = null;
+  username: string = "Invitado";
+  items: MenuItem[] = [];
+  title: string = "";
 
+  constructor(
+    private router: Router,
+    private activatedRoute: ActivatedRoute
+  ) {}
 
-decoded:JwtPayload = jwtDecode(this.token);
-username :string =this.decoded.nombre || "Invitado";
-items: MenuItem[] = [];
-title:string = "";
+  ngOnInit() {
 
+    if (this.token && this.token.split('.').length === 3) {
+      try {
+        this.decoded = jwtDecode(this.token);
+        this.username = this.decoded?.nombre || "Invitado";
+      } catch (error) {
+        console.error("Error decoding token:", error);
+      }
+    } else {
+      console.warn("Invalid or missing token");
+    }
 
-constructor(
-   private router: Router,
-   private activatedRoute: ActivatedRoute
- ) {}
+    this.items = [
+      { label: 'Ver perfil', command: () => this.save('Option 1') },
+      { label: 'Configuración', command: () => this.save('Option 2') },
+      { label: 'Ayuda y Soporte', command: () => this.save('Option 3') },
+      { label: 'Cerrar Sesión', command: () => this.save('Option 4') }
+    ];
 
- ngOnInit() {
-   this.items = [
-     { label: 'Ver perfil', command: () => this.save('Option 1') },
-     { label: 'Configuración', command: () => this.save('Option 2') },
-     { label: 'Ayuda y Soporte', command: () => this.save('Option 3') },
-     { label: 'Cerrar Sesión', command: () => this.save('Option 4') }
-   ];
-
-
-   this.router.events.pipe(
+    this.router.events.pipe(
       filter(event => event instanceof NavigationEnd)
     ).subscribe(() => {
       this.updateTitle();
     });
 
-    // Inicializar el título en la carga inicial
+
     this.updateTitle();
-    this.decodeToken();
+  }
 
- }
+  save(info: string) {
+    console.log(`You clicked on ${info}`);
+  }
 
- save(info: string) {
-   console.log(`You clicked on ${info}`);
- }
+  private updateTitle() {
+    let routeSnapshot = this.activatedRoute.snapshot;
+    let routeTitle = '';
 
- private decodeToken() {
-   try {
-     if (this.token!="") {
-       this.decoded = jwtDecode<JwtPayload>(this.token);
-       this.username = this.decoded.nombre || "Invitado";
-     } else {
-       this.decoded = { nombre: "Invitado" };
-     }
-   } catch (error) {
-     console.error('Error decoding token:', error);
-     this.decoded = { nombre: "Invitado" };
-   }
- }
+    while (routeSnapshot.firstChild) {
+      routeSnapshot = routeSnapshot.firstChild;
+    }
 
- private updateTitle() {
-   let    routeSnapshot = this.activatedRoute.snapshot;
-   let routeTitle = '';
+    if (routeSnapshot.data && routeSnapshot.data['title']) {
+      routeTitle = routeSnapshot.data['title'];
+    }
 
-   while (routeSnapshot.firstChild) {
-     routeSnapshot = routeSnapshot.firstChild;
-   }
-
-   if (routeSnapshot.data && routeSnapshot.data['title']) {
-     routeTitle = routeSnapshot.data['title'];
-   }
-
-   this.title = routeTitle || 'Título predeterminado';
- }
-
-
+    this.title = routeTitle || 'Título predeterminado';
+  }
 }
