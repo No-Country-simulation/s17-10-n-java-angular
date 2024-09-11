@@ -1,119 +1,78 @@
-
 <div class="container-position">
+   <div class="formulario-container">
+       <form [formGroup]="formTeacher">
+           <!-- Parte superior del formulario -->
+           <div class="formulario-parte-superior">
+               <h2>Datos del profesor</h2>
+
+               <div class="fila">
+                   <div class="campo">
+                       <label for="nombres">Nombres</label>
+                       <input type="text" id="nombre " formControlName="nombre" placeholder="Ingrese nombres" required />
+                   </div>
+                   <div class="campo">
+                       <label for="apellidos">Apellidos</label>
+                       <input type="text" id="apellido" formControlName="apellido" placeholder="Ingrese apellidos" required />
+                   </div>
+               </div>
+
+               <div class="fila">
+                   <div class="campo">
+                       <label for="dnidni">Tipo de documento</label>
+                       <select id="tipoDocumento" formControlName="tipoDocumento" required>
+                           <option value="DNI">DNI</option>
+                           <option value="PASAPORTE">Pasaporte</option>
+                       </select>
+                   </div>
+                   <div class="campo">
+                       <label for="numero-documento">N°</label>
+                       <input type="text" id="dni" formControlName="dni" placeholder="Ingrese documento" required />
+                   </div>
+               </div>
+
+               <div class="fila">
 
 
-    <div class="formulario-container">
-        <form action="URL_DE_TU_API" method="POST">
-            <!-- Parte superior del formulario -->
-            <div class="formulario-parte-superior">
-                <h2>Datos del profesor</h2>
+               </div>
 
-                <div class="fila">
-                    <div class="campo">
-                        <label for="nombres">Nombres</label>
-                        <input type="text" id="nombres" name="nombres" placeholder="Ingrese nombres" required />
-                    </div>
-                    <div class="campo">
-                        <label for="apellidos">Apellidos</label>
-                        <input type="text" id="apellidos" name="apellidos" placeholder="Ingrese apellidos" required />
-                    </div>
-                </div>
+               <div class="fila">
+                   <div class="campo">
+                       <label for="correo">Correo</label>
+                       <input type="email" id="correo" formControlName="email" placeholder="Ingrese correo" required />
+                   </div>
+                   <div class="campo">
+                       <label for="telefono">Teléfono</label>
+                       <input type="tel" id="telefono" formControlName="telefono" placeholder="Ingrese teléfono" required />
+                   </div>
+               </div>
+           </div>
 
-                <div class="fila">
-                    <div class="campo">
-                        <label for="tipo-documento">Tipo de documento</label>
-                        <select id="tipo-documento" name="tipo-documento" required>
-                            <option value="dni">DNI</option>
-                            <option value="pasaporte">Pasaporte</option>
-                            <!-- Más opciones -->
-                        </select>
-                    </div>
-                    <div class="campo">
-                        <label for="numero-documento">N°</label>
-                        <input type="text" id="numero-documento" name="numero-documento" placeholder="Ingrese documento" required />
-                    </div>
-                </div>
+           <!-- Parte inferior del formulario -->
+           <div class="formulario-parte-inferior">
+               <h2>Datos de contratación</h2>
 
-                <div class="fila">
-                    <div class="campo">
-                        <label for="fecha-nacimiento">Fecha de nacimiento</label>
-                        <input type="date" id="fecha-nacimiento" name="fecha-nacimiento" required />
-                    </div>
-                    <div class="campo">
-                            <label>Sexo</label>
-                            <div class="sexo-options">
-                                <label>
-                                    <input type="radio" id="masculino" name="sexo" value="masculino" required />
-                                    Masculino
-                                </label>
-                                <label>
-                                    <input type="radio" id="femenino" name="sexo" value="femenino" required />
-                                    Femenino
-                                </label>
-                            </div>
-                    </div>
 
-                </div>
 
-                <div class="fila">
-                    <div class="campo">
-                        <label for="correo">Correo</label>
-                        <input type="email" id="correo" name="correo" placeholder="Ingrese correo" required />
-                    </div>
-                    <div class="campo">
-                        <label for="telefono">Teléfono</label>
-                        <input type="tel" id="telefono" name="telefono" placeholder="Ingrese teléfono" required />
-                    </div>
-                </div>
-            </div>
 
-            <!-- Parte inferior del formulario -->
-            <div class="formulario-parte-inferior">
-                <h2>Datos de contratación</h2>
 
-                <div class="fila">
-                    <div class="campo">
-                        <label for="fecha-inicio">Fecha de inicio de trabajo</label>
-                        <input type="date" id="fecha-inicio" name="fecha-inicio" required />
-                    </div>
-                    <div class="campo">
-                        <label for="tipo-contrato">Tipo de contrato</label>
-                        <select id="tipo-contrato" name="tipo-contrato" required>
-                            <option value="tiempo-completo">Tiempo completo</option>
-                            <option value="medio-tiempo">Medio tiempo</option>
-                            <option value="por-horas">Por horas</option>
-                        </select>
-                    </div>
-                </div>
+               <div class="fila">
+                   <div class="campo">
+                       <label for="grado-cargo">Password</label>
+                       <input type="password  " id="contrasena" formControlName="contrasena" placeholder="Ingrese Contraseña" />
+                   </div>
+                   <div class="campo">
+                       <label for="seccion-cargo">Institucion</label>
+                       <input type="text" id="institucion" formControlName="institucion" placeholder="Ingrese institucion" />
+                   </div>
+               </div>
 
-                <div class="fila">
-                    <div class="campo">
-                        <label for="asignatura">Asignatura</label>
-                        <input type="text" id="asignatura" name="asignatura" placeholder="Ingrese asignatura" />
-                    </div>
-                    <div class="campo">
-                        <label for="hora-trabajo">Hora de trabajo</label>
-                        <input type="text" id="hora-trabajo" name="hora-trabajo" placeholder="Ingrese hora de trabajo" />
-                    </div>
-                </div>
+               <!-- Botones dentro de la parte inferior del formulario -->
+               <div class="botones-externos">
+                   <button class="btn-cancelar" type="button">Cancelar</button>
+                   <button class="btn-agregar-alumno" type="button">Agregar Alumno</button>
+               </div>
+           </div>
+       </form>
+   </div>
 
-                <div class="fila">
-                    <div class="campo">
-                        <label for="grado-cargo">Grado a cargo</label>
-                        <input type="text" id="grado-cargo" name="grado-cargo" placeholder="Ingrese grado" />
-                    </div>
-                    <div class="campo">
-                        <label for="seccion-cargo">Sección a cargo</label>
-                        <input type="text" id="seccion-cargo" name="seccion-cargo" placeholder="Ingrese sección" />
-                    </div>
-                </div>
-
-                <!-- Botones dentro de la parte inferior del formulario -->
-                <div class="botones-externos">
-                    <button class="btn-cancelar" type="button">Cancelar</button>
-                    <button class="btn-agregar-alumno" type="button">Agregar Alumno</button>
-                </div>
-            </div>
-        </form>
-    </div>
 </div>

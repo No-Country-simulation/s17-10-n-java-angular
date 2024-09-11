@@ -1,12 +1,16 @@
+import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { NavbarComponent } from "../../../components/navbar/navbar.component";
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+
 import { Router } from '@angular/router';
+import { MessageModule } from 'primeng/message';
+import { ToastModule } from 'primeng/toast';
 
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [NavbarComponent],
+  imports: [ToastModule,MessageModule,ReactiveFormsModule,HttpClientModule,CommonModule ],
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
