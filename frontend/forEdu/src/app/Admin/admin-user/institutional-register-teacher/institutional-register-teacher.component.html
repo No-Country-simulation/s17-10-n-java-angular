@@ -1,6 +1,6 @@
 <div class="container-position">
    <div class="formulario-container">
-       <form [formGroup]="formTeacher">
+       <form [formGroup]="formTeacher" (ngSubmit)="teacherSubmit()">
            <!-- Parte superior del formulario -->
            <div class="formulario-parte-superior">
                <h2>Datos del profesor</h2>
@@ -31,7 +31,15 @@
                </div>
 
                <div class="fila">
-
+                  <div class="campo">
+                     <label for="dnidni">Materia</label>
+                     <select id="materia" formControlName="materia" required>
+                         <option value="MATEMATICAS">MATEMATICAS</option>
+                         <option value="CIENCIAS">CIENCIAS</option>
+                         <option value="LENGUAJE">LENGUAJE</option>
+                         <option value="HISTORIA">HISTORIA</option>
+                     </select>
+                 </div>
 
                </div>
 
@@ -51,10 +59,6 @@
            <div class="formulario-parte-inferior">
                <h2>Datos de contratación</h2>
 
-
-
-
-
                <div class="fila">
                    <div class="campo">
                        <label for="grado-cargo">Password</label>
@@ -69,10 +73,11 @@
                <!-- Botones dentro de la parte inferior del formulario -->
                <div class="botones-externos">
                    <button class="btn-cancelar" type="button">Cancelar</button>
-                   <button class="btn-agregar-alumno" type="button">Agregar Alumno</button>
+                   <button class="btn-agregar-alumno" type="submit">Agregar Profesor</button>
                </div>
            </div>
        </form>
+       <p-toast></p-toast>
    </div>
 
 </div>
