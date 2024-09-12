@@ -3,7 +3,7 @@ export interface GradeRegister {
    curso: Curso;
    turno: Turno;
    materia: Materia;
-   profesor: String; // Esto representará el `profesor_id`
+   profesor: number;
  }
 
  export type Aula = 'A' | 'B' | 'C';

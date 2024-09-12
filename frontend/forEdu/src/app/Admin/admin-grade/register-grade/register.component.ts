@@ -1,69 +1,58 @@
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-
 import { Router } from '@angular/router';
+import { MessageService } from 'primeng/api';
 import { MessageModule } from 'primeng/message';
 import { ToastModule } from 'primeng/toast';
+import { GradeRegisterService } from '../../../service/grade-register.service';
+import { GradeRegister } from '../../../interfaces/grade-register';
+
 
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [ToastModule,MessageModule,ReactiveFormsModule,HttpClientModule,CommonModule ],
+  imports: [ToastModule, MessageModule, ReactiveFormsModule, HttpClientModule, CommonModule],
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  styleUrls: ['./register.component.css'],
+  providers: [MessageService]
 })
 export class GradeRegisterComponent {
 
+  private formBuild = inject(FormBuilder);
+  private messageService = inject(MessageService);
+  private gradeService = inject(GradeRegisterService);
 
+  formGrade: FormGroup = this.formBuild.group({
+    curso: ["", Validators.required],
+    aula: ["", Validators.required],
+    turno: ["", Validators.required],
+    materia: ["", Validators.required],
+    profesor: ["", Validators.required]
+  });
 
-  gradeForm: FormGroup;
+  gradeSubmit() {
+    if (this.formGrade.valid) {
+      const gradeData: GradeRegister = this.formGrade.value;
 
-  grados = [1, 2, 3, 4, 5, 6, 7];
-  secciones = ['A', 'B', 'C', 'D', 'E', 'F'];
-  turnos = ['Mañana', 'Tarde', 'Noche'];
-  asignaturas = ['Matemáticas', 'Español', 'Ciencias', 'Historia', 'Arte'];
-  profesores = ['Juan Pérez', 'María García', 'Luis Hernández', 'Ana López', 'Carlos Rodríguez'];
+      console.log('Datos del formulario:', gradeData);
 
-  constructor(private fb: FormBuilder,private router: Router) {
-    // Inicialización del formulario con formBuilder
-    this.gradeForm = this.fb.group({
-      grado: [null, Validators.required],
-      seccion: [null, Validators.required],
-      turno: [null, Validators.required],
-      asignatura: [null, Validators.required],
-      profesor: [null, Validators.required]
-    });
-  }
-
-  navigateToGrade() {
-   this.router.navigate(['/grade']);
- }
-
-
-  onSubmit() {
-    // Verifica si el formulario es válido
-    if (this.gradeForm.valid) {
-      // Obtiene los valores del formulario
-      const grado = this.gradeForm.get('grado')?.value;
-      const seccion = this.gradeForm.get('seccion')?.value;
-      const turno = this.gradeForm.get('turno')?.value;
-      const asignatura = this.gradeForm.get('asignatura')?.value;
-      const profesor = this.gradeForm.get('profesor')?.value;
-
-      // Muestra los valores en la consola
-      console.log('Grado:', grado);
-      console.log('Sección:', seccion);
-      console.log('Turno:', turno);
-      console.log('Asignatura:', asignatura);
-      console.log('Profesor:', profesor);
-
-      // Muestra un mensaje de éxito
-      alert(`Grado ${grado} - Sección ${seccion} creado con éxito para el turno ${turno} en la asignatura ${asignatura} con el profesor ${profesor}.`);
+      this.gradeService.gradeRegister(gradeData).subscribe({
+        next: (response) => {
+          console.log('Respuesta del servidor:', response);
+          this.messageService.add({ severity: 'success', summary: 'Éxito', detail: 'Grado registrado exitosamente' });
+        },
+        error: (err) => {
+          console.error('Error al registrar el grado:', err);
+          this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Error al registrar el grado' });
+        }
+      });
     } else {
-      // Si el formulario no es válido, muestra un mensaje de error
-      alert('Por favor, complete todos los campos del formulario.');
+      this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Por favor completa todos los campos' });
     }
   }
+
+  constructor(private router: Router) {}
+
 }

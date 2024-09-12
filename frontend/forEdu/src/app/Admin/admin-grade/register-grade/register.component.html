@@ -2,11 +2,11 @@
 
     <div class="form-container">
         <h2 class="title"> Nombre del grado</h2>
-        <form id="grade-form" class="">
+        <form id="grade-form" class="" [formGroup]="formGrade" (ngSubmit)="gradeSubmit()">
             <!-- Línea para Grado y Sección -->
             <div class="form-group">
                 <label for="grado">Grado:</label>
-                <select id="grado" name="grado">
+                <select id="grado" name="grado" formControlName="curso">
                     <option value="PRIMERO">1</option>
                     <option value="SEGUNDO">2</option>
                     <option value="TERCERO">3</option>
@@ -17,7 +17,7 @@
                 </select>
 
                 <label for="seccion">Sección:</label>
-                <select id="seccion" name="seccion">
+                <select id="seccion" name="seccion" formControlName="aula">
                     <option value="A">A</option>
                     <option value="B">B</option>
                     <option value="C">C</option>
@@ -28,14 +28,14 @@
             <!-- Línea para Turno y Asignatura -->
             <div class="form-group">
                 <label for="turno"><i class="pi pi-calendar-clock turno"> </i> Turno:</label>
-                <select id="turno" name="turno">
+                <select id="turno" name="turno" formControlName="turno">
                     <option value="MANANA">Mañana</option>
                     <option value="TARDE">Tarde</option>
                     <option value="NOCHE">Noche</option>
                 </select>
 
                 <label for="asignatura">Asignatura:</label>
-                <select id="asignatura" name="asignatura">
+                <select id="asignatura" name="asignatura" formControlName="materia">
                     <option value="MATEMATICAS">Matemáticas</option>
                     <option value="CIENCIAS">Español</option>
                     <option value="LENGUAJE">Ciencias</option>
@@ -46,12 +46,12 @@
             <!-- Línea para Profesor -->
             <div class="form-group">
                 <label for="profesor">Profesor:</label>
-                <select id="profesor" name="profesor">
-                    <option value="profesor1">Profesor Juan Pérez</option>
-                    <option value="profesor2">Profesora María García</option>
-                    <option value="profesor3">Profesor Luis Hernández</option>
-                    <option value="profesor4">Profesora Ana López</option>
-                    <option value="profesor5">Profesor Carlos Rodríguez</option>
+                <select id="profesor" name="profesor" formControlName="profesor">
+                    <option value="1">Profesor Juan Pérez</option>
+                    <option value="2">Profesora María García</option>
+                    <option value="3">Profesor Luis Hernández</option>
+                    <option value="4">Profesora Ana López</option>
+                    <option value="5formGrade">Profesor Carlos Rodríguez</option>
                 </select>
             </div>
 
@@ -60,5 +60,7 @@
                 <button type="submit">Crear Grado</button>
             </div>
         </form>
+        <p-toast></p-toast>
+
     </div>
 </div>

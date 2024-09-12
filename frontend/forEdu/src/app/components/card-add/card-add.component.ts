@@ -13,7 +13,7 @@ export class CardAddComponent {
    constructor(private router: Router){}
 
    navigateToCourse() {
-      this.router.navigate(['/grade-register']);
+      this.router.navigate(['/grade-add']);
     }
 
 }

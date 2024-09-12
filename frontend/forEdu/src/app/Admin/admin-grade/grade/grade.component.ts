@@ -6,6 +6,7 @@ import { CardAddComponent } from '../../../components/card-add/card-add.componen
 import { NavbarComponent } from "../../../components/navbar/navbar.component";
 import { SidebarComponent } from "../../../components/sidebar/sidebar.component";
 
+
 @Component({
   selector: 'app-grade',
   standalone: true,
@@ -21,5 +22,6 @@ import { SidebarComponent } from "../../../components/sidebar/sidebar.component"
   styleUrl: './grade.component.css'
 })
 export class GradeComponent {
+
 
 }
