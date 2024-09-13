@@ -1,6 +1,54 @@
 @import "primeicons/primeicons.css";
-/*
-.p-tieredmenu .p-menuitem > .p-menuitem-content .p-menuitem-link .p-menuitem-text {
-    color:red
+
+.p-panelmenu .p-panelmenu-content .p-menuitem > .p-menuitem-content .p-menuitem-link 
+{
+  background-color: #E7EAF5; 
+  color: #717171; 
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
-*/
+
+
+.p-panelmenu .p-panelmenu-content .p-menuitem > .p-menuitem-content .p-menuitem-link:hover {
+  background-color: #F5F5F5;
+  color: #E9511D;
+}
+
+.p-panelmenu .p-panelmenu-content .p-menuitem > .p-menuitem-content .p-menuitem-link:hover .p-menuitem-icon
+ {
+  color: #E9511D; 
+}
+
+.p-panelmenu-header-action 
+{
+  background-color: #E7EAF5;
+  color: #717171; 
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+
+.p-panelmenu-header-action:hover 
+{
+  background-color: #F5F5F5; 
+  color: #E9511D;
+}
+
+.p-panelmenu .p-panelmenu-content
+{
+    padding: 0;
+}
+
+.p-panelmenu-header-action:hover .pi
+ {
+  color: #E9511D; 
+}
+
+.p-panelmenu .p-panelmenu-content .p-submenu-list .p-menuitem > .p-menuitem-content .p-menuitem-link .p-menuitem-text:hover
+ {
+  background-color: #F5F5F5;
+  color: #E9511D;
+  }
+
+.p-panelmenu .p-panelmenu-content .p-submenu-list .p-menuitem > .p-menuitem-content .p-menuitem-link:hover .p-menuitem-icon 
+{
+  color: #E9511D;
+}
