@@ -1,0 +1,446 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+.body{
+  background-color: #5e595912;
+}
+.banner-container {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.banner-img {
+  width: 100%;
+  height: auto;
+  object-fit: cover; /* Asegura que la imagen cubra toda el área sin distorsión */
+}
+
+.logo {
+  position: absolute;
+  bottom: 10vh; /* Usa vh para una proporción constante con la altura */
+  right: 6vw;  /* Usa vw para una proporción constante con el ancho */
+  width: 30vw; /* Ajusta el tamaño del logo según el ancho de la pantalla */
+  max-width: 300px; /* Límite máximo de tamaño */
+  height: auto;
+}
+
+.intro-section {
+  font-family: 'Poppins', sans-serif;
+  color: #1D1B20; /* Todo el texto en este color */
+}
+
+.intro-title {
+  display: inline-block;
+  background-color: rgb(222, 220, 220);
+  padding: 10px 20px;
+  border-radius: 30px;
+  font-weight: 400;
+  color: #1D1B20;
+  margin: 50px 80px 30px 80px;
+}
+
+.intro-text {
+  margin-left: 80px;
+  margin-right: 80px;
+  font-size: 3.125rem;
+}
+
+.highlight {
+  color: #004FB4;
+}
+
+.content-container {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+.sect {
+  flex: 1;
+  margin: 0% 10%;
+  max-width: 250px;
+}
+
+h2 {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+p {
+  font-size: 1rem;
+}
+
+.parent {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(12, 1fr);
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+}
+
+.div1 { 
+  grid-area: 1 / 2 / 6 / 12;
+}
+/* General styles for the card */
+.card {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Flexbox for the header */
+.card-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+/* Profile image */
+.profile-img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 20px;
+}
+
+/* Info next to the image */
+.card-info h2 {
+  font-size: 1.5rem;
+  margin: 0;
+  color: #1D1B20;
+}
+
+.card-info .occupation {
+  font-size: 1rem;
+  color: #555;
+}
+
+/* Card details section */
+.card-details p {
+  margin: 5px 0;
+  font-size: 1rem;
+}
+
+.card-details p strong {
+  color: #004FB4;
+}
+
+/* Card description section */
+.card-description {
+  margin-top: 20px;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #333;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .card {
+    padding: 15px;
+  }
+
+  .profile-img {
+    width: 60px;
+    height: 60px;
+  }
+
+  .card-info h2 {
+    font-size: 1.2rem;
+  }
+
+  .card-info .occupation {
+    font-size: 0.9rem;
+  }
+
+  .card-details p {
+    font-size: 0.9rem;
+  }
+
+  .card-description {
+    font-size: 0.9rem;
+  }
+}
+
+.div2 { 
+  grid-area: 6 / 2 / 11 / 7; 
+  background-color: #004FB4;
+  border-radius: 5%;
+  display: grid;
+  place-items: center;
+  padding: 50px;
+}
+
+.div2 h2 {
+  font-size: 2.5rem;
+  color: #fff; 
+}
+
+.div2 p {
+  font-size: 1rem;
+  color: #fff; 
+  text-align: justify;
+}
+
+.div3 { 
+  grid-area: 6 / 7 / 8 / 12; 
+  position: relative;
+  display: inline-block;
+}
+
+.div3 img {
+  width: 100%;
+  height: 100%; 
+  display: block;
+}
+
+.overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #fff; 
+}
+
+.div3 p {
+  margin: 0;
+  font-size: 3rem; 
+}
+
+.div4 { 
+  grid-area: 8 / 7 / 13 / 12;
+  background-color: #27264A;
+  border-radius: 5%;
+  display: grid;
+  place-items: center;
+  padding: 50px;
+}
+
+.div4 h2 {
+  font-size: 2.5rem;
+  color: #fff; 
+}
+
+.div4 p {
+  font-size: 0.9rem;
+  color: #fff; 
+  text-align: justify;
+}
+
+.div5 { 
+  grid-area: 11 / 2 / 13 / 7;
+}
+
+img {
+  width: 100%;
+}
+.parent2{
+  padding: 10px;
+}
+.div2b {
+  background-color: #f9f9f9; /* Fondo claro para el contenedor */
+  padding: 20px;
+  border-radius: 10px; /* Bordes redondeados para el contenedor */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Alinea los elementos al inicio del contenedor */
+  text-align: left; /* Alinea el texto a la izquierda dentro del contenedor */
+ 
+}
+
+.intro-titleb {
+  background-color: #e0e0e0; /* Fondo claro para el título */
+  padding: 10px 20px; /* Espacio alrededor del texto */
+  border-radius: 10px; /* Bordes redondeados para el título */
+  font-size: 2rem; /* Ajusta el tamaño del texto según sea necesario */
+  margin-bottom: 20px; /* Espacio debajo del título */
+  color: #1D1B20; /* Color del texto del título */
+  display: inline-block; /* Ajusta el fondo al tamaño del contenido */
+}
+
+.div2b p {
+  font-size: 1.2rem; /* Ajusta el tamaño del texto según sea necesario */
+  margin: 10px 0; /* Espacio entre párrafos */
+}
+
+
+.intro-titleb {
+  background-color: #e0e0e0; /* Fondo claro para el título */
+  padding: 10px 20px; /* Espacio alrededor del texto */
+  border-radius: 10px; /* Bordes redondeados para el título */
+  font-size: 1rem; /* Ajusta el tamaño del texto según sea necesario */
+  margin-bottom: 20px; /* Espacio debajo del título */
+  color: #8F8FAB; /* Color del texto del título */
+  display: inline-block; /* Ajusta el fondo al tamaño del contenido */
+}
+
+.divb p {
+  font-size: 1.2rem; /* Ajusta el tamaño del texto según sea necesario */
+  margin: 10px 0; /* Espacio entre párrafos */
+}
+.div2b, .div3b, .div4b {
+  background-color: #f9f9f9; /* Fondo claro para el contenedor */
+  padding: 20px;
+  border-radius: 10px; /* Bordes redondeados para el contenedor */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Alinea los elementos al inicio del contenedor */
+  text-align: left; /* Alinea el texto a la izquierda dentro del contenedor */
+  color: white;
+}
+.div4b{
+  background-color: black;
+  color: #4d4c4c;
+}
+.div5b {
+  display: flex; /* Habilita Flexbox en el contenedor */
+  justify-content: center; /* Centra el contenido horizontalmente */
+  align-items: center; /* Centra el contenido verticalmente */
+  height: 100%; /* Asegura que el contenedor ocupe todo el espacio disponible */
+  padding: 20px; /* Añade espacio interno alrededor del contenido */
+  background-color: #e0e0e0; /* Fondo claro para el contenedor (opcional) */
+  border-radius: 10px; /* Bordes redondeados para el contenedor (opcional) */
+}
+
+.div5b p {
+  font-size: 1.2rem; /* Ajusta el tamaño del texto según sea necesario */
+  margin: 0; /* Elimina el margen alrededor del párrafo */
+  text-align: center; /* Alinea el texto dentro del párrafo */
+}
+.benefits-container {
+  padding: 20px;
+  margin: 20px auto; /* Esto centra el contenedor horizontalmente */
+  max-width: 1200px; /* Ancho máximo para que no ocupe toda la pantalla */
+  background-color: #c9c6c6bc; /* Opcional: Fondo claro para destacar el contenedor */
+  border-radius: 10px; /* Bordes redondeados */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Opcional: Sombra para darle algo de estilo */
+}
+
+
+.benefits-title {
+  font-size: 2rem;
+  color: #1D1B20;
+  margin-bottom: 20px;
+  background-color: #e0e0e0; /* Fondo claro */
+  padding: 10px;
+  border-radius: 10px;
+  display: inline-block; /* Fondo ajustado al texto */
+}
+
+.benefits-text {
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+  color: #1D1B20;
+  text-align: justify;
+}
+
+.benefits-list {
+  font-size: 1.1rem;
+  color: #1D1B20;
+  margin-left: 40px;
+  line-height: 1.6;
+  text-align: justify;
+}
+
+.benefits-list li {
+  margin-bottom: 20px;
+}
+
+@media (max-width: 1200px) {
+  .parent {
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: auto;
+    grid-template-areas: 
+      "div1 div1 div1 div1 div1 div1"
+      "div2 div2 div2 div2 div2 div2"
+      "div3 div3 div3 div3 div3 div3"
+      "div4 div4 div4 div4 div4 div4"
+      "div5 div5 div5 div5 div5 div5";
+  }
+
+  .div1 { grid-area: div1; }
+  .div2 { grid-area: div2; }
+  .div3 { grid-area: div3; }
+  .div4 { grid-area: div4; }
+  .div5 { grid-area: div5; }
+}
+.user{
+  font-size: 2rem;
+  padding-top: 10rem;
+  padding-left: 6rem;
+}
+
+.parent2 {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(12, 1fr);
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+  }
+  
+  .div1b { grid-area: 1 / 1 / 13 / 5;
+  background-color: #FFFFFF; }
+  .div2b { grid-area: 1 / 5 / 7 / 9; 
+  background-color: #004FB4;}
+  .div3b { grid-area: 7 / 5 / 13 / 9; 
+  background-color: #27264A;}
+  .div4b { grid-area: 1 / 9 / 9 / 13; 
+  background-color: #ECECFF;}
+  .div5b { grid-area: 9 / 9 / 13 / 13; 
+  background-color: #FFFFFF;}
+
+
+
+  @media (max-width: 768px) {
+  .logo {
+    width: 30vw; /* Ajusta el tamaño del logo para pantallas más pequeñas */
+    bottom: 7vh; /* Usa vh para una proporción constante con la altura */
+    right: 3vw; 
+  }
+
+  .intro-title {
+    margin: 30px 40px 20px 40px;
+    font-size: 14px; 
+  }
+
+  .intro-text {
+    margin-left: 40px;
+    margin-right: 40px;
+    font-size: 30px; 
+  }
+
+  .parent {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    grid-template-areas: 
+      "div1"
+      "div2"
+      "div3"
+      "div4"
+      "div5";
+  }
+
+  .div1 { grid-area: div1; }
+  .div2 { grid-area: div2; }
+  .div3 { grid-area: div3; }
+  .div4 { grid-area: div4; }
+  .div5 { grid-area: div5; }
+}
+
+@media (max-width: 480px) {
+  .intro-title {
+    margin: 20px 20px 15px 20px; /* Márgenes más pequeños para móviles */
+    font-size: 12px;
+  }
+
+  .intro-text {
+    margin-left: 20px;
+    margin-right: 20px;
+    font-size: 20px; /* Tamaño de texto más pequeño */
+  }
+}
