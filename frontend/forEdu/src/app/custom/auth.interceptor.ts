@@ -4,7 +4,7 @@ import { inject } from '@angular/core';
 import { AuthService } from '../service/auth.service';
 
 export const authInterceptor: HttpInterceptorFn = (req, next) => {
-   debugger
+
   const authService = inject(AuthService);
   const token = authService.getToken();
 

@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { GradeRegister } from '../../interfaces/grade-register';
 
 @Component({
   selector: 'app-card-grade',
@@ -8,5 +9,7 @@ import { Component } from '@angular/core';
   styleUrl: './card-grade.component.css'
 })
 export class CardGradeComponent {
+
+   @Input() grade!: GradeRegister;
 
 }

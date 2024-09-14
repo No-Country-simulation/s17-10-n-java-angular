@@ -9,7 +9,6 @@ import { ToastModule } from 'primeng/toast';
 import { GradeRegisterService } from '../../../service/grade-register.service';
 import { GradeRegister } from '../../../interfaces/grade-register';
 
-
 @Component({
   selector: 'app-register',
   standalone: true,
@@ -23,6 +22,7 @@ export class GradeRegisterComponent {
   private formBuild = inject(FormBuilder);
   private messageService = inject(MessageService);
   private gradeService = inject(GradeRegisterService);
+  private router = inject(Router);  // Inyecta correctamente el Router
 
   formGrade: FormGroup = this.formBuild.group({
     curso: ["", Validators.required],
@@ -42,6 +42,11 @@ export class GradeRegisterComponent {
         next: (response) => {
           console.log('Respuesta del servidor:', response);
           this.messageService.add({ severity: 'success', summary: 'Éxito', detail: 'Grado registrado exitosamente' });
+
+          // Aquí usamos el router después de 3 segundos
+          setTimeout(() => {
+            this.router.navigate(['/ruta-deseada']);  // Redirige a la ruta deseada
+          }, 2000);
         },
         error: (err) => {
           console.error('Error al registrar el grado:', err);
@@ -52,7 +57,4 @@ export class GradeRegisterComponent {
       this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Por favor completa todos los campos' });
     }
   }
-
-  constructor(private router: Router) {}
-
 }

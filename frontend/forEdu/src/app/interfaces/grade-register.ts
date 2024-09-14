@@ -8,7 +8,7 @@ export interface GradeRegister {
 
  export type Aula = 'A' | 'B' | 'C';
  export type Curso = 'PRIMERO' | 'SEGUNDO' | 'TERCERO' | 'CUARTO' | 'QUINTO' | 'SEXTO';
- export type Turno = 'MANANA' | 'TARDE' | 'NOCHE';
+ export type Turno = 'MAÑANA' | 'TARDE' | 'NOCHE';
  export type Materia = 'MATEMATICAS' | 'CIENCIAS' | 'LENGUAJE' | 'HISTORIA';
 
 /* CREATE TABLE grado (
