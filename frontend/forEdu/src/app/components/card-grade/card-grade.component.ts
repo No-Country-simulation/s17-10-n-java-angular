@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { GradeRegister } from '../../interfaces/grade-register';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-card-grade',
@@ -8,12 +9,14 @@ import { GradeRegister } from '../../interfaces/grade-register';
   templateUrl: './card-grade.component.html',
   styleUrls: ['./card-grade.component.css']
 })
-export class CardGradeComponent implements OnInit {
+export class CardGradeComponent  {
 
    @Input() grade!: GradeRegister;
 
-   ngOnInit() {
-     console.log('Valor recibido en grade:', this.grade);
-   }
+   constructor (private router:Router ){}
 
+
+   navigateAsistencia(){
+      return this.router.navigate(['/asistencia'])
+   }
 }

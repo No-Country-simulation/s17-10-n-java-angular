@@ -3,9 +3,9 @@
     <div class="opciones-izquierda">
       <button [class.active]="tablaActual === 'alumnos'" (click)="mostrarTabla('alumnos')">Novedades</button>
       <button [class.active]="tablaActual === 'profesores'" (click)="mostrarTabla('profesores')">Calendario</button>
-      <button [class.active]="tablaActual === 'administradores'" (click)="mostrarTabla('administradores')">Lista</button>
+      <button [class.active]="tablaActual === 'Lista'" (click)="mostrarTabla('Lista')">Lista</button>
       <button [class.active]="tablaActual === 'administradores'" (click)="mostrarTabla('administradores')">Asistencia</button>
-      <button [class.active]="tablaActual === 'administradores'" (click)="mostrarTabla('administradores')">Boletines</button>
+      <button [class.active]="tablaActual === 'Boletines'" (click)="mostrarTabla('Boletines')">Boletines</button>
     </div>
     <div class="iconos-derecha">
       Profesora: Maria Vergara
@@ -29,7 +29,7 @@
       </button>
     </div>
   </div>
-  
+
   <!-- Parte inferior -->
   <div class="institutional-tables">
       <div class=".table-wrapper">

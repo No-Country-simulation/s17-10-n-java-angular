@@ -81,7 +81,7 @@ export class AsistenciaComponent {
   closeModal() {
     this.isModalVisible = false;
   }
-  tablaActual: string = "alumnos";
+  tablaActual: string = "administradores";
 
   mostrarTabla(tabla: string) {
     this.tablaActual = tabla;
