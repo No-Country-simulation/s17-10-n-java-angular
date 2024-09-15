@@ -4,6 +4,7 @@ import com.dev.ForoEscolar.enums.MateriaEnum;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -35,4 +36,5 @@ public class Profesor extends User {
 
     @OneToMany(mappedBy = "profesor", cascade = {CascadeType.ALL},orphanRemoval = true,fetch = FetchType.LAZY)
     private List<Grado> grado;
+
 }
