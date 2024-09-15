@@ -50,6 +50,7 @@
   display: flex;
   flex-direction: column;
   height: 100%;
+  border-radius: 1.25rem;
 }
 
 table {
@@ -67,6 +68,7 @@ thead {
   position: sticky;
   top: 0;
   z-index: 1;
+ 
 }
 
 .table-body {
@@ -88,11 +90,15 @@ th {
   background-color: #f0efef;
   font-weight: 600;
   letter-spacing: 0.05rem;
-  padding: 0.5rem 1rem;
+  padding: 1.2rem 1rem;
   text-align: left;
   border-bottom: 1px solid #dddddd;
+  
 }
-
+td img{
+  width: 3.25rem;  
+  border-radius: 100%;
+}
 tr:nth-child(odd) {
   background-color: #FFFFFF;
 }
@@ -105,7 +111,11 @@ tr:hover {
   background-color: #f1f1f1;
 }
 
-
+th{
+  background-color: #662288;
+  color: white;
+  
+}
 
 .table-body::-webkit-scrollbar-thumb {
   background: #CCCCCC;
@@ -188,4 +198,111 @@ tr:hover {
 .iconos-derecha {
   display: flex;
   gap: 15px;
+}
+/* Estilo general de la tabla */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.table th, .table td {
+  padding: 10px;
+  text-align: center;
+  border: 1px solid #ddd;
+  vertical-align: middle;
+}
+
+/* Estilo para la imagen */
+.student-photo {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* Ocultar el checkbox original */
+.custom-checkbox input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Crear el estilo personalizado para la casilla */
+.custom-checkbox .checkmark {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  position: relative;
+}
+
+/* Icono de la "tilde" (✓) cuando está seleccionado */
+.custom-checkbox input[type="checkbox"]:checked + .checkmark::before {
+  content: "✓";
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: green;
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+/* Icono de la "x" (✕) cuando no está seleccionado */
+.custom-checkbox input[type="checkbox"]:not(:checked) + .checkmark::after {
+  content: "✕";
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: red;
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.asistencia-header {
+  display: flex;
+  justify-content: space-between; /* Distribuye los elementos a los lados */
+  width: 100%;
+  padding: 1.25rem;
+ }
+
+.left-buttons {
+  display: flex;
+  gap: 10px; /* Espacio entre los botones */
+}
+
+.btn-carga-hoy, .btn-hoy-cargado {
+  padding: 8px 16px;
+  background-color: #E9511d; /* Color del botón */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.btn-carga-hoy:hover, .btn-hoy-cargado:hover {
+  background-color: #fc4002; /* Efecto hover en los botones */
+}
+
+.right-icons {
+  display: flex;
+  gap: 10px; /* Espacio entre los íconos */
+  
+  
+}
+
+.icon-btn {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  
+}
+
+.icon-btn i {
+  color: #E9511d; /* Color de los íconos */
+}
+
+.icon-btn:hover i {
+  color: #f53f02; /* Efecto hover en los íconos */
 }
