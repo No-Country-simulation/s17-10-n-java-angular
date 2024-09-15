@@ -34,7 +34,12 @@ export class GradeComponent {
   ngOnInit(): void {
     this.gradeService.getAllGrade().subscribe({
       next: (response) => {
-        this.grades = response;  // Aquí obtienes la lista de grados
+         if (Array.isArray(response) && Array.isArray(response[0])) {
+            this.grades = response[0];
+          } else {
+            this.grades = response;
+          }
+
       },
       error: (err) => {
         console.error('Error al obtener la lista de grados:', err);

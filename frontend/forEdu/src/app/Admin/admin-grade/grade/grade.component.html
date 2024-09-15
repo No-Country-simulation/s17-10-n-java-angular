@@ -16,12 +16,11 @@
      <section class="card-section">
        <app-card-add></app-card-add>
 
-       <!-- Itera sobre la lista de grados -->
+
        <app-card-grade
          *ngFor="let grade of grades"
-         [grade]="grade">  <!-- Pasa cada grado al componente -->
+         [grade]="grade">
        </app-card-grade>
-
      </section>
    </div>
  </div>

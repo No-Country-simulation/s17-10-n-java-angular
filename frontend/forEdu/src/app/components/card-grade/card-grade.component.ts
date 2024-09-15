@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { GradeRegister } from '../../interfaces/grade-register';
 
 @Component({
@@ -6,10 +6,14 @@ import { GradeRegister } from '../../interfaces/grade-register';
   standalone: true,
   imports: [],
   templateUrl: './card-grade.component.html',
-  styleUrl: './card-grade.component.css'
+  styleUrls: ['./card-grade.component.css']
 })
-export class CardGradeComponent {
+export class CardGradeComponent implements OnInit {
 
    @Input() grade!: GradeRegister;
+
+   ngOnInit() {
+     console.log('Valor recibido en grade:', this.grade);
+   }
 
 }

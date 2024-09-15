@@ -26,7 +26,7 @@ export class GradeRegisterService {
   getAllGrade (): Observable <GradeRegister[]>{
    return this.http.get<Getgrade>(`${this.url}/grado/getAll`).pipe(
       map(response => {
-        return [response.data];  // Extraer el campo `data` que contiene el objeto `GradeRegister`
+        return [response.dataIterable];
       })
     );
 
