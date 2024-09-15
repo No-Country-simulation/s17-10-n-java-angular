@@ -20,6 +20,7 @@ public class Calificacion {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Enumerated(EnumType.STRING)
     private MateriaEnum materia;
     private Double nota;
     private Double promedio;
