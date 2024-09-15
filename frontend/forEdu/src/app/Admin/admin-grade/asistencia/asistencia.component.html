@@ -12,57 +12,121 @@
     </div>
   </div>
   <!-- Parte inferior -->
-   <div class="asistencia">
-     <h2>Asistencia</h2>
+  <div class="asistencia-header">
+    <!-- Botones a la izquierda -->
+    <div class="left-buttons">
+      <button class="btn-carga-hoy">Carga de hoy</button>
+      <button class="btn-hoy-cargado">Hoy cargado</button>
+    </div>
 
-     <p-tieredMenu [model]="items" [popup]="true" #menu></p-tieredMenu>
-     <button type="button" (click)="menu.toggle($event)">Abrir Menú</button>
-   </div>
+    <!-- Iconos a la derecha -->
+    <div class="right-icons">
+      <button class="icon-btn">
+        <i class="pi pi-pencil"></i> <!-- Ícono de lápiz -->
+      </button>
+      <button class="icon-btn">
+        <i class="pi pi-calendar"></i> <!-- Ícono de calendario -->
+      </button>
+    </div>
+  </div>
+  
   <!-- Parte inferior -->
   <div class="institutional-tables">
       <div class=".table-wrapper">
           <table>
-              <thead>
-                  <tr>
-                      <th>Nombre <i class = "arrow pi pi-arrow-down"></i></th>
-                      <th>Asistencia</th>
-                      <th>Justificativo </th>
-                      <th>Lunes</th>
-                      <th>Martes</th>
-                      <th>Miercoles</th>
-                      <th>Jueves</th>
-                      <th>Viernes</th>
-
-                  </tr>
-              </thead>
+            <thead>
+              <tr>
+                <th></th>
+                <th>Nombre</th>
+                <th>Asistencia</th>
+                <th>Justificativo</th>
+                <th>Lunes</th>
+                <th>Martes</th>
+                <th>Miércoles</th>
+                <th>Jueves</th>
+                <th>Viernes</th>
+              </tr>
+            </thead>
+            <tbody>
+              @for (person of persons; track person.id) {
+                <tr>
+                  <td><img class="student-photo" src="https://www.conmishijos.com/uploads/_trabalenguas.jpg" alt="Foto del alumno"></td>
+                  <td>{{ person.nombre }}</td>
+                  <td>{{ person.Asistencia }}</td>
+                  <td>{{ person.Justificativo }}</td>
+                  <td>
+                    <label class="custom-checkbox">
+                      <input type="checkbox" [(ngModel)]="person.Lunes" />
+                      <span class="checkmark"></span>
+                    </label>
+                  </td>
+                  <td>
+                    <label class="custom-checkbox">
+                      <input type="checkbox" [(ngModel)]="person.Martes" />
+                      <span class="checkmark"></span>
+                    </label>
+                  </td>
+                  <td>
+                    <label class="custom-checkbox">
+                      <input type="checkbox" [(ngModel)]="person.Miercoles" />
+                      <span class="checkmark"></span>
+                    </label>
+                  </td>
+                  <td>
+                    <label class="custom-checkbox">
+                      <input type="checkbox" [(ngModel)]="person.Jueves" />
+                      <span class="checkmark"></span>
+                    </label>
+                  </td>
+                  <td>
+                    <label class="custom-checkbox">
+                      <input type="checkbox" [(ngModel)]="person.Viernes" />
+                      <span class="checkmark"></span>
+                    </label>
+                  </td>
+                </tr>
+              }
+            </tbody>
           </table>
           <div class="table-body">
               <table>
                   <tbody>
                       @for (person of persons; track person.id) {
-                          <tr>
+                          <>
+                            <td><img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fes.pngtree.com%2Ffreepng%2Fcartoon-happy-school-boy-waving-hand_7867226.html&psig=AOvVaw3GWBoM8_f7ipxx1qZKO5b7&ust=1726433226046000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCOiEso2nw4gDFQAAAAAdAAAAABAE" alt="Foto del alumno"></td> <!--supongo que aca llamara la img delalumno-->
                               <td>{{ person.nombre }}</td>
                               <td>{{ person.Asistencia }}</td>
                               <td>{{ person.Justificativo }}</td>
-                              <td>
-                                <input type="checkbox" [(ngModel)]="person.Lunes" />
-                              </td>
-                              <td>
-                                <input type="checkbox" [(ngModel)]="person.Martes" />
-                              </td>
-                              <td>
-                                <input type="checkbox" [(ngModel)]="person.Miercoles" />
-                              </td>
-                              <td>
-                                <input type="checkbox" [(ngModel)]="person.Jueves" />
-                              </td>
-                              <td>
-                                <input type="checkbox" [(ngModel)]="person.Viernes" />
-                              </td>
-
-
-                          </tr>
-                      }
+                                  <td><label class="custom-checkbox">
+                                      <input type="checkbox" [(ngModel)]="person.Lunes" />
+                                      <span class="checkmark"></span>
+                                    </label>
+                                  </td>
+                                  <td>
+                                    <label class="custom-checkbox">
+                                      <input type="checkbox" [(ngModel)]="person.Martes" />
+                                      <span class="checkmark"></span>
+                                    </label>
+                                  </td>
+                                  <td>
+                                    <label class="custom-checkbox">
+                                      <input type="checkbox" [(ngModel)]="person.Miercoles" />
+                                      <span class="checkmark"></span>
+                                    </label>
+                                  </td>
+                                  <td>
+                                    <label class="custom-checkbox">
+                                      <input type="checkbox" [(ngModel)]="person.Jueves" />
+                                      <span class="checkmark"></span>
+                                    </label>
+                                  </td>
+                                  <td>
+                                    <label class="custom-checkbox">
+                                      <input type="checkbox" [(ngModel)]="person.Viernes" />
+                                      <span class="checkmark"></span>
+                                    </label>
+                                  </td>
+                                                      }
 
                   </tbody>
               </table>
