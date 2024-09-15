@@ -45,7 +45,7 @@ public class ProfesorController {
         Optional<ProfesorResponseDTO> profesor = profesorService.findById(id);
         if (profesor.isPresent()) {
             ProfesorResponseDTO profesorResponseDTO = profesor.get();
-            String message = "Estudiante encontrado";
+            String message = "Profesor encontrado";
             return new ResponseEntity<>(new ApiResponseDto<>(true, message, profesorResponseDTO), HttpStatus.CREATED);
         } else {
             return new ResponseEntity<>(new ApiResponseDto<>(false, "Profesor no encontrado", null), HttpStatus.NOT_FOUND);
