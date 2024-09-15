@@ -1,8 +1,8 @@
 package com.dev.ForoEscolar.enums;
 
 public enum TurnoEnum {
-    MANAÑA,
+    MAÑANA,
     TARDE,
-    NOCHE;
+    NOCHE
 
 }

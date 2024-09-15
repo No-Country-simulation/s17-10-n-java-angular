@@ -69,7 +69,7 @@ public class ProfesorController {
     }
 
     @DeleteMapping("/{id}")
-    @Operation(summary = "Se elimina un estudiante en particular")
+    @Operation(summary = "Se elimina un profesor en particular")
     public ResponseEntity<Void> delete(@PathVariable("id") Long id) {
         profesorService.deleteById(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
