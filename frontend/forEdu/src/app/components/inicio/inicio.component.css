@@ -1,4 +1,45 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: .625rem 1.25rem;
+  margin-bottom: 0.55rem;
+  background-color: #f9f9f9; /* Fondo del navbar */
+}
+
+.navbar-logo img {
+  height: 3.125rem; /* Ajusta el tamaño del logo */
+}
+
+.navbar-menu {
+  list-style: none;
+  display: flex;
+}
+
+.navbar-menu li {
+  margin-left: 1.25rem;
+}
+
+.navbar-menu li a {
+  text-decoration: none;
+  color: #555; /* Color del texto */
+  padding: .625rem 1.25rem;
+  border: 1px solid transparent;
+  border-radius: .3125rem;
+  background-color: #f9f9f9;
+  /* Mismo color que el fondo */
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Sombra apenas visible */
+  transition: box-shadow 0.3s ease;
+}
+
+.navbar-menu li a:hover {
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Sombra más marcada al hacer hover */
+}
+
+
+
+
 .body{
   background-color: #5e595912;
 }
