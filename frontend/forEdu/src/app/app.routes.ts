@@ -19,6 +19,7 @@ import { LoginComponent } from './components/login/login.component';
 import { NewsGradeComponent } from './Admin/admin-grade/news-grade/news-grade.component';
 import { DetailComponent } from './Admin/admin-grade/detail/detail.component';
 import { InicioComponent } from './components/inicio/inicio.component';
+import { CalendarComponent } from './Admin/admin-calendar/calendar/calendar.component';
 
 export const routes: Routes = [
   {
@@ -52,6 +53,11 @@ export const routes: Routes = [
         path: 'detailsgrade',
         component: DetailComponent,
         data: { title: 'Detalles' },
+      },
+      {
+        path: 'calendar',
+        component: CalendarComponent,
+        data: { title: 'Calendario' },
       },
 
       {

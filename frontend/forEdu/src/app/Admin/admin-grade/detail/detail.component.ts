@@ -3,6 +3,7 @@ import { CardEventComponent } from '../../../components/card-event/card-event.co
 import { CardEventBodyComponent } from '../../../components/card-event-body/card-event-body.component';
 import { NewsGradeComponent } from '../news-grade/news-grade.component';
 import { AsistenciaComponent } from "../asistencia/asistencia.component";
+import { CalendarComponent } from "../../admin-calendar/calendar/calendar.component";
 
 @Component({
   selector: 'app-detail',
@@ -11,7 +12,8 @@ import { AsistenciaComponent } from "../asistencia/asistencia.component";
     CardEventComponent,
     CardEventBodyComponent,
     NewsGradeComponent,
-    AsistenciaComponent
+    AsistenciaComponent,
+    CalendarComponent
 ],
   templateUrl: './detail.component.html',
   styleUrl: './detail.component.css'

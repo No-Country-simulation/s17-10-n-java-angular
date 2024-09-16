@@ -21,6 +21,7 @@ export const appConfig: ApplicationConfig = {
       ButtonModule,
       MenuModule,
       MenubarModule,
+
     ),
     provideHttpClient(withInterceptors([authInterceptor]))
   ]
