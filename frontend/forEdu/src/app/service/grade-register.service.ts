@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { apiSetting } from '../../settings/apisetting';
 import { GradeRegister } from '../interfaces/grade-register';
@@ -32,5 +32,8 @@ export class GradeRegisterService {
 
   }
 
+  delete (id:number):Observable<any>{
+   return this.http.delete(`${this.url}/grado/${id}`);
+  }
 
 }

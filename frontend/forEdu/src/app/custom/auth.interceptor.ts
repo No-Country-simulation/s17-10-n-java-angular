@@ -18,16 +18,16 @@ export const authInterceptor: HttpInterceptorFn = (req, next) => {
  }
 
   if (token) {
+   console.log("token : ",token);
     const clonedRequest = req.clone({
       setHeaders: {
         Authorization: `Bearer ${token}`
       }
     });
 
-    console.log('Cloned Request:', clonedRequest);
     return next(clonedRequest);
   } else {
-    console.error('Token no encontrado en localStorage');
+
     return next(req);
   }
 };

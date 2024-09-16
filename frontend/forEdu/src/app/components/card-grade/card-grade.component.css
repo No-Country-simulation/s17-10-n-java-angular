@@ -8,16 +8,25 @@
 
 }
 
-.icon.pi-cog {
+.icon {
   font-size: 2rem;
   color: #333;
   margin-left: auto;
   cursor: pointer;
+  border: none;
+  background: transparent;
   transition: transform 0.3s ease;
 }
 .icon.pi-cog:hover {
   transform: rotate(90deg);
 }
+
+
+ ::ng-deep .custom-button .pi {
+   font-size: 2em;
+
+ }
+
 .card-header{
   display: flex;
   justify-content: center;

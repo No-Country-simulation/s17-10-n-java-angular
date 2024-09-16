@@ -1,4 +1,5 @@
 export interface GradeRegister {
+   id?: number ,
    aula: Aula;
    curso: Curso;
    turno: Turno;

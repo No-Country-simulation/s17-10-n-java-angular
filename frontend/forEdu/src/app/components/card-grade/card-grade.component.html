@@ -1,6 +1,17 @@
 <div class="card">
 
-  <span class="icon pi pi-cog config" aria-hidden="true"></span>
+
+<p-button
+   icon="pi pi-cog "
+   (click)="menu.toggle($event)"
+   class="custom-button icon config pi"
+   [text]="true" [plain]="true"
+   [rounded]="true"
+
+   ></p-button>
+<p-menu #menu [model]="items" popup="true" class="menuitem"></p-menu>
+
+
   <div class="card-header" (click)="navigateAsistencia()">
     <img src="https://via.placeholder.com/300x200" alt="Card Image" class="card-image">
     <p class="grade-title">{{grade.curso}} - {{grade.aula}}</p>
@@ -13,4 +24,5 @@
     <button  class="card-button">Turno mañana</button>
 
   </div>
+  <p-toast></p-toast>
 </div>
