@@ -10,9 +10,38 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './news-grade.component.css'
 })
 export class NewsGradeComponent {
-  
+
   newPostText: string = '';
-  posts: any[] = [];  // Usamos `any[]` para evitar definir una interface
+  posts: any[] = [
+   {
+      userImage: 'novedades1.png',
+      userName: 'Ana López',
+      postText: '¡Emocionada por comenzar un nuevo proyecto en la oficina! 🖥️✨',
+      likes: 24,
+      comments: 5
+    },
+    {
+      userImage: 'user3.png',
+      userName: 'Carlos García',
+      postText: 'Hoy aprendí mucho sobre Angular y cómo manejar rutas hijas. 🚀 ¿Alguien más está trabajando en esto?',
+      likes: 30,
+      comments: 8
+    },
+    {
+      userImage: 'novedades2.png',
+      userName: 'Lucía Fernández',
+      postText: '¡Un día increíble para salir a correr! 🏃‍♀️🌞 ¿Alguien se une?',
+      likes: 15,
+      comments: 2
+    },
+    {
+      userImage: 'user4.png',
+      userName: 'Roberto Pérez',
+      postText: 'Hoy descubrí un café excelente en la esquina, perfecto para trabajar tranquilo. ☕ ¿Tienen algún lugar favorito?',
+      likes: 18,
+      comments: 3
+    },
+  ];  // Usamos `any[]` para evitar definir una interface
 
   addPost() {
     if (this.newPostText.trim()) {
