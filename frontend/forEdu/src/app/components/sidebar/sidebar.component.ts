@@ -22,12 +22,12 @@ export class SidebarComponent implements OnInit {
       {
         label: 'Inicio',
         icon: 'pi pi-fw pi-home',
-        command: () => this.router.navigate(['/']) // Navega al componente DASHBOARD
+        command: () => this.router.navigate(['/dashboard/']) // Navega al componente DASHBOARD
       },
       {
         label: 'Grados',
         icon: 'pi pi-fw pi-book',
-        command: () => this.router.navigate(['/grade']) // Navega al componente GRADO
+        command: () => this.router.navigate(['/dashboard/grade']) // Navega al componente GRADO
       },
       {
         label: 'Calendarios',
@@ -41,13 +41,13 @@ export class SidebarComponent implements OnInit {
       {
         label: 'Usuarios',
         icon: 'pi pi-fw pi-users',
-        command: () => this.router.navigate(['/users']) // Navega al componente USUARIOS
+        command: () => this.router.navigate(['/dashboard/users']) // Navega al componente USUARIOS
       }
       ,
       {
         label: 'Boletines',
         icon: 'pi pi-fw pi-graduation-cap',
-        command: () => this.router.navigate(['/newsletter']) // Navega al componente BOLETINES
+        command: () => this.router.navigate(['/dashboard/newsletter']) // Navega al componente BOLETINES
       },
       {
         label: 'Herramientas',

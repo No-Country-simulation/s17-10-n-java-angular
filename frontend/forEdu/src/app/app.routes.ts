@@ -16,10 +16,11 @@ import { LayoutAdminComponent } from './layouts/layout-admin/layout-admin.compon
 import { GradeRegisterComponent } from './Admin/admin-grade/register-grade/register.component';
 import { authGuard } from './guard/auth.guard';
 import { LoginComponent } from './components/login/login.component';
+import { InicioComponent } from './components/inicio/inicio.component';
 
 export const routes: Routes = [
   {
-    path: '',
+    path: 'dashboard',
     component: LayoutAdminComponent,
 
     children: [
@@ -73,13 +74,13 @@ export const routes: Routes = [
     ]
   },
   {
-    path: 'users',
-    component: LayoutAdminComponent,
+    path: '',
+    component: InicioComponent,
     children: [
       ...ADMIN_ROUTES,
 
-      {path: 'users',
-        component: InstitutionalUserComponent
+      {path: 'login',
+        component: LoginComponent
       },
 
     ],

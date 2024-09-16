@@ -6,8 +6,14 @@
   padding: .625rem 1.25rem;
   margin-bottom: 0.55rem;
   background-color: #f9f9f9; /* Fondo del navbar */
+
 }
 
+.menu {
+   display: flex;
+   flex-direction: row;
+
+}
 .navbar-logo img {
   height: 3.125rem; /* Ajusta el tamaño del logo */
 }
@@ -37,6 +43,12 @@
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Sombra más marcada al hacer hover */
 }
 
+.navbar-menu .login {
+   background-color: #E9511D !important ;
+   color: white !important;
+   font-weight: 700;
+   border-radius: 12px !important;
+}
 
 
 
@@ -119,7 +131,7 @@ p {
   grid-row-gap: 10px;
 }
 
-.div1 { 
+.div1 {
   grid-area: 1 / 2 / 6 / 12;
 }
 /* General styles for the card */
@@ -207,8 +219,8 @@ p {
   }
 }
 
-.div2 { 
-  grid-area: 6 / 2 / 11 / 7; 
+.div2 {
+  grid-area: 6 / 2 / 11 / 7;
   background-color: #004FB4;
   border-radius: 5%;
   display: grid;
@@ -218,24 +230,24 @@ p {
 
 .div2 h2 {
   font-size: 2.5rem;
-  color: #fff; 
+  color: #fff;
 }
 
 .div2 p {
   font-size: 1rem;
-  color: #fff; 
+  color: #fff;
   text-align: justify;
 }
 
-.div3 { 
-  grid-area: 6 / 7 / 8 / 12; 
+.div3 {
+  grid-area: 6 / 7 / 8 / 12;
   position: relative;
   display: inline-block;
 }
 
 .div3 img {
   width: 100%;
-  height: 100%; 
+  height: 100%;
   display: block;
 }
 
@@ -245,15 +257,15 @@ p {
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
-  color: #fff; 
+  color: #fff;
 }
 
 .div3 p {
   margin: 0;
-  font-size: 3rem; 
+  font-size: 3rem;
 }
 
-.div4 { 
+.div4 {
   grid-area: 8 / 7 / 13 / 12;
   background-color: #27264A;
   border-radius: 5%;
@@ -264,16 +276,16 @@ p {
 
 .div4 h2 {
   font-size: 2.5rem;
-  color: #fff; 
+  color: #fff;
 }
 
 .div4 p {
   font-size: 0.9rem;
-  color: #fff; 
+  color: #fff;
   text-align: justify;
 }
 
-.div5 { 
+.div5 {
   grid-area: 11 / 2 / 13 / 7;
 }
 
@@ -291,7 +303,7 @@ img {
   flex-direction: column;
   align-items: flex-start; /* Alinea los elementos al inicio del contenedor */
   text-align: left; /* Alinea el texto a la izquierda dentro del contenedor */
- 
+
 }
 
 .intro-titleb {
@@ -396,7 +408,7 @@ img {
   .parent {
     grid-template-columns: repeat(6, 1fr);
     grid-template-rows: auto;
-    grid-template-areas: 
+    grid-template-areas:
       "div1 div1 div1 div1 div1 div1"
       "div2 div2 div2 div2 div2 div2"
       "div3 div3 div3 div3 div3 div3"
@@ -423,16 +435,16 @@ img {
   grid-column-gap: 10px;
   grid-row-gap: 10px;
   }
-  
+
   .div1b { grid-area: 1 / 1 / 13 / 5;
   background-color: #FFFFFF; }
-  .div2b { grid-area: 1 / 5 / 7 / 9; 
+  .div2b { grid-area: 1 / 5 / 7 / 9;
   background-color: #004FB4;}
-  .div3b { grid-area: 7 / 5 / 13 / 9; 
+  .div3b { grid-area: 7 / 5 / 13 / 9;
   background-color: #27264A;}
-  .div4b { grid-area: 1 / 9 / 9 / 13; 
+  .div4b { grid-area: 1 / 9 / 9 / 13;
   background-color: #ECECFF;}
-  .div5b { grid-area: 9 / 9 / 13 / 13; 
+  .div5b { grid-area: 9 / 9 / 13 / 13;
   background-color: #FFFFFF;}
 
 
@@ -441,24 +453,24 @@ img {
   .logo {
     width: 30vw; /* Ajusta el tamaño del logo para pantallas más pequeñas */
     bottom: 7vh; /* Usa vh para una proporción constante con la altura */
-    right: 3vw; 
+    right: 3vw;
   }
 
   .intro-title {
     margin: 30px 40px 20px 40px;
-    font-size: 14px; 
+    font-size: 14px;
   }
 
   .intro-text {
     margin-left: 40px;
     margin-right: 40px;
-    font-size: 30px; 
+    font-size: 30px;
   }
 
   .parent {
     grid-template-columns: 1fr;
     grid-template-rows: auto;
-    grid-template-areas: 
+    grid-template-areas:
       "div1"
       "div2"
       "div3"
