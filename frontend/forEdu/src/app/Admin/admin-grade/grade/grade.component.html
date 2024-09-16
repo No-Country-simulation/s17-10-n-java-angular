@@ -2,10 +2,10 @@
    <div class="container">
      <nav class="turnos">
        <div class="links-turno">
-         <a class="turno-list active">Todos</a>
-         <a class="turno-list">Turno mañana</a>
-         <a class="turno-list">Turno Tarde</a>
-         <a class="turno-list">Turno noche</a>
+         <a (click)="filterTurno('TODOS')" class="turno-list" [ngClass]="{'active': selectedTurno === 'TODOS'}">Todos</a>
+         <a (click)="filterTurno('MAÑANA')" class="turno-list" [ngClass]="{'active': selectedTurno === 'MAÑANA'}">Turno mañana</a>
+         <a (click)="filterTurno('TARDE')" class="turno-list" [ngClass]="{'active': selectedTurno === 'TARDE'}">Turno Tarde</a>
+         <a (click)="filterTurno('NOCHE')" class="turno-list" [ngClass]="{'active': selectedTurno === 'NOCHE'}">Turno noche</a>
        </div>
        <div class="icon-nav">
          <span class="icon active-icon pi pi-list" aria-hidden="true"></span>
@@ -16,9 +16,8 @@
      <section class="card-section">
        <app-card-add></app-card-add>
 
-
        <app-card-grade
-         *ngFor="let grade of grades"
+         *ngFor="let grade of filteredGrades"
          [grade]="grade">
        </app-card-grade>
      </section>

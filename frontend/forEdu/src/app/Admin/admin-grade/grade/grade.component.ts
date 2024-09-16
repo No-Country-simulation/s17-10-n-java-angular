@@ -9,7 +9,6 @@ import { GradeRegister } from '../../../interfaces/grade-register';
 import { GradeRegisterService } from '../../../service/grade-register.service';
 import { CommonModule } from '@angular/common';
 
-
 @Component({
   selector: 'app-grade',
   standalone: true,
@@ -21,34 +20,40 @@ import { CommonModule } from '@angular/common';
     NavbarComponent,
     SidebarComponent,
     CommonModule
-],
+  ],
   templateUrl: './grade.component.html',
-  styleUrl: './grade.component.css'
+  styleUrls: ['./grade.component.css']
 })
 export class GradeComponent {
 
-   grades: GradeRegister[] = [];
+  grades: GradeRegister[] = [];
+  filteredGrades: GradeRegister[] = [];
+  selectedTurno: string = 'TODOS';
 
   constructor(private gradeService: GradeRegisterService) {}
 
   ngOnInit(): void {
     this.gradeService.getAllGrade().subscribe({
       next: (response) => {
-         if (Array.isArray(response) && Array.isArray(response[0])) {
-            this.grades = response[0];
-          } else {
-            this.grades = response;
-          }
-
+        if (Array.isArray(response) && Array.isArray(response[0])) {
+          this.grades = response[0];
+        } else {
+          this.grades = response;
+        }
+        this.filteredGrades = this.grades; // Inicialmente, muestra todas las calificaciones
       },
       error: (err) => {
         console.error('Error al obtener la lista de grados:', err);
       }
     });
   }
-/*
-  irAdetail(){
-    this.router.navigate(['/detailsgrade']);
+
+  filterTurno(turno: string): void {
+    this.selectedTurno = turno;
+    if (turno === 'TODOS') {
+      this.filteredGrades = this.grades;
+    } else {
+      this.filteredGrades = this.grades.filter(grade => grade.turno === turno);
+    }
   }
-    */
 }
