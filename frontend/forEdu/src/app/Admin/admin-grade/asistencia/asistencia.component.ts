@@ -12,7 +12,8 @@ import { CommonModule } from '@angular/common';
     FormsModule,
     MenubarModule,
     SplitButtonModule,
-    CommonModule
+    CommonModule,
+
   ],
   templateUrl: './asistencia.component.html',
   styleUrl: './asistencia.component.css'

@@ -1,60 +1,60 @@
 .card {
-  width: 18rem;
-  display:flex;
-  flex-direction: column;
-  border: solid 2px #DADCE0;
-  border-radius: 2em;
-  padding: 1.5rem;
-
-}
-
-.icon {
-  font-size: 2rem;
-  color: #333;
-  margin-left: auto;
-  cursor: pointer;
-  border: none;
-  background: transparent;
-  transition: transform 0.3s ease;
-}
-.icon.pi-cog:hover {
-  transform: rotate(90deg);
-}
-
-
- ::ng-deep .custom-button .pi {
-   font-size: 2em;
+   width: 18rem;
+   display:flex;
+   flex-direction: column;
+   border: solid 2px #DADCE0;
+   border-radius: 2em;
+   padding: 1.5rem;
 
  }
 
-.card-header{
-  display: flex;
-  justify-content: center;
-  align-items: center;
+ .icon {
+   font-size: 2rem;
+   color: #333;
+   margin-left: auto;
    cursor: pointer;
-  flex-direction: column;
-}
-.card-image{
-  margin-top: 1rem;
-  max-width: 50%;
-  max-height: 50%;
-  width: 7rem;
-  height: 7rem;
-  border-radius: 50%;
-  margin-bottom: 1rem;
+   border: none;
+   background: transparent;
+   transition: transform 0.3s ease;
+ }
+ .icon.pi-cog:hover {
+   transform: rotate(90deg);
+ }
 
-}
-.grade-title{
-  font-size: 2rem;
-  font-weight: 500;
-  margin: 0;
-  margin-top: 0.5rem;
-}
 
-.card-button{
-  border-radius: 2em;
-  border: 3px solid #DADCE0;
-  padding: 0.7rem;
-  width: 50%;
-  background-color: transparent;
-}
+  ::ng-deep .custom-button .pi {
+    font-size: 2em;
+
+  }
+
+ .card-header{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+    cursor: pointer;
+   flex-direction: column;
+ }
+ .card-image{
+   margin-top: 1rem;
+   max-width: 50%;
+   max-height: 50%;
+   width: 7rem;
+   height: 7rem;
+   border-radius: 50%;
+   margin-bottom: 1rem;
+
+ }
+ .grade-title{
+   font-size: 2rem;
+   font-weight: 500;
+   margin: 0;
+   margin-top: 0.5rem;
+ }
+
+ .card-button{
+   border-radius: 2em;
+   border: 3px solid #DADCE0;
+   padding: 0.7rem;
+   width: 50%;
+   background-color: transparent;
+ }

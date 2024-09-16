@@ -68,7 +68,7 @@ thead {
   position: sticky;
   top: 0;
   z-index: 1;
- 
+
 }
 
 .table-body {
@@ -93,10 +93,10 @@ th {
   padding: 1.2rem 1rem;
   text-align: left;
   border-bottom: 1px solid #dddddd;
-  
+
 }
 td img{
-  width: 3.25rem;  
+  width: 3.25rem;
   border-radius: 100%;
 }
 tr:nth-child(odd) {
@@ -114,7 +114,7 @@ tr:hover {
 th{
   background-color: #662288;
   color: white;
-  
+
 }
 
 .table-body::-webkit-scrollbar-thumb {
@@ -287,8 +287,8 @@ th{
 .right-icons {
   display: flex;
   gap: 10px; /* Espacio entre los íconos */
-  
-  
+
+
 }
 
 .icon-btn {
@@ -296,7 +296,7 @@ th{
   border: none;
   cursor: pointer;
   font-size: 18px;
-  
+
 }
 
 .icon-btn i {

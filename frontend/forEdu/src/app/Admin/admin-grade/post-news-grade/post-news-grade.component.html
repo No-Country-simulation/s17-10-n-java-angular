@@ -1,0 +1,19 @@
+<div class="post-container">
+    <div class="post-header">
+      <img [src]="userImage" alt="Foto de perfil" class="profile-pic">
+      <div class="user-info">
+        <h4>{{ userName }}</h4>
+      </div>
+    </div>
+    <div class="post-content">
+      <p>{{ postText }}</p>
+    </div>
+    <hr class="divider">
+    <div class="post-footer">
+      <div class="post-actions">
+        <button class="like-button" (click)="likePost()"><i class="pi pi-thumbs-up"></i> {{ likes }}</button>
+        <button class="like-button"><i class="pi pi-comment"></i> {{ likes }}</button>
+      </div>
+    </div>
+  </div>
+  

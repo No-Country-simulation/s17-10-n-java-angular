@@ -46,5 +46,9 @@ export class GradeComponent {
       }
     });
   }
-
+/*
+  irAdetail(){
+    this.router.navigate(['/detailsgrade']);
+  }
+    */
 }
