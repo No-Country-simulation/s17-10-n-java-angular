@@ -1,15 +1,17 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { MenuItem } from 'primeng/api';
 import { SplitButtonModule } from 'primeng/splitbutton';
+import { OverlayPanel, OverlayPanelModule } from 'primeng/overlaypanel'; // Importa OverlayPanel
 import { jwtDecode } from "jwt-decode";
 import { JwtPayload } from '../../interfaces/jwt-payload';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { filter } from 'rxjs/operators';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [SplitButtonModule],
+  imports: [SplitButtonModule,OverlayPanelModule,CommonModule],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css'
 })
@@ -21,6 +23,10 @@ export class NavbarComponent {
   username: string = "Invitado";
   items: MenuItem[] = [];
   title: string = "";
+  notificationCount: number = 3;  // Número de notificaciones
+  notifications: string[] = [" Nuevo Ingreso", "Evento Danza Mañana", "ENtrega de boletines"]; // Lista de notificaciones
+
+  @ViewChild('op') overlayPanel: OverlayPanel | undefined; // Referencia al OverlayPanel
 
   constructor(
     private router: Router,
@@ -53,8 +59,11 @@ export class NavbarComponent {
       this.updateTitle();
     });
 
-
     this.updateTitle();
+  }
+
+  showNotifications(event: Event) {
+    this.overlayPanel?.toggle(event); // Muestra/oculta el OverlayPanel
   }
 
   save(info: string) {

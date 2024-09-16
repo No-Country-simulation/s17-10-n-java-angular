@@ -32,6 +32,7 @@ export class SidebarComponent implements OnInit {
       {
         label: 'Calendarios',
         icon: 'pi pi-fw pi-calendar',
+        command: () => this.router.navigate(['/dashboard/calendar']) // Navega al componente GRADO
       },
       {
         label: 'Mensajes',

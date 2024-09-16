@@ -40,7 +40,7 @@ export class GradeComponent {
         } else {
           this.grades = response;
         }
-        this.filteredGrades = this.grades; // Inicialmente, muestra todas las calificaciones
+        this.filteredGrades = this.grades;
       },
       error: (err) => {
         console.error('Error al obtener la lista de grados:', err);

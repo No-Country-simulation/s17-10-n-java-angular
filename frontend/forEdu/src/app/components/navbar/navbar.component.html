@@ -1,18 +1,36 @@
 <nav class="navbar">
-    <h4 class="title-main"><i class="pi pi-arrow-left"> </i> {{title}}</h4>
-    <ul>
-        <li><a href="#" aria-label="Buscar"><i class="pi pi-search"></i></a></li>
-        <li><a href="#" aria-label="Notificaciones"><i class="pi pi-bell"></i></a></li>
-        <li class="perfil"><a href="#" aria-label="Perfil"><i class="pi pi-user"></i></a></li>
-        <li class="option">
-            <p-splitButton
-            label={{username}}
-            [model]="items"
-            text
-            severity="primary">
-        </p-splitButton>
-        </li>
+   <h4 class="title-main"><i class="pi pi-arrow-left"> </i> {{title}}</h4>
+   <ul>
+     <li><a href="#" aria-label="Buscar"><i class="pi pi-search"></i></a></li>
+     <li>
+       <a  aria-label="Notificaciones" (click)="showNotifications($event)">
+         <i class="pi pi-bell p-overlay-badge">
+           <span *ngIf="notificationCount > 0" class="p-badge">{{ notificationCount }}</span>
+         </i>
+       </a>
 
-
-    </ul>
-</nav>
+       <!-- Panel que muestra los mensajes -->
+       <p-overlayPanel #op>
+         <div *ngIf="notifications.length > 0; else noNotifications">
+           <ul>
+             <li *ngFor="let notification of notifications">
+               {{ notification }}
+             </li>
+           </ul>
+         </div>
+         <ng-template #noNotifications>
+           <p>No hay nuevas notificaciones</p>
+         </ng-template>
+       </p-overlayPanel>
+     </li>
+     <li class="perfil"><a href="#" aria-label="Perfil"><i class="pi pi-user"></i></a></li>
+     <li class="option">
+       <p-splitButton
+         [label]="username"
+         [model]="items"
+         text
+         severity="primary">
+       </p-splitButton>
+     </li>
+   </ul>
+ </nav>

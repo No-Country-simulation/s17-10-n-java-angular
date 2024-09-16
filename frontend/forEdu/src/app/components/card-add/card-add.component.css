@@ -2,7 +2,7 @@
   width: 18rem;
   display:flex;
   flex-direction: column;
-  border: solid 2px #DADCE0;
+  border: dashed 3px #DADCE0;
   border-radius: 10px;
   padding: 1.5rem;
   height: 100%;
