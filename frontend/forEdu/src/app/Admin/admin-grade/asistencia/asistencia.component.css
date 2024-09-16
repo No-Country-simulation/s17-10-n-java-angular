@@ -1,15 +1,4 @@
-.container-institutional {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  width: 100%;
-  max-width: 1200px;
-  height: 92vh;
-  align-items: center;
-  justify-content: center;
-  padding: 1.9rem;
-  box-sizing: border-box;
-}
+
 
 .institutional-statistics {
   display: grid;
@@ -262,7 +251,7 @@ th{
   display: flex;
   justify-content: space-between; /* Distribuye los elementos a los lados */
   width: 100%;
-  padding: 1.25rem;
+  padding: 0.5rem 1.25rem 0.5rem 0 ;
  }
 
 .left-buttons {

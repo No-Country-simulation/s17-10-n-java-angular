@@ -55,12 +55,6 @@ export const routes: Routes = [
       },
 
       {
-        path: 'news',
-        component: NewsGradeComponent,
-
-        data: { title: 'Comunicaciones' },
-      },
-      {
         path: 'users',
         component: InstitutionalUserComponent,
         canActivate: [authGuard],

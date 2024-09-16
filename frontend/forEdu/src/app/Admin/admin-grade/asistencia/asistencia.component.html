@@ -1,22 +1,11 @@
-<div class="container-institutional">
-  <div class="barra-navegacion">
-    <div class="opciones-izquierda">
-      <button [class.active]="tablaActual === 'alumnos'" (click)="mostrarTabla('alumnos')">Novedades</button>
-      <button [class.active]="tablaActual === 'profesores'" (click)="mostrarTabla('profesores')">Calendario</button>
-      <button [class.active]="tablaActual === 'Lista'" (click)="mostrarTabla('Lista')">Lista</button>
-      <button [class.active]="tablaActual === 'administradores'" (click)="mostrarTabla('administradores')">Asistencia</button>
-      <button [class.active]="tablaActual === 'Boletines'" (click)="mostrarTabla('Boletines')">Boletines</button>
-    </div>
-    <div class="iconos-derecha">
-      Profesora: Maria Vergara
-    </div>
-  </div>
+<div>
+
   <!-- Parte inferior -->
   <div class="asistencia-header">
     <!-- Botones a la izquierda -->
     <div class="left-buttons">
-      <button class="btn-carga-hoy">Carga de hoy</button>
-      <button class="btn-hoy-cargado">Hoy cargado</button>
+      <button class="btn-carga-hoy" *ngIf="!asistencia()" (click)="toggleAsistencia()">Carga de hoy</button>
+      <button class="btn-hoy-cargado" *ngIf="asistencia()" (click)="toggleAsistencia()">Hoy cargado</button>
     </div>
 
     <!-- Iconos a la derecha -->
@@ -137,5 +126,6 @@
       <button class="btn-add" type="button"><i class="pi pi-plus"></i></button>
       <div>Añadir</div>
   </div>
+  <p-toast></p-toast>
 </div>
 

@@ -4,6 +4,8 @@ import { FormsModule } from '@angular/forms';
 import { MenubarModule } from 'primeng/menubar';
 import { SplitButtonModule } from 'primeng/splitbutton';
 import { CommonModule } from '@angular/common';
+import { MessageService } from 'primeng/api';
+import { ToastModule } from 'primeng/toast';
 
 @Component({
   selector: 'app-asistencia',
@@ -13,13 +15,16 @@ import { CommonModule } from '@angular/common';
     MenubarModule,
     SplitButtonModule,
     CommonModule,
+    ToastModule
 
   ],
   templateUrl: './asistencia.component.html',
-  styleUrl: './asistencia.component.css'
+  styleUrl: './asistencia.component.css',
+  providers: [MessageService]
 })
 export class AsistenciaComponent {
   items!: any[];
+  private asistenciaVerificacion: boolean = false;
 
 
   ngOnInit() {
@@ -67,7 +72,11 @@ export class AsistenciaComponent {
     console.log('Fecha seleccionada: ', dia);
   }
 
-  constructor(private modalUserInstitutionalService: ModalUserInstitutionalService) {}
+  constructor(
+   private modalUserInstitutionalService: ModalUserInstitutionalService,
+   private messageService: MessageService
+
+) {}
 
   openModal(user: any) {
     this.modalUserInstitutionalService.showModal(user);
@@ -224,4 +233,19 @@ export class AsistenciaComponent {
 
 
 ];
+
+asistencia() {
+
+   return this.asistenciaVerificacion;
+ }
+ toggleAsistencia() {
+   this.asistenciaVerificacion = !this.asistenciaVerificacion;
+   if (this.asistenciaVerificacion) {
+      this.messageService.add({severity: 'success', summary: 'Éxito', detail: 'Asistencia guardada con éxito'});
+   } else{
+      this.messageService.add({severity: 'warn', summary: 'warning', detail: 'Asistencia no se ha guardado'});
+   }
+
+
+ }
 }

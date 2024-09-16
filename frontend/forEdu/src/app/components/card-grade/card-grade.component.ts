@@ -35,7 +35,7 @@ export class CardGradeComponent {
   ) {}
 
   navigateAsistencia() {
-    return this.router.navigate(['/dashboard/asistencia']);
+    return this.router.navigate(['/dashboard/detailsgrade']);
   }
 
   editGrade() {

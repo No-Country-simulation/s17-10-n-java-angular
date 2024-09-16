@@ -5,6 +5,7 @@ import { ButtonModule } from 'primeng/button';
 import { CommonModule } from '@angular/common';
 import { NavbarComponent } from "../../../components/navbar/navbar.component";
 import { SidebarComponent } from "../../../components/sidebar/sidebar.component";
+import { Router } from '@angular/router';
 
 
 
@@ -17,6 +18,12 @@ import { SidebarComponent } from "../../../components/sidebar/sidebar.component"
   styleUrl: './admi-dashboard.component.css'
 })
 export class AdmiDashboardComponent {
+
+   constructor(private router : Router){}
+
+   navigateGrade(){
+      return this.router.navigate(['/dashboard/grade'])
+   }
 
 
 /*----------------------*/
