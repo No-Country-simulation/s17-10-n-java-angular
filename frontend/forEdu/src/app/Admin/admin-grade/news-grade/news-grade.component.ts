@@ -1,13 +1,16 @@
 import { Component } from '@angular/core';
 import { PostNewsGradeComponent } from '../post-news-grade/post-news-grade.component';
 import { FormsModule } from '@angular/forms';
+import { MessageService } from 'primeng/api';
+import { ToastModule } from 'primeng/toast';
 
 @Component({
   selector: 'app-news-grade',
   standalone: true,
-  imports: [PostNewsGradeComponent, FormsModule],
+  imports: [PostNewsGradeComponent, FormsModule,ToastModule],
   templateUrl: './news-grade.component.html',
-  styleUrl: './news-grade.component.css'
+  styleUrl: './news-grade.component.css',
+  providers:[MessageService]
 })
 export class NewsGradeComponent {
 
@@ -43,8 +46,12 @@ export class NewsGradeComponent {
     },
   ];  // Usamos `any[]` para evitar definir una interface
 
+  constructor(private messageService:MessageService){}
+
+
   addPost() {
     if (this.newPostText.trim()) {
+      this.messageService.add({severity:"success",summary:"Exito",detail:"Creado un post con exito"})
       const newPost = {
         userImage: 'ruta_de_la_imagen.jpg', // Cambia esto por la imagen del usuario
         userName: 'Nombre del Usuario',     // Cambia por el nombre del usuario

@@ -12,17 +12,19 @@
 <p-menu #menu [model]="items" popup="true" class="menuitem"></p-menu>
 
 
+
   <div class="card-header" (click)="navigateAsistencia()">
-    <img src="https://via.placeholder.com/300x200" alt="Card Image" class="card-image">
-    <p class="grade-title">{{grade.curso}} - {{grade.aula}}</p>
-    <p>Profesor : {{grade.profesor}}</p>
+    <img src="infograde.png" alt="Card Image" class="card-image">
+    <p class="grade-title">{{ grade.curso }} - {{ grade.aula }}</p>
+    <p class="profesor">Profesor : {{ grade.profesor }}</p>
   </div>
+
+ <hr class="divider">
 
   <div class="card-content">
-    <h2 class="card-title">30 Alumnos</h2>
+    <h4 class="card-title">30 Alumnos</h4>
     <p class="card-description">22 padres</p>
-    <button  class="card-button">Turno mañana</button>
-
   </div>
+
   <p-toast></p-toast>
 </div>

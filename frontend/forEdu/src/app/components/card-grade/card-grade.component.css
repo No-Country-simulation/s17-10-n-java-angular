@@ -44,11 +44,17 @@
    margin-bottom: 1rem;
 
  }
- .grade-title{
-   font-size: 2rem;
-   font-weight: 500;
+ p {
    margin: 0;
-   margin-top: 0.5rem;
+ }
+ .grade-title{
+   font-size: 1.3rem;
+   font-weight: 500;
+
+
+ }
+ .profesor {
+   color: #888888;
  }
 
  .card-button{
@@ -57,4 +63,20 @@
    padding: 0.7rem;
    width: 50%;
    background-color: transparent;
+ }
+ .card-description{
+   margin: 0;
+   padding: 0;
+   margin-top: 0;
+   padding-top: 0;
+   font-size: 0.8rem;
+ }
+ h4 {
+   margin: 0.3rem 0;
+   padding: 0;
+ }
+ hr {
+   border-color: #C0C3C8 !important;
+   border-width: 1px;
+   margin: 10px 0;
  }

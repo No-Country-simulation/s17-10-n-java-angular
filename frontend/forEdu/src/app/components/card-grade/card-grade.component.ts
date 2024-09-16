@@ -10,11 +10,14 @@ import { GradeRegisterService } from '../../service/grade-register.service';
 import { MenuItem, MessageService } from 'primeng/api';
 import { ToastModule } from 'primeng/toast';
 import { MenubarService } from 'primeng/menubar';
+import { DividerModule } from 'primeng/divider';
+import { CardModule } from 'primeng/card';
 
 @Component({
   selector: 'app-card-grade',
   standalone: true,
-  imports: [DropdownModule, FormsModule, CommonModule, ButtonModule, MenuModule,ToastModule],
+  imports: [DropdownModule, FormsModule, CommonModule, ButtonModule, MenuModule,
+            ToastModule,DividerModule,CardModule],
   templateUrl: './card-grade.component.html',
   styleUrls: ['./card-grade.component.css'],
   providers:[MessageService]
