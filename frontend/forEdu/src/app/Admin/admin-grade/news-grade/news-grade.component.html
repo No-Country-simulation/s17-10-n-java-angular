@@ -1,0 +1,21 @@
+<div class="new-post-container">
+    <div class="post-header">
+      <img src="ruta_de_la_imagen.jpg" alt="Foto de perfil" class="profile-pic">
+      <textarea [(ngModel)]="newPostText" class="post-input" placeholder="¿Qué estás pensando hoy?"></textarea>
+    </div>
+    <hr class="divider">
+    <div class="post-footer">
+      <button class="post-button" (click)="addPost()">Publicar</button>
+    </div>
+  </div>
+  
+  <!-- Publicaciones -->
+   @for (post of posts; track post) {
+    <app-post-news-grade
+    [userImage]="post.userImage"
+    [userName]="post.userName"
+    [postText]="post.postText"
+    [likes]="post.likes"
+    [comments]="post.comments">
+  </app-post-news-grade>
+   }

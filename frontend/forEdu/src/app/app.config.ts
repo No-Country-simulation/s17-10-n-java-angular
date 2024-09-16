@@ -3,10 +3,12 @@ import { provideRouter, RouterModule } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { routes } from './app.routes';
 import { ButtonModule } from 'primeng/button';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
+
 import { MenuModule } from 'primeng/menu';
 import { MenubarModule } from 'primeng/menubar';
+import { provideHttpClient, withInterceptors } from '@angular/common/http';
+import { authInterceptor } from './custom/auth.interceptor';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -14,13 +16,12 @@ export const appConfig: ApplicationConfig = {
     provideRouter(routes),
     importProvidersFrom(
       BrowserAnimationsModule,
-      HttpClientModule,
       RouterModule,
       ReactiveFormsModule,
       ButtonModule,
       MenuModule,
       MenubarModule,
-
-    )
+    ),
+    provideHttpClient(withInterceptors([authInterceptor]))
   ]
 };

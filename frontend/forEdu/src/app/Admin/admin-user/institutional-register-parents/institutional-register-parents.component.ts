@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { SidebarComponent } from "../../../components/sidebar/sidebar.component";
 import { NavbarComponent } from "../../../components/navbar/navbar.component";
 import { Router } from '@angular/router';
+import { FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-institutional-register-parents',
@@ -11,10 +12,13 @@ import { Router } from '@angular/router';
   styleUrl: './institutional-register-parents.component.css'
 })
 export class InstitutionalRegisterParentsComponent {
-  
+
+   private formBuilder = inject(FormBuilder);
+
+
   constructor(private router: Router){}
 
   redirectRegisterStudent(){
-    this.router.navigate(['/admin/registereStudents']);
+    this.router.navigate(['/registereStudents']);
   }
 }

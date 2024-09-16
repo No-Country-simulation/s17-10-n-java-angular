@@ -12,7 +12,8 @@ import { CommonModule } from '@angular/common';
     FormsModule,
     MenubarModule,
     SplitButtonModule,
-    CommonModule
+    CommonModule,
+    
   ],
   templateUrl: './asistencia.component.html',
   styleUrl: './asistencia.component.css'
@@ -81,12 +82,7 @@ export class AsistenciaComponent {
   closeModal() {
     this.isModalVisible = false;
   }
-  tablaActual: string = "alumnos";
-
-  mostrarTabla(tabla: string) {
-    this.tablaActual = tabla;
-  }
-
+ 
   persons = [
     {
       id: 1,

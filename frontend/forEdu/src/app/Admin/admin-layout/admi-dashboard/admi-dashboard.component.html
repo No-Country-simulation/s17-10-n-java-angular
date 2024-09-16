@@ -1,67 +1,56 @@
     <!--Aqui va el sidebar-->
 
 <div class="container-position">
-<!--AQUI EL NAVBAR*/-->
-    <app-navbar></app-navbar>
-
     <main>
         <div class="panel">
             <div class="panel-left">
                 <section class="admin">
                     <div class="admin-info">
                         <div class="admin-detail">
-                            <h4>¡Hola Administrador!</h4>
-                            <p>Hola administrador biennvenido a la plataforma ForEdu, una plataforma para maneternos conectados</p>
+                            <h4>¡Hola Juana!</h4>
+                            <p>Accedé a aulas virtuales y a acompañamiento de orientadores en línea para profundizar los contenidos escolares.</p>
+                                <p>Requiere inscripción</p>
                         </div>
                         <div class="admin-picture">
-                            <img src="#" alt="Picture of admin">
+                            <img src="/teachermain.png" alt="Picture of admin">
                         </div>
                     </div>
                 </section>
                 <section class="school-management">
-                    <h4>Gestion Escolar</h4>
+                    <h4>Gestiones Escolares</h4>
                     <div class="school-management-option">
-                        <article class="school-management-item">
-                            <div class="school-management-item-icon">
-                                <p-button icon="pi pi-plus" [rounded]="true" severity="secondary" />
-                            </div>
+                        <article class="school-management-item color-1">
+                            <button class="school-management-item-icon">
+                                <i class="pi pi-plus"></i>
+                            </button>
                            <div class="school-management-item-text">
-                                <p>Crear Nuevo Evento</p>
+                                <p>Crear nuevo evento</p>
                            </div>
                         </article>
 
-                        <article class="school-management-item">
-                            <div class="school-management-item-icon">
-                                <p-button icon="pi pi-plus" [rounded]="true" severity="secondary" />
-                            </div>
+                        <article class="school-management-item color-2">
+                            <button class="school-management-item-icon">
+                                <i class="pi pi-plus"></i>
+                            </button>
                            <div class="school-management-item-text">
-                                <p>Crear Nuevo Curso</p>
+                                <p>Administrar cursos</p>
                            </div>
                         </article>
 
 
-                        <article class="school-management-item">
-                            <div class="school-management-item-icon">
-                                <p-button icon="pi pi-plus" [rounded]="true" severity="secondary" />
-                            </div>
+                        <article class="school-management-item color-3">
+                            <button class="school-management-item-icon">
+                                <i class="pi pi-users"></i>
+                            </button>
                            <div class="school-management-item-text">
-                                <p>Cargar Nuevo Alumno</p>
-                           </div>
-                        </article>
-
-                        <article class="school-management-item">
-                            <div class="school-management-item-icon">
-                                <p-button icon="pi pi-users" [rounded]="true" severity="secondary" />
-                            </div>
-                           <div class="school-management-item-text">
-                                <p>Calificaciones Alumnos</p>
+                                <p>Calificar alumnos</p>
                            </div>
                         </article>
                     </div>
                 </section>
 
                 <section class="activities">
-                    <h4>Actividades</h4>
+                    <h4>Novedades</h4>
                     <div class="activities-container">
                         @for (activity of activities; track activity.id) {
                             <article class="activity-item">
@@ -79,17 +68,29 @@
 
             <div class="panel-right">
                 <div class="calendar">
+                    <h4>Próximos Eventos</h4>
+                    <div class="eventos">
+                        <div class="eventos-items">
+                            <h6>Reunión de padres</h6>
+                            <p>21/06 - 11:00-12:00</p>
+                        </div>
+                        <div class="eventos-items">
+                            <h6>Acto por San Martin</h6>
+                            <p>21/06 - 11:00-12:00</p>
+                        </div>
+                        <h5>Ver todos</h5>
+                    </div>
                 </div>
                 <div class="teacher">
                     <div class="teacher-header">
-                        <h4>Listado de Maestros</h4>
-                        <p>6</p>
+                        <h4>Maestros</h4>
+                        <h4>6</h4>
                     </div>
                     <div class="teacher-container">
                         @for (teacher of teachers; track teacher.id) {
                             <div class="teacher-container-items">
                                 <div class="teacher-picture">
-                                    <i class="pi pi-user"></i>
+                                    <img src="/Ellipse 99.png" alt="Picture of teacher">
                                 </div>
 
                                 <div class="teacher-details">

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-card-add',
@@ -8,5 +9,11 @@ import { Component } from '@angular/core';
   styleUrl: './card-add.component.css'
 })
 export class CardAddComponent {
+
+   constructor(private router: Router){}
+
+   navigateToCourse() {
+      this.router.navigate(['/grade-add']);
+    }
 
 }

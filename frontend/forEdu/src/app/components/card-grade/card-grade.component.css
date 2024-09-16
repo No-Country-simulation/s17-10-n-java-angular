@@ -1,46 +1,83 @@
 .card {
-  width: 350px;
-  display:flex;
+  width: 18rem;
+  display: flex;
   flex-direction: column;
   border: solid 2px #DADCE0;
-  border-radius: 2em;
-  padding: 1.5rem;
+  border-radius: 10px;
+  cursor: pointer;
+  margin: 0;
+  position: relative;
 }
 
 .icon.pi-cog {
-  font-size: 2rem;
+  font-size: 1.5rem;
   color: #333;
-  margin-left: auto;
   cursor: pointer;
   transition: transform 0.3s ease;
+  position: absolute;
+  top: 0; 
+  right: 0;
+  padding: 0.5rem;
 }
+
+
 .icon.pi-cog:hover {
-  transform: rotate(90deg); /* Rotación completa cuando el cursor está sobre el ícono */
+  transform: rotate(90deg);
 }
-.card-header{
+
+.card-header {
   display: flex;
   justify-content: center;
   align-items: center;
-
+  cursor: pointer;
   flex-direction: column;
+  margin-bottom: 1rem; 
+  padding: 1.5rem;
 }
-.card-image{
+
+.card-image {
   margin-top: 1rem;
   max-width: 50%;
-  width: 150px;
-  height: 150px;
+  max-height: 50%;
+  width: 6rem;
+  height: 6rem;
   border-radius: 50%;
   margin-bottom: 1rem;
-
 }
-.grade-title{
+
+.grade-title {
   font-size: 2rem;
   font-weight: 500;
   margin: 0;
   margin-top: 0.5rem;
 }
 
-.card-button{
+.dividir{
+  border-top: 2px solid #DADCE0;
+}
+/* Alinear a la izquierda el contenido */
+.card-content {
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem; 
+  padding: 1.5rem;
+  margin: 0;
+}
+
+.card-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.card-description {
+  font-size: 1rem;
+  color: #555;
+  margin: 0;
+}
+
+.card-button {
   border-radius: 2em;
   border: 3px solid #DADCE0;
   padding: 0.7rem;
