@@ -14,7 +14,8 @@ import { LoginSuccess } from '../interfaces/login-success';
 })
 export class AuthService {
    private http = inject(HttpClient);
-   private url :string = apiSetting.apiUrl;
+    private url :string = apiSetting.apiUrl;
+
   constructor() { }
 
 
@@ -30,4 +31,8 @@ export class AuthService {
 
 
      }
+
+     getToken(): string | null {
+      return localStorage.getItem("token");
+    }
 }

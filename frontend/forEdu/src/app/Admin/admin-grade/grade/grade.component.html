@@ -1,33 +1,26 @@
-
-
 <div class="container-position">
+   <div class="container">
+     <nav class="turnos">
+       <div class="links-turno">
+         <a class="turno-list active">Todos</a>
+         <a class="turno-list">Turno mañana</a>
+         <a class="turno-list">Turno Tarde</a>
+         <a class="turno-list">Turno noche</a>
+       </div>
+       <div class="icon-nav">
+         <span class="icon active-icon pi pi-list" aria-hidden="true"></span>
+         <span class="icon pi pi-th-large" aria-hidden="true"></span>
+       </div>
+     </nav>
 
-  <div class="container">
-  <nav class="turnos">
-    <div class="links-turno">
-      <a class="turno-list active">Todos</a>
-      <a class="turno-list">Turno mañana</a>
-      <a class="turno-list">Turno Tarde</a>
-      <a class="turno-list">Turno noche</a>
-    </div>
-    <div class="icon-nav">
-
-        <span class="icon active-icon pi pi-list" aria-hidden="true"></span>
-
-        <span class="icon pi pi-th-large" aria-hidden="true"></span>
-
-    </div>
-  </nav>
-
-  <section class="card-section">
-    <app-card-add/>
-    <app-card-grade (click)="irAdetail()"/>
-    <app-card-grade (click)="irAdetail()"/>
-    <app-card-grade (click)="irAdetail()"/>
-    <app-card-grade (click)="irAdetail()"/>
+     <section class="card-section">
+       <app-card-add></app-card-add>
 
 
-  </section>
-  </div>
-
-</div>
+       <app-card-grade
+         *ngFor="let grade of grades"
+         [grade]="grade">
+       </app-card-grade>
+     </section>
+   </div>
+ </div>

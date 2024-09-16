@@ -19,7 +19,7 @@ import { CommonModule } from '@angular/common';
 })
 export class LoginComponent {
 
-   private user:string = "Zail Vegas"
+   private user:string = "Invitado"
    private loginService = inject(AuthService);
    private router = inject(Router);
    private formBuild = inject(FormBuilder)
@@ -54,8 +54,6 @@ export class LoginComponent {
                this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Error en el servidor' });
              }
          })
-
-
 
    }
 

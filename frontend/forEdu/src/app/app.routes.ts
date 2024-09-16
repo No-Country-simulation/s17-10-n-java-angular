@@ -43,7 +43,7 @@ export const routes: Routes = [
         data: { title: 'Grados' }
       },
       {
-        path: 'grade-register',
+        path: 'grade-add',
         component: GradeRegisterComponent,
        
         data: { title: 'Crear Grados' },

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ModalUserInstitutionalService } from '../../../service/modal/modal-user-institutional.service';
 import { Person } from '../../../models/person';
 
+
 @Component({
   selector: 'app-institutional-user-teacher',
   standalone: true,
@@ -23,7 +24,7 @@ export class InstitutionalUserTeacherComponent {
   persons: Person[] = [
     // Datos de prueba
     {
-      
+
       id: 1,
       nombre: "Jaime Luis",
       apellido: "Guerra",
@@ -34,12 +35,12 @@ export class InstitutionalUserTeacherComponent {
       grado: "5to",
       seccion: "A",
       turno: "Tarde",
-      
+
       tipo: "profesor",
       asignatura: "Fisica",
     },
     {
-      
+
       id: 2,
       nombre: "Ana Mina",
       apellido: "Medranda",
@@ -50,12 +51,12 @@ export class InstitutionalUserTeacherComponent {
       grado: "5to",
       seccion: "A",
       turno: "Tarde",
-      
+
       tipo: "profesor",
       asignatura: "Ciencias",
     },
     {
-      
+
       id:3,
       nombre: "Ruby Rulexy",
       apellido: "Quevedo",
@@ -66,12 +67,12 @@ export class InstitutionalUserTeacherComponent {
       grado: "5to",
       seccion: "A",
       turno: "Tarde",
-      
+
       tipo: "profesor",
       asignatura: "Computacion",
     },
     {
-      
+
       id:3,
       nombre: "Bryan Byron",
       apellido: "Alcivar",
@@ -82,10 +83,10 @@ export class InstitutionalUserTeacherComponent {
       grado: "5to",
       seccion: "A",
       turno: "Tarde",
-      
+
       tipo: "profesor",
       asignatura: "Economia",
     }
   ];
-  
+
 }
