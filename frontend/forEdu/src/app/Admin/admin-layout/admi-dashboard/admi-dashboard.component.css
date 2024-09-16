@@ -1,21 +1,20 @@
 
 .container-position{
-    float: right;
+    background-color: #f3f4f9;
 }
 
 
 /*Estilos del panel*/
 .panel{
     width: 100%;
-    height: 90vh;
+    height: 92vh;
     display: flex;
     padding: 0.5rem 1.5rem;
-    column-gap: 2rem;
-    margin-top: 8vh;
+    column-gap: 1.5rem;
 }
 
 .panel-left{
-    width: 65%;
+    width: 68%;
     height: 96%;
     display: flex;
     flex-direction: column;
@@ -23,7 +22,7 @@
 }
 
 .panel-right{
-    width: 35%;
+    width: 32%;
     height: 98%;
     display: flex;
     flex-direction: column;
@@ -31,9 +30,9 @@
 }
 /* Seccion Administrador*/
 .admin{
-    background-color: #F9F9F9;
-    height: 20%;
+    background-color: #292A4F;
     border-radius: 10px;
+    color: #FFFFFF;
 }
 .admin .admin-info{
     display: flex;
@@ -44,25 +43,37 @@
 }
 
 .admin-info .admin-detail{
-    max-width: 18rem;
+    max-width: 23rem;
 }
 .admin-detail h4{
     font-size: 1.5rem;
     margin: 0;
+    margin-bottom: 0.5rem;
 }
 .admin-detail p{
     font-size: 0.7rem;
+    margin: 0;
 }
 
-.admin-info .admin-picture{
-    background-color: #79747E;
-    height: 4.5rem;
-    width: 6rem;
+.admin-info .admin-picture {
+    height: 5.8rem;
+    width: 10rem;
     border-radius: 10px;
+    position: relative;
+    margin-right: 1rem;
 }
+
+.admin-info img {
+    height: 9.5rem;
+    width: 11.8rem;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+
 /* Seccion Gestrion escolar*/
 .school-management{
-    height: 35vh;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
@@ -71,72 +82,88 @@
     color: #787878;
 }
 .school-management h4{
-    margin: 0.6rem 0;
+    margin: 0;
+    margin: 1.3rem 0rem 0.8rem 0rem;
 }
 .school-management-option{
     display: grid;
-    grid-template-columns: 3fr 3fr;
+    grid-template-columns: 3fr 3fr 3fr;
     gap:0.8rem;
     width: 100%;
-    height: 100%;
 }
 .school-management-item{
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 3fr;
     justify-content: center;
     align-items: center;
     align-content: center;
-    padding: 1.3rem 1.3rem;;
-    background-color: #F9F9F9;
+    padding: 2.5rem 0.5rem;;
     border-radius: 10px;
+    height: 4rem;
 }
-.school-management-item-icon{
-    height:100%;
-    width: 100%;
+.school-management-item-icon {
+    height: 2.5rem;
+    width: 2.5rem;
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
+    border: 2px solid #383838;
+    background-color: transparent;
+    cursor: pointer;
 }
+
 .school-management-item-text{
     width: 100%;
 }
 .school-management-item-text p{
-    max-width: 7rem;
+    width: 100%;
+    color: #383838;
+}
+.color-1{
+    background-color: #68CB6A;
+}
+.color-2{
+    background-color: #6FAAF1;
+}
+.color-3{
+    background-color: #FFC340;
 }
 
 /* Seccion actividades*/
 .activities{
-    height: 30vh;
+    min-height: 40vh;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
     justify-content: start;
     align-items: start;
-    margin-top: 2rem;
     padding: 0;
 }
 .activities h4{
-    padding: 0.2rem 0rem 0.4rem  0rem;
     color: #787878;
     text-align: start;
     margin: 0;
+    margin: 1.1rem 0rem 0.5rem 0rem;
 }
 .activities-container {
     min-width: 255px;
-    max-height: 146px;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
-    row-gap: 0rem;
+    row-gap: 0.8rem;
     overflow-y: auto;
-    padding: 1rem 1.4rem;
-    background-color: #F9F9F9;
+    padding: 0.5rem 0rem;
     margin: 0;
 }
 .activities-container::-webkit-scrollbar{
     width: 0;
 }
-
+.activity-item{
+    background-color: #FFFFFF;
+    padding: 0.9rem 1rem;
+    border-radius: 5px;
+}
 .activity-item h5{
     padding: 0rem;
     margin: 0;
@@ -153,7 +180,7 @@
     font-size: 0.7rem;
 }
 .btn-activities{
-    background-color: #79747E;
+    background-color: #E9511D;
     color: white;
     border: none;
     padding: 0.5rem 1rem;
@@ -165,43 +192,71 @@
 /*Estilos del lado derecho*/
 /*Calendario*/
 .calendar {
-    height: 60%;
     width: 100%;
     border-radius: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
+    padding: 0.5rem;
+}
+.eventos{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 0.5rem;
+}
+.calendar h4, .calendar h5{
+    margin: 0;
+}
+.calendar h4{
+    margin-bottom: 0.5rem;
+    text-align: start;
+    width: 100%;
+}
+.calendar h5{
+    text-align: end;
+    width: 100%;
+    font-weight: 500;
+}
+.eventos-items{
+    border: 1px solid #e7e7e7;
+    border-radius: 5px;
+    padding: 1.5rem 1.5rem;
     background-color: #F9F9F9;
 }
-
-
+.eventos-items h6, p{
+    margin: 0;
+    font-size: 0.8rem;
+    padding: 0.2rem 0rem;
+}
 
 /*seccion de priofesores*/
 .teacher{
-    height: 50vh;
-    background-color: #F9F9F9;
+    min-height: 42vh;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 0.3rem;
-    padding: 1.8rem 1.8rem;
+    padding: 0rem 0.5rem;
 }
 .teacher .teacher-header{
     display: flex;
     justify-content: space-between;
     gap: 7rem;
+    width: 100%;
+    align-items: center;
 }
 .teacher-container{
     min-width: 255px;
-    max-height: 356px;
+    width: 100%;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
     row-gap: 1rem;
     overflow-y: auto;
-    padding: 0.3rem 0rem;
 }
 .teacher-container::-webkit-scrollbar{
     width: 0;
@@ -212,18 +267,22 @@
     justify-content: space-between;
     align-items: center;
     border-radius: 10px;
-    padding: 0rem 0.5rem;
 }
 .teacher-container-items .teacher-picture{
     border-radius: 50%;
     background-color: #79747E;
-    padding: 0.4rem;
     display: flex;
     align-items: center;
     justify-content: center;
 } 
+.teacher-picture img{
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+} 
 .teacher-container-items .teacher-details{
-    min-width: 6rem;  
+    width: 100%;
+    margin-left: 0.5rem;
 }
 .teacher-container-items .teacher-details h5{
     margin: 0;
@@ -233,11 +292,8 @@
     font-size: 0.7rem;
     margin: 0;
 }
-.pi.pi-user{
-    color: #F9F9F9;
-}
-.pi.pi-envelope{
-   color:  #79747E
+.pi{
+   color:  #383838
 }
 
 

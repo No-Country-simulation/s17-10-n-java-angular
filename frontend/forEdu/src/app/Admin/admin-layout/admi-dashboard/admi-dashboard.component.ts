@@ -41,6 +41,26 @@ export class AdmiDashboardComponent {
     },
     {
       id: 4,
+      name: 'Celebracion de hallowen',
+      detail: 'En esta fecha se celebra el dia de la madre en la unidad educativa todos deben traer un regalo y material.',
+    },
+    {
+      id: 5,
+      name: 'Dia de la madre',
+      detail: 'En esta fecha se celebra el dia de la madre en la unidad educativa todos deben traer un regalo y material.',
+    },
+    {
+      id: 6,
+      name: 'Dia de la bandera',
+      detail: 'En esta fecha se celebra el dia de la bandera en la unidad educativa por lo cual deben venir formalmente.',
+    },
+    {
+      id: 7,
+      name: 'Celebracion de hallowen',
+      detail: 'En esta fecha se celebra el dia de la madre en la unidad educativa todos deben traer un regalo y material.',
+    },
+    {
+      id: 8,
       name: 'Dia de la madre',
       detail: 'En esta fecha se celebra el dia de la madre en la unidad educativa todos deben traer un regalo y material.',
     },
@@ -91,6 +111,30 @@ export class AdmiDashboardComponent {
   },
   {
     id:8,
+    name: 'Alejandro',
+    parallel: '4 C',
+    asignature: 'Fisica'
+  },
+  {
+    id:9,
+    name: 'Medranda',
+    parallel: '2 C',
+    asignature: 'Ciencias'
+  },
+  {
+    id:10,
+    name: 'Bolivar F.',
+    parallel: '4 C',
+    asignature: 'Ingles'
+  },
+  {
+    id:11,
+    name: 'Edgar Vivar',
+    parallel: '7 C',
+    asignature: 'Computacion'
+  },
+  {
+    id:12,
     name: 'Alejandro',
     parallel: '4 C',
     asignature: 'Fisica'

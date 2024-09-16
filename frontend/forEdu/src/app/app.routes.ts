@@ -28,7 +28,6 @@ export const routes: Routes = [
       {
         path: '',
         component: AdmiDashboardComponent,
-        canActivate: [authGuard],
         data: { title: 'Inicio' }
       },
       {
