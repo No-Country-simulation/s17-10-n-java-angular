@@ -1,17 +1,22 @@
 # **ForEdu** 
-![Logo EN CONSTRUCCIÓN](https://github.com/No-Country-simulation/) 
-Nos comprometimos en desarrollar una herramienta que proporcione información de las diferentes actividades escolares para que pueda ser manejada de forma intuitiva tanto por los padres/tutores como por el personal educativo.
+Nos comprometimos en desarrollar una herramienta que proporcione información de las diferentes actividades escolares para que pueda ser manejada de forma intuitiva tanto por los padres/tutores como por el personal educativo
 
-ForEdu es el mejor aliado en la información académica de nuestros hijos. 
+<div align="center" >
+
+![Logo EN CONSTRUCCIÓN](https://github.com/No-Country-simulation/s17-10-n-java-angular/blob/main/img/logo%20foredu.png) 
+
+ForEdu es el mejor aliado en la información académica de nuestros hijos
+
+</div>
 
 ## Presentación del Sitio EN CONSTRUCCIÓN
 
 <div align="center" >
   <a> 
    
-![Static Badge](https://github.com/No-Country-simulation/)
-![Static Badge](https://github.com/No-Country-simulation/)
-![Static Badge](https://github.com/No-Country-simulation/)
+![Static Badge](https://github.com/No-Country-simulation/s17-10-n-java-angular/blob/main/img/inicio%20foredu.jpg)
+![Static Badge](https://github.com/No-Country-simulation/s17-10-n-java-angular/blob/main/img/gestion%20foredu.jpg)
+![Static Badge](https://github.com/No-Country-simulation/s17-10-n-java-angular/blob/main/img/asistencia%20foredu.jpg)
 
 </a>
 
