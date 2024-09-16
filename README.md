@@ -5,6 +5,7 @@ Nos comprometimos en desarrollar una herramienta que proporcione información de
 
 ![Logo EN CONSTRUCCIÓN](https://github.com/No-Country-simulation/s17-10-n-java-angular/blob/main/img/logo%20foredu.png) 
 
+
 ForEdu es el mejor aliado en la información académica de nuestros hijos
 
 </div>
@@ -20,9 +21,13 @@ ForEdu es el mejor aliado en la información académica de nuestros hijos
 
 </a>
 
-### Video Promocional EN CONSTRUCCIÓN
+### Video Promocional 
 
-https://github.com/user-attachments/assets/e51faed7-c3a1-4627-8184-1923548bf6dc123
+
+
+https://github.com/user-attachments/assets/0130ab55-9400-4b00-aee1-40d17aee9117
+
+
 
 </div>
 
@@ -45,7 +50,7 @@ Las características generales como administrador son:
 
 
 ### Url Deploy:
-EN CONSTRUCCIÓN
+[Deploy](https://test.zilibro.com/)
 
 ### Demo Day:
 [Video EN CONSTRUCCIÓN](https://www.youtube.com/shorts/xuiD7Msky_w)
@@ -70,7 +75,7 @@ EN CONSTRUCCIÓN
 - JUnit
 - Visual Estudio Code
 
-[Informar error en Petopia](mailto:esportsmelg@gmail.com)
+[Informar error en Foredu](mailto:esportsmelg@gmail.com)
 
 
 ## Colaboradores
@@ -80,7 +85,6 @@ EN CONSTRUCCIÓN
 | Elisa L               | PM          |[Linkedin](https://www.linkedin.com/in/elilucero)                     |https://www.behance.net/elilucero             |
 | Yohan Rodriguez       | Testing     |[Linkedin](https://www.linkedin.com/in/yohanrodri/)                   |https://github.com/Rhanyojs                   |
 | Daily Fuenmayor Bedoya| UX UI       |[Linkedin](https://www.linkedin.com/in/daily-fuenmayor-bedoya)        |https://www.behance.net/dailyfuenmayor1       |
-| Alan Rojas Polanco    | UX UI       |[Linkedin](https://www.linkedin.com/in/alan-rojas-polanco-97a4b5291/) |https://alanpolancoportafolio.netlify.app/    |
 | Inés Muruzábal        | UX UI       |[Linkedin](https://www.linkedin.com/in/inesmuruzabal/)                |https://www.behance.net/inesmuruzabal         |
 | Hugo Catalan          | Front End   |[Linkedin](https://www.linkedin.com/in/hugo-catalan-895886133/)       |https://github.com/hugocatalan                |
 | Mario Calderon        | Front End   |[Linkedin](https://www.linkedin.com/in/mario-calderon-76a099b5/)      |https://portafolio-mario-calderon.netlify.app/|
