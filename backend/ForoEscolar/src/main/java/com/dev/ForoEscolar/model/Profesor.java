@@ -17,7 +17,7 @@ public class Profesor extends User {
     @Enumerated(EnumType.STRING)
     private MateriaEnum materia;
 
-    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @ManyToMany(fetch = FetchType.LAZY)//, cascade = CascadeType.ALL)
     @JoinTable(name="profesor_estudiante", joinColumns = @JoinColumn(name = "profesor_id"), inverseJoinColumns = @JoinColumn(name = "estudiante_id"))
     private List<Estudiante> estudiantes;
 
@@ -35,4 +35,5 @@ public class Profesor extends User {
 
     @OneToMany(mappedBy = "profesor", cascade = {CascadeType.ALL},orphanRemoval = true,fetch = FetchType.LAZY)
     private List<Grado> grado;
+
 }

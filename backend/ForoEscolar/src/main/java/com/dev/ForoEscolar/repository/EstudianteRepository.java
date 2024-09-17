@@ -13,11 +13,13 @@ import java.util.List;
 @Repository
 public interface EstudianteRepository extends GenericRepository<Estudiante, Long>{
 
-    List<Estudiante> findByAula(AulaEnum aulaEnum);
-    List<Estudiante> findByCurso(CursoEnum cursoEnum);
+//    List<Estudiante> findByAula(AulaEnum aulaEnum);
+//    List<Estudiante> findByCurso(CursoEnum cursoEnum);
+//
+//    @Query("SELECT e FROM Estudiante e WHERE e.curso = :curso AND e.aula = :aula")
+//    List<Estudiante> findByCursoAndAula(@Param("curso") CursoEnum curso, @Param("aula") AulaEnum aula);
 
-    @Query("SELECT e FROM Estudiante e WHERE e.curso = :curso AND e.aula = :aula")
-    List<Estudiante> findByCursoAndAula(@Param("curso") CursoEnum curso, @Param("aula") AulaEnum aula);
+    List<Estudiante> findByGradoId(Long gradoId);
 
 
 }

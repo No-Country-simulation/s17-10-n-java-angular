@@ -1,16 +1,13 @@
 package com.dev.ForoEscolar.mapper.calificacion;
 
 import com.dev.ForoEscolar.dtos.calificacion.CalificacionDTO;
-import com.dev.ForoEscolar.enums.MateriaEnum;
 import com.dev.ForoEscolar.model.Calificacion;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import javax.annotation.processing.Generated;
 import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2024-09-10T12:05:51-0500",
+    date = "2024-09-16T20:20:14-0500",
     comments = "version: 1.5.5.Final, compiler: javac, environment: Java 21.0.2 (Oracle Corporation)"
 )
 @Component
@@ -22,24 +19,19 @@ public class CalificacionMapperImpl extends CalificacionMapper {
             return null;
         }
 
-        Calificacion calificacion = new Calificacion();
+        Calificacion.CalificacionBuilder calificacion = Calificacion.builder();
 
-        calificacion.setEstudiante( longToEstudiante( calificacionDTO.estudiante() ) );
-        calificacion.setProfesor( longToProfesor( calificacionDTO.profesor() ) );
-        calificacion.setBoletin( longToBoletin( calificacionDTO.boletin() ) );
-        calificacion.setId( calificacionDTO.id() );
-        if ( calificacionDTO.materia() != null ) {
-            calificacion.setMateria( Enum.valueOf( MateriaEnum.class, calificacionDTO.materia() ) );
-        }
-        calificacion.setNota( calificacionDTO.nota() );
-        calificacion.setPromedio( calificacionDTO.promedio() );
-        calificacion.setComentario( calificacionDTO.comentario() );
-        if ( calificacionDTO.fecha() != null ) {
-            calificacion.setFecha( LocalDate.parse( calificacionDTO.fecha() ) );
-        }
-        calificacion.setPeriodo( calificacionDTO.periodo() );
+        calificacion.estudiante( longToEstudiante( calificacionDTO.getEstudiante() ) );
+        calificacion.profesor( longToProfesor( calificacionDTO.getProfesor() ) );
+        calificacion.boletin( longToBoletin( calificacionDTO.getBoletin() ) );
+        calificacion.id( calificacionDTO.getId() );
+        calificacion.materia( calificacionDTO.getMateria() );
+        calificacion.nota( calificacionDTO.getNota() );
+        calificacion.comentario( calificacionDTO.getComentario() );
+        calificacion.fecha( calificacionDTO.getFecha() );
+        calificacion.periodo( calificacionDTO.getPeriodo() );
 
-        return calificacion;
+        return calificacion.build();
     }
 
     @Override
@@ -48,34 +40,18 @@ public class CalificacionMapperImpl extends CalificacionMapper {
             return null;
         }
 
-        Long estudiante = null;
-        Long profesor = null;
-        Long boletin = null;
-        Long id = null;
-        String materia = null;
-        Double nota = null;
-        Double promedio = null;
-        String comentario = null;
-        String fecha = null;
-        String periodo = null;
+        CalificacionDTO.CalificacionDTOBuilder calificacionDTO = CalificacionDTO.builder();
 
-        estudiante = estudianteToLong( calificacion.getEstudiante() );
-        profesor = profesorToLong( calificacion.getProfesor() );
-        boletin = boletinToLong( calificacion.getBoletin() );
-        id = calificacion.getId();
-        if ( calificacion.getMateria() != null ) {
-            materia = calificacion.getMateria().name();
-        }
-        nota = calificacion.getNota();
-        promedio = calificacion.getPromedio();
-        comentario = calificacion.getComentario();
-        if ( calificacion.getFecha() != null ) {
-            fecha = DateTimeFormatter.ISO_LOCAL_DATE.format( calificacion.getFecha() );
-        }
-        periodo = calificacion.getPeriodo();
+        calificacionDTO.estudiante( estudianteToLong( calificacion.getEstudiante() ) );
+        calificacionDTO.profesor( profesorToLong( calificacion.getProfesor() ) );
+        calificacionDTO.boletin( boletinToLong( calificacion.getBoletin() ) );
+        calificacionDTO.id( calificacion.getId() );
+        calificacionDTO.materia( calificacion.getMateria() );
+        calificacionDTO.nota( calificacion.getNota() );
+        calificacionDTO.comentario( calificacion.getComentario() );
+        calificacionDTO.fecha( calificacion.getFecha() );
+        calificacionDTO.periodo( calificacion.getPeriodo() );
 
-        CalificacionDTO calificacionDTO = new CalificacionDTO( id, materia, nota, promedio, comentario, fecha, periodo, estudiante, profesor, boletin );
-
-        return calificacionDTO;
+        return calificacionDTO.build();
     }
 }

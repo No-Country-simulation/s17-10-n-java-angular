@@ -1,8 +1,6 @@
 package com.dev.ForoEscolar.mapper.estudiante;
 
 import com.dev.ForoEscolar.dtos.estudiante.EstudianteResponseDTO;
-import com.dev.ForoEscolar.enums.AulaEnum;
-import com.dev.ForoEscolar.enums.CursoEnum;
 import com.dev.ForoEscolar.enums.GeneroEnum;
 import com.dev.ForoEscolar.enums.TipoDocumentoEnum;
 import com.dev.ForoEscolar.model.Estudiante;
@@ -15,7 +13,7 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2024-09-10T12:05:51-0500",
+    date = "2024-09-16T20:20:14-0500",
     comments = "version: 1.5.5.Final, compiler: javac, environment: Java 21.0.2 (Oracle Corporation)"
 )
 @Component
@@ -32,14 +30,13 @@ public class EstudianteMapperImpl extends EstudianteMapper {
         List<Long> asistencia = null;
         List<Long> tarea = null;
         List<Long> calificaciones = null;
+        Long grado = null;
         Long id = null;
         String nombre = null;
         String apellido = null;
         String dni = null;
         GeneroEnum genero = null;
         LocalDate fechaNacimiento = null;
-        String curso = null;
-        String aula = null;
         TipoDocumentoEnum tipoDocumento = null;
         Boolean activo = null;
 
@@ -48,6 +45,7 @@ public class EstudianteMapperImpl extends EstudianteMapper {
         asistencia = asistenciasToLongList( estudiante.getAsistencia() );
         tarea = tareasToLongList( estudiante.getTarea() );
         calificaciones = calificacionesToLongList( estudiante.getCalificaciones() );
+        grado = gradoToLong( estudiante.getGrado() );
         id = estudiante.getId();
         nombre = estudiante.getNombre();
         apellido = estudiante.getApellido();
@@ -56,16 +54,10 @@ public class EstudianteMapperImpl extends EstudianteMapper {
         if ( estudiante.getFechaNacimiento() != null ) {
             fechaNacimiento = estudiante.getFechaNacimiento().toLocalDate();
         }
-        if ( estudiante.getCurso() != null ) {
-            curso = estudiante.getCurso().name();
-        }
-        if ( estudiante.getAula() != null ) {
-            aula = estudiante.getAula().name();
-        }
         tipoDocumento = estudiante.getTipoDocumento();
         activo = estudiante.getActivo();
 
-        EstudianteResponseDTO estudianteResponseDTO = new EstudianteResponseDTO( id, nombre, apellido, dni, genero, fechaNacimiento, curso, aula, tipoDocumento, activo, tutor, asistencia, boletin, tarea, calificaciones );
+        EstudianteResponseDTO estudianteResponseDTO = new EstudianteResponseDTO( id, nombre, apellido, dni, genero, fechaNacimiento, tipoDocumento, activo, tutor, grado, asistencia, boletin, tarea, calificaciones );
 
         return estudianteResponseDTO;
     }
@@ -83,6 +75,7 @@ public class EstudianteMapperImpl extends EstudianteMapper {
         estudiante.asistencia( longListToAsistencias( estudianteResponseDTO.asistencia() ) );
         estudiante.tarea( longListToTareas( estudianteResponseDTO.tarea() ) );
         estudiante.calificaciones( longListToCalificaciones( estudianteResponseDTO.calificaciones() ) );
+        estudiante.grado( longToGrado( estudianteResponseDTO.grado() ) );
         estudiante.id( estudianteResponseDTO.id() );
         estudiante.nombre( estudianteResponseDTO.nombre() );
         estudiante.apellido( estudianteResponseDTO.apellido() );
@@ -91,12 +84,6 @@ public class EstudianteMapperImpl extends EstudianteMapper {
         estudiante.activo( estudianteResponseDTO.activo() );
         if ( estudianteResponseDTO.fechaNacimiento() != null ) {
             estudiante.fechaNacimiento( new Date( estudianteResponseDTO.fechaNacimiento().atStartOfDay( ZoneOffset.UTC ).toInstant().toEpochMilli() ) );
-        }
-        if ( estudianteResponseDTO.curso() != null ) {
-            estudiante.curso( Enum.valueOf( CursoEnum.class, estudianteResponseDTO.curso() ) );
-        }
-        if ( estudianteResponseDTO.aula() != null ) {
-            estudiante.aula( Enum.valueOf( AulaEnum.class, estudianteResponseDTO.aula() ) );
         }
         estudiante.tipoDocumento( estudianteResponseDTO.tipoDocumento() );
 

@@ -1,6 +1,8 @@
 package com.dev.ForoEscolar.services.impl;
 
 import com.dev.ForoEscolar.dtos.calificacion.CalificacionDTO;
+import com.dev.ForoEscolar.enums.MateriaEnum;
+import com.dev.ForoEscolar.exceptions.ApplicationException;
 import com.dev.ForoEscolar.mapper.calificacion.CalificacionMapper;
 import com.dev.ForoEscolar.model.Calificacion;
 import com.dev.ForoEscolar.repository.CalificacionRepository;
@@ -11,7 +13,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Collections;
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
+
 @Service
 public class CalificacionServiceImpl implements CalificacionService, GenericServiceDto<Long, CalificacionDTO> {
 
@@ -30,6 +35,10 @@ public class CalificacionServiceImpl implements CalificacionService, GenericServ
     @Transactional
     @Override
     public CalificacionDTO save(CalificacionDTO requestDTO) {
+        if(requestDTO==null){
+            throw new ApplicationException("Debe asignar una calificacion");
+        }
+        System.out.println(requestDTO);
         Calificacion newCalificacion = calificacionMapper.toEntity(requestDTO);
         calificacionRepository.save(newCalificacion);
         return calificacionMapper.toResponseDto(newCalificacion);
@@ -47,13 +56,17 @@ public class CalificacionServiceImpl implements CalificacionService, GenericServ
 
     @Override
     public Iterable<CalificacionDTO> findAll() {
-        Iterable<Calificacion> calificaciones = calificacionRepository.findAll();
-        return Collections.singleton(calificacionMapper.toResponseDto((Calificacion) calificaciones));
+        List<Calificacion> calificaciones = calificacionRepository.findAll();
+        return calificaciones.stream().map(calificacionMapper::toResponseDto).collect(Collectors.toList());
     }
 
     @Override
     @Transactional
     public void deleteById(Long id) {
+        Optional<Calificacion> response= calificacionRepository.findById(id);
+        if(response.isEmpty()){
+            throw new ApplicationException("Error al buscar su calificacion");
+        }
         calificacionRepository.deleteById(id);
     }
 
@@ -66,8 +79,21 @@ public class CalificacionServiceImpl implements CalificacionService, GenericServ
             Calificacion updatedEntity = calificacionRepository.save(calificacion);
             return calificacionMapper.toResponseDto(updatedEntity);
         } else {
-            throw new RuntimeException("La calificacion con ese ID no fue encontrado");
+            throw new ApplicationException("La calificacion con ese ID no fue encontrado");
         }
+    }
+    @Override
+    public List<CalificacionDTO> findByEstudianteId(Long id){
+        List<Calificacion> calificaciones = calificacionRepository.findByEstudianteId(id);
+        return calificaciones.stream().map(calificacionMapper::toResponseDto).collect(Collectors.toList());
+    }
 
+    @Override
+    public List<CalificacionDTO> findByMateria(MateriaEnum materiaEnum) {
+        List<Calificacion> calificaciones = calificacionRepository.findByMateria(materiaEnum);
+        return calificaciones
+                .stream()
+                .map(calificacionMapper::toResponseDto)
+                .collect(Collectors.toList());
     }
 }

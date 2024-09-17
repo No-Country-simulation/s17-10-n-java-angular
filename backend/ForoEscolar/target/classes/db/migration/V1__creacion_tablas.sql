@@ -32,7 +32,15 @@ CREATE TABLE administrador_escolar (
                                        user_id BIGINT PRIMARY KEY,
                                        FOREIGN KEY (user_id) REFERENCES users(id)
 );
-
+CREATE TABLE grado (
+                       id BIGINT PRIMARY KEY AUTO_INCREMENT,
+                       aula ENUM('A', 'B', 'C'),
+                       curso ENUM('PRIMERO', 'SEGUNDO', 'TERCERO', 'CUARTO', 'QUINTO', 'SEXTO'),
+                       turno ENUM('MAÑANA', 'TARDE', 'NOCHE'),
+                       materia ENUM('MATEMATICAS', 'CIENCIAS', 'LENGUAJE', 'HISTORIA'),
+                       profesor_id BIGINT,
+                       FOREIGN KEY (profesor_id) REFERENCES profesores(user_id) ON DELETE SET NULL
+);
 -- Tabla para estudiantes (no hereda de users)
 CREATE TABLE estudiantes (
                              id BIGINT PRIMARY KEY AUTO_INCREMENT,
@@ -43,10 +51,10 @@ CREATE TABLE estudiantes (
                              rol ENUM('ADMINISTRADOR', 'PROFESOR', 'TUTOR', 'ESTUDIANTE'),
                              fecha_nacimiento DATE,
                              activo TINYINT(1),
-                             curso ENUM('PRIMERO', 'SEGUNDO', 'TERCERO', 'CUARTO', 'QUINTO', 'SEXTO'),
-                             aula ENUM('A', 'B', 'C'),
+                             grado_id BIGINT,
                              tipo_documento ENUM('PASAPORTE', 'DNI', 'OTROS'),
                              tutor_legal_id BIGINT,
+                             FOREIGN KEY (grado_id) REFERENCES grado(id),
                              FOREIGN KEY (tutor_legal_id) REFERENCES tutor_legal(user_id)
 );
 
@@ -83,7 +91,6 @@ CREATE TABLE notificaciones (
                                 FOREIGN KEY (administrador_escolar_id) REFERENCES administrador_escolar(user_id),
                                 FOREIGN KEY (tutor_legal_id) REFERENCES tutor_legal(user_id)
 );
-
 CREATE TABLE tarea (
                        id BIGINT PRIMARY KEY AUTO_INCREMENT,
                        profesor_id BIGINT,

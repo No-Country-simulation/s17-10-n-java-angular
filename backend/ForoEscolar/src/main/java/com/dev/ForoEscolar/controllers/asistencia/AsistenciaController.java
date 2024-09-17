@@ -40,7 +40,7 @@ public class AsistenciaController {
             AsistenciaDTO updatedAsistenciaDTO = new AsistenciaDTO(
                     asistenciaDTO.id(),
                     asistenciaDTO.asistio(),
-                    asistenciaDTO.diasAnioEscolar(),
+                    //asistenciaDTO.diasAnioEscolar(),
                     asistenciaDTO.fecha(),
                     asistenciaDTO.observaciones(),
                     asistenciaDTO.porcentajeAsistencia(),

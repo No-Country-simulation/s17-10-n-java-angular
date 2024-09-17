@@ -5,16 +5,16 @@ import com.dev.ForoEscolar.enums.CursoEnum;
 import com.dev.ForoEscolar.enums.MateriaEnum;
 import com.dev.ForoEscolar.enums.TurnoEnum;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+
+import java.util.List;
 
 @Entity
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Data
+@Getter
+@Setter
 public class Grado {
 
     @Id
@@ -33,5 +33,8 @@ public class Grado {
     @ManyToOne
     @JoinColumn(name="profesor_id")
     private Profesor profesor;
+
+    @OneToMany(mappedBy = "grado",cascade = {CascadeType.ALL},orphanRemoval = true,fetch = FetchType.LAZY)
+    private List<Estudiante> estudiantes;
 
 }

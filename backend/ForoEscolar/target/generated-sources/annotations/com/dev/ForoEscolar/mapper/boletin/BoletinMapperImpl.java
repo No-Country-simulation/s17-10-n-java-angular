@@ -2,12 +2,15 @@ package com.dev.ForoEscolar.mapper.boletin;
 
 import com.dev.ForoEscolar.dtos.boletin.BoletinDto;
 import com.dev.ForoEscolar.model.Boletin;
+import com.dev.ForoEscolar.model.Calificacion;
+import java.util.ArrayList;
+import java.util.List;
 import javax.annotation.processing.Generated;
 import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2024-09-10T12:05:50-0500",
+    date = "2024-09-16T20:20:14-0500",
     comments = "version: 1.5.5.Final, compiler: javac, environment: Java 21.0.2 (Oracle Corporation)"
 )
 @Component
@@ -22,6 +25,7 @@ public class BoletinMapperImpl extends BoletinMapper {
         BoletinDto.BoletinDtoBuilder boletinDto = BoletinDto.builder();
 
         boletinDto.estudiante( estudianteToLong( boletin.getEstudiante() ) );
+        boletinDto.calificacion( calificacionListToLongList( boletin.getCalificacion() ) );
         boletinDto.id( boletin.getId() );
         boletinDto.promedio( boletin.getPromedio() );
         boletinDto.observaciones( boletin.getObservaciones() );
@@ -41,6 +45,7 @@ public class BoletinMapperImpl extends BoletinMapper {
         Boletin.BoletinBuilder boletin = Boletin.builder();
 
         boletin.estudiante( longToEstudiante( boletinDto.getEstudiante() ) );
+        boletin.calificacion( longListToCalificacionList( boletinDto.getCalificacion() ) );
         boletin.id( boletinDto.getId() );
         boletin.promedio( boletinDto.getPromedio() );
         boletin.observaciones( boletinDto.getObservaciones() );
@@ -49,5 +54,31 @@ public class BoletinMapperImpl extends BoletinMapper {
         boletin.curso( boletinDto.getCurso() );
 
         return boletin.build();
+    }
+
+    protected List<Long> calificacionListToLongList(List<Calificacion> list) {
+        if ( list == null ) {
+            return null;
+        }
+
+        List<Long> list1 = new ArrayList<Long>( list.size() );
+        for ( Calificacion calificacion : list ) {
+            list1.add( calificacionToLong( calificacion ) );
+        }
+
+        return list1;
+    }
+
+    protected List<Calificacion> longListToCalificacionList(List<Long> list) {
+        if ( list == null ) {
+            return null;
+        }
+
+        List<Calificacion> list1 = new ArrayList<Calificacion>( list.size() );
+        for ( Long long1 : list ) {
+            list1.add( longToCalificacion( long1 ) );
+        }
+
+        return list1;
     }
 }
