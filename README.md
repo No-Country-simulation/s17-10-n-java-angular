@@ -20,6 +20,7 @@ ForEdu es el mejor aliado en la información académica de nuestros hijos
 ![Static Badge](https://github.com/No-Country-simulation/s17-10-n-java-angular/blob/main/img/asistencia%20foredu.jpg)
 
 </a>
+</div>
 
 ### Video Promocional 
 
