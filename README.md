@@ -10,7 +10,7 @@ ForEdu es el mejor aliado en la información académica de nuestros hijos
 
 </div>
 
-## Presentación del Sitio EN CONSTRUCCIÓN
+## Presentación del Sitio
 
 <div align="center" >
   <a> 
