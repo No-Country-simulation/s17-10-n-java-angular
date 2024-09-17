@@ -38,11 +38,15 @@ public class Estudiante {
     @Column(name = "fecha_nacimiento")
     private Date fechaNacimiento;
 
-    @Enumerated(EnumType.STRING)
-    private CursoEnum curso;
+//    @Enumerated(EnumType.STRING)
+//    private CursoEnum curso;
+//
+//    @Enumerated(EnumType.STRING)
+//    private AulaEnum aula;
 
-    @Enumerated(EnumType.STRING)
-    private AulaEnum aula;
+    @ManyToOne
+    @JoinColumn(name = "grado_id", nullable = false, foreignKey = @ForeignKey(name="FK_GRADO"))
+    private Grado grado;
 
     @Column(name = "tipo_documento", nullable = false)
     @Enumerated(EnumType.STRING)

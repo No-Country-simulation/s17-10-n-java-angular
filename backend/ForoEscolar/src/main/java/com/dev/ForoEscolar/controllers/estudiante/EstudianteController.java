@@ -77,41 +77,54 @@ public class EstudianteController {
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
-    @GetMapping("/filterAula")
-    @Operation(summary = "Se filtra a los estudiantes por aula")
-    public ResponseEntity<ApiResponseDto<EstudianteResponseDTO>> filtroXAula(@RequestParam String aula) {
-        try {
-           List<EstudianteResponseDTO> estudianteResponseDTOS= estudianteService.findByAula(AulaEnum.valueOf(aula));
-           if(estudianteResponseDTOS.isEmpty())
-           { return new ResponseEntity<>(new ApiResponseDto<>(true, "No hay estudiantes asignados al aula", null), HttpStatus.NOT_FOUND);}
-            return new ResponseEntity<>(new ApiResponseDto<>(true, "Exito", estudianteResponseDTOS), HttpStatus.CREATED);
-        } catch (ApplicationException e) {
-            throw new ApplicationException(" Ha ocurrido un error " + e.getMessage());
-        }
-    }
-    @GetMapping("/filterCurso")
+    @GetMapping("/filterGrado")
     @Operation(summary = "Se filtra a los estudiantes por grado")
-    public ResponseEntity<ApiResponseDto<EstudianteResponseDTO>> filtroXCurso(@RequestParam String curso) {
+    public ResponseEntity<ApiResponseDto<EstudianteResponseDTO>> filtroXGrado(@RequestParam Long gradoId) {
         try {
-            List<EstudianteResponseDTO> estudianteResponseDTOS= estudianteService.findByCurso(CursoEnum.valueOf(curso));
+            List<EstudianteResponseDTO> estudianteResponseDTOS= estudianteService.findByGradoId(gradoId);
             if(estudianteResponseDTOS.isEmpty())
-            { return new ResponseEntity<>(new ApiResponseDto<>(true, "No hay estudiantes asignados al curso", null), HttpStatus.NOT_FOUND);}
+            { return new ResponseEntity<>(new ApiResponseDto<>(true, "No hay estudiantes asignados al grado", null), HttpStatus.NOT_FOUND);}
             return new ResponseEntity<>(new ApiResponseDto<>(true, "Exito", estudianteResponseDTOS), HttpStatus.CREATED);
         } catch (ApplicationException e) {
             throw new ApplicationException(" Ha ocurrido un error " + e.getMessage());
         }
     }
-    @GetMapping("/filterCursoAndAula")
-    @Operation(summary = "Se filtra a los estudiantes por grado y curso")
-    public ResponseEntity<ApiResponseDto<EstudianteResponseDTO>> filtroXCursoYAula(@RequestParam String curso, @RequestParam String aula) {
-        try {
-            List<EstudianteResponseDTO> estudianteResponseDTOS= estudianteService.findByCursoAndAula(CursoEnum.valueOf(curso), AulaEnum.valueOf(aula));
-            if(estudianteResponseDTOS.isEmpty())
-            { return new ResponseEntity<>(new ApiResponseDto<>(true, "No hay estudiantes asignados al curso", null), HttpStatus.NOT_FOUND);}
-            return new ResponseEntity<>(new ApiResponseDto<>(true, "Exito", estudianteResponseDTOS), HttpStatus.CREATED);
-        } catch (ApplicationException e) {
-            throw new ApplicationException(" Ha ocurrido un error " + e.getMessage());
-        }
-    }
+
+//    @GetMapping("/filterAula")
+//    @Operation(summary = "Se filtra a los estudiantes por aula")
+//    public ResponseEntity<ApiResponseDto<EstudianteResponseDTO>> filtroXAula(@RequestParam String aula) {
+//        try {
+//           List<EstudianteResponseDTO> estudianteResponseDTOS= estudianteService.findByAula(AulaEnum.valueOf(aula));
+//           if(estudianteResponseDTOS.isEmpty())
+//           { return new ResponseEntity<>(new ApiResponseDto<>(true, "No hay estudiantes asignados al aula", null), HttpStatus.NOT_FOUND);}
+//            return new ResponseEntity<>(new ApiResponseDto<>(true, "Exito", estudianteResponseDTOS), HttpStatus.CREATED);
+//        } catch (ApplicationException e) {
+//            throw new ApplicationException(" Ha ocurrido un error " + e.getMessage());
+//        }
+//    }
+//    @GetMapping("/filterCurso")
+//    @Operation(summary = "Se filtra a los estudiantes por grado")
+//    public ResponseEntity<ApiResponseDto<EstudianteResponseDTO>> filtroXCurso(@RequestParam String curso) {
+//        try {
+//            List<EstudianteResponseDTO> estudianteResponseDTOS= estudianteService.findByCurso(CursoEnum.valueOf(curso));
+//            if(estudianteResponseDTOS.isEmpty())
+//            { return new ResponseEntity<>(new ApiResponseDto<>(true, "No hay estudiantes asignados al curso", null), HttpStatus.NOT_FOUND);}
+//            return new ResponseEntity<>(new ApiResponseDto<>(true, "Exito", estudianteResponseDTOS), HttpStatus.CREATED);
+//        } catch (ApplicationException e) {
+//            throw new ApplicationException(" Ha ocurrido un error " + e.getMessage());
+//        }
+//    }
+//    @GetMapping("/filterCursoAndAula")
+//    @Operation(summary = "Se filtra a los estudiantes por grado y curso")
+//    public ResponseEntity<ApiResponseDto<EstudianteResponseDTO>> filtroXCursoYAula(@RequestParam String curso, @RequestParam String aula) {
+//        try {
+//            List<EstudianteResponseDTO> estudianteResponseDTOS= estudianteService.findByCursoAndAula(CursoEnum.valueOf(curso), AulaEnum.valueOf(aula));
+//            if(estudianteResponseDTOS.isEmpty())
+//            { return new ResponseEntity<>(new ApiResponseDto<>(true, "No hay estudiantes asignados al curso", null), HttpStatus.NOT_FOUND);}
+//            return new ResponseEntity<>(new ApiResponseDto<>(true, "Exito", estudianteResponseDTOS), HttpStatus.CREATED);
+//        } catch (ApplicationException e) {
+//            throw new ApplicationException(" Ha ocurrido un error " + e.getMessage());
+//        }
+//    }
 
 }

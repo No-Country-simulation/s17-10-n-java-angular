@@ -44,7 +44,7 @@ public class AsistenciaServiceImpl implements AsistenciaService {
         responseDTO = new AsistenciaDTO(
                 responseDTO.id(),
                 responseDTO.asistio(),
-                anioEscolar,
+                //anioEscolar,
                 responseDTO.fecha(),
                 responseDTO.observaciones(),
                 porcentajeAsistencia,

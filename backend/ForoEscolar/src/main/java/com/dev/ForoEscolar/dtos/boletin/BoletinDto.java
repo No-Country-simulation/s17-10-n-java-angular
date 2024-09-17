@@ -1,7 +1,6 @@
 package com.dev.ForoEscolar.dtos.boletin;
 
 import com.dev.ForoEscolar.enums.CursoEnum;
-import com.dev.ForoEscolar.model.Calificacion;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import lombok.AllArgsConstructor;
@@ -25,7 +24,7 @@ public class BoletinDto {
 
     @Enumerated(EnumType.STRING)
     private CursoEnum curso;
-    List<Calificacion> calificacions;
+    private List<Long> calificacion;
     private Long estudiante;
     private LocalDate fecha;
 

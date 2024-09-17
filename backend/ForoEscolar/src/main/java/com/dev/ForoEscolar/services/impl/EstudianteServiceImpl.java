@@ -73,22 +73,28 @@ public class EstudianteServiceImpl implements EstudianteService {
         }
     }
 
-    @Override
+//    @Override
+//
+//    public List<EstudianteResponseDTO> findByAula(AulaEnum aulaEnum) {
+//        List<Estudiante> estudiantes = estudianteRepository.findByAula(aulaEnum);
+//        return estudiantes.stream().map(estudianteMapper::toResponseDTO).collect(Collectors.toList());
+//    }
 
-    public List<EstudianteResponseDTO> findByAula(AulaEnum aulaEnum) {
-        List<Estudiante> estudiantes = estudianteRepository.findByAula(aulaEnum);
-        return estudiantes.stream().map(estudianteMapper::toResponseDTO).collect(Collectors.toList());
-    }
+//    @Override
+//    public List<EstudianteResponseDTO> findByCurso(CursoEnum cursoEnum) {
+//        List<Estudiante> estudiantes= estudianteRepository.findByCurso(cursoEnum);
+//        return estudiantes.stream().map(estudianteMapper::toResponseDTO).collect(Collectors.toList());
+//    }
+//
+//    @Override
+//    public List<EstudianteResponseDTO> findByCursoAndAula(CursoEnum curso, AulaEnum aula) {
+//        List<Estudiante> estudiantes= estudianteRepository.findByCursoAndAula(curso,aula);
+//        return estudiantes.stream().map(estudianteMapper::toResponseDTO).collect(Collectors.toList());
+//    }
 
     @Override
-    public List<EstudianteResponseDTO> findByCurso(CursoEnum cursoEnum) {
-        List<Estudiante> estudiantes= estudianteRepository.findByCurso(cursoEnum);
-        return estudiantes.stream().map(estudianteMapper::toResponseDTO).collect(Collectors.toList());
-    }
-
-    @Override
-    public List<EstudianteResponseDTO> findByCursoAndAula(CursoEnum curso, AulaEnum aula) {
-        List<Estudiante> estudiantes= estudianteRepository.findByCursoAndAula(curso,aula);
+    public List<EstudianteResponseDTO> findByGradoId(Long gradoId) {
+        List<Estudiante> estudiantes= estudianteRepository.findByGradoId(gradoId);
         return estudiantes.stream().map(estudianteMapper::toResponseDTO).collect(Collectors.toList());
     }
 

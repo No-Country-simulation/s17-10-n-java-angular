@@ -9,6 +9,8 @@ import lombok.Getter;
 import lombok.Setter;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import java.time.LocalDate;
+
 @Builder
 @Data
 public class CalificacionDTO {
@@ -16,11 +18,13 @@ public class CalificacionDTO {
     @Enumerated(EnumType.STRING)
     private MateriaEnum materia;
     private Double nota;
-    private Double promedio;
+    //private Double promedio;
     private String comentario;
-    private String fecha;
+    private LocalDate fecha;
     private String periodo;
     private Long estudiante;
     private Long profesor;
     private Long boletin;
+
+
 }

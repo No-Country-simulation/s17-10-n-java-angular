@@ -6,7 +6,7 @@ import java.time.LocalDate;
 public record AsistenciaDTO(
         Long id,
         boolean asistio,
-        double diasAnioEscolar,
+        //double diasAnioEscolar,
         LocalDate fecha,
         String observaciones,
         double porcentajeAsistencia,

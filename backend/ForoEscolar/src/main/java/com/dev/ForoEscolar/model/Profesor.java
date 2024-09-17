@@ -4,7 +4,6 @@ import com.dev.ForoEscolar.enums.MateriaEnum;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 
@@ -18,7 +17,7 @@ public class Profesor extends User {
     @Enumerated(EnumType.STRING)
     private MateriaEnum materia;
 
-    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @ManyToMany(fetch = FetchType.LAZY)//, cascade = CascadeType.ALL)
     @JoinTable(name="profesor_estudiante", joinColumns = @JoinColumn(name = "profesor_id"), inverseJoinColumns = @JoinColumn(name = "estudiante_id"))
     private List<Estudiante> estudiantes;
 

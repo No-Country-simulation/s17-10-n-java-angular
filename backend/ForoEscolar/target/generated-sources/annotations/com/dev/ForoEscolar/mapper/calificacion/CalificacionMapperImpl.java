@@ -2,15 +2,13 @@ package com.dev.ForoEscolar.mapper.calificacion;
 
 import com.dev.ForoEscolar.dtos.calificacion.CalificacionDTO;
 import com.dev.ForoEscolar.model.Calificacion;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import javax.annotation.processing.Generated;
 import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2024-09-15T16:44:15-0300",
-    comments = "version: 1.5.5.Final, compiler: javac, environment: Java 22 (Oracle Corporation)"
+    date = "2024-09-16T20:20:14-0500",
+    comments = "version: 1.5.5.Final, compiler: javac, environment: Java 21.0.2 (Oracle Corporation)"
 )
 @Component
 public class CalificacionMapperImpl extends CalificacionMapper {
@@ -21,22 +19,19 @@ public class CalificacionMapperImpl extends CalificacionMapper {
             return null;
         }
 
-        Calificacion calificacion = new Calificacion();
+        Calificacion.CalificacionBuilder calificacion = Calificacion.builder();
 
-        calificacion.setEstudiante( longToEstudiante( calificacionDTO.getEstudiante() ) );
-        calificacion.setProfesor( longToProfesor( calificacionDTO.getProfesor() ) );
-        calificacion.setBoletin( longToBoletin( calificacionDTO.getBoletin() ) );
-        calificacion.setId( calificacionDTO.getId() );
-        calificacion.setMateria( calificacionDTO.getMateria() );
-        calificacion.setNota( calificacionDTO.getNota() );
-        calificacion.setPromedio( calificacionDTO.getPromedio() );
-        calificacion.setComentario( calificacionDTO.getComentario() );
-        if ( calificacionDTO.getFecha() != null ) {
-            calificacion.setFecha( LocalDate.parse( calificacionDTO.getFecha() ) );
-        }
-        calificacion.setPeriodo( calificacionDTO.getPeriodo() );
+        calificacion.estudiante( longToEstudiante( calificacionDTO.getEstudiante() ) );
+        calificacion.profesor( longToProfesor( calificacionDTO.getProfesor() ) );
+        calificacion.boletin( longToBoletin( calificacionDTO.getBoletin() ) );
+        calificacion.id( calificacionDTO.getId() );
+        calificacion.materia( calificacionDTO.getMateria() );
+        calificacion.nota( calificacionDTO.getNota() );
+        calificacion.comentario( calificacionDTO.getComentario() );
+        calificacion.fecha( calificacionDTO.getFecha() );
+        calificacion.periodo( calificacionDTO.getPeriodo() );
 
-        return calificacion;
+        return calificacion.build();
     }
 
     @Override
@@ -53,11 +48,8 @@ public class CalificacionMapperImpl extends CalificacionMapper {
         calificacionDTO.id( calificacion.getId() );
         calificacionDTO.materia( calificacion.getMateria() );
         calificacionDTO.nota( calificacion.getNota() );
-        calificacionDTO.promedio( calificacion.getPromedio() );
         calificacionDTO.comentario( calificacion.getComentario() );
-        if ( calificacion.getFecha() != null ) {
-            calificacionDTO.fecha( DateTimeFormatter.ISO_LOCAL_DATE.format( calificacion.getFecha() ) );
-        }
+        calificacionDTO.fecha( calificacion.getFecha() );
         calificacionDTO.periodo( calificacion.getPeriodo() );
 
         return calificacionDTO.build();

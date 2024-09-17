@@ -6,6 +6,7 @@ import jakarta.persistence.Enumerated;
 import lombok.*;
 
 import java.sql.Timestamp;
+import java.time.LocalDate;
 import java.util.Date;
 
 @Builder
@@ -18,7 +19,7 @@ public class TareaResponseDto {
     private Long id;
     private String descripcion;
     private String titulo;
-    private Date fechaEntrega;
+    private LocalDate fechaEntrega;
     private boolean activo;
     @Enumerated(EnumType.STRING)
     private EstadoEntregaEnum estadoDeEntrega;

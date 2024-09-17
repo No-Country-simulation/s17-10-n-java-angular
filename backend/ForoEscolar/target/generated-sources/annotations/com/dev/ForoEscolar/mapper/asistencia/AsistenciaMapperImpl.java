@@ -8,8 +8,8 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2024-09-15T16:44:15-0300",
-    comments = "version: 1.5.5.Final, compiler: javac, environment: Java 22 (Oracle Corporation)"
+    date = "2024-09-16T20:20:14-0500",
+    comments = "version: 1.5.5.Final, compiler: javac, environment: Java 21.0.2 (Oracle Corporation)"
 )
 @Component
 public class AsistenciaMapperImpl extends AsistenciaMapper {
@@ -26,7 +26,6 @@ public class AsistenciaMapperImpl extends AsistenciaMapper {
         asistencia.setEstudiante( longToEstudiante( asistenciaDTO.estudiante() ) );
         asistencia.setId( asistenciaDTO.id() );
         asistencia.setAsistio( asistenciaDTO.asistio() );
-        asistencia.setDiasAnioEscolar( asistenciaDTO.diasAnioEscolar() );
         asistencia.setFecha( asistenciaDTO.fecha() );
         asistencia.setObservaciones( asistenciaDTO.observaciones() );
 
@@ -43,7 +42,6 @@ public class AsistenciaMapperImpl extends AsistenciaMapper {
         Long estudiante = null;
         Long id = null;
         boolean asistio = false;
-        double diasAnioEscolar = 0.0d;
         LocalDate fecha = null;
         String observaciones = null;
 
@@ -51,13 +49,12 @@ public class AsistenciaMapperImpl extends AsistenciaMapper {
         estudiante = estudianteToLong( asistencia.getEstudiante() );
         id = asistencia.getId();
         asistio = asistencia.isAsistio();
-        diasAnioEscolar = asistencia.getDiasAnioEscolar();
         fecha = asistencia.getFecha();
         observaciones = asistencia.getObservaciones();
 
         double porcentajeAsistencia = 0.0d;
 
-        AsistenciaDTO asistenciaDTO = new AsistenciaDTO( id, asistio, diasAnioEscolar, fecha, observaciones, porcentajeAsistencia, profesor, estudiante );
+        AsistenciaDTO asistenciaDTO = new AsistenciaDTO( id, asistio, fecha, observaciones, porcentajeAsistencia, profesor, estudiante );
 
         return asistenciaDTO;
     }
