@@ -1,4 +1,4 @@
-# **ForEdu** 
+# **ForedU** 
 Nos comprometimos en desarrollar una herramienta que proporcione información de las diferentes actividades escolares para que pueda ser manejada de forma intuitiva tanto por los padres/tutores como por el personal educativo
 
 <div align="center" >
