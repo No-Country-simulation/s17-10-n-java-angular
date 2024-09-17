@@ -12,6 +12,8 @@ public class SpringDocConfiguration {
     @Bean
     public OpenAPI customOpenAPI() {
         return new OpenAPI()
+                .addSecurityItem(new io.swagger.v3.oas.models.security.SecurityRequirement()
+                        .addList("bearer-key"))
                 .components(new Components()
                         .addSecuritySchemes("bearer-key",
                                 new SecurityScheme()
@@ -22,7 +24,7 @@ public class SpringDocConfiguration {
                         .title("API Foro Escolar")
                         .description("Foro Escolar app Rest API.")
                         .contact(new io.swagger.v3.oas.models.info.Contact()
-                                .name("Equip Backend")
+                                .name("Equipo Backend")
                                 .email("govil.web@gmail.com"))
                         .license(new io.swagger.v3.oas.models.info.License()
                                 .name("Apache 2.0")
