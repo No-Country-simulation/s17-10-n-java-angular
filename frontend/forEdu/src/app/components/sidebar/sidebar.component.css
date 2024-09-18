@@ -9,11 +9,12 @@ background-color: #E7EAF5;
 padding-top: 2em;
 padding-left: .625rem;
 padding-right: .625rem;
-  left: 0;
-  width: 220px;
-  height: 100%;
+
+  width: 18vw;
+  height: 100vh;
   overflow-y: auto;
   z-index: 1000;
+  position: fixed;
 
 }
 
