@@ -116,9 +116,3 @@ Agradecemos la oportunidad a No Country por ayudarnos a mejorar nuestras habilid
 
 ## Dudas y sugerencias 
 Se reciben al [mail](esportsmelg@gmail.com)
-
-
-
- **Conclusión**
-
-El sistema ha demostrado ser funcional en la mayoría de sus componentes clave, con algunos problemas menores identificados que están siendo abordados por el equipo de desarrollo. Las pruebas manuales han sido exitosas en su mayoría, pero continuarán en las siguientes iteraciones para asegurar la estabilidad del sistema y mejorar la experiencia tanto del personal administrativo como de los tutores y responsables legales. En esta fase, se ha avanzado significativamente en el desarrollo de la parte administrativa del proyecto, asegurando una base sólida para futuras implementaciones y mejoras.
