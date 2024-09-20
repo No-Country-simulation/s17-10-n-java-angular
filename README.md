@@ -59,6 +59,15 @@ Las características generales como administrador son:
 ### Tecnologías utilizadas: 
 #### UX UI
 - Figma
+
+##### Documentación UX UI (click en imagen)
+
+ <a href="https://www.behance.net/gallery/208332799/Foredu-Diseno-UXUI " target="_blank">
+   
+ ![Ver Documentación UX UI](https://github.com/No-Country-simulation/s17-10-n-java-angular/blob/main/img/logo%20ux.jpg)
+
+ </a>
+
 #### FRONT END
 - Angular
 - Typescript
@@ -85,7 +94,6 @@ Las características generales como administrador son:
  </a>
 
 [Informar error en Foredu](mailto:esportsmelg@gmail.com)
-
 
 ## Colaboradores
 
