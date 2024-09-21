@@ -12,4 +12,8 @@ public interface CalificacionRepository extends GenericRepository<Calificacion, 
     List<Calificacion> findByEstudianteId(Long estudianteId);
     List<Calificacion> findByMateria(MateriaEnum materiaEnum);
 
+    List<Calificacion> findByProfesorId(Long profesorId);
+
+    List<Calificacion> findByMateriaAndEstudianteId(MateriaEnum materiaEnum, Long id);
+
 }

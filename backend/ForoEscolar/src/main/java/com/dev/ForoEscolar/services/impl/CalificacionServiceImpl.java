@@ -96,4 +96,12 @@ public class CalificacionServiceImpl implements CalificacionService, GenericServ
                 .map(calificacionMapper::toResponseDto)
                 .collect(Collectors.toList());
     }
+
+    public List<CalificacionDTO> findByProfesorId(Long id){
+        List<Calificacion> listaPorProfesor= calificacionRepository.findByProfesorId(id);
+        return listaPorProfesor
+                .stream()
+                .map(calificacionMapper::toResponseDto)
+                .collect(Collectors.toList());
+    }
 }
