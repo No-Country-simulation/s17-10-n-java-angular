@@ -4,6 +4,7 @@ import com.dev.ForoEscolar.enums.EstadoEntregaEnum;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
@@ -21,7 +22,7 @@ public class Tarea {
 
     private String descripcion;
     private String titulo;
-    private Date fechaEntrega;
+    private LocalDate fechaEntrega;
     private boolean activo;
     @Enumerated(EnumType.STRING)
     private EstadoEntregaEnum estadoDeEntrega;

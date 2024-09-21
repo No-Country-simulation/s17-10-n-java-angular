@@ -10,12 +10,11 @@ import java.util.List;
 public interface EstudianteService extends GenericServiceDto<Long, EstudianteResponseDTO>{
 
     EstudianteResponseDTO update(EstudianteResponseDTO estudianteRequestDTO);
-    List<EstudianteResponseDTO> findByAula(AulaEnum aulaEnum);
-    List<EstudianteResponseDTO> findByCurso(CursoEnum cursoEnum);
+//    List<EstudianteResponseDTO> findByAula(AulaEnum aulaEnum);
+//    List<EstudianteResponseDTO> findByCurso(CursoEnum cursoEnum);
 
-    List<EstudianteResponseDTO> findByCursoAndAula(CursoEnum curso, AulaEnum aula);
-
-
+//    List<EstudianteResponseDTO> findByCursoAndAula(CursoEnum curso, AulaEnum aula);
 
 
+    List<EstudianteResponseDTO> findByGradoId(Long gradoId);
 }

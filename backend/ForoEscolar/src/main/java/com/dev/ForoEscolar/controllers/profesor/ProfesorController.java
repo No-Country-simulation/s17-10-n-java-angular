@@ -64,12 +64,12 @@ public class ProfesorController {
     @Operation(summary = "Se actualiza un profesor en particular")
     public ResponseEntity<ApiResponseDto<ProfesorResponseDTO>> update(@RequestBody @Valid ProfesorRequestDTO dto) {
         ProfesorResponseDTO profesor = profesorService.update(dto);
-        String message = "Estudiante Actualizado";
+        String message = "Profesor Actualizado";
         return new ResponseEntity<>(new ApiResponseDto<>(true, message, profesor), HttpStatus.CREATED);
     }
 
     @DeleteMapping("/{id}")
-    @Operation(summary = "Se elimina un estudiante en particular")
+    @Operation(summary = "Se elimina un profesor en particular")
     public ResponseEntity<Void> delete(@PathVariable("id") Long id) {
         profesorService.deleteById(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);

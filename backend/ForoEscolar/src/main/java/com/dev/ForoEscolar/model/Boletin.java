@@ -27,7 +27,7 @@ public class Boletin {
     private CursoEnum curso;
 
     @OneToMany(mappedBy = "boletin", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
-    private List<Calificacion> calificaciones;
+    private List<Calificacion> calificacion;
 
     @ManyToOne
     @JoinColumn(name = "estudiante_id")

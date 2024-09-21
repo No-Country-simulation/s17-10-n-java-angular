@@ -31,12 +31,15 @@ public abstract class EstudianteMapper {
     private TareaRepository tareaRepository;
     @Autowired
     private CalificacionRepository calificacionRepository;
+    @Autowired
+    private GradoRepository gradoRepository;
 
     @Mapping(source = "tutor", target = "tutor", qualifiedByName = "tutorToLong")
     @Mapping(source = "boletin", target = "boletin", qualifiedByName = "boletinesToLongList")
     @Mapping(source = "asistencia", target = "asistencia", qualifiedByName = "asistenciasToLongList")
     @Mapping(source = "tarea", target = "tarea", qualifiedByName = "tareasToLongList")
     @Mapping(source = "calificaciones", target = "calificaciones", qualifiedByName = "calificacionesToLongList")
+    @Mapping(source= "grado", target = "grado", qualifiedByName = "gradoToLong")
     public abstract EstudianteResponseDTO toResponseDTO(Estudiante estudiante);
 
     @Mapping(source = "tutor", target = "tutor", qualifiedByName = "longToTutor")
@@ -44,8 +47,19 @@ public abstract class EstudianteMapper {
     @Mapping(source = "asistencia", target = "asistencia", qualifiedByName = "longListToAsistencias")
     @Mapping(source = "tarea", target = "tarea", qualifiedByName = "longListToTareas")
     @Mapping(source = "calificaciones", target = "calificaciones", qualifiedByName = "longListToCalificaciones")
+    @Mapping(source= "grado", target = "grado", qualifiedByName = "longToGrado")
     @Mapping(target = "rol", ignore = true)
     public abstract Estudiante toEntity(EstudianteResponseDTO estudianteResponseDTO);
+
+    @Named("gradoToLong")
+    protected Long gradoToLong(Grado grado) {
+        return grado != null ? grado.getId() : null;
+    }
+
+    @Named("longToGrado")
+    protected Grado longToGrado(Long id) {
+        return id != null ? gradoRepository.findById(id).orElse(null) : null;
+    }
 
     @Named("tutorToLong")
     protected Long tutorToLong(TutorLegal tutor) {

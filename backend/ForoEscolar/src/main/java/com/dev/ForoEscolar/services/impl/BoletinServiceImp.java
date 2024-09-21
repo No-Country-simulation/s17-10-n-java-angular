@@ -1,12 +1,15 @@
 package com.dev.ForoEscolar.services.impl;
 
 import com.dev.ForoEscolar.dtos.boletin.BoletinDto;
+import com.dev.ForoEscolar.exceptions.ApplicationException;
 import com.dev.ForoEscolar.mapper.boletin.BoletinMapper;
 import com.dev.ForoEscolar.model.Boletin;
 import com.dev.ForoEscolar.model.Calificacion;
 import com.dev.ForoEscolar.model.Estudiante;
 import com.dev.ForoEscolar.repository.BoletinRepository;
+import com.dev.ForoEscolar.repository.CalificacionRepository;
 import com.dev.ForoEscolar.services.BoletinService;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,28 +21,45 @@ import java.util.stream.Collectors;
 @Service
 public class BoletinServiceImp implements BoletinService {
 
-    @Autowired
-    private BoletinRepository boletinRepository;
+
+    private final BoletinRepository boletinRepository;
+
+    private final BoletinMapper boletinMapper;
+
+    private final CalificacionRepository calificacionRepository;
 
     @Autowired
-    private BoletinMapper boletinMapper;
+    public BoletinServiceImp(BoletinRepository boletinRepository, BoletinMapper boletinMapper, CalificacionRepository calificacionRepository) {
+        this.boletinRepository = boletinRepository;
+        this.boletinMapper = boletinMapper;
+        this.calificacionRepository = calificacionRepository;
+    }
 
     @Override
+    @Transactional
     public BoletinDto save(BoletinDto boletinDto) {
-        if(boletinDto==null){
-            throw new RuntimeException("El boletin no puede tener campos vacios");
+        if(boletinDto == null) {
+            throw new RuntimeException("El boletín no puede tener campos vacíos");
         }
 
-        Boletin boletin= new Boletin().builder()
+        List<Calificacion> calificaciones = boletinDto.getCalificacion().stream()
+                .map(calificacionId -> calificacionRepository.findById(calificacionId)
+                        .orElseThrow(() -> new ApplicationException("Calificación no encontrada: " + calificacionId)))
+                .toList();
+
+        Boletin boletin = Boletin.builder()
                 .observaciones(boletinDto.getObservaciones())
                 .curso(boletinDto.getCurso())
-                .calificaciones(boletinDto.getCalificacions())
+                .calificacion(calificaciones)
                 .periodo(boletinDto.getPeriodo())
                 .fecha(LocalDate.now())
                 .estudiante(Estudiante.builder().id(boletinDto.getEstudiante()).build())
                 .build();
-        boletinRepository.save(boletin);
-        return boletinMapper.toResponseDto(boletin);
+
+        calificaciones.forEach(calificacion -> calificacion.setBoletin(boletin)); // Establece el boletín para cada calificación
+
+        Boletin savedBoletin = boletinRepository.save(boletin);
+        return boletinMapper.toResponseDto(savedBoletin);
     }
 
     @Override
@@ -65,11 +85,11 @@ public class BoletinServiceImp implements BoletinService {
 
     }
 
-
-    public Double promediarnotas(List<Calificacion> calificacions, Long idBoletin){
+    public Double promediarNotas(List<Calificacion> calificacions, Long idBoletin){
         Boletin boletin= boletinRepository.findById(idBoletin).orElse(null);
         Double promedio= 0.0;
 
+        assert boletin != null;
         boletin.setPromedio(promedio);
         boletinRepository.save(boletin);
 
