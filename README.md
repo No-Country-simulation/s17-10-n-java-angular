@@ -62,9 +62,9 @@ Las características generales como administrador son:
 
 ##### Documentación UX UI (click en imagen)
 
- <a href="https://www.behance.net/gallery/208332799/Foredu-Diseno-UXUI " target="_blank">
+ <a href="https://www.behance.net/gallery/208332799/Foredu-Diseno-UXUI" target="_blank">
    
- ![Ver Documentación UX UI](https://drive.google.com/file/d/1knxXQsSjrgqO2Tn1-Euk3q10ryid7L0t/view?usp=sharing)
+ ![Ver Documentación UX UI](https://github.com/No-Country-simulation/s17-10-n-java-angular/blob/main/img/logo%20ux.jpg)
 
  </a>
 
