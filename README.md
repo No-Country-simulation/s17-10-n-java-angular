@@ -6,7 +6,7 @@ Nos comprometimos en desarrollar una herramienta que proporcione información de
 ![Logo EN CONSTRUCCIÓN](https://github.com/No-Country-simulation/s17-10-n-java-angular/blob/main/img/logo%20foredu.png) 
 
 
-ForEdu es el mejor aliado en la información académica de nuestros hijos
+ForedU es el mejor aliado en la información académica de nuestros hijos
 
 </div>
 
