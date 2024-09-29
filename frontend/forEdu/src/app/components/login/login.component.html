@@ -3,29 +3,39 @@
 
    <div class="login-container">
        <div class="logo">
-           <img src="logo.png" alt="Logo">
+           <img src="Group 4139.png" alt="Logo">
        </div>
        <form class="login-form" [formGroup]="formLogin" (ngSubmit)="sesionStart()">
            <div class="input-group">
-               <label for="email">Email</label>
-               <input type="email" formControlName="email" id="email" required>
+               <label for="email">Correo Electronico</label>
+               <input type="email" formControlName="email" id="email" required placeholder="Ingresa tu correo electrónico">
 
                <p-message *ngIf="formLogin.controls['email'].invalid && formLogin.controls['email'].touched" severity="error" text="Correo inválido"></p-message>
            </div>
 
            <div class="input-group">
                <label for="contrasena">Contraseña</label>
-               <input type="password" formControlName="contrasena" id="contrasena" required>
+               <input type="password" formControlName="contrasena" id="contrasena" placeholder="Ingresa tu correo electrónico" required>
                <p-message *ngIf="formLogin.controls['contrasena'].invalid && formLogin.controls['contrasena'].touched" severity="error" text="Contraseña requerida"></p-message>
            </div>
 
-           <div class="input-group remember-me">
+           <div class="panel-recuerdame">
+             <div class="div-olvide">
+               <p class="olvide">
+                  Olvide mi contraseña
+               </p></div>
+             <div class="input-group remember-me">
+               <label for="remember-me">Recordarme</label>
                <label class="switch">
                    <input type="checkbox" id="remember-me">
                    <span class="slider"></span>
                </label>
-               <label for="remember-me">Recordarme</label>
+            </div>
+
+
            </div>
+
+
 
            <button type="submit" class="btn">Iniciar Sesión</button>
 
@@ -33,6 +43,9 @@
                <a href="#">¿Olvidé mi contraseña?</a>
               <!--  <p>¿No tienes cuenta? <a class="inline-text" href="#">Regístrate</a></p> -->
            </div>
+           <p-divider align="center" type="solid">
+            <b class="divider">O continuar con</b>
+            </p-divider>
        </form>
        <p-toast></p-toast>
    </div>

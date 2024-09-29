@@ -66,10 +66,7 @@ export const routes: Routes = [
         canActivate: [authGuard],
         data: { title: 'Usuarios institucionales' },
       },
-      {
-        path: 'login',
-        component: LoginComponent,
-      },
+
       {path: 'registereParents',
          component: InstitutionalRegisterParentsComponent,
          canActivate: [authGuard],
@@ -88,14 +85,12 @@ export const routes: Routes = [
   {
     path: '',
     component: InicioComponent,
-    children: [
-      ...ADMIN_ROUTES,
 
-      {path: 'login',
-        component: LoginComponent
-      },
+  },
+  {
+    path: 'login',
+    component: LoginComponent,
 
-    ],
   },
   {
     path: 'newsletter',

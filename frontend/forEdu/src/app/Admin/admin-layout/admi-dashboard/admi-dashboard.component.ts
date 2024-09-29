@@ -6,6 +6,7 @@ import { CommonModule } from '@angular/common';
 import { NavbarComponent } from "../../../components/navbar/navbar.component";
 import { SidebarComponent } from "../../../components/sidebar/sidebar.component";
 import { Router } from '@angular/router';
+import { DecodeService } from '../../../service/decode/decode.service';
 
 
 
@@ -19,7 +20,11 @@ import { Router } from '@angular/router';
 })
 export class AdmiDashboardComponent {
 
-   constructor(private router : Router){}
+  username:string = "Invitado"
+
+   constructor(private router : Router,usernameDecode: DecodeService){
+    this.username = usernameDecode.getUsername
+   }
 
    navigateGrade(){
       return this.router.navigate(['/dashboard/grade'])

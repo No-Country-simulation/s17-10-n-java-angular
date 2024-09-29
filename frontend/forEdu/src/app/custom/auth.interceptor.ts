@@ -16,6 +16,11 @@ export const authInterceptor: HttpInterceptorFn = (req, next) => {
    console.log('Solicitud de register, excluida del interceptor');
    return next(req);
  }
+ if (req.url.includes('/dashboard/grade')  ) {
+   console.log('Solicitud de register, excluida del interceptor');
+   return next(req);
+ }
+
 
   if (token) {
    console.log("token : ",token);
@@ -24,7 +29,7 @@ export const authInterceptor: HttpInterceptorFn = (req, next) => {
         Authorization: `Bearer ${token}`
       }
     });
-
+    console.log("request: ",clonedRequest);
     return next(clonedRequest);
   } else {
 

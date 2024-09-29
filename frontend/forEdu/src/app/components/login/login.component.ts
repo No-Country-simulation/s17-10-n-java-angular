@@ -8,11 +8,14 @@ import { MessageService } from 'primeng/api';
 import { MessageModule } from 'primeng/message';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
+import { DividerModule } from 'primeng/divider';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [ToastModule,MessageModule,ReactiveFormsModule,HttpClientModule,CommonModule ],
+  imports: [ToastModule,MessageModule,
+            ReactiveFormsModule,HttpClientModule,
+            CommonModule, DividerModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css',
   providers: [MessageService]

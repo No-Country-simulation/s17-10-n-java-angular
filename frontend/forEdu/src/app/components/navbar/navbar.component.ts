@@ -7,6 +7,7 @@ import { JwtPayload } from '../../interfaces/jwt-payload';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { filter } from 'rxjs/operators';
 import { CommonModule } from '@angular/common';
+import { DecodeService } from '../../service/decode/decode.service';
 
 @Component({
   selector: 'app-navbar',
@@ -18,11 +19,9 @@ import { CommonModule } from '@angular/common';
 
 export class NavbarComponent {
 
-  token: string = localStorage.getItem('token') || "";
-  decoded: JwtPayload | null = null;
-  username: string = "Invitado";
   items: MenuItem[] = [];
   title: string = "";
+ username:string = "Invitado"
   notificationCount: number = 3;  // Número de notificaciones
   notifications: string[] = [" Nuevo Ingreso", "Evento Danza Mañana", "ENtrega de boletines"]; // Lista de notificaciones
 
@@ -30,21 +29,15 @@ export class NavbarComponent {
 
   constructor(
     private router: Router,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private usernameDecode: DecodeService
   ) {}
+
+  
 
   ngOnInit() {
 
-    if (this.token && this.token.split('.').length === 3) {
-      try {
-        this.decoded = jwtDecode(this.token);
-        this.username = this.decoded?.nombre || "Invitado";
-      } catch (error) {
-        console.error("Error decoding token:", error);
-      }
-    } else {
-      console.warn("Invalid or missing token");
-    }
+    this.username = this.usernameDecode.getUsername;
 
     this.items = [
       { label: 'Ver perfil', command: () => this.save('Option 1') },

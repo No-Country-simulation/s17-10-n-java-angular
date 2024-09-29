@@ -1,8 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
+    font-family: "Noto San", sans-serif;
 }
 
 .container {
@@ -10,7 +12,8 @@
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-color: #e0e0e0; /* Gris claro para el fondo */
+    background-color: #f0f4fa;
+
 }
 
 .login-container {
@@ -21,22 +24,35 @@
     width: 100%;
     max-width: 400px;
     text-align: center;
+    padding: 3rem;
 }
 
 .logo img {
-    max-width: 100px;
-    margin-bottom: 20px;
-    filter: grayscale(100%); /* Aplicando escala de grises al logo */
+   display: flex;
+   justify-content: center;
+   margin: auto;
+   margin-bottom: 3rem;
+
+
+   margin-top: -4.5rem;
+    max-width: 10rem;
+
+
 }
 
 .login-form h2 {
     margin-bottom: 20px;
-    color: #333; /* Gris oscuro */
+    color: #333;
+
+
 }
 
 .input-group {
     margin-bottom: 15px;
     text-align: left;
+    font-size: 0.8rem;
+    font-weight: 300;
+    margin-bottom: 1.5rem;
 }
 
 .input-group label {
@@ -44,6 +60,15 @@
     margin-bottom: 5px;
     color: #555; /* Gris medio */
     font-weight: bold; /* Labels en negrita */
+
+}
+
+.olvide {
+   font-family: "Noto San";
+   font-size: 0.8rem;
+   color: #288CE9;
+   cursor: pointer;
+   text-align: left;
 }
 
 .input-group input[type="email"],
@@ -59,7 +84,9 @@
     display: flex;
     align-items: center;
     justify-content: end;
-    margin-bottom: 15px;
+    margin-bottom: 1rem;
+
+
 }
 
 /* Estilos para el interruptor (toggle switch) */
@@ -69,12 +96,18 @@
     width: 40px;
     height: 20px;
     margin-right: 10px;
+    margin-left: 1rem;
 }
 
 .switch input {
     opacity: 0;
     width: 0;
     height: 0;
+}
+
+.panel-recuerdame{
+   display: grid;
+   grid-template-columns: 1fr 1fr;
 }
 
 .slider {
@@ -102,7 +135,7 @@
 }
 
 input:checked + .slider {
-    background-color: #666; /* Gris oscuro cuando está activo */
+    background-color: #E9511D; /* Gris oscuro cuando está activo */
 }
 
 input:checked + .slider:before {
@@ -110,11 +143,11 @@ input:checked + .slider:before {
 }
 
 .btn {
-    background-color: #666; /* Gris medio */
+    background-color: #E9511D; /* Gris medio */
     color: #fff;
     padding: 10px 20px;
     border: none;
-    border-radius: 5px;
+    border-radius: 7px;
     cursor: pointer;
     width: 100%;
 }
@@ -148,6 +181,13 @@ input:checked + .slider:before {
 .inline-text a {
     display: inline; /* Asegura que el enlace "Regístrate" esté en línea con el texto */
     margin-left: 5px; /* Espacio entre "¿No tienes cuenta?" y "Regístrate" */
+}
+
+.divider {
+   font-family: "Noto San";
+   color: #666;
+   font-size: 0.8rem;
+   font-weight: 100;
 }
 
 @media (max-width: 400px) {
