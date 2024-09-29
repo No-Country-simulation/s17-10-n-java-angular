@@ -15,19 +15,26 @@
         <div class="table-body">
             <table>
                 <tbody>
-                    @for (person of persons; track person.id) {
+                    @for (profesor of profesores; track profesor.id) {
                         <tr>
                             <td>
                                 <div class="picture-table">
                                     <img src="#" alt="Profile Picture"/>
-                                    <p>{{ person.nombre }}</p>
+                                    <p>{{ profesor.nombre }}</p>
                                 </div>
                             </td>
-                            <td>{{ person.grado }}</td>
-                            <td>{{ person.seccion }}</td>
-                            <td>{{ person.asignatura }}</td>
-                            <td>{{person.turno}}</td>
-                            <td><button type="button" class="btn-cta" (click)="openModal(person)">CTA</button></td>
+                            <td>
+                                <ul>
+                                    <!-- Mostrar el nombre del grado en lugar del ID -->
+                                    <li *ngFor="let gradoId of profesor.gradoIds">
+                                      {{ getGradoById(gradoId) }}
+                                    </li>
+                                  </ul>
+                            </td>
+                            <td>{{ profesor.institucion }}</td>
+                            <td>{{ profesor.materia }}</td>
+                            <td>{{ profesor.rol}}</td>
+                            <td><button type="button" class="btn-cta" (click)="openModal(profesor)">CTA</button></td>
                         </tr>
                     }
                 </tbody>

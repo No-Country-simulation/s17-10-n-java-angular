@@ -63,18 +63,18 @@ export const routes: Routes = [
       {
         path: 'users',
         component: InstitutionalUserComponent,
-        canActivate: [authGuard],
+        
         data: { title: 'Usuarios institucionales' },
       },
 
       {path: 'registereParents',
          component: InstitutionalRegisterParentsComponent,
-         canActivate: [authGuard],
+        
          data: { title: 'Registar Tutor legal' },
        },
        {path: 'registereTeachers',
          component: InstitutionalRegisterTeacherComponent,
-         canActivate: [authGuard],
+       
          data: { title: 'Registar Profesor' },
        },
        {path: 'registereStudents',

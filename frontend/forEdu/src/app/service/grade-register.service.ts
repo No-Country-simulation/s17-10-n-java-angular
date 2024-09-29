@@ -14,7 +14,7 @@ export class GradeRegisterService {
 
   constructor() { }
   private http = inject(HttpClient);
- private url :string = apiSetting.apiUrl;
+  private url :string = apiSetting.apiUrl;
 
 
  gradeRegister (objeto:GradeRegister): Observable <GradeSuccess>{
@@ -34,6 +34,10 @@ export class GradeRegisterService {
 
   delete (id:number):Observable<any>{
    return this.http.delete(`${this.url}/grado/${id}`);
+  }
+
+  gradeByID(id:number):Observable<any>{
+    return this.http.get(`${this.url}/grado/${id}`)
   }
 
 }
