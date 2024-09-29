@@ -5,6 +5,17 @@
     justify-content: start;
     width: 100%;
     gap: 0.5rem;
+
+}
+.institutional-statistics-items:first-of-type{
+ 
+    background-color: #68CB6A;
+}
+.institutional-statistics-items:nth-child(2) {
+    background-color: #6FAAF1; 
+}
+.institutional-statistics-items:nth-child(3) {
+    background-color: #FFC340; 
 }
 
 .institutional-statistics-items {
@@ -15,26 +26,32 @@
     padding: 0.8rem;
     border-radius: 10px;
     width: 290px;
-    max-width: 100%; /* Asegura que no exceda el contenedor */
+    max-width: 100%; 
     background-color: #EEEEEE;
     box-sizing: border-box;
     margin: 0;
 }
 
 .institutional-statistics-items h6 {
-    font-weight: 400;
+    font-weight: 500;
+    font-size: 0.8rem;
     padding: 0;
-}
-
-.institutional-statistics-items h6{
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.2rem;
     margin-top: 0.3rem;
 }
 
+
 .institutional-statistics-items .details {
-    font-size: 0.5rem;
+    font-size: 0.7rem;
+    font-weight: 500;
 }
 
 .quantities {
    margin-top: 0px;
+   padding-top: 0;
+   font-size: 1.2rem;
+   font-weight: 600;
 }
+
+
+

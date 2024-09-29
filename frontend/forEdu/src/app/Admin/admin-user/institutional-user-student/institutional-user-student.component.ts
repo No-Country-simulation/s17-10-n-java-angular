@@ -3,10 +3,12 @@ import { ModalUserInstitutionalService } from '../../../service/modal/modal-user
 import { Person } from '../../../models/person';
 import { Router } from '@angular/router';
 
+import { TableModule } from 'primeng/table';
+
 @Component({
   selector: 'app-institutional-user-student',
   standalone: true,
-  imports: [],
+  imports: [TableModule ],
   templateUrl: './institutional-user-student.component.html',
   styleUrl: './institutional-user-student.component.css'
 })

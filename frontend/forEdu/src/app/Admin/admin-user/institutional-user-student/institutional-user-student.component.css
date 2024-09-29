@@ -41,17 +41,24 @@ td {
     text-align: left;
     border-bottom: 1px solid #dddddd;
     font-size: 0.75rem;
+    
 }
 
 th {
-    background-color: #f0efef;
+    background-color: #262853;
+    color: white;
     font-weight: 600;
     letter-spacing: 0.05rem;
     padding: 0rem 1rem;
     text-align: left;
     border-bottom: 1px solid #dddddd;
-    font-size: 0.9rem;
+    font-size: 0.7rem;
     height: 8vh;
+}
+
+.pi-arrow-down {
+    font-size: 0.5rem;
+    
 }
 
 tr:nth-child(odd) {

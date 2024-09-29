@@ -2,10 +2,10 @@
     <div class="table-wrapper">
         <table>
             <thead>
-                <tr>
-                    <th>Nombre</th>
+                <tr class="header" >
+                    <th >Nombre <i class="pi pi-arrow-down "></i></th>
                     <th>Legajo</th>
-                    <th>Fecha de Nacimiento</th>
+                    <th >Fecha de Nacimiento</th>
                     <th>Grado</th>
                     <th>Seccion</th>
                     <th>Turno</th>
@@ -18,7 +18,7 @@
                 <tbody>
                     @for (person of persons; track person.id) {
                         <tr>
-                            <td>
+                            <td class="header">
                                 <div class="picture-table">
                                     <img src="#" alt="Profile Picture"/>
                                     <p>{{ person.nombre }}</p>

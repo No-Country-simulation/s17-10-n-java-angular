@@ -7,10 +7,12 @@
     border: 2px solid #EEEEEE;
 }
 
+
 .table-wrapper {
     display: flex;
     flex-direction: column;
     height: 100%;
+  
 }
 
 table {
@@ -21,13 +23,15 @@ table {
     table-layout: fixed; 
 }
 
+
 thead {
-    background-color: #EEEEEE;
+  
     border-bottom: 2px solid #EEEEEE;
     position: -webkit-sticky; 
     position: sticky;
     top: 0; 
     z-index: 1; 
+    
 }
 
 .table-body {

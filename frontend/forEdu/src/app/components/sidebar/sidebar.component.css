@@ -18,3 +18,56 @@ padding-right: .625rem;
 
 }
 
+::ng-deep .p-panelmenu .p-panelmenu-content .p-menuitem > .p-menuitem-content .p-menuitem-link
+{
+  background-color: #E7EAF5;
+  color: #717171;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+
+::ng-deep .p-panelmenu .p-panelmenu-content .p-menuitem > .p-menuitem-content .p-menuitem-link:hover {
+  background-color: #F5F5F5;
+  color: #E9511D;
+}
+
+::ng-deep.p-panelmenu .p-panelmenu-content .p-menuitem > .p-menuitem-content .p-menuitem-link:hover .p-menuitem-icon
+ {
+  color: #E9511D;
+}
+
+::ng-deep  .p-panelmenu-header-action
+{
+  background-color: #E7EAF5;
+  color: #717171;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+
+::ng-deep .p-panelmenu-header-action:hover
+{
+  background-color: #F5F5F5;
+  color: #E9511D;
+}
+
+::ng-deep .p-panelmenu .p-panelmenu-content
+{
+    padding: 0;
+}
+
+::ng-deep .p-panelmenu-header-action:hover .pi
+ {
+  color: #E9511D;
+}
+
+::ng-deep .p-panelmenu .p-panelmenu-content .p-submenu-list .p-menuitem > .p-menuitem-content .p-menuitem-link .p-menuitem-text:hover
+ {
+  background-color: #F5F5F5;
+  color: #E9511D;
+  }
+
+  ::ng-deep .p-panelmenu .p-panelmenu-content .p-submenu-list .p-menuitem > .p-menuitem-content .p-menuitem-link:hover .p-menuitem-icon
+{
+  color: #E9511D;
+}
+
