@@ -54,7 +54,7 @@ Las características generales como administrador son:
 [Deploy](https://test.zilibro.com/)
 
 ### Demo Day:
-[Video Demo Day](https://www.youtube.com/shorts/xuiD7Msky_w)
+[Video Demo Day](https://drive.google.com/file/d/1knxXQsSjrgqO2Tn1-Euk3q10ryid7L0t/view?usp=sharing)
 
 ### Tecnologías utilizadas: 
 #### UX UI
